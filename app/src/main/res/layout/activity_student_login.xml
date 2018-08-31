@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/username">
         <EditText
+            android:id="@+id/user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email/Phone"
@@ -23,6 +24,7 @@
         android:layout_marginTop="10dp"
         android:layout_below="@+id/username">
         <EditText
+            android:id="@+id/pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
@@ -51,5 +53,6 @@
         android:text="Register Here"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:layout_below="@+id/notyet"/>
+        android:layout_below="@+id/notyet"
+        android:id="@+id/register"/>
 </RelativeLayout>
