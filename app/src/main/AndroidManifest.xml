@@ -16,6 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".StudentLogin" />
+        <activity android:name=".CounsellorLogin" />
+        <activity android:name=".AuthorityLogin" />
+        <activity android:name=".AdminLogin" />
     </application>
 
 </manifest>
