@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1028046899892",
+    "firebase_url": "https://educounselor-57f86.firebaseio.com",
+    "project_id": "educounselor-57f86",
+    "storage_bucket": "educounselor-57f86.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1028046899892:android:b4ef4b5d403d7248",
+        "android_client_info": {
+          "package_name": "com.education.counselor.trainer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1028046899892-o285thd8f56bs0havpig8qt6cbn51lnl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.education.counselor.trainer",
+            "certificate_hash": "8bd1111df20c1cc4d48cf987dda8bcc238a05542"
+          }
+        },
+        {
+          "client_id": "1028046899892-rq6fouc54f460kh0up1gm0p3battfsai.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCKiy4U4qCTnsvnBxyglqaly2yyc74E6o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1028046899892-rq6fouc54f460kh0up1gm0p3battfsai.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
