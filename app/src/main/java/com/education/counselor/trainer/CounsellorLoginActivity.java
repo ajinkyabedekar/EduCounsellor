@@ -3,7 +3,7 @@ package com.education.counselor.trainer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class CounsellorLogin extends AppCompatActivity {
+public class CounsellorLoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

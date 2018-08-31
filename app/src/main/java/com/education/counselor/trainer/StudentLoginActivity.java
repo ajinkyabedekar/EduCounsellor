@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,7 +16,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class StudentLogin extends AppCompatActivity {
+public class StudentLoginActivity extends AppCompatActivity {
 EditText name,pass;
 Button login,register;
 private FirebaseAuth mAuth;
@@ -104,8 +103,8 @@ private FirebaseAuth mAuth;
                          if (task.isSuccessful()) {
                              // Sign in success, update UI with the signed-in user's information
                              FirebaseUser user = mAuth.getCurrentUser();
-                             Toast.makeText(StudentLogin.this, "Welcome "+user.getEmail(), Toast.LENGTH_SHORT).show();
-                             startActivity(new Intent(getBaseContext(),AdminLogin.class));
+                             Toast.makeText(StudentLoginActivity.this, "Welcome "+user.getEmail(), Toast.LENGTH_SHORT).show();
+                             startActivity(new Intent(getBaseContext(),AdminLoginActivity.class));
                          } else {
                              // If sign in fails, display a message to the user.
                              Toast.makeText(getBaseContext(), "Authentication failed.",

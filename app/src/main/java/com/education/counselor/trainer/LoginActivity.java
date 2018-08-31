@@ -20,25 +20,25 @@ public class LoginActivity extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getBaseContext(),StudentLogin.class));
+                startActivity(new Intent(getBaseContext(),StudentLoginActivity.class));
             }
         });
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getBaseContext(),CounsellorLogin.class));
+                startActivity(new Intent(getBaseContext(),CounsellorLoginActivity.class));
             }
         });
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getBaseContext(),AuthorityLogin.class));
+                startActivity(new Intent(getBaseContext(),AuthorityLoginActivity.class));
             }
         });
         b4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getBaseContext(),AdminLogin.class));
+                startActivity(new Intent(getBaseContext(),AdminLoginActivity.class));
             }
         });
     }
