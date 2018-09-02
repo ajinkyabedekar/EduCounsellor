@@ -71,7 +71,7 @@ public class StudentLoginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-//                     Sign in success, update UI with the signed-in user's information
+//                    Sign in success, update UI with the signed-in user's information
 //                    FirebaseUser user = mAuth.getCurrentUser();
                     Toast.makeText(getBaseContext(), "Authentication succeeded.", Toast.LENGTH_SHORT).show();
                 } else {
