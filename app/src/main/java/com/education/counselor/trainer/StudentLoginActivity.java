@@ -1,8 +1,12 @@
 package com.education.counselor.trainer;
+import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -42,11 +46,11 @@ public class StudentLoginActivity extends AppCompatActivity {
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                  AlertDialog.Builder diag= new AlertDialog.Builder(view.getContext());
+                AlertDialog.Builder diag= new AlertDialog.Builder(view.getContext());
                 diag.setCancelable(true);
                 diag.setMessage("Enter your Email");
                 LayoutInflater inflater =getLayoutInflater();
-                final View v= inflater.inflate(R.layout.alert,null);
+                @SuppressLint("InflateParams") final View v= inflater.inflate(R.layout.alert,null);
                 diag.setView(v).setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -101,7 +105,6 @@ public class StudentLoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
                     Toast.makeText(StudentLoginActivity.this, "Password reset Link sent to your email", Toast.LENGTH_SHORT).show();
-
 //                     Sign in success, update UI with the signed-in user's information
 //                     FirebaseUser user = mAuth.getCurrentUser();
                     Toast.makeText(getBaseContext(), "Check Your Email", Toast.LENGTH_SHORT).show();
