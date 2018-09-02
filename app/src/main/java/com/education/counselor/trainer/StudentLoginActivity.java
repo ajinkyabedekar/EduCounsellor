@@ -61,6 +61,13 @@ public class StudentLoginActivity extends AppCompatActivity {
     {
         String email = username.getText().toString();
         String pass = password.getText().toString();
+        if (email.equals("")) {
+            username.requestFocus();
+            username.setError("This Is A Required Field");
+        } else if (pass.equals("")) {
+            password.requestFocus();
+            password.setError("This Is A Required Field");
+        }
         mAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
