@@ -53,9 +53,9 @@ public class StudentLoginActivity extends AppCompatActivity {
             String Email = user.getEmail();
             Uri photoUrl = user.getPhotoUrl();
             boolean emailVerified = user.isEmailVerified();
-            // The user's ID, unique to the Firebase project. Do NOT use this value to
-            // authenticate with your backend server, if you have one. Use
-            // FirebaseUser.getToken() instead.
+//             The user's ID, unique to the Firebase project. Do NOT use this value to
+//             authenticate with your backend server, if you have one. Use
+//             FirebaseUser.getToken() instead.
             String uid = user.getUid();
             Toast.makeText(getBaseContext(), name + "\n" + Email + "\n" + photoUrl + "\n" + emailVerified + "\n" + uid, Toast.LENGTH_SHORT).show();
         }
@@ -73,11 +73,11 @@ public class StudentLoginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    // Sign in success, update UI with the signed-in user's information
-                    //FirebaseUser user = mAuth.getCurrentUser();
+//                     Sign in success, update UI with the signed-in user's information
+//                    FirebaseUser user = mAuth.getCurrentUser();
                     Toast.makeText(getBaseContext(), "Authentication succeeded.", Toast.LENGTH_SHORT).show();
                 } else {
-                    // If sign in fails, display a message to the user.
+//                     If sign in fails, display a message to the user.
                     Toast.makeText(getBaseContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -90,11 +90,11 @@ public class StudentLoginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
-                    // Sign in success, update UI with the signed-in user's information
-                    // FirebaseUser user = mAuth.getCurrentUser();
+//                     Sign in success, update UI with the signed-in user's information
+//                     FirebaseUser user = mAuth.getCurrentUser();
                     Toast.makeText(getBaseContext(), "Check Your Email", Toast.LENGTH_SHORT).show();
                 } else {
-                    // If sign in fails, display a message to the user.
+//                     If sign in fails, display a message to the user.
                     Toast.makeText(getBaseContext(), "Reset Password Failed", Toast.LENGTH_SHORT).show();
                 }
             }
