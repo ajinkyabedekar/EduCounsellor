@@ -46,16 +46,22 @@ public class StudentLoginActivity extends AppCompatActivity {
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder diag= new AlertDialog.Builder(view.getContext());
-                diag.setCancelable(true);
+                final AlertDialog.Builder diag= new AlertDialog.Builder(view.getContext());
+                diag.setCancelable(false);
                 diag.setMessage("Enter your Email");
                 LayoutInflater inflater =getLayoutInflater();
                 @SuppressLint("InflateParams") final View v= inflater.inflate(R.layout.alert,null);
-                diag.setView(v).setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                diag.setView(v).setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         EditText email= v.findViewById(R.id.email);
                         reset(email.getText().toString());
+                    }
+                });
+                diag.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
                     }
                 });
                 AlertDialog alert= diag.create();
