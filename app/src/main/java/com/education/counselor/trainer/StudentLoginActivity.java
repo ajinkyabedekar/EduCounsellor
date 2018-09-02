@@ -42,7 +42,20 @@ public class StudentLoginActivity extends AppCompatActivity {
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                reset();
+                  AlertDialog.Builder diag= new AlertDialog.Builder(view.getContext());
+                diag.setCancelable(true);
+                diag.setMessage("Enter your Email");
+                LayoutInflater inflater =getLayoutInflater();
+                final View v= inflater.inflate(R.layout.alert,null);
+                diag.setView(v).setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        EditText email= v.findViewById(R.id.email);
+                        reset(email.getText().toString());
+                    }
+                });
+                AlertDialog alert= diag.create();
+                alert.show();
             }
         });
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -81,13 +94,14 @@ public class StudentLoginActivity extends AppCompatActivity {
             }
         });
     }
-    public void reset()
+    public void reset(String email)
     {
-        String email = username.getText().toString();
         mAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
+                    Toast.makeText(StudentLoginActivity.this, "Password reset Link sent to your email", Toast.LENGTH_SHORT).show();
+
 //                     Sign in success, update UI with the signed-in user's information
 //                     FirebaseUser user = mAuth.getCurrentUser();
                     Toast.makeText(getBaseContext(), "Check Your Email", Toast.LENGTH_SHORT).show();
