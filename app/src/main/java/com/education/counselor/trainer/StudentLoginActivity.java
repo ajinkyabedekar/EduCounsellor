@@ -75,7 +75,7 @@ public class StudentLoginActivity extends AppCompatActivity {
 //                    FirebaseUser user = mAuth.getCurrentUser();
                     Toast.makeText(getBaseContext(), "Authentication succeeded.", Toast.LENGTH_SHORT).show();
                 } else {
-//                     If sign in fails, display a message to the user.
+//                    If sign in fails, display a message to the user.
                     Toast.makeText(getBaseContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
                 }
             }
