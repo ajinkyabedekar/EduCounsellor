@@ -40,13 +40,13 @@
         android:id="@+id/not_yet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/not_yet_registered"
+        android:text="@string/forgot_password"
         android:layout_centerInParent="true" />
     <Button
         android:layout_below="@+id/not_yet"
-        android:id="@+id/register"
+        android:id="@+id/reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/register"
+        android:text="@string/reset"
         android:layout_centerInParent="true" />
 </RelativeLayout>

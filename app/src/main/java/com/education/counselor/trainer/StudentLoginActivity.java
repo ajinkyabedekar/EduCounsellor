@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 public class StudentLoginActivity extends AppCompatActivity {
     EditText username, password;
-    Button login, register;
+    Button login, reset;
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,7 @@ public class StudentLoginActivity extends AppCompatActivity {
         username = findViewById(R.id.user);
         password = findViewById(R.id.pass);
         login = findViewById(R.id.login);
-        register = findViewById(R.id.register);
+        reset = findViewById(R.id.reset);
         mAuth = FirebaseAuth.getInstance();
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,10 +31,10 @@ public class StudentLoginActivity extends AppCompatActivity {
                 login();
             }
         });
-        register.setOnClickListener(new View.OnClickListener() {
+        reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                register();
+                reset();
             }
         });
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -55,24 +55,6 @@ public class StudentLoginActivity extends AppCompatActivity {
         super.onStart();
         //FirebaseUser currentUser = mAuth.getCurrentUser();
     }
-    public void register()
-    {
-        String email = username.getText().toString();
-        String pass = password.getText().toString();
-        mAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    // Sign in success, update UI with the signed-in user's information
-                    // FirebaseUser user = mAuth.getCurrentUser();
-                    Toast.makeText(getBaseContext(), "Authentication succeeded.", Toast.LENGTH_SHORT).show();
-                } else {
-                    // If sign in fails, display a message to the user.
-                    Toast.makeText(getBaseContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-    }
     public void login()
     {
         String email = username.getText().toString();
@@ -83,6 +65,24 @@ public class StudentLoginActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     // Sign in success, update UI with the signed-in user's information
                     //FirebaseUser user = mAuth.getCurrentUser();
+                    Toast.makeText(getBaseContext(), "Authentication succeeded.", Toast.LENGTH_SHORT).show();
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Toast.makeText(getBaseContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+    public void reset()
+    {
+        String email = username.getText().toString();
+        String pass = password.getText().toString();
+        mAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    // Sign in success, update UI with the signed-in user's information
+                    // FirebaseUser user = mAuth.getCurrentUser();
                     Toast.makeText(getBaseContext(), "Authentication succeeded.", Toast.LENGTH_SHORT).show();
                 } else {
                     // If sign in fails, display a message to the user.

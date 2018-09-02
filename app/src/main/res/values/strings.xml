@@ -7,6 +7,6 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
-    <string name="not_yet_registered">Not Yet Registered !!!</string>
-    <string name="register">Register Here</string>
+    <string name="forgot_password">Forgot Your Password !!!</string>
+    <string name="reset">Reset Password</string>
 </resources>
