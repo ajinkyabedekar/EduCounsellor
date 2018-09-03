@@ -16,6 +16,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import java.util.Timer;
+import java.util.TimerTask;
 public class StudentLoginActivity extends AppCompatActivity {
     EditText username, password;
     Button login, reset;
@@ -60,6 +62,19 @@ public class StudentLoginActivity extends AppCompatActivity {
                             email.setError("This Is A Required Field");
                         } else {
                             reset(email.getText().toString());
+                            reset.setEnabled(false);
+                            Timer disable = new Timer();
+                            disable.schedule(new TimerTask() {
+                                @Override
+                                public void run() {
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            reset.setEnabled(true);
+                                        }
+                                    });
+                                }
+                            }, 60000);
                         }
                     }
                 });
