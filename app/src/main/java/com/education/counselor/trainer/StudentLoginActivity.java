@@ -46,25 +46,30 @@ public class StudentLoginActivity extends AppCompatActivity {
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final AlertDialog.Builder diag= new AlertDialog.Builder(view.getContext());
-                diag.setCancelable(false);
-                diag.setMessage("Enter your Email");
-                LayoutInflater inflater =getLayoutInflater();
-                @SuppressLint("InflateParams") final View v= inflater.inflate(R.layout.alert,null);
-                diag.setView(v).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                final AlertDialog.Builder dialog= new AlertDialog.Builder(view.getContext());
+                dialog.setCancelable(false);
+                dialog.setMessage("RESET YOUR PASSWORD");
+                LayoutInflater inflater = getLayoutInflater();
+                @SuppressLint("InflateParams") final View v= inflater.inflate(R.layout.alert, null);
+                dialog.setView(v).setPositiveButton("CONFIRM", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         EditText email= v.findViewById(R.id.email);
-                        reset(email.getText().toString());
+                        if (email.getText().toString().equals("")) {
+                            email.requestFocus();
+                            email.setError("This Is A Required Field");
+                        } else {
+                            reset(email.getText().toString());
+                        }
                     }
                 });
-                diag.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                dialog.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.cancel();
                     }
                 });
-                AlertDialog alert= diag.create();
+                AlertDialog alert = dialog.create();
                 alert.show();
             }
         });
