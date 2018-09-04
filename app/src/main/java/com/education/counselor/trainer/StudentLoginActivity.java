@@ -130,7 +130,7 @@ public class StudentLoginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
-                    Toast.makeText(StudentLoginActivity.this, "Password reset Link sent to your email", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "Password reset Link sent to your email", Toast.LENGTH_SHORT).show();
 //                     Sign in success, update UI with the signed-in user's information
 //                     FirebaseUser user = mAuth.getCurrentUser();
                     Toast.makeText(getBaseContext(), "Check Your Email", Toast.LENGTH_SHORT).show();
