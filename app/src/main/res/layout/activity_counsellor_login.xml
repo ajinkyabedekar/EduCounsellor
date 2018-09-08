@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:padding="20dp"
-    tools:context=".CounsellorLoginActivity">
+    tools:context=".login.CounsellorLoginActivity">
     <android.support.design.widget.TextInputLayout
         android:id="@+id/username"
         android:layout_width="match_parent"
@@ -44,7 +44,7 @@
         android:layout_centerInParent="true" />
     <Button
         android:layout_below="@+id/not_yet"
-        android:id="@+id/register"
+        android:id="@+id/reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/reset"

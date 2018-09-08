@@ -1,6 +1,7 @@
-package com.education.counselor.trainer;
+package com.education.counselor.trainer.login;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
@@ -11,6 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.education.counselor.trainer.R;
+import com.education.counselor.trainer.student.StudentDashboardActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -94,9 +97,6 @@ public class StudentLoginActivity extends AppCompatActivity {
             String Email = user.getEmail();
             Uri photoUrl = user.getPhotoUrl();
             boolean emailVerified = user.isEmailVerified();
-//             The user's ID, unique to the Firebase project. Do NOT use this value to
-//             authenticate with your backend server, if you have one. Use
-//             FirebaseUser.getToken() instead.
             String uid = user.getUid();
             Toast.makeText(getBaseContext(), name + "\n" + Email + "\n" + photoUrl + "\n" + emailVerified + "\n" + uid, Toast.LENGTH_SHORT).show();
         }
@@ -104,7 +104,6 @@ public class StudentLoginActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
     }
     public void login()
     {
@@ -114,11 +113,9 @@ public class StudentLoginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-//                    Sign in success, update UI with the signed-in user's information
-//                    FirebaseUser user = mAuth.getCurrentUser();
                     Toast.makeText(getBaseContext(), "Authentication succeeded.", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getBaseContext(), StudentDashboardActivity.class));
                 } else {
-//                    If sign in fails, display a message to the user.
                     Toast.makeText(getBaseContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -131,11 +128,8 @@ public class StudentLoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
                     Toast.makeText(getBaseContext(), "Password reset Link sent to your email", Toast.LENGTH_SHORT).show();
-//                     Sign in success, update UI with the signed-in user's information
-//                     FirebaseUser user = mAuth.getCurrentUser();
                     Toast.makeText(getBaseContext(), "Check Your Email", Toast.LENGTH_SHORT).show();
                 } else {
-//                     If sign in fails, display a message to the user.
                     Toast.makeText(getBaseContext(), "Reset Password Failed", Toast.LENGTH_SHORT).show();
                 }
             }

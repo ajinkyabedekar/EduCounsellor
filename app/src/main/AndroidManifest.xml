@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.education.counselor.trainer">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission. ACCESS_COARSE_LOCATION" />
     <application
         android:allowBackup="true"
         android:fullBackupContent="true"
@@ -11,15 +15,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".LoginActivity">
+        <activity android:name=".launcher.LoginActivity" />
+        <activity android:name=".login.StudentLoginActivity" />
+        <activity android:name=".login.CounsellorLoginActivity" />
+        <activity android:name=".login.AuthoritySchoolLoginActivity" />
+        <activity android:name=".login.AdminLoginActivity" />
+        <activity android:name=".counsellor.CounsellorDashboardActivity" />
+        <activity android:name=".login.AuthorityChoiceActivity" />
+        <activity android:name=".login.AuthorityCollegeLoginActivity" />
+        <activity android:name=".authority.college.AuthorityCollegeDashboardActivity" />
+        <activity android:name=".authority.school.AuthoritySchoolDashboardActivity" />
+        <activity android:name=".student.StudentDashboardActivity" />
+        <activity android:name=".admin.AdminDashboardActivity" />
+        <activity android:name=".launcher.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".StudentLoginActivity" />
-        <activity android:name=".CounsellorLoginActivity" />
-        <activity android:name=".AuthorityLoginActivity" />
-        <activity android:name=".AdminLoginActivity" />
+        <activity android:name=".admin.AddStudentActivity" />
     </application>
 </manifest>

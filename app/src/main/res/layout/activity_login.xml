@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:padding="20dp"
-    tools:context=".LoginActivity">
+    tools:context=".launcher.LoginActivity">
     <Button
         android:id="@+id/counsellor"
         android:layout_width="match_parent"
@@ -29,10 +29,4 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:text="@string/authority" />
-    <Button
-        android:layout_below="@id/authority"
-        android:id="@+id/research"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:text="@string/research" />
 </RelativeLayout>
