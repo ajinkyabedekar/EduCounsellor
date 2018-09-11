@@ -14,4 +14,23 @@
     <string name="college_authority">College Authority</string>
     <string name="logo">logo</string>
     <string name="add_student">Add Student</string>
+    <string name="logout">Logout</string>
+    <string name="name">Name</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="mail">Mail</string>
+    <string name="total_fee">Total Fee</string>
+    <string name="department">Department</string>
+    <string name="total_fee_submitted">Total Fee Submitted</string>
+    <string name="date_of_fee_payment_1">Date of Fee Payment 1</string>
+    <string name="date_of_fee_payment_2">Date of Fee Payment 2</string>
+    <string name="date_of_fee_payment_3">Date of Fee Payment 3</string>
+    <string name="date_of_fee_payment_4">Date of Fee Payment 4</string>
+    <string name="payment_1">Payment 1</string>
+    <string name="payment_2">Payment 2</string>
+    <string name="payment_3">Payment 3</string>
+    <string name="payment_4">Payment 4</string>
+    <string name="reference_id">Reference ID</string>
+    <string name="unique_student_id">Unique Student ID</string>
+    <string name="transfer_payment">Transfer Payment</string>
+    <string name="submit">Submit</string>
 </resources>

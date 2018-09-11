@@ -80,8 +80,7 @@ public class AdminLoginActivity extends AppCompatActivity {
                             }, 60000);
                         }
                     }
-                });
-                dialog.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                }).setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.cancel();
@@ -93,12 +92,7 @@ public class AdminLoginActivity extends AppCompatActivity {
         });
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
-            String name = user.getDisplayName();
-            String Email = user.getEmail();
-            Uri photoUrl = user.getPhotoUrl();
-            boolean emailVerified = user.isEmailVerified();
-            String uid = user.getUid();
-            Toast.makeText(getBaseContext(), name + "\n" + Email + "\n" + photoUrl + "\n" + emailVerified + "\n" + uid, Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(getBaseContext(), AdminDashboardActivity.class));
         }
     }
     @Override
@@ -113,7 +107,6 @@ public class AdminLoginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    Toast.makeText(getBaseContext(), "Authentication succeeded.", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getBaseContext(), AdminDashboardActivity.class));
                 } else {
                     Toast.makeText(getBaseContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
@@ -127,8 +120,7 @@ public class AdminLoginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
-                    Toast.makeText(getBaseContext(), "Password reset Link sent to your email", Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getBaseContext(), "Check Your Email", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "Password reset Link sent to your email, Please check", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getBaseContext(), "Reset Password Failed", Toast.LENGTH_SHORT).show();
                 }
