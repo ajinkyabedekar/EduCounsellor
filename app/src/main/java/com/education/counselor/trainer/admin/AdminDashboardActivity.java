@@ -7,7 +7,6 @@ import android.widget.Button;
 import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.launcher.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
-
 public class AdminDashboardActivity extends AppCompatActivity {
     Button logout, add_student;
     @Override
