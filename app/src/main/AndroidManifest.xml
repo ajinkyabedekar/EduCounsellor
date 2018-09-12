@@ -34,5 +34,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".admin.AddStudentActivity" />
+        <activity android:name=".admin.EditStudentActivity" />
+        <activity android:name=".admin.StudentDetailsActivity" />
+        <activity android:name=".admin.AllStudentsActivity" />
+        <activity android:name=".admin.StudentsAcademicsActivity" />
     </application>
 </manifest>
