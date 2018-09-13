@@ -38,5 +38,23 @@
         <activity android:name=".admin.StudentDetailsActivity" />
         <activity android:name=".admin.AllStudentsActivity" />
         <activity android:name=".admin.StudentsAcademicsActivity" />
+        <activity android:name=".admin.StartupCentersActivity" />
+        <activity android:name=".admin.StartupListActivity" />
+        <activity android:name=".admin.StartupDetailsActivity" />
+        <activity android:name=".admin.PlacementCentersActivity" />
+        <activity android:name=".admin.PlacementDetailsActivity" />
+        <activity android:name=".admin.PlacementListActivity" />
+        <activity android:name=".admin.EditCounsellorActivity" />
+        <activity android:name=".admin.CounsellorCentersActivity" />
+        <activity android:name=".admin.NewsCentersActivity" />
+        <activity android:name=".admin.NewsListActivity" />
+        <activity android:name=".admin.AddNewsActivity" />
+        <activity android:name=".admin.AddPlacementActivity" />
+        <activity android:name=".admin.NewsDetailsActivity" />
+        <activity android:name=".admin.CentersListActivity" />
+        <activity android:name=".admin.CentersDetailsActivity" />
+        <activity android:name=".admin.AddCentersActivity" />
+        <activity android:name=".admin.CoursesCentersActivity" />
+        <activity android:name=".admin.CoursesListActivity" />
     </application>
 </manifest>
