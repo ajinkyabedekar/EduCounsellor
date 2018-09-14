@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".admin.AddPlacementActivity">
+    tools:context=".admin.AddEmployeeActivity">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/name_layout"
@@ -14,85 +14,105 @@
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name"
-            android:inputType="text" />
+            android:hint="Employee Name"
+            android:inputType="textPersonName"
+            android:text="Name" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/department_layout"
+        android:id="@+id/position_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/name_layout">
 
         <EditText
-            android:id="@+id/department"
+            android:id="@+id/position"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Department"
-            android:inputType="text" />
+            android:hint="Position"
+            android:inputType="text"
+            android:text="Position" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/company_layout"
+        android:id="@+id/mail_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/department_layout">
+        android:layout_below="@+id/position_layout">
 
         <EditText
-            android:id="@+id/company"
+            android:id="@+id/mail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Company Name"
-            android:inputType="text" />
+            android:hint="Mail"
+            android:inputType="textWebEmailAddress"
+            android:text="Mail" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/package_layout"
+        android:id="@+id/login_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/company_layout">
+        android:layout_below="@+id/mail_layout">
 
         <EditText
-            android:id="@+id/package_name"
+            android:id="@+id/login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Package Name"
-            android:inputType="text" />
+            android:hint="Login ID"
+            android:inputType="text"
+            android:text="Login ID" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/location_layout"
+        android:id="@+id/password_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/package_layout">
+        android:layout_below="@+id/login_layout">
 
         <EditText
-            android:id="@+id/location"
+            android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Location"
-            android:inputType="text" />
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:text="Password" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/student_layout"
+        android:id="@+id/employee_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/location_layout">
+        android:layout_below="@+id/password_layout">
 
         <EditText
-            android:id="@+id/student"
+            android:id="@+id/employee"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Unique Student ID"
-            android:inputType="text" />
+            android:hint="Employee ID"
+            android:inputType="text"
+            android:text="Employee_ID" />
     </android.support.design.widget.TextInputLayout>
+
+    <com.education.counselor.trainer.common.MultiSelectionSpinner
+        android:id="@+id/centers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/employee_layout" />
 
     <Button
         android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/student_layout"
+        android:layout_below="@+id/centers"
         android:layout_centerInParent="true"
         android:text="Submit" />
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/submit"
+        android:layout_centerInParent="true"
+        android:text="Delete Employee" />
 </RelativeLayout>

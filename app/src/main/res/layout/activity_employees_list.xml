@@ -3,18 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".admin.PlacementListActivity">
+    tools:context=".admin.EmployeesListActivity">
 
     <Button
-        android:id="@+id/add_placement"
+        android:id="@+id/add_employee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Placement" />
+        android:text="Add Employee" />
 
     <Button
-        android:id="@+id/placement"
+        android:id="@+id/employee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/add_placement"
-        android:text="Placement Name" />
+        android:layout_below="@+id/add_employee"
+        android:text="Employee" />
 </RelativeLayout>

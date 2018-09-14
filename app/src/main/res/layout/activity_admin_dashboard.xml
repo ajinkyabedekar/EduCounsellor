@@ -4,63 +4,73 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".admin.AdminDashboardActivity">
+
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/logout" />
+
     <Button
-        android:layout_below="@+id/logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/add_student"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logout"
         android:text="@string/add_student" />
+
     <Button
-        android:layout_below="@+id/add_student"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/edit_student"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/add_student"
         android:text="Edit Student Details" />
+
     <Button
-        android:layout_below="@+id/edit_student"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/student_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_student"
         android:text="Students List" />
+
     <Button
-        android:layout_below="@+id/student_list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/startup_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/student_list"
         android:text="Startup List" />
+
     <Button
-        android:layout_below="@+id/startup_list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/placement_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/startup_list"
         android:text="Placement List" />
+
     <Button
-        android:layout_below="@+id/placement_list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/edit_counsellor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/placement_list"
         android:text="Edit Counsellor Contact" />
+
     <Button
-        android:layout_below="@+id/edit_counsellor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/news"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_counsellor"
         android:text="News" />
+
     <Button
-        android:layout_below="@+id/news"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/centers"
-        android:text="Current Centers" />
-    <Button
-        android:layout_below="@+id/centers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/news"
+        android:text="Current Centers" />
+
+    <Button
         android:id="@+id/courses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/centers"
         android:text="Courses" />
 </RelativeLayout>

@@ -1,10 +1,13 @@
 package com.education.counselor.trainer.launcher;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
+
 import com.education.counselor.trainer.R;
+
 public class SplashScreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

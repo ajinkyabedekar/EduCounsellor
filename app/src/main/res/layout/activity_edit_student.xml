@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".admin.EditStudentActivity">
+
     <Button
         android:id="@+id/name_mobile"
         android:layout_width="wrap_content"

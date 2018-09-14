@@ -4,9 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".admin.StartupListActivity">
+
     <Button
+        android:id="@+id/startup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/startup"
         android:text="Startup Name" />
 </android.support.constraint.ConstraintLayout>

@@ -3,148 +3,170 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
     android:layout_gravity="center"
+    android:padding="10dp"
     tools:context=".admin.StudentsAcademicsActivity">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center">
+
         <android.support.design.widget.TextInputLayout
             android:id="@+id/name_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <EditText
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/name"
-                android:text="Ajinkya Bedekar"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:text="Ajinkya Bedekar" />
         </android.support.design.widget.TextInputLayout>
+
         <android.support.design.widget.TextInputLayout
-            android:layout_below="@+id/name_layout"
             android:id="@+id/mobile_number_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name_layout">
+
             <EditText
                 android:id="@+id/mobile_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mobile_number"
-                android:text="7297952357"
-                android:inputType="number" />
+                android:inputType="number"
+                android:text="7297952357" />
         </android.support.design.widget.TextInputLayout>
+
         <android.support.design.widget.TextInputLayout
-            android:layout_below="@+id/mobile_number_layout"
             android:id="@+id/mail_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mobile_number_layout">
+
             <EditText
                 android:id="@+id/mail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mail"
-                android:text="ajinkyabedekar2@gmail.com"
-                android:inputType="textWebEmailAddress" />
+                android:inputType="textWebEmailAddress"
+                android:text="ajinkyabedekar2@gmail.com" />
         </android.support.design.widget.TextInputLayout>
+
         <android.support.design.widget.TextInputLayout
-            android:layout_below="@+id/mail_layout"
             android:id="@+id/project_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mail_layout">
+
             <EditText
                 android:id="@+id/project"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Project Drive Link"
-                android:text="https://drive.google.com/open?id=1qqX3T-qfjbyH_xIOKuycN8OuYLH5hakH"
-                android:inputType="textUri" />
+                android:inputType="textUri"
+                android:text="https://drive.google.com/open?id=1qqX3T-qfjbyH_xIOKuycN8OuYLH5hakH" />
         </android.support.design.widget.TextInputLayout>
+
         <android.support.design.widget.TextInputLayout
-            android:layout_below="@+id/project_layout"
             android:id="@+id/grade_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/project_layout">
+
             <EditText
                 android:id="@+id/grade"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Grade Allotted"
-                android:text="A"
-                android:inputType="text" />
+                android:inputType="text"
+                android:text="A" />
         </android.support.design.widget.TextInputLayout>
+
         <android.support.design.widget.TextInputLayout
-            android:layout_below="@+id/grade_layout"
             android:id="@+id/score_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/grade_layout">
+
             <EditText
                 android:id="@+id/score"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Tutor Score"
-                android:text="100"
-                android:inputType="number" />
+                android:inputType="number"
+                android:text="100" />
         </android.support.design.widget.TextInputLayout>
+
         <android.support.design.widget.TextInputLayout
-            android:layout_below="@+id/score_layout"
             android:id="@+id/certificate_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/score_layout">
+
             <EditText
                 android:id="@+id/certificate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Certificate"
-                android:text="Issued"
-                android:inputType="text" />
+                android:inputType="text"
+                android:text="Issued" />
         </android.support.design.widget.TextInputLayout>
+
         <android.support.design.widget.TextInputLayout
-            android:layout_below="@+id/certificate_layout"
             android:id="@+id/award_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/certificate_layout">
+
             <EditText
                 android:id="@+id/award"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Award"
-                android:text="Most Disciplined Student"
-                android:inputType="text" />
+                android:inputType="text"
+                android:text="Most Disciplined Student" />
         </android.support.design.widget.TextInputLayout>
+
         <android.support.design.widget.TextInputLayout
-            android:layout_below="@+id/award_layout"
             android:id="@+id/professor_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/award_layout">
+
             <EditText
                 android:id="@+id/professor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Name of Professor in Team"
-                android:text="Amit Kumar"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:text="Amit Kumar" />
         </android.support.design.widget.TextInputLayout>
+
         <android.support.design.widget.TextInputLayout
-            android:layout_below="@+id/professor_layout"
             android:id="@+id/project_name_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/professor_layout">
+
             <EditText
                 android:id="@+id/project_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Project Name"
-                android:text="Work Portfolio"
-                android:inputType="text" />
+                android:inputType="text"
+                android:text="Work Portfolio" />
         </android.support.design.widget.TextInputLayout>
+
         <Button
-            android:layout_below="@+id/project_name_layout"
+            android:id="@+id/submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/submit"
-            android:text="@string/submit"
-            android:layout_centerInParent="true" />
+            android:layout_below="@+id/project_name_layout"
+            android:layout_centerInParent="true"
+            android:text="@string/submit" />
     </RelativeLayout>
 </ScrollView>

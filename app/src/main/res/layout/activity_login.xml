@@ -6,27 +6,31 @@
     android:gravity="center"
     android:padding="20dp"
     tools:context=".launcher.LoginActivity">
+
     <Button
         android:id="@+id/counsellor"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:text="@string/counsellor" />
+
     <Button
-        android:layout_below="@id/counsellor"
         android:id="@+id/student"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:layout_below="@id/counsellor"
         android:text="@string/student" />
+
     <Button
-        android:layout_below="@id/student"
         android:id="@+id/admin"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:layout_below="@id/student"
         android:text="@string/admin" />
+
     <Button
-        android:layout_below="@id/admin"
         android:id="@+id/authority"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:layout_below="@id/admin"
         android:text="@string/authority" />
 </RelativeLayout>

@@ -1,4 +1,5 @@
 package com.education.counselor.trainer.login;
+
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.admin.AdminDashboardActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -18,12 +20,15 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
 import java.util.Timer;
 import java.util.TimerTask;
+
 public class AdminLoginActivity extends AppCompatActivity {
     EditText username, password;
     Button login, reset;
     private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,15 +55,15 @@ public class AdminLoginActivity extends AppCompatActivity {
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final AlertDialog.Builder dialog= new AlertDialog.Builder(view.getContext());
+                final AlertDialog.Builder dialog = new AlertDialog.Builder(view.getContext());
                 dialog.setCancelable(false);
                 dialog.setMessage("RESET YOUR PASSWORD");
                 LayoutInflater inflater = getLayoutInflater();
-                @SuppressLint("InflateParams") final View v= inflater.inflate(R.layout.alert, null);
+                @SuppressLint("InflateParams") final View v = inflater.inflate(R.layout.alert, null);
                 dialog.setView(v).setPositiveButton("CONFIRM", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        EditText email= v.findViewById(R.id.email);
+                        EditText email = v.findViewById(R.id.email);
                         if (email.getText().toString().equals("")) {
                             email.requestFocus();
                             email.setError("This Is A Required Field");
@@ -94,12 +99,13 @@ public class AdminLoginActivity extends AppCompatActivity {
             startActivity(new Intent(getBaseContext(), AdminDashboardActivity.class));
         }
     }
+
     @Override
     public void onStart() {
         super.onStart();
     }
-    public void login()
-    {
+
+    public void login() {
         String email = username.getText().toString();
         String pass = password.getText().toString();
         mAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -113,8 +119,8 @@ public class AdminLoginActivity extends AppCompatActivity {
             }
         });
     }
-    public void reset(String email)
-    {
+
+    public void reset(String email) {
         mAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

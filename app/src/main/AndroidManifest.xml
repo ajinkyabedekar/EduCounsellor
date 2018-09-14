@@ -2,10 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.education.counselor.trainer">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission. ACCESS_COARSE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:fullBackupContent="true"
@@ -30,6 +32,7 @@
         <activity android:name=".launcher.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -56,5 +59,9 @@
         <activity android:name=".admin.AddCentersActivity" />
         <activity android:name=".admin.CoursesCentersActivity" />
         <activity android:name=".admin.CoursesListActivity" />
+        <activity android:name=".admin.EmployeesListActivity" />
+        <activity android:name=".admin.AddEmployeeActivity" />
+        <activity android:name=".admin.EmployeesDetailsActivity" />
     </application>
+
 </manifest>
