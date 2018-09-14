@@ -34,7 +34,7 @@ public class EmployeesDetailsActivity extends AppCompatActivity {
         employee = findViewById(R.id.employee);
         centers = findViewById(R.id.centers);
         submit = findViewById(R.id.submit);
-        List<String> list = new ArrayList<String>();
+        List<String> list = new ArrayList<>();
         list.add("List1");
         list.add("List2");
         ArrayAdapter<String> centers_adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, list);
