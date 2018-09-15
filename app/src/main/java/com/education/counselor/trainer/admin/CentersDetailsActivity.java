@@ -1,8 +1,8 @@
 package com.education.counselor.trainer.admin;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,6 +26,7 @@ public class CentersDetailsActivity extends AppCompatActivity {
         head = findViewById(R.id.head);
         password = findViewById(R.id.password);
         submit = findViewById(R.id.submit);
+        delete = findViewById(R.id.delete);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

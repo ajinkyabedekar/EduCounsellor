@@ -1,8 +1,8 @@
 package com.education.counselor.trainer.admin;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -26,7 +26,7 @@ public class StudentDetailsActivity extends AppCompatActivity implements Adapter
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_student);
+        setContentView(R.layout.activity_student_details);
         name = findViewById(R.id.name);
         mobile_number = findViewById(R.id.mobile_number);
         mail = findViewById(R.id.mail);
@@ -193,6 +193,7 @@ public class StudentDetailsActivity extends AppCompatActivity implements Adapter
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
             }
         });
     }

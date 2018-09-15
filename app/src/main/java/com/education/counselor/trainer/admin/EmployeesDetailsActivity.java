@@ -1,8 +1,8 @@
 package com.education.counselor.trainer.admin;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -34,6 +34,7 @@ public class EmployeesDetailsActivity extends AppCompatActivity {
         employee = findViewById(R.id.employee);
         centers = findViewById(R.id.centers);
         submit = findViewById(R.id.submit);
+        delete = findViewById(R.id.delete);
         List<String> list = new ArrayList<>();
         list.add("List1");
         list.add("List2");

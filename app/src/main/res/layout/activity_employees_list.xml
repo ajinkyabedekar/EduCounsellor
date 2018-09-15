@@ -6,15 +6,8 @@
     tools:context=".admin.EmployeesListActivity">
 
     <Button
-        android:id="@+id/add_employee"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Employee" />
-
-    <Button
         android:id="@+id/employee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/add_employee"
         android:text="Employee" />
 </RelativeLayout>

@@ -73,4 +73,18 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/centers"
         android:text="Courses" />
+
+    <Button
+        android:id="@+id/add_employee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/courses"
+        android:text="Add Employees" />
+
+    <Button
+        android:id="@+id/employee_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/add_employee"
+        android:text="Employees List" />
 </RelativeLayout>

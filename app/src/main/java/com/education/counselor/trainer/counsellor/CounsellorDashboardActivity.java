@@ -1,7 +1,7 @@
 package com.education.counselor.trainer.counsellor;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.education.counselor.trainer.R;
 
