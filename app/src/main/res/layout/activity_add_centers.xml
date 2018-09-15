@@ -84,5 +84,6 @@
         android:layout_centerInParent="true"
         android:text="Submit"
         android:background="@drawable/bluebtn"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:layout_marginTop="30sp"/>
 </RelativeLayout>

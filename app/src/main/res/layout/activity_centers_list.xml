@@ -3,16 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     tools:context=".admin.CentersListActivity">
 
     <Button
         android:id="@+id/add_center"
+        android:background="@drawable/buttonback1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Center" />
+        android:text="Add Center"
+        android:padding="10sp"/>
 
     <Button
         android:id="@+id/center"
+        android:layout_marginTop="20sp"
+        android:padding="10sp"
+        android:background="@drawable/buttonback1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/add_center"

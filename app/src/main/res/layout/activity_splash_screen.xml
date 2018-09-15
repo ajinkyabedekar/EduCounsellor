@@ -3,15 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fdf9fd"
-    android:gravity="center"
+    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".launcher.SplashScreenActivity">
 
     <ImageView
         android:id="@+id/iv"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="200sp"
+        android:layout_height="200sp"
+        android:layout_centerInParent="true"
         android:contentDescription="@string/logo"
         android:src="@mipmap/ic_logo" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rankethon\nv.1.0"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:layout_below="@id/iv"/>
 </RelativeLayout>
