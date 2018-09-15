@@ -3,34 +3,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:padding="20dp"
+    android:padding="10dp"
     tools:context=".launcher.LoginActivity">
 
-    <Button
-        android:id="@+id/counsellor"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:text="@string/counsellor" />
+        android:layout_height="wrap_content"
+        android:text="WELCOME"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:layout_alignParentTop="true"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose one option:"/>
+        <Button
+            android:id="@+id/counsellor"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/counsellor"
+            android:background="@drawable/buttonback1"/>
 
-    <Button
-        android:id="@+id/student"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_below="@id/counsellor"
-        android:text="@string/student" />
+        <Button
+            android:id="@+id/student"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/counsellor"
+            android:text="@string/student"
+            android:background="@drawable/buttonback1"/>
 
-    <Button
-        android:id="@+id/admin"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_below="@id/student"
-        android:text="@string/admin" />
+        <Button
+            android:id="@+id/admin"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/student"
+            android:text="@string/admin"
+            android:background="@drawable/buttonback1"/>
 
-    <Button
-        android:id="@+id/authority"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_below="@id/admin"
-        android:text="@string/authority" />
+        <Button
+            android:id="@+id/authority"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/admin"
+            android:text="@string/authority"
+            android:background="@drawable/buttonback1"/>
+    </RelativeLayout>
+
 </RelativeLayout>
