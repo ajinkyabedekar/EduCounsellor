@@ -5,55 +5,79 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:padding="20dp"
-    tools:context=".login.CounsellorLoginActivity">
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/user"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/email"
-            android:inputType="text" />
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/username">
-
-        <EditText
-            android:id="@+id/pass"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/password"
-            android:inputType="textPassword" />
-    </android.support.design.widget.TextInputLayout>
-
-    <Button
-        android:id="@+id/login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/password"
-        android:text="@string/login" />
-
+    tools:context=".login.AdminLoginActivity">
     <TextView
-        android:id="@+id/not_yet"
+        android:id="@+id/textlog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Log in to your Account"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:layout_marginBottom="30dp"
+        />
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/login"
-        android:layout_centerInParent="true"
-        android:text="@string/forgot_password" />
+        android:gravity="center"
+        android:id="@+id/rel"
+        android:layout_below="@id/textlog">
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/reset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/not_yet"
-        android:layout_centerInParent="true"
-        android:text="@string/reset" />
+            <EditText
+                android:id="@+id/user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/email"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/username">
+
+            <EditText
+                android:id="@+id/pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/password"
+                android:inputType="textPassword" />
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/password"
+            android:text="@string/login"
+            android:background="@drawable/btnback2"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:layout_alignParentRight="true"/>
+
+        <TextView
+            android:id="@+id/not_yet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="20sp"
+            android:text="@string/forgot_password" />
+
+        <Button
+            android:id="@+id/reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/not_yet"
+            android:layout_centerInParent="true"
+            android:text="@string/reset"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/transbtn"
+            />
+    </RelativeLayout>
+
 </RelativeLayout>

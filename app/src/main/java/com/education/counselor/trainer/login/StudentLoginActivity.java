@@ -4,10 +4,11 @@ import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -21,7 +22,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -29,6 +34,10 @@ public class StudentLoginActivity extends AppCompatActivity {
     EditText username, password;
     Button login, reset;
     private FirebaseAuth mAuth;
+    DatabaseReference ref;
+    FirebaseDatabase database;
+    private boolean grant=false;
+    private String umail="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +48,7 @@ public class StudentLoginActivity extends AppCompatActivity {
         login = findViewById(R.id.login);
         reset = findViewById(R.id.reset);
         mAuth = FirebaseAuth.getInstance();
+        database=FirebaseDatabase.getInstance();
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -113,19 +123,73 @@ public class StudentLoginActivity extends AppCompatActivity {
     }
 
     public void login() {
-        String email = username.getText().toString();
-        String pass = password.getText().toString();
-        mAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        final String email = username.getText().toString();
+        final String pass = password.getText().toString();
+        if(check(email))
+        {
+            mAuth.signInWithEmailAndPassword(umail, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(getBaseContext(), "Authentication succeeded.", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(getBaseContext(), StudentDashboardActivity.class));
+                    } else {
+                        Toast.makeText(getBaseContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+        else
+            Toast.makeText(StudentLoginActivity.this, "The email do not exist", Toast.LENGTH_SHORT).show();
+
+
+
+    }
+    public boolean check(final String email)
+    {
+        final boolean isEmail;
+        if(email.contains("@"))
+            isEmail=true;
+        else
+            isEmail=false;
+        ref=database.getReference("student");
+        ref.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    Toast.makeText(getBaseContext(), "Authentication succeeded.", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getBaseContext(), StudentDashboardActivity.class));
-                } else {
-                    Toast.makeText(getBaseContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot snapshot: dataSnapshot.getChildren()) {
+                    if(isEmail) {
+                        if (snapshot.child("mail").getValue().toString().equalsIgnoreCase(email))
+                        {
+                            grant=true;
+                            umail=email;
+                            break;
+                        }
+                           else
+                            grant = false;
+                    }
+                    else
+                    {
+                        if(snapshot.getKey().equalsIgnoreCase(email)) {
+                            grant = true;
+                            umail=snapshot.child("mail").getValue().toString();
+                            break;
+                        }
+                        else
+                            grant=false;
+                    }
+                    Log.d("Hellllllo:  ","grant value in snapshot="+grant);
                 }
             }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(StudentLoginActivity.this, databaseError.toString(), Toast.LENGTH_SHORT).show();
+            }
         });
+        Log.d("Hellllllo:  ","grant value outside snapshot="+grant);
+
+
+        return grant;
     }
 
     public void reset(String email) {
