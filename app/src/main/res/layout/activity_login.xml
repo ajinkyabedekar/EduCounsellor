@@ -9,52 +9,55 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="WELCOME"
-        android:textSize="30dp"
+        android:layout_alignParentTop="true"
         android:gravity="center"
-        android:layout_alignParentTop="true"/>
+        android:text="WELCOME"
+        android:textSize="30dp" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Choose one option:"/>
+            android:text="Choose one option:" />
+
         <Button
             android:id="@+id/counsellor"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginTop="20dp"
-            android:text="@string/counsellor"
-            android:background="@drawable/buttonback1"/>
+            android:background="@drawable/buttonback1"
+            android:text="@string/counsellor" />
 
         <Button
             android:id="@+id/student"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_marginTop="10dp"
             android:layout_below="@id/counsellor"
-            android:text="@string/student"
-            android:background="@drawable/buttonback1"/>
+            android:layout_marginTop="10dp"
+            android:background="@drawable/buttonback1"
+            android:text="@string/student" />
 
         <Button
             android:id="@+id/admin"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_marginTop="10dp"
             android:layout_below="@id/student"
-            android:text="@string/admin"
-            android:background="@drawable/buttonback1"/>
+            android:layout_marginTop="10dp"
+            android:background="@drawable/buttonback1"
+            android:text="@string/admin" />
 
         <Button
             android:id="@+id/authority"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_marginTop="10dp"
             android:layout_below="@id/admin"
-            android:text="@string/authority"
-            android:background="@drawable/buttonback1"/>
+            android:layout_marginTop="10dp"
+            android:background="@drawable/buttonback1"
+            android:text="@string/authority" />
     </RelativeLayout>
 
 </RelativeLayout>
