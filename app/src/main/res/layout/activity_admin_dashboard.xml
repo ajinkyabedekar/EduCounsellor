@@ -14,26 +14,22 @@
         android:padding="10sp"
         android:gravity="center"
         android:id="@+id/dash"/>
-    <GridLayout
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/dash"
         android:id="@+id/grid"
+        android:layout_below="@id/dash"
         android:padding="10sp"
-        android:orientation="horizontal"
-        android:columnCount="2"
+        android:orientation="vertical"
         >
 
         <Button
             android:id="@+id/add_student"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20sp"
             android:background="@drawable/buttonback1"
             android:padding="10sp"
-            android:layout_column="0"
-            android:layout_row="0"
-            android:layout_below="@+id/logout"
             android:text="@string/add_student" />
 
         <Button
@@ -43,7 +39,6 @@
             android:layout_marginBottom="20sp"
             android:background="@drawable/buttonback1"
             android:padding="10sp"
-            android:layout_below="@+id/add_student"
             android:text="Edit Student Details" />
 
         <Button
@@ -53,7 +48,6 @@
             android:layout_marginBottom="20sp"
             android:background="@drawable/buttonback1"
             android:padding="10sp"
-            android:layout_below="@+id/edit_student"
             android:text="Students List" />
 
         <Button
@@ -63,7 +57,6 @@
             android:layout_marginBottom="20sp"
             android:background="@drawable/buttonback1"
             android:padding="10sp"
-            android:layout_below="@+id/student_list"
             android:text="Startup List" />
 
         <Button
@@ -73,7 +66,6 @@
             android:layout_marginBottom="20sp"
             android:background="@drawable/buttonback1"
             android:padding="10sp"
-            android:layout_below="@+id/startup_list"
             android:text="Placement List" />
 
         <Button
@@ -83,7 +75,6 @@
             android:layout_marginBottom="20sp"
             android:background="@drawable/buttonback1"
             android:padding="10sp"
-            android:layout_below="@+id/placement_list"
             android:text="Edit Counsellor Contact" />
 
         <Button
@@ -93,7 +84,6 @@
             android:layout_marginBottom="20sp"
             android:background="@drawable/buttonback1"
             android:padding="10sp"
-            android:layout_below="@+id/edit_counsellor"
             android:text="News" />
 
         <Button
@@ -103,7 +93,6 @@
             android:layout_marginBottom="20sp"
             android:background="@drawable/buttonback1"
             android:padding="10sp"
-            android:layout_below="@+id/news"
             android:text="Current Centers" />
 
         <Button
@@ -113,7 +102,6 @@
             android:layout_marginBottom="20sp"
             android:background="@drawable/buttonback1"
             android:padding="10sp"
-            android:layout_below="@+id/centers"
             android:text="Courses" />
 
         <Button
@@ -123,7 +111,6 @@
             android:layout_marginBottom="20sp"
             android:background="@drawable/buttonback1"
             android:padding="10sp"
-            android:layout_below="@+id/courses"
             android:text="Add Employees" />
 
         <Button
@@ -133,9 +120,9 @@
             android:layout_marginBottom="20sp"
             android:background="@drawable/buttonback1"
             android:padding="10sp"
-            android:layout_below="@+id/add_employee"
             android:text="Employees List" />
-    </GridLayout>
+    </LinearLayout>
+
     <Button
         android:id="@+id/logout"
         android:layout_width="wrap_content"
