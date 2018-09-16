@@ -8,19 +8,19 @@
 
     <Button
         android:id="@+id/add_center"
-        android:background="@drawable/buttonback1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Center"
-        android:padding="10sp"/>
+        android:background="@drawable/buttonback1"
+        android:padding="10sp"
+        android:text="Add Center" />
 
     <Button
         android:id="@+id/center"
-        android:layout_marginTop="20sp"
-        android:padding="10sp"
-        android:background="@drawable/buttonback1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/add_center"
+        android:layout_marginTop="20sp"
+        android:background="@drawable/buttonback1"
+        android:padding="10sp"
         android:text="Center" />
 </RelativeLayout>

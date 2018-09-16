@@ -276,24 +276,24 @@
             android:id="@+id/transfer_payment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/student_year"
             android:layout_alignParentLeft="true"
-            android:background="@drawable/btnback2"
-            android:textColor="@color/white"
-            android:padding="10dp"
+            android:layout_below="@+id/student_year"
             android:layout_marginTop="30sp"
-            android:text="@string/transfer_payment" />
+            android:background="@drawable/btnback2"
+            android:padding="10dp"
+            android:text="@string/transfer_payment"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/student_year"
-            android:background="@drawable/bluebtn"
-            android:textColor="@color/white"
-            android:layout_marginTop="30sp"
-            android:padding="10dp"
             android:layout_alignParentRight="true"
-            android:text="@string/submit" />
+            android:layout_below="@+id/student_year"
+            android:layout_marginTop="30sp"
+            android:background="@drawable/bluebtn"
+            android:padding="10dp"
+            android:text="@string/submit"
+            android:textColor="@color/white" />
     </RelativeLayout>
 </ScrollView>
