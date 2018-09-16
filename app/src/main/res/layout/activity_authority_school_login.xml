@@ -6,22 +6,21 @@
     android:gravity="center"
     android:padding="20dp"
     tools:context=".login.AdminLoginActivity">
-
     <TextView
         android:id="@+id/textlog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
         android:text="Log in to your Account"
+        android:textStyle="bold"
         android:textSize="30dp"
-        android:textStyle="bold" />
-
+        android:layout_marginBottom="30dp"
+        />
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textlog"
-        android:gravity="center">
-
+        android:gravity="center"
+        android:id="@+id/rel"
+        android:layout_below="@id/textlog">
         <android.support.design.widget.TextInputLayout
             android:id="@+id/username"
             android:layout_width="match_parent"
@@ -53,12 +52,12 @@
             android:id="@+id/login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
             android:layout_below="@+id/password"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/btnback2"
             android:text="@string/login"
-            android:textColor="@color/white" />
+            android:background="@drawable/btnback2"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:layout_alignParentRight="true"/>
 
         <TextView
             android:id="@+id/not_yet"
@@ -75,9 +74,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/not_yet"
             android:layout_centerInParent="true"
-            android:background="@drawable/transbtn"
             android:text="@string/reset"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/transbtn"
+            />
     </RelativeLayout>
 
 </RelativeLayout>
