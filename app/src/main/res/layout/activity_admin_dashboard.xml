@@ -5,14 +5,14 @@
     android:layout_height="match_parent"
     android:padding="10sp"
     tools:context=".admin.AdminDashboardActivity">
+
     <TextView
+        android:id="@+id/dash"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ADMIN DASHBOARD"
         android:layout_alignParentTop="true"
-        android:textSize="30sp"
-        android:padding="10sp"
         android:gravity="center"
+<<<<<<< HEAD
         android:id="@+id/dash"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,12 +22,28 @@
         android:padding="10sp"
         android:orientation="vertical"
         >
+=======
+        android:padding="10sp"
+        android:text="ADMIN DASHBOARD"
+        android:textSize="30sp" />
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dash"
+        android:columnCount="2"
+        android:orientation="horizontal"
+        android:padding="10sp">
+>>>>>>> f4765817a8fb1bba2787446b59c307bc41e0c1b4
 
         <Button
             android:id="@+id/add_student"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/logout"
+            android:layout_column="0"
             android:layout_marginBottom="20sp"
+            android:layout_row="0"
             android:background="@drawable/buttonback1"
             android:padding="10sp"
             android:text="@string/add_student" />
@@ -36,6 +52,7 @@
             android:id="@+id/edit_student"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/add_student"
             android:layout_marginBottom="20sp"
             android:background="@drawable/buttonback1"
             android:padding="10sp"
@@ -45,6 +62,7 @@
             android:id="@+id/student_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/edit_student"
             android:layout_marginBottom="20sp"
             android:background="@drawable/buttonback1"
             android:padding="10sp"
@@ -54,6 +72,7 @@
             android:id="@+id/startup_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/student_list"
             android:layout_marginBottom="20sp"
             android:background="@drawable/buttonback1"
             android:padding="10sp"
@@ -63,6 +82,7 @@
             android:id="@+id/placement_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/startup_list"
             android:layout_marginBottom="20sp"
             android:background="@drawable/buttonback1"
             android:padding="10sp"
@@ -72,6 +92,7 @@
             android:id="@+id/edit_counsellor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/placement_list"
             android:layout_marginBottom="20sp"
             android:background="@drawable/buttonback1"
             android:padding="10sp"
@@ -81,6 +102,7 @@
             android:id="@+id/news"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/edit_counsellor"
             android:layout_marginBottom="20sp"
             android:background="@drawable/buttonback1"
             android:padding="10sp"
@@ -90,6 +112,7 @@
             android:id="@+id/centers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/news"
             android:layout_marginBottom="20sp"
             android:background="@drawable/buttonback1"
             android:padding="10sp"
@@ -99,6 +122,7 @@
             android:id="@+id/courses"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/centers"
             android:layout_marginBottom="20sp"
             android:background="@drawable/buttonback1"
             android:padding="10sp"
@@ -108,6 +132,7 @@
             android:id="@+id/add_employee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/courses"
             android:layout_marginBottom="20sp"
             android:background="@drawable/buttonback1"
             android:padding="10sp"
@@ -117,20 +142,25 @@
             android:id="@+id/employee_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/add_employee"
             android:layout_marginBottom="20sp"
             android:background="@drawable/buttonback1"
             android:padding="10sp"
             android:text="Employees List" />
+<<<<<<< HEAD
     </LinearLayout>
+=======
+    </GridLayout>
+>>>>>>> f4765817a8fb1bba2787446b59c307bc41e0c1b4
 
     <Button
         android:id="@+id/logout"
         android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-        android:layout_marginBottom="20sp"
-        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20sp"
         android:background="@drawable/btnred"
-        android:textColor="@color/white"
-        android:text="@string/logout" />
+        android:text="@string/logout"
+        android:textColor="@color/white" />
 </RelativeLayout>
