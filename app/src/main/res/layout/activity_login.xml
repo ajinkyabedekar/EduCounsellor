@@ -24,6 +24,7 @@
             android:layout_height="wrap_content"
             android:text="Choose one option:" />
 
+<<<<<<< HEAD
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="100dp"
@@ -31,6 +32,8 @@
             android:layout_marginTop="20dp"
             android:src="@drawable/ic_action_arrow" />
 
+=======
+>>>>>>> parent of 243fd8a... Merge remote-tracking branch 'origin/master'
         <Button
             android:id="@+id/counsellor"
             android:layout_width="match_parent"
@@ -39,6 +42,7 @@
             android:background="@drawable/buttonback1"
             android:text="@string/counsellor" />
 
+<<<<<<< HEAD
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="100dp"
@@ -46,6 +50,8 @@
             android:layout_marginTop="130dp"
             android:src="@drawable/ic_action_arrow" />
 
+=======
+>>>>>>> parent of 243fd8a... Merge remote-tracking branch 'origin/master'
         <Button
             android:id="@+id/student"
             android:layout_width="match_parent"
@@ -55,6 +61,7 @@
             android:background="@drawable/buttonback1"
             android:text="@string/student" />
 
+<<<<<<< HEAD
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="100dp"
@@ -62,6 +69,8 @@
             android:layout_marginTop="240dp"
             android:src="@drawable/ic_action_arrow" />
 
+=======
+>>>>>>> parent of 243fd8a... Merge remote-tracking branch 'origin/master'
         <Button
             android:id="@+id/admin"
             android:layout_width="match_parent"
@@ -71,6 +80,7 @@
             android:background="@drawable/buttonback1"
             android:text="@string/admin" />
 
+<<<<<<< HEAD
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="100dp"
@@ -78,6 +88,8 @@
             android:layout_marginTop="350dp"
             android:src="@drawable/ic_action_arrow" />
 
+=======
+>>>>>>> parent of 243fd8a... Merge remote-tracking branch 'origin/master'
         <Button
             android:id="@+id/authority"
             android:layout_width="match_parent"

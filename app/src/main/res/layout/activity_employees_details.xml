@@ -119,9 +119,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/submit"
         android:layout_centerInParent="true"
+<<<<<<< HEAD
         android:layout_marginTop="10sp"
         android:background="@drawable/btnred"
         android:padding="10sp"
         android:text="Delete Employee"
         android:textColor="@color/white" />
+=======
+        android:text="Delete Employee" />
+>>>>>>> parent of 243fd8a... Merge remote-tracking branch 'origin/master'
 </RelativeLayout>

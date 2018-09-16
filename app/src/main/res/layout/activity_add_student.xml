@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:padding="20dp"
-
+    android:padding="10dp"
     tools:context=".admin.AddStudentActivity">
 
     <RelativeLayout
@@ -276,6 +275,7 @@
             android:id="@+id/transfer_payment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/student_year"
             android:layout_marginTop="30sp"
@@ -283,11 +283,17 @@
             android:padding="10dp"
             android:text="@string/transfer_payment"
             android:textColor="@color/white" />
+=======
+            android:layout_below="@+id/student_year"
+            android:layout_centerInParent="true"
+            android:text="@string/transfer_payment" />
+>>>>>>> parent of 243fd8a... Merge remote-tracking branch 'origin/master'
 
         <Button
             android:id="@+id/submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:layout_alignParentRight="true"
             android:layout_below="@+id/student_year"
             android:layout_marginTop="30sp"
@@ -295,5 +301,10 @@
             android:padding="10dp"
             android:text="@string/submit"
             android:textColor="@color/white" />
+=======
+            android:layout_below="@+id/transfer_payment"
+            android:layout_centerInParent="true"
+            android:text="@string/submit" />
+>>>>>>> parent of 243fd8a... Merge remote-tracking branch 'origin/master'
     </RelativeLayout>
 </ScrollView>

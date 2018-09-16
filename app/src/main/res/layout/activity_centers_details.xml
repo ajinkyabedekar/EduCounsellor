@@ -3,8 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     android:gravity="center"
     android:padding="10sp"
+=======
+>>>>>>> parent of 243fd8a... Merge remote-tracking branch 'origin/master'
     tools:context=".admin.CentersDetailsActivity">
 
     <android.support.design.widget.TextInputLayout

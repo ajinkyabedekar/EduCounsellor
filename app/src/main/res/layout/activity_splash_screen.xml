@@ -3,17 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="#fdf9fd"
+    android:gravity="center"
     android:orientation="vertical"
     tools:context=".launcher.SplashScreenActivity">
 
     <ImageView
         android:id="@+id/iv"
-        android:layout_width="200sp"
-        android:layout_height="200sp"
-        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:contentDescription="@string/logo"
         android:src="@mipmap/ic_logo" />
+<<<<<<< HEAD
 
     <TextView
         android:layout_width="match_parent"
@@ -22,4 +23,6 @@
         android:gravity="center"
         android:text="Rankethon\nv.1.0"
         android:textSize="30sp" />
+=======
+>>>>>>> parent of 243fd8a... Merge remote-tracking branch 'origin/master'
 </RelativeLayout>
