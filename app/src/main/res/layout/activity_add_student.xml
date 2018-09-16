@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:padding="10dp"
+    android:padding="20dp"
+
     tools:context=".admin.AddStudentActivity">
 
     <RelativeLayout
@@ -276,15 +277,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/student_year"
-            android:layout_centerInParent="true"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/btnback2"
+            android:textColor="@color/white"
+            android:padding="10dp"
+            android:layout_marginTop="30sp"
             android:text="@string/transfer_payment" />
 
         <Button
             android:id="@+id/submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/transfer_payment"
-            android:layout_centerInParent="true"
+            android:layout_below="@+id/student_year"
+            android:background="@drawable/bluebtn"
+            android:textColor="@color/white"
+            android:layout_marginTop="30sp"
+            android:padding="10dp"
+            android:layout_alignParentRight="true"
             android:text="@string/submit" />
     </RelativeLayout>
 </ScrollView>

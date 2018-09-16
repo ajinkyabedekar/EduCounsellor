@@ -3,88 +3,147 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10sp"
     tools:context=".admin.AdminDashboardActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ADMIN DASHBOARD"
+        android:layout_alignParentTop="true"
+        android:textSize="30sp"
+        android:padding="10sp"
+        android:gravity="center"
+        android:id="@+id/dash"/>
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dash"
+        android:id="@+id/grid"
+        android:padding="10sp"
+        android:orientation="horizontal"
+        android:columnCount="2"
+        >
 
+        <Button
+            android:id="@+id/add_student"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20sp"
+            android:background="@drawable/buttonback1"
+            android:padding="10sp"
+            android:layout_column="0"
+            android:layout_row="0"
+            android:layout_below="@+id/logout"
+            android:text="@string/add_student" />
+
+        <Button
+            android:id="@+id/edit_student"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20sp"
+            android:background="@drawable/buttonback1"
+            android:padding="10sp"
+            android:layout_below="@+id/add_student"
+            android:text="Edit Student Details" />
+
+        <Button
+            android:id="@+id/student_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20sp"
+            android:background="@drawable/buttonback1"
+            android:padding="10sp"
+            android:layout_below="@+id/edit_student"
+            android:text="Students List" />
+
+        <Button
+            android:id="@+id/startup_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20sp"
+            android:background="@drawable/buttonback1"
+            android:padding="10sp"
+            android:layout_below="@+id/student_list"
+            android:text="Startup List" />
+
+        <Button
+            android:id="@+id/placement_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20sp"
+            android:background="@drawable/buttonback1"
+            android:padding="10sp"
+            android:layout_below="@+id/startup_list"
+            android:text="Placement List" />
+
+        <Button
+            android:id="@+id/edit_counsellor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20sp"
+            android:background="@drawable/buttonback1"
+            android:padding="10sp"
+            android:layout_below="@+id/placement_list"
+            android:text="Edit Counsellor Contact" />
+
+        <Button
+            android:id="@+id/news"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20sp"
+            android:background="@drawable/buttonback1"
+            android:padding="10sp"
+            android:layout_below="@+id/edit_counsellor"
+            android:text="News" />
+
+        <Button
+            android:id="@+id/centers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20sp"
+            android:background="@drawable/buttonback1"
+            android:padding="10sp"
+            android:layout_below="@+id/news"
+            android:text="Current Centers" />
+
+        <Button
+            android:id="@+id/courses"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20sp"
+            android:background="@drawable/buttonback1"
+            android:padding="10sp"
+            android:layout_below="@+id/centers"
+            android:text="Courses" />
+
+        <Button
+            android:id="@+id/add_employee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20sp"
+            android:background="@drawable/buttonback1"
+            android:padding="10sp"
+            android:layout_below="@+id/courses"
+            android:text="Add Employees" />
+
+        <Button
+            android:id="@+id/employee_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20sp"
+            android:background="@drawable/buttonback1"
+            android:padding="10sp"
+            android:layout_below="@+id/add_employee"
+            android:text="Employees List" />
+    </GridLayout>
     <Button
         android:id="@+id/logout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+            android:layout_height="wrap_content"
+        android:layout_marginBottom="20sp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/btnred"
+        android:textColor="@color/white"
         android:text="@string/logout" />
-
-    <Button
-        android:id="@+id/add_student"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/logout"
-        android:text="@string/add_student" />
-
-    <Button
-        android:id="@+id/edit_student"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/add_student"
-        android:text="Edit Student Details" />
-
-    <Button
-        android:id="@+id/student_list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/edit_student"
-        android:text="Students List" />
-
-    <Button
-        android:id="@+id/startup_list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/student_list"
-        android:text="Startup List" />
-
-    <Button
-        android:id="@+id/placement_list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/startup_list"
-        android:text="Placement List" />
-
-    <Button
-        android:id="@+id/edit_counsellor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/placement_list"
-        android:text="Edit Counsellor Contact" />
-
-    <Button
-        android:id="@+id/news"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/edit_counsellor"
-        android:text="News" />
-
-    <Button
-        android:id="@+id/centers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/news"
-        android:text="Current Centers" />
-
-    <Button
-        android:id="@+id/courses"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/centers"
-        android:text="Courses" />
-
-    <Button
-        android:id="@+id/add_employee"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/courses"
-        android:text="Add Employees" />
-
-    <Button
-        android:id="@+id/employee_list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/add_employee"
-        android:text="Employees List" />
 </RelativeLayout>
