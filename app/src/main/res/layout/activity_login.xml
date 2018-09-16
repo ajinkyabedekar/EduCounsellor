@@ -9,95 +9,128 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:gravity="center"
         android:text="WELCOME"
-        android:textSize="30dp" />
-
+        android:textSize="30dp"
+        android:gravity="center"
+        android:layout_alignParentTop="true"/>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center">
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:text="Choose one option:" />
 
 <<<<<<< HEAD
+=======
+            android:text="Choose one option:"/>
+>>>>>>> parent of f476581... Next Commit
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:layout_alignParentRight="true"
             android:layout_marginTop="20dp"
+<<<<<<< HEAD
             android:src="@drawable/ic_action_arrow" />
 
 =======
 >>>>>>> parent of 243fd8a... Merge remote-tracking branch 'origin/master'
+=======
+            android:src="@drawable/ic_action_arrow"
+            android:layout_alignParentRight="true"/>
+>>>>>>> parent of f476581... Next Commit
         <Button
             android:id="@+id/counsellor"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginTop="20dp"
+<<<<<<< HEAD
             android:background="@drawable/buttonback1"
             android:text="@string/counsellor" />
 
 <<<<<<< HEAD
+=======
+            android:text="@string/counsellor"
+            android:background="@drawable/buttonback1"/>
+>>>>>>> parent of f476581... Next Commit
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:layout_alignParentRight="true"
             android:layout_marginTop="130dp"
+<<<<<<< HEAD
             android:src="@drawable/ic_action_arrow" />
 
 =======
 >>>>>>> parent of 243fd8a... Merge remote-tracking branch 'origin/master'
+=======
+            android:src="@drawable/ic_action_arrow"
+            android:layout_alignParentRight="true"/>
+>>>>>>> parent of f476581... Next Commit
         <Button
             android:id="@+id/student"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_below="@id/counsellor"
             android:layout_marginTop="10dp"
+<<<<<<< HEAD
             android:background="@drawable/buttonback1"
             android:text="@string/student" />
 
 <<<<<<< HEAD
+=======
+            android:layout_below="@id/counsellor"
+            android:text="@string/student"
+            android:background="@drawable/buttonback1"/>
+>>>>>>> parent of f476581... Next Commit
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:layout_alignParentRight="true"
             android:layout_marginTop="240dp"
+<<<<<<< HEAD
             android:src="@drawable/ic_action_arrow" />
 
 =======
 >>>>>>> parent of 243fd8a... Merge remote-tracking branch 'origin/master'
+=======
+            android:src="@drawable/ic_action_arrow"
+            android:layout_alignParentRight="true"/>
+>>>>>>> parent of f476581... Next Commit
         <Button
             android:id="@+id/admin"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_below="@id/student"
             android:layout_marginTop="10dp"
+<<<<<<< HEAD
             android:background="@drawable/buttonback1"
             android:text="@string/admin" />
 
 <<<<<<< HEAD
+=======
+            android:layout_below="@id/student"
+            android:text="@string/admin"
+            android:background="@drawable/buttonback1"/>
+>>>>>>> parent of f476581... Next Commit
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:layout_alignParentRight="true"
             android:layout_marginTop="350dp"
+<<<<<<< HEAD
             android:src="@drawable/ic_action_arrow" />
 
 =======
 >>>>>>> parent of 243fd8a... Merge remote-tracking branch 'origin/master'
+=======
+            android:src="@drawable/ic_action_arrow"
+            android:layout_alignParentRight="true"/>
+>>>>>>> parent of f476581... Next Commit
         <Button
             android:id="@+id/authority"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_below="@id/admin"
             android:layout_marginTop="10dp"
-            android:background="@drawable/buttonback1"
-            android:text="@string/authority" />
+            android:layout_below="@id/admin"
+            android:text="@string/authority"
+            android:background="@drawable/buttonback1"/>
     </RelativeLayout>
 
 </RelativeLayout>

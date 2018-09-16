@@ -276,11 +276,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 <<<<<<< HEAD
+<<<<<<< HEAD
             android:layout_alignParentLeft="true"
+=======
+>>>>>>> parent of f476581... Next Commit
             android:layout_below="@+id/student_year"
-            android:layout_marginTop="30sp"
+            android:layout_alignParentLeft="true"
             android:background="@drawable/btnback2"
+            android:textColor="@color/white"
             android:padding="10dp"
+<<<<<<< HEAD
             android:text="@string/transfer_payment"
             android:textColor="@color/white" />
 =======
@@ -288,17 +293,26 @@
             android:layout_centerInParent="true"
             android:text="@string/transfer_payment" />
 >>>>>>> parent of 243fd8a... Merge remote-tracking branch 'origin/master'
+=======
+            android:layout_marginTop="30sp"
+            android:text="@string/transfer_payment" />
+>>>>>>> parent of f476581... Next Commit
 
         <Button
             android:id="@+id/submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 <<<<<<< HEAD
+<<<<<<< HEAD
             android:layout_alignParentRight="true"
+=======
+>>>>>>> parent of f476581... Next Commit
             android:layout_below="@+id/student_year"
-            android:layout_marginTop="30sp"
             android:background="@drawable/bluebtn"
+            android:textColor="@color/white"
+            android:layout_marginTop="30sp"
             android:padding="10dp"
+<<<<<<< HEAD
             android:text="@string/submit"
             android:textColor="@color/white" />
 =======
@@ -306,5 +320,9 @@
             android:layout_centerInParent="true"
             android:text="@string/submit" />
 >>>>>>> parent of 243fd8a... Merge remote-tracking branch 'origin/master'
+=======
+            android:layout_alignParentRight="true"
+            android:text="@string/submit" />
+>>>>>>> parent of f476581... Next Commit
     </RelativeLayout>
 </ScrollView>

@@ -15,14 +15,21 @@
         android:contentDescription="@string/logo"
         android:src="@mipmap/ic_logo" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of f476581... Next Commit
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/iv"
-        android:gravity="center"
         android:text="Rankethon\nv.1.0"
+<<<<<<< HEAD
         android:textSize="30sp" />
 =======
 >>>>>>> parent of 243fd8a... Merge remote-tracking branch 'origin/master'
+=======
+        android:gravity="center"
+        android:textSize="30sp"
+        android:layout_below="@id/iv"/>
+>>>>>>> parent of f476581... Next Commit
 </RelativeLayout>

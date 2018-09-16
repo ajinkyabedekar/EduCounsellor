@@ -83,10 +83,15 @@
         android:layout_below="@+id/password_layout"
         android:layout_centerInParent="true"
 <<<<<<< HEAD
+<<<<<<< HEAD
         android:layout_marginTop="30sp"
 =======
 >>>>>>> parent of 243fd8a... Merge remote-tracking branch 'origin/master'
         android:background="@drawable/bluebtn"
+=======
+>>>>>>> parent of f476581... Next Commit
         android:text="Submit"
-        android:textColor="@color/white" />
+        android:background="@drawable/bluebtn"
+        android:textColor="@color/white"
+        android:layout_marginTop="30sp"/>
 </RelativeLayout>

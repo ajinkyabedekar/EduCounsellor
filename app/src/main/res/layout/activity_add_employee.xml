@@ -101,6 +101,7 @@
         android:layout_below="@+id/centers"
         android:layout_centerInParent="true"
 <<<<<<< HEAD
+<<<<<<< HEAD
         android:layout_marginTop="30sp"
         android:background="@drawable/bluebtn"
         android:text="Submit"
@@ -108,4 +109,10 @@
 =======
         android:text="Submit" />
 >>>>>>> parent of 243fd8a... Merge remote-tracking branch 'origin/master'
+=======
+        android:text="Submit"
+        android:background="@drawable/bluebtn"
+        android:textColor="@color/white"
+        android:layout_marginTop="30sp"/>
+>>>>>>> parent of f476581... Next Commit
 </RelativeLayout>
