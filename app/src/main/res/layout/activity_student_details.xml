@@ -292,26 +292,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/student_year"
-<<<<<<< HEAD
             android:layout_centerInParent="true"
-<<<<<<< HEAD
             android:layout_marginTop="20sp"
             android:background="@drawable/btnback2"
             android:padding="10sp"
             android:text="@string/transfer_payment"
             android:textColor="@color/white" />
-=======
-            android:text="@string/transfer_payment" />
->>>>>>> parent of 243fd8a... Merge remote-tracking branch 'origin/master'
-=======
-            android:background="@drawable/btnback2"
-            android:padding="10sp"
-            android:textColor="@color/white"
-            android:layout_marginTop="20sp"
-            android:layout_centerInParent="true"
-            android:text="@string/transfer_payment" />
->>>>>>> parent of f476581... Next Commit
-
         <Button
             android:id="@+id/submit"
             android:layout_width="wrap_content"
@@ -329,23 +315,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/submit"
             android:layout_centerInParent="true"
-<<<<<<< HEAD
-<<<<<<< HEAD
             android:layout_marginTop="10sp"
-=======
->>>>>>> parent of f476581... Next Commit
-            android:background="@drawable/btnred"
-            android:textColor="@color/white"
-            android:layout_marginTop="10sp"
-            android:padding="10sp"
-<<<<<<< HEAD
             android:text="Delete Student"
             android:textColor="@color/white" />
-=======
-            android:text="Delete Student" />
->>>>>>> parent of 243fd8a... Merge remote-tracking branch 'origin/master'
-=======
-            android:text="Delete Student" />
->>>>>>> parent of f476581... Next Commit
     </RelativeLayout>
 </ScrollView>

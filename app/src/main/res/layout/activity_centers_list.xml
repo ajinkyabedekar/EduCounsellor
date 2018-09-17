@@ -10,17 +10,7 @@
         android:background="@drawable/buttonback1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
-<<<<<<< HEAD
-        android:background="@drawable/buttonback1"
-        android:padding="10sp"
-=======
->>>>>>> parent of 243fd8a... Merge remote-tracking branch 'origin/master'
-        android:text="Add Center" />
-=======
-        android:text="Add Center"
         android:padding="10sp"/>
->>>>>>> parent of f476581... Next Commit
 
     <Button
         android:id="@+id/center"

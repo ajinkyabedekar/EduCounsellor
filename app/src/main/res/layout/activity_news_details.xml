@@ -80,24 +80,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/submit"
-<<<<<<< HEAD
         android:layout_centerInParent="true"
-<<<<<<< HEAD
         android:layout_marginTop="10sp"
-=======
->>>>>>> parent of f476581... Next Commit
-        android:background="@drawable/btnred"
-        android:textColor="@color/white"
-        android:layout_marginTop="10sp"
-        android:padding="10sp"
-<<<<<<< HEAD
         android:text="Delete News"
         android:textColor="@color/white" />
-=======
-        android:text="Delete News" />
->>>>>>> parent of 243fd8a... Merge remote-tracking branch 'origin/master'
-=======
-        android:layout_centerInParent="true"
-        android:text="Delete News" />
->>>>>>> parent of f476581... Next Commit
 </RelativeLayout>

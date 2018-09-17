@@ -3,17 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
-<<<<<<< HEAD
     android:gravity="center"
-    android:padding="10sp"
-=======
->>>>>>> parent of 243fd8a... Merge remote-tracking branch 'origin/master'
-=======
-    android:padding="10sp"
-    android:gravity="center"
->>>>>>> parent of f476581... Next Commit
-    tools:context=".admin.AddPlacementActivity">
+    android:padding="10sp">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/name_layout"
@@ -104,19 +95,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/student_layout"
         android:layout_centerInParent="true"
-<<<<<<< HEAD
-<<<<<<< HEAD
         android:layout_marginTop="30sp"
         android:background="@drawable/bluebtn"
         android:text="Submit"
         android:textColor="@color/white" />
-=======
-        android:text="Submit" />
->>>>>>> parent of 243fd8a... Merge remote-tracking branch 'origin/master'
-=======
-        android:text="Submit"
-        android:background="@drawable/bluebtn"
-        android:textColor="@color/white"
-        android:layout_marginTop="30sp"/>
->>>>>>> parent of f476581... Next Commit
 </RelativeLayout>
