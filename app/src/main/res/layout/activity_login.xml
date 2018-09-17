@@ -22,6 +22,7 @@
             android:layout_height="wrap_content"/>
         <ImageView
             android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
             android:layout_height="100dp"
             android:layout_marginTop="20dp"
             android:src="@drawable/ic_action_arrow" />
@@ -36,6 +37,7 @@
 
         <ImageView
             android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
             android:layout_height="100dp"
             android:layout_marginTop="130dp"
             android:src="@drawable/ic_action_arrow" />
@@ -45,11 +47,13 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginTop="10dp"
+            android:layout_below="@id/counsellor"
             android:background="@drawable/buttonback1"
             android:text="@string/student" />
 
         <ImageView
             android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
             android:layout_height="100dp"
             android:layout_marginTop="240dp"
             android:src="@drawable/ic_action_arrow" />
@@ -59,11 +63,13 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginTop="10dp"
+            android:layout_below="@id/student"
             android:background="@drawable/buttonback1"
             android:text="@string/admin" />
 
         <ImageView
             android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
             android:layout_height="100dp"
             android:layout_marginTop="350dp"
             android:src="@drawable/ic_action_arrow" />

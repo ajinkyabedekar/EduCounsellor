@@ -10,13 +10,16 @@
 
     <ImageView
         android:id="@+id/iv"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="300sp"
+        android:layout_height="300sp"
+        android:layout_centerInParent="true"
         android:contentDescription="@string/logo"
         android:src="@mipmap/ic_logo" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Rankethon\nv.1.0"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:gravity="center"
+        android:layout_below="@id/iv"/>
 </RelativeLayout>
