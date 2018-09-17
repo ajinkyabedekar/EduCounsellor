@@ -10,7 +10,8 @@
         android:background="@drawable/buttonback1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10sp"/>
+        android:padding="10sp"
+        android:text="@string/add_center"/>
 
     <Button
         android:id="@+id/center"
@@ -20,5 +21,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/add_center"
-        android:text="Center" />
+        android:text="@string/center" />
 </RelativeLayout>

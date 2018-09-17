@@ -32,4 +32,6 @@
     <string name="unique_student_id">Unique Student ID</string>
     <string name="transfer_payment">Transfer Payment</string>
     <string name="submit">Submit</string>
+    <string name="add_center">Add Center</string>
+    <string name="center">Center</string>
 </resources>
