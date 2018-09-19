@@ -177,7 +177,6 @@ public class StudentLoginActivity extends AppCompatActivity {
                         else
                             grant=false;
                     }
-                    Log.d("Hellllllo:  ","grant value in snapshot="+grant);
                 }
             }
 
@@ -186,8 +185,6 @@ public class StudentLoginActivity extends AppCompatActivity {
                 Toast.makeText(StudentLoginActivity.this, databaseError.toString(), Toast.LENGTH_SHORT).show();
             }
         });
-        Log.d("Hellllllo:  ","grant value outside snapshot="+grant);
-
 
         return grant;
     }

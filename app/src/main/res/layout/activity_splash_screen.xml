@@ -3,15 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fdf9fd"
+    android:background="@color/white"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".launcher.SplashScreenActivity">
 
     <ImageView
         android:id="@+id/iv"
-        android:layout_width="300sp"
-        android:layout_height="300sp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:layout_centerInParent="true"
         android:contentDescription="@string/logo"
         android:src="@mipmap/ic_logo" />
