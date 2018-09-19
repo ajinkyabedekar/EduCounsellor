@@ -275,13 +275,17 @@
             android:id="@+id/transfer_payment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/btnback2"
+            android:layout_below="@id/student_year"
             android:layout_alignParentLeft="true"
             android:text="@string/transfer_payment"
             android:textColor="@color/white" />
         <Button
             android:id="@+id/submit"
+            android:layout_below="@id/student_year"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/bluebtn"
             android:layout_alignParentRight="true"
             android:text="@string/submit"
             android:textColor="@color/white" />
