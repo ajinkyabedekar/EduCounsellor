@@ -6,21 +6,22 @@
     android:gravity="center"
     android:padding="20dp"
     tools:context=".login.AdminLoginActivity">
+
     <TextView
         android:id="@+id/textlog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Log in to your Account"
-        android:textStyle="bold"
-        android:textSize="30dp"
         android:layout_marginBottom="30dp"
-        />
+        android:text="@string/log_in_to_your_account"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:id="@+id/rel"
-        android:layout_below="@id/textlog">
+        android:layout_below="@id/textlog"
+        android:gravity="center">
+
         <android.support.design.widget.TextInputLayout
             android:id="@+id/username"
             android:layout_width="match_parent"
@@ -52,12 +53,12 @@
             android:id="@+id/login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
             android:layout_below="@+id/password"
-            android:text="@string/login"
-            android:background="@drawable/btnback2"
             android:layout_marginTop="10dp"
-            android:textColor="@color/white"
-            android:layout_alignParentRight="true"/>
+            android:background="@drawable/btnback2"
+            android:text="@string/login"
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/not_yet"
@@ -74,10 +75,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/not_yet"
             android:layout_centerInParent="true"
-            android:text="@string/reset"
-            android:textColor="@color/colorPrimary"
             android:background="@drawable/transbtn"
-            />
+            android:text="@string/reset"
+            android:textColor="@color/colorPrimary" />
     </RelativeLayout>
 
 </RelativeLayout>

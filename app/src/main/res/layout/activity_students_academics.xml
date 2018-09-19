@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/name"
                 android:inputType="textPersonName"
-                android:text="Ajinkya Bedekar" />
+                android:text="@string/ajinkya_bedekar" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/mobile_number"
                 android:inputType="number"
-                android:text="7297952357" />
+                android:text="@string/_7297952357" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/mail"
                 android:inputType="textWebEmailAddress"
-                android:text="ajinkyabedekar2@gmail.com" />
+                android:text="@string/ajinkyabedekar2_gmail_com" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -66,9 +66,9 @@
                 android:id="@+id/project"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Project Drive Link"
+                android:hint="@string/project_drive_link"
                 android:inputType="textUri"
-                android:text="https://drive.google.com/open?id=1qqX3T-qfjbyH_xIOKuycN8OuYLH5hakH" />
+                android:text="@string/https_drive_google_com_open_id_1qqx3t_qfjbyh_xiokuycn8ouylh5hakh" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -81,9 +81,9 @@
                 android:id="@+id/grade"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Grade Allotted"
+                android:hint="@string/grade_allotted"
                 android:inputType="text"
-                android:text="A" />
+                android:text="@string/a" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -96,9 +96,9 @@
                 android:id="@+id/score"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Tutor Score"
+                android:hint="@string/tutor_score"
                 android:inputType="number"
-                android:text="100" />
+                android:text="@string/_100" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -111,9 +111,9 @@
                 android:id="@+id/certificate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Certificate"
+                android:hint="@string/certificate"
                 android:inputType="text"
-                android:text="Issued" />
+                android:text="@string/issued" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -126,9 +126,9 @@
                 android:id="@+id/award"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Award"
+                android:hint="@string/award"
                 android:inputType="text"
-                android:text="Most Disciplined Student" />
+                android:text="@string/most_disciplined_student" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -141,9 +141,9 @@
                 android:id="@+id/professor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Name of Professor in Team"
+                android:hint="@string/name_of_professor_in_team"
                 android:inputType="textPersonName"
-                android:text="Amit Kumar" />
+                android:text="@string/amit_kumar" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -156,20 +156,20 @@
                 android:id="@+id/project_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Project Name"
+                android:hint="@string/project_name"
                 android:inputType="text"
-                android:text="Work Portfolio" />
+                android:text="@string/work_portfolio" />
         </android.support.design.widget.TextInputLayout>
 
         <Button
             android:id="@+id/submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bluebtn"
-            android:textColor="@color/white"
-            android:layout_marginTop="20sp"
             android:layout_below="@+id/project_name_layout"
             android:layout_centerInParent="true"
-            android:text="@string/submit" />
+            android:layout_marginTop="20sp"
+            android:background="@drawable/bluebtn"
+            android:text="@string/submit"
+            android:textColor="@color/white" />
     </RelativeLayout>
 </ScrollView>

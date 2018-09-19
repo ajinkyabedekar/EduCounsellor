@@ -11,13 +11,26 @@ import com.education.counselor.trainer.R;
 
 import java.util.ArrayList;
 
-public class studentAdapter extends RecyclerView.Adapter<holder>{
-    Context c;
-    ArrayList<studentDetails> details;
-    public studentAdapter(Context c, ArrayList<studentDetails> details) {
+public class studentAdapter extends RecyclerView.Adapter<holder> {
+    private Context c;
+    private ArrayList<studentDetails> details;
+
+    studentAdapter(Context c, ArrayList<studentDetails> details) {
+        setHasStableIds(true);
         this.c = c;
         this.details = details;
     }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
+
     @NonNull
     @Override
     public holder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {

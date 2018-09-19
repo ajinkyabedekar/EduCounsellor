@@ -14,7 +14,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class AdminDashboardActivity extends AppCompatActivity {
     Button logout, add_student, edit_student, student_list, startup_list, placement_list, edit_counsellor, news, centers, courses, add_employee, employee_list;
-    private boolean pressed=false;
+    private boolean pressed = false;
+
     @Override
     public void onBackPressed() {
         if (pressed) {
@@ -33,7 +34,7 @@ public class AdminDashboardActivity extends AppCompatActivity {
 
             @Override
             public void run() {
-                pressed=false;
+                pressed = false;
             }
         }, 2000);
     }

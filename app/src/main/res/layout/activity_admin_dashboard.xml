@@ -1,162 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".admin.AdminDashboardActivity">
+
     <android.support.v7.widget.CardView
         android:id="@+id/dash"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardElevation="5dp">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:padding="10sp"
-            android:text="ADMIN DASHBOARD"
             android:layout_alignParentTop="true"
             android:gravity="center"
-            />
+            android:padding="10sp"
+            android:text="@string/admin_dashboard"
+            android:textSize="30sp" />
 
     </android.support.v7.widget.CardView>
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/grid"
-    android:layout_below="@id/dash">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        >
+        android:layout_height="match_parent"
+        android:layout_below="@id/dash">
 
-        <Button
-            android:id="@+id/add_student"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
-            android:background="@drawable/buttonback1"
-            android:padding="10sp"
-            android:layout_column="0"
-            android:layout_row="0"
-            android:layout_below="@+id/logout"
-            android:text="@string/add_student" />
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
 
-        <Button
-            android:id="@+id/edit_student"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
-            android:background="@drawable/buttonback1"
-            android:padding="10sp"
-            android:layout_below="@+id/add_student"
-            android:text="Edit Student Details" />
+            <Button
+                android:id="@+id/add_student"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/buttonback1"
+                android:padding="10sp"
+                android:text="@string/add_student" />
 
-        <Button
-            android:id="@+id/student_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
-            android:background="@drawable/buttonback1"
-            android:padding="10sp"
-            android:layout_below="@+id/edit_student"
-            android:text="Students List" />
+            <Button
+                android:id="@+id/edit_student"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/buttonback1"
+                android:padding="10sp"
+                android:text="@string/edit_student_details" />
 
-        <Button
-            android:id="@+id/startup_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
-            android:background="@drawable/buttonback1"
-            android:padding="10sp"
-            android:layout_below="@+id/student_list"
-            android:text="Startup List" />
+            <Button
+                android:id="@+id/student_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/buttonback1"
+                android:padding="10sp"
+                android:text="@string/students_list" />
 
-        <Button
-            android:id="@+id/placement_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
-            android:background="@drawable/buttonback1"
-            android:padding="10sp"
-            android:layout_below="@+id/startup_list"
-            android:text="Placement List" />
+            <Button
+                android:id="@+id/startup_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/buttonback1"
+                android:padding="10sp"
+                android:text="@string/startup_list" />
 
-        <Button
-            android:id="@+id/edit_counsellor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
-            android:background="@drawable/buttonback1"
-            android:padding="10sp"
-            android:layout_below="@+id/placement_list"
-            android:text="Edit Counsellor Contact" />
+            <Button
+                android:id="@+id/placement_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/buttonback1"
+                android:padding="10sp"
+                android:text="@string/placement_list" />
 
-        <Button
-            android:id="@+id/news"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
-            android:background="@drawable/buttonback1"
-            android:padding="10sp"
-            android:layout_below="@+id/edit_counsellor"
-            android:text="News" />
+            <Button
+                android:id="@+id/edit_counsellor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/buttonback1"
+                android:padding="10sp"
+                android:text="@string/edit_counsellor_contact" />
 
-        <Button
-            android:id="@+id/centers"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
-            android:background="@drawable/buttonback1"
-            android:padding="10sp"
-            android:layout_below="@+id/news"
-            android:text="Current Centers" />
+            <Button
+                android:id="@+id/news"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/buttonback1"
+                android:padding="10sp"
+                android:text="@string/news" />
 
-        <Button
-            android:id="@+id/courses"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
-            android:background="@drawable/buttonback1"
-            android:padding="10sp"
-            android:layout_below="@+id/centers"
-            android:text="Courses" />
+            <Button
+                android:id="@+id/centers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/buttonback1"
+                android:padding="10sp"
+                android:text="@string/current_centers" />
 
-        <Button
-            android:id="@+id/add_employee"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
-            android:background="@drawable/buttonback1"
-            android:padding="10sp"
-            android:layout_below="@+id/courses"
-            android:text="Add Employees" />
+            <Button
+                android:id="@+id/courses"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/buttonback1"
+                android:padding="10sp"
+                android:text="@string/courses" />
 
-        <Button
-            android:id="@+id/employee_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
-            android:background="@drawable/buttonback1"
-            android:padding="10sp"
-            android:layout_below="@+id/add_employee"
-            android:text="Employees List" />
-        <Button
-            android:id="@+id/logout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20sp"
-            android:textColor="@color/white"
-            android:background="@drawable/btnred"
-            android:padding="10sp"
-            android:text="@string/logout" />
-    </LinearLayout>
+            <Button
+                android:id="@+id/add_employee"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/buttonback1"
+                android:padding="10sp"
+                android:text="@string/add_employees" />
 
-</ScrollView>
+            <Button
+                android:id="@+id/employee_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/buttonback1"
+                android:padding="10sp"
+                android:text="@string/employees_list" />
 
-    </RelativeLayout>
+            <Button
+                android:id="@+id/logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/btnred"
+                android:padding="10sp"
+                android:text="@string/logout"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

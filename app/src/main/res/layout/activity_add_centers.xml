@@ -16,7 +16,7 @@
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name"
+            android:hint="@string/name"
             android:inputType="text" />
     </android.support.design.widget.TextInputLayout>
 
@@ -30,7 +30,7 @@
             android:id="@+id/location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Location Address"
+            android:hint="@string/location_address"
             android:inputType="text" />
     </android.support.design.widget.TextInputLayout>
 
@@ -44,7 +44,7 @@
             android:id="@+id/mail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Mail"
+            android:hint="@string/mail"
             android:inputType="textWebEmailAddress" />
     </android.support.design.widget.TextInputLayout>
 
@@ -58,7 +58,7 @@
             android:id="@+id/head"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Head Name"
+            android:hint="@string/head_name"
             android:inputType="textPersonName" />
     </android.support.design.widget.TextInputLayout>
 
@@ -72,7 +72,7 @@
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Unique Password"
+            android:hint="@string/unique_password"
             android:inputType="textPassword" />
     </android.support.design.widget.TextInputLayout>
 
@@ -80,9 +80,9 @@
         android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/submit"
-        android:textColor="@color/white"
-        android:background="@drawable/bluebtn"
         android:layout_below="@+id/password_layout"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true"
+        android:background="@drawable/bluebtn"
+        android:text="@string/submit"
+        android:textColor="@color/white" />
 </RelativeLayout>

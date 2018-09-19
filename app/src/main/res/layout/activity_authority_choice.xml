@@ -11,15 +11,15 @@
         android:id="@+id/school"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:text="@string/school_authority"
-        android:background="@drawable/buttonback1"/>
+        android:background="@drawable/buttonback1"
+        android:text="@string/school_authority" />
 
     <Button
         android:id="@+id/college"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginTop="20sp"
         android:layout_below="@id/school"
-        android:text="@string/college_authority"
-        android:background="@drawable/buttonback1"/>
+        android:layout_marginTop="20sp"
+        android:background="@drawable/buttonback1"
+        android:text="@string/college_authority" />
 </RelativeLayout>

@@ -16,9 +16,9 @@
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name"
+            android:hint="@string/name"
             android:inputType="text"
-            android:text="News" />
+            android:text="@string/news" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -31,9 +31,9 @@
             android:id="@+id/motto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Motto"
+            android:hint="@string/motto"
             android:inputType="text"
-            android:text="News Motto" />
+            android:text="@string/news_motto" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -46,9 +46,9 @@
             android:id="@+id/drive"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Google Drive Link"
+            android:hint="@string/google_drive_link"
             android:inputType="textUri"
-            android:text="Google Drive Link to News" />
+            android:text="@string/google_drive_link_to_news" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -61,31 +61,31 @@
             android:id="@+id/date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Date"
+            android:hint="@string/date"
             android:inputType="date"
-            android:text="13/09/2018" />
+            android:text="@string/_13_09_2018" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
         android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/bluebtn"
-        android:textColor="@color/white"
         android:layout_below="@+id/date_layout"
-        android:layout_marginTop="20sp"
         android:layout_centerInParent="true"
-        android:text="Submit" />
+        android:layout_marginTop="20sp"
+        android:background="@drawable/bluebtn"
+        android:text="@string/submit"
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/btnred"
         android:layout_below="@+id/submit"
         android:layout_centerInParent="true"
         android:layout_marginTop="10sp"
+        android:background="@drawable/btnred"
         android:padding="10sp"
-        android:text="Delete News"
+        android:text="@string/delete_news"
         android:textColor="@color/white" />
 </RelativeLayout>

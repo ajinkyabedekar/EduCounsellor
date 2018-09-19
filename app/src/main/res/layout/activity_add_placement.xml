@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
@@ -15,7 +14,7 @@
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name"
+            android:hint="@string/name"
             android:inputType="text" />
     </android.support.design.widget.TextInputLayout>
 
@@ -29,7 +28,7 @@
             android:id="@+id/department"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Department"
+            android:hint="@string/department"
             android:inputType="text" />
     </android.support.design.widget.TextInputLayout>
 
@@ -43,7 +42,7 @@
             android:id="@+id/company"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Company Name"
+            android:hint="@string/company_name"
             android:inputType="text" />
     </android.support.design.widget.TextInputLayout>
 
@@ -57,7 +56,7 @@
             android:id="@+id/package_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Package Name"
+            android:hint="@string/package_name"
             android:inputType="text" />
     </android.support.design.widget.TextInputLayout>
 
@@ -71,7 +70,7 @@
             android:id="@+id/location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Location"
+            android:hint="@string/location"
             android:inputType="text" />
     </android.support.design.widget.TextInputLayout>
 
@@ -85,7 +84,7 @@
             android:id="@+id/student"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Unique Student ID"
+            android:hint="@string/unique_student_id"
             android:inputType="text" />
     </android.support.design.widget.TextInputLayout>
 
@@ -97,6 +96,6 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="30sp"
         android:background="@drawable/bluebtn"
-        android:text="Submit"
+        android:text="@string/submit"
         android:textColor="@color/white" />
 </RelativeLayout>

@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/name"
                 android:inputType="textPersonName"
-                android:text="Ajinkya Bedekar" />
+                android:text="@string/ajinkya_bedekar" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/mobile_number"
                 android:inputType="number"
-                android:text="7297952357" />
+                android:text="@string/_7297952357" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/mail"
                 android:inputType="textWebEmailAddress"
-                android:text="ajinkyabedekar2@gmail.com" />
+                android:text="@string/ajinkyabedekar2_gmail_com" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -68,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/total_fee"
                 android:inputType="number"
-                android:text="500" />
+                android:text="@string/_500" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -83,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/department"
                 android:inputType="text"
-                android:text="Computer Science and Engineering" />
+                android:text="@string/computer_science_and_engineering" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -98,7 +98,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/total_fee_submitted"
                 android:inputType="number"
-                android:text="500" />
+                android:text="@string/_500" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -113,7 +113,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/date_of_fee_payment_1"
                 android:inputType="date"
-                android:text="01/01/2001" />
+                android:text="@string/_01_01_2001" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -128,7 +128,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/date_of_fee_payment_2"
                 android:inputType="date"
-                android:text="01/01/2001" />
+                android:text="@string/_01_01_2001" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -143,7 +143,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/date_of_fee_payment_3"
                 android:inputType="date"
-                android:text="01/01/2001" />
+                android:text="@string/_01_01_2001" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -158,7 +158,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/date_of_fee_payment_4"
                 android:inputType="date"
-                android:text="01/01/2001" />
+                android:text="@string/_01_01_2001" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -173,7 +173,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/payment_1"
                 android:inputType="number"
-                android:text="100" />
+                android:text="@string/_100" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -188,7 +188,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/payment_2"
                 android:inputType="number"
-                android:text="100" />
+                android:text="@string/_100" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -203,7 +203,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/payment_3"
                 android:inputType="number"
-                android:text="200" />
+                android:text="@string/_200" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -218,7 +218,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/payment_4"
                 android:inputType="number"
-                android:text="100" />
+                android:text="@string/_100" />
         </android.support.design.widget.TextInputLayout>
 
         <Spinner
@@ -263,7 +263,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/reference_id"
                 android:inputType="textAutoComplete"
-                android:text="U101116FCS183" />
+                android:text="@string/u101116fcs183" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -278,7 +278,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/unique_student_id"
                 android:inputType="textAutoComplete"
-                android:text="183" />
+                android:text="@string/_183" />
         </android.support.design.widget.TextInputLayout>
 
         <Spinner
@@ -298,26 +298,27 @@
             android:padding="10sp"
             android:text="@string/transfer_payment"
             android:textColor="@color/white" />
+
         <Button
             android:id="@+id/submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bluebtn"
-            android:textColor="@color/white"
-            android:layout_marginTop="20sp"
             android:layout_below="@+id/transfer_payment"
             android:layout_centerInParent="true"
-            android:text="@string/submit" />
+            android:layout_marginTop="20sp"
+            android:background="@drawable/bluebtn"
+            android:text="@string/submit"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/submit"
-            android:background="@drawable/btnred"
             android:layout_centerInParent="true"
             android:layout_marginTop="10sp"
-            android:text="Delete Student"
+            android:background="@drawable/btnred"
+            android:text="@string/delete_student"
             android:textColor="@color/white" />
     </RelativeLayout>
 </ScrollView>
