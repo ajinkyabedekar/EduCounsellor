@@ -2,9 +2,11 @@ package com.education.counselor.trainer.admin;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.launcher.LoginActivity;
@@ -12,6 +14,29 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class AdminDashboardActivity extends AppCompatActivity {
     Button logout, add_student, edit_student, student_list, startup_list, placement_list, edit_counsellor, news, centers, courses, add_employee, employee_list;
+    private boolean pressed=false;
+    @Override
+    public void onBackPressed() {
+        if (pressed) {
+            //super.onBackPressed();
+
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            startActivity(intent);
+            android.os.Process.killProcess(android.os.Process.myPid());
+            return;
+        }
+        this.pressed = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                pressed=false;
+            }
+        }, 2000);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

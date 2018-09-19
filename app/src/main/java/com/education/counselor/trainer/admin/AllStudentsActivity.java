@@ -65,6 +65,8 @@ public class AllStudentsActivity extends AppCompatActivity {
             adapter=new studentAdapter(mContext,details);
             pg.setVisibility(View.GONE);
             recyclerView.setAdapter(adapter);
+            Toast.makeText(mContext,adapter.getItemCount()+" students", Toast.LENGTH_SHORT).show();
+
 
         }
 
