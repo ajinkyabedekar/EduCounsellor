@@ -11,11 +11,11 @@ import com.education.counselor.trainer.R;
 
 import java.util.ArrayList;
 
-public class CentersListEntryAdapter extends RecyclerView.Adapter<CentersList> {
+public class PlacementCentersEntryAdapter extends RecyclerView.Adapter<PlacementCenters> {
     private Context c;
-    private ArrayList<CentersListEntryVo> details;
+    private ArrayList<PlacementCentersEntryVo> details;
 
-    CentersListEntryAdapter(Context c, ArrayList<CentersListEntryVo> details) {
+    PlacementCentersEntryAdapter(Context c, ArrayList<PlacementCentersEntryVo> details) {
         setHasStableIds(true);
         this.c = c;
         this.details = details;
@@ -33,13 +33,13 @@ public class CentersListEntryAdapter extends RecyclerView.Adapter<CentersList> {
 
     @NonNull
     @Override
-    public CentersList onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(c).inflate(R.layout.layout_centers_list_adapter, viewGroup, false);
-        return new CentersList(v);
+    public PlacementCenters onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View v = LayoutInflater.from(c).inflate(R.layout.layout_placement_centers_adapter, viewGroup, false);
+        return new PlacementCenters(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CentersList holder, int i) {
+    public void onBindViewHolder(@NonNull PlacementCenters holder, int i) {
         holder.sname.setText(details.get(i).getName());
     }
 

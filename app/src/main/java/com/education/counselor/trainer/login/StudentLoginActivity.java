@@ -140,8 +140,6 @@ public class StudentLoginActivity extends AppCompatActivity {
             });
         } else
             Toast.makeText(StudentLoginActivity.this, "The email do not exist", Toast.LENGTH_SHORT).show();
-
-
     }
 
     public boolean check(final String email) {
@@ -175,7 +173,6 @@ public class StudentLoginActivity extends AppCompatActivity {
                 Toast.makeText(StudentLoginActivity.this, databaseError.toString(), Toast.LENGTH_SHORT).show();
             }
         });
-
         return grant;
     }
 

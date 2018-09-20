@@ -7,7 +7,6 @@ public class EditStudentEntryVo {
     }
 
     public String getName() {
-
         return name;
     }
 
@@ -22,6 +21,4 @@ public class EditStudentEntryVo {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
-
 }

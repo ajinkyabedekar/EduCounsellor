@@ -36,14 +36,12 @@ public class AllStudentsEntryAdapter extends RecyclerView.Adapter<AllStudents> {
     public AllStudents onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(c).inflate(R.layout.layout_all_students_adapter, viewGroup, false);
         return new AllStudents(v);
-
     }
 
     @Override
     public void onBindViewHolder(@NonNull AllStudents holder, int i) {
         holder.sname.setText(details.get(i).getName());
         holder.pname.setText(details.get(i).getPhone());
-
     }
 
     @Override

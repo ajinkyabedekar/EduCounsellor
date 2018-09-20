@@ -16,5 +16,4 @@ class StartupCenters extends RecyclerView.ViewHolder {
         super(itemView);
         sname = itemView.findViewById(R.id.ctext);
     }
-
 }

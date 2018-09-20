@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.education.counselor.trainer.R;
 
-public class CentersList extends RecyclerView.ViewHolder {
+class CentersList extends RecyclerView.ViewHolder {
     TextView sname;
 
     @SuppressLint("SetTextI18n")
@@ -16,5 +16,4 @@ public class CentersList extends RecyclerView.ViewHolder {
         super(itemView);
         sname = itemView.findViewById(R.id.ctext);
     }
-
 }

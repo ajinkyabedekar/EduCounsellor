@@ -13,5 +13,4 @@ public class StartupCentersEntryVo {
     public void setName(String name) {
         this.name = name;
     }
-
 }

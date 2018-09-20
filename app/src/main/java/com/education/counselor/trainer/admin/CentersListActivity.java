@@ -76,6 +76,5 @@ public class CentersListActivity extends AppCompatActivity {
                 Toast.makeText(mContext, "Error", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 }

@@ -1,9 +1,9 @@
 package com.education.counselor.trainer.admin;
 
-public class CentersListEntryVo {
+public class PlacementCentersEntryVo {
     private String name;
 
-    CentersListEntryVo() {
+    PlacementCentersEntryVo() {
     }
 
     public String getName() {

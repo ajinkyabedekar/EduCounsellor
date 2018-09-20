@@ -18,5 +18,4 @@ public class EditStudent extends RecyclerView.ViewHolder {
         pname = itemView.findViewById(R.id.ptext);
         pname.setText("null");
     }
-
 }

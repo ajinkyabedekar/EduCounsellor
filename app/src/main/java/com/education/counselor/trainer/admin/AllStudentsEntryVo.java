@@ -7,7 +7,6 @@ public class AllStudentsEntryVo {
     }
 
     public String getName() {
-
         return name;
     }
 
@@ -22,6 +21,4 @@ public class AllStudentsEntryVo {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
-
 }

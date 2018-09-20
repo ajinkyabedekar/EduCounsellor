@@ -60,8 +60,6 @@ public class AllStudentsActivity extends AppCompatActivity {
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
                 Toast.makeText(mContext, adapter.getItemCount() + " students", Toast.LENGTH_SHORT).show();
-
-
             }
 
             @Override
@@ -69,6 +67,5 @@ public class AllStudentsActivity extends AppCompatActivity {
                 Toast.makeText(mContext, "Error", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 }

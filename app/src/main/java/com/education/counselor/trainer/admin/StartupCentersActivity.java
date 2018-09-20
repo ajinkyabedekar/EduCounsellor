@@ -1,14 +1,12 @@
 package com.education.counselor.trainer.admin;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -27,10 +25,10 @@ public class StartupCentersActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     DatabaseReference db;
     EditText name;
-    CentersListEntryAdapter adapter;
+    StartupCentersEntryAdapter adapter;
     ProgressBar pg;
     Context mContext;
-    private ArrayList<CentersListEntryVo> details = new ArrayList<>();
+    private ArrayList<StartupCentersEntryVo> details = new ArrayList<>();
 
     @Override
     protected void onStart() {
@@ -53,11 +51,11 @@ public class StartupCentersActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    CentersListEntryVo s = new CentersListEntryVo();
+                    StartupCentersEntryVo s = new StartupCentersEntryVo();
                     s.setName(Objects.requireNonNull(ds.child("name").getValue()).toString());
                     details.add(s);
                 }
-                adapter = new CentersListEntryAdapter(mContext, details);
+                adapter = new StartupCentersEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
                 Toast.makeText(mContext, adapter.getItemCount() + " centers", Toast.LENGTH_SHORT).show();
@@ -68,6 +66,5 @@ public class StartupCentersActivity extends AppCompatActivity {
                 Toast.makeText(mContext, "Error", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 }

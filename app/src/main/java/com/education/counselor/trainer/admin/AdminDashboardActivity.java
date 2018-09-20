@@ -19,8 +19,6 @@ public class AdminDashboardActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if (pressed) {
-            //super.onBackPressed();
-
             Intent intent = new Intent(Intent.ACTION_MAIN);
             intent.addCategory(Intent.CATEGORY_HOME);
             startActivity(intent);
@@ -29,7 +27,6 @@ public class AdminDashboardActivity extends AppCompatActivity {
         }
         this.pressed = true;
         Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
-
         new Handler().postDelayed(new Runnable() {
 
             @Override

@@ -36,14 +36,12 @@ public class EditStudentEntryAdapter extends RecyclerView.Adapter<EditStudent> {
     public EditStudent onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(c).inflate(R.layout.layout_edit_student_adapter, viewGroup, false);
         return new EditStudent(v);
-
     }
 
     @Override
     public void onBindViewHolder(@NonNull EditStudent holder, int i) {
         holder.sname.setText(details.get(i).getName());
         holder.pname.setText(details.get(i).getPhone());
-
     }
 
     @Override

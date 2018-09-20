@@ -34,14 +34,13 @@ public class StartupCentersEntryAdapter extends RecyclerView.Adapter<StartupCent
     @NonNull
     @Override
     public StartupCenters onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(c).inflate(R.layout.layout_startup_list_adapter, viewGroup, false);
+        View v = LayoutInflater.from(c).inflate(R.layout.layout_startup_centers_adapter, viewGroup, false);
         return new StartupCenters(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull StartupCenters holder, int i) {
         holder.sname.setText(details.get(i).getName());
-
     }
 
     @Override
