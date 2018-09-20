@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.util.AttributeSet;
 import android.widget.ArrayAdapter;
+import android.widget.SpinnerAdapter;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -18,13 +19,13 @@ public class MultiSelectionSpinner extends android.support.v7.widget.AppCompatSp
 
     public MultiSelectionSpinner(Context context) {
         super(context);
-        simple_adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_item);
+        simple_adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item);
         super.setAdapter(simple_adapter);
     }
 
     public MultiSelectionSpinner(Context context, AttributeSet attrs) {
         super(context, attrs);
-        simple_adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_item);
+        simple_adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item);
         super.setAdapter(simple_adapter);
     }
 
@@ -52,10 +53,10 @@ public class MultiSelectionSpinner extends android.support.v7.widget.AppCompatSp
         return true;
     }
 
-//    @Override
-//    public void setAdapter(SpinnerAdapter adapter) {
-//        throw new RuntimeException("setAdapter is not supported by MultiSelectSpinner.");
-//    }
+    @Override
+    public void setAdapter(SpinnerAdapter adapter) {
+        throw new RuntimeException("setAdapter is not supported by MultiSelectSpinner.");
+    }
 
     public void setItems(String[] items) {
         _items = items;
@@ -127,7 +128,7 @@ public class MultiSelectionSpinner extends android.support.v7.widget.AppCompatSp
     }
 
     public List<String> getSelectedStrings() {
-        List<String> selection = new LinkedList<String>();
+        List<String> selection = new LinkedList<>();
         for (int i = 0; i < _items.length; ++i) {
             if (mSelection[i]) {
                 selection.add(_items[i]);
@@ -137,7 +138,7 @@ public class MultiSelectionSpinner extends android.support.v7.widget.AppCompatSp
     }
 
     public List<Integer> getSelectedIndicies() {
-        List<Integer> selection = new LinkedList<Integer>();
+        List<Integer> selection = new LinkedList<>();
         for (int i = 0; i < _items.length; ++i) {
             if (mSelection[i]) {
                 selection.add(i);

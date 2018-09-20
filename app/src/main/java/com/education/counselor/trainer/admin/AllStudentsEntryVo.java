@@ -1,9 +1,9 @@
 package com.education.counselor.trainer.admin;
 
-public class studentDetails {
+public class AllStudentsEntryVo {
     private String name, phone;
 
-    studentDetails() {
+    AllStudentsEntryVo() {
     }
 
     public String getName() {

@@ -24,11 +24,11 @@ import java.util.Objects;
 public class AllStudentsActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     DatabaseReference db;
-    EditText name, phone;
-    studentAdapter adapter;
+    EditText name;
+    AllStudentsEntryAdapter adapter;
     ProgressBar pg;
     Context mContext;
-    private ArrayList<studentDetails> details = new ArrayList<>();
+    private ArrayList<AllStudentsEntryVo> details = new ArrayList<>();
 
     @Override
     protected void onStart() {
@@ -51,12 +51,12 @@ public class AllStudentsActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    studentDetails s = new studentDetails();
+                    AllStudentsEntryVo s = new AllStudentsEntryVo();
                     s.setName(Objects.requireNonNull(ds.child("name").getValue()).toString());
                     s.setPhone(Objects.requireNonNull(ds.child("mobile_number").getValue()).toString());
                     details.add(s);
                 }
-                adapter = new studentAdapter(mContext, details);
+                adapter = new AllStudentsEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
                 Toast.makeText(mContext, adapter.getItemCount() + " students", Toast.LENGTH_SHORT).show();

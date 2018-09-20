@@ -11,11 +11,11 @@ import com.education.counselor.trainer.R;
 
 import java.util.ArrayList;
 
-public class studentAdapter extends RecyclerView.Adapter<holder> {
+public class AllStudentsEntryAdapter extends RecyclerView.Adapter<AllStudents> {
     private Context c;
-    private ArrayList<studentDetails> details;
+    private ArrayList<AllStudentsEntryVo> details;
 
-    studentAdapter(Context c, ArrayList<studentDetails> details) {
+    AllStudentsEntryAdapter(Context c, ArrayList<AllStudentsEntryVo> details) {
         setHasStableIds(true);
         this.c = c;
         this.details = details;
@@ -33,14 +33,14 @@ public class studentAdapter extends RecyclerView.Adapter<holder> {
 
     @NonNull
     @Override
-    public holder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(c).inflate(R.layout.student_recycler_layout, viewGroup, false);
-        return new holder(v);
+    public AllStudents onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View v = LayoutInflater.from(c).inflate(R.layout.layout_all_students_adapter, viewGroup, false);
+        return new AllStudents(v);
 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull holder holder, int i) {
+    public void onBindViewHolder(@NonNull AllStudents holder, int i) {
         holder.sname.setText(details.get(i).getName());
         holder.pname.setText(details.get(i).getPhone());
 

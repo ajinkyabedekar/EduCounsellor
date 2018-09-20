@@ -59,7 +59,7 @@ public class AdminLoginActivity extends AppCompatActivity {
                 dialog.setCancelable(false);
                 dialog.setMessage("RESET YOUR PASSWORD");
                 LayoutInflater inflater = getLayoutInflater();
-                @SuppressLint("InflateParams") final View v = inflater.inflate(R.layout.alert, null);
+                @SuppressLint("InflateParams") final View v = inflater.inflate(R.layout.layout_alert, null);
                 dialog.setView(v).setPositiveButton("CONFIRM", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
