@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.education.counselor.trainer.R;
 
@@ -33,15 +34,21 @@ public class AllStudentsEntryAdapter extends RecyclerView.Adapter<AllStudents> {
 
     @NonNull
     @Override
-    public AllStudents onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public AllStudents onCreateViewHolder(@NonNull ViewGroup viewGroup,final int i) {
         View v = LayoutInflater.from(c).inflate(R.layout.layout_all_students_adapter, viewGroup, false);
         return new AllStudents(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AllStudents holder, int i) {
+    public void onBindViewHolder(@NonNull final AllStudents holder, int i) {
         holder.sname.setText(details.get(i).getName());
         holder.pname.setText(details.get(i).getPhone());
+        holder.v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(c, "Hello "+details.get(holder.getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

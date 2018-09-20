@@ -35,6 +35,7 @@ public class CounsellorCentersEntryAdapter extends RecyclerView.Adapter<Counsell
     @Override
     public CounsellorCenters onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(c).inflate(R.layout.layout_counsellor_centers_adapter, viewGroup, false);
+
         return new CounsellorCenters(v);
     }
 
