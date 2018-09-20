@@ -96,4 +96,6 @@
     <string name="amit_kumar">Amit Kumar</string>
     <string name="project_name">Project Name</string>
     <string name="work_portfolio">Work Portfolio</string>
+    <string name="add_news">Add News</string>
+    <string name="add_placement">Add Placement</string>
 </resources>

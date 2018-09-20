@@ -3,18 +3,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     tools:context=".admin.PlacementListActivity">
 
     <Button
         android:id="@+id/add_placement"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Placement" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/buttonback1"
+        android:padding="10sp"
+        android:text="@string/add_placement" />
 
-    <Button
-        android:id="@+id/placement"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/add_placement">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <ProgressBar
+        android:id="@+id/progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/add_placement"
-        android:text="Placement Name" />
+        android:layout_centerInParent="true" />
 </RelativeLayout>
