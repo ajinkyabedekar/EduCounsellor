@@ -24,7 +24,6 @@
     <string name="payment_2">Payment 2</string>
     <string name="payment_3">Payment 3</string>
     <string name="payment_4">Payment 4</string>
-    <string name="reference_id">Reference ID</string>
     <string name="transfer_payment">Transfer Payment</string>
     <string name="welcome">WELCOME</string>
     <string name="image">image</string>
@@ -102,4 +101,9 @@
     <string name="news">News</string>
     <string name="placement">Placement</string>
     <string name="startup">Startup</string>
+    <string name="payment_1_reference_id">Payment 1 Reference ID</string>
+    <string name="payment_2_reference_id">Payment 2 Reference ID</string>
+    <string name="payment_3_reference_id">Payment 3 Reference ID</string>
+    <string name="payment_4_reference_id">Payment 4 Reference ID</string>
+    <string name="reference_id">Reference ID</string>
 </resources>
