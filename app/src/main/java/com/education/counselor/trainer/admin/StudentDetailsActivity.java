@@ -2,7 +2,13 @@ package com.education.counselor.trainer.admin;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
+import android.text.method.KeyListener;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,20 +18,31 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.education.counselor.trainer.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class StudentDetailsActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     EditText name, mobile_number, mail, total_fee, department, total_fee_submitted, date_of_fee_1, date_of_fee_2, date_of_fee_3, date_of_fee_4, payment_1, payment_2, payment_3, payment_4, reference_id, student_id;
     Spinner payment_type, payment_1_mode, payment_2_mode, payment_3_mode, payment_4_mode, student_year;
     Button transfer_payment, submit, delete;
-
+    DatabaseReference studentData;
+    private String n="";
+    private boolean exist=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Intent i=getIntent();
+        if (i.hasExtra("name")) {
+            n = i.getStringExtra("name");
+        }
         setContentView(R.layout.activity_student_details);
         name = findViewById(R.id.name);
         mobile_number = findViewById(R.id.mobile_number);
@@ -92,102 +109,62 @@ public class StudentDetailsActivity extends AppCompatActivity implements Adapter
         payment_4_mode.setSelection(4);
         student_year.setAdapter(student_year_adapter);
         student_year.setSelection(3);
+
+        studentData=FirebaseDatabase.getInstance().getReference("student");
+        studentData.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot ds:dataSnapshot.getChildren())
+                {
+                    if(Objects.equals(ds.child("name").getValue(String.class), n))
+                    {
+                        name.setText(n);
+                        mobile_number.setText(ds.child("mobile_number").getValue(String.class));
+                        mail.setText(ds.child("mail").getValue(String.class));
+                        total_fee.setText(ds.child("total_fee").getValue(String.class));
+                        department.setText(ds.child("department").getValue(String.class));
+                        total_fee_submitted.setText(ds.child("total_fee_submitted").getValue(String.class));
+                        date_of_fee_1.setText(ds.child("date_of_fee_1").getValue(String.class));
+                        date_of_fee_2.setText(ds.child("date_of_fee_2").getValue(String.class));
+                        date_of_fee_3.setText(ds.child("date_of_fee_3").getValue(String.class));
+                        date_of_fee_4.setText(ds.child("date_of_fee_4").getValue(String.class));
+                        payment_1.setText(ds.child("payment_1").getValue(String.class));
+                        payment_2.setText(ds.child("payment_2").getValue(String.class));
+                        payment_3.setText(ds.child("payment_3").getValue(String.class));
+                        payment_4.setText(ds.child("payment_4").getValue(String.class));
+                        reference_id.setText(ds.child("reference_id").getValue(String.class));
+                        student_id.setText(ds.getKey());
+
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+       /* if(checkId(studentData,editable.toString()) && !TextUtils.isEmpty(student_id.getText()))
+        {
+            Toast.makeText(StudentDetailsActivity.this, "Id "+editable+" already exist", Toast.LENGTH_SHORT).show();
+        }
+        else
+            Toast.makeText(StudentDetailsActivity.this, "Id "+editable+" accepted", Toast.LENGTH_SHORT).show();
+        */
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (name.getText().toString().equals("")) {
-                    name.requestFocus();
-                    name.setError("This Is A Required Field");
-                } else if (mobile_number.getText().toString().equals("")) {
-                    mobile_number.requestFocus();
-                    mobile_number.setError("This Is A Required Field");
-                } else if (mail.getText().toString().equals("")) {
-                    mail.requestFocus();
-                    mail.setError("This Is A Required Field");
-                } else if (total_fee.getText().toString().equals("")) {
-                    total_fee.requestFocus();
-                    total_fee.setError("This Is A Required Field");
-                } else if (department.getText().toString().equals("")) {
-                    department.requestFocus();
-                    department.setError("This Is A Required Field");
-                } else if (total_fee_submitted.getText().toString().equals("")) {
-                    total_fee_submitted.requestFocus();
-                    total_fee_submitted.setError("This Is A Required Field");
-                } else if (date_of_fee_1.getText().toString().equals("")) {
-                    date_of_fee_1.requestFocus();
-                    date_of_fee_1.setError("This Is A Required Field");
-                } else if (date_of_fee_2.getText().toString().equals("")) {
-                    date_of_fee_2.requestFocus();
-                    date_of_fee_2.setError("This Is A Required Field");
-                } else if (date_of_fee_3.getText().toString().equals("")) {
-                    date_of_fee_3.requestFocus();
-                    date_of_fee_3.setError("This Is A Required Field");
-                } else if (date_of_fee_4.getText().toString().equals("")) {
-                    date_of_fee_4.requestFocus();
-                    date_of_fee_4.setError("This Is A Required Field");
-                } else if (payment_1.getText().toString().equals("")) {
-                    payment_1.requestFocus();
-                    payment_1.setError("This Is A Required Field");
-                } else if (payment_2.getText().toString().equals("")) {
-                    payment_2.requestFocus();
-                    payment_2.setError("This Is A Required Field");
-                } else if (payment_3.getText().toString().equals("")) {
-                    payment_3.requestFocus();
-                    payment_3.setError("This Is A Required Field");
-                } else if (payment_4.getText().toString().equals("")) {
-                    payment_4.requestFocus();
-                    payment_4.setError("This Is A Required Field");
-                } else if (payment_type.getSelectedItem().toString().equals("Payment Type")) {
-                    payment_type.requestFocus();
-                    Toast.makeText(getBaseContext(), "Please Select A Payment Type", Toast.LENGTH_SHORT).show();
-                } else if (payment_1_mode.getSelectedItem().toString().equals("Payment Mode")) {
-                    payment_type.requestFocus();
-                    Toast.makeText(getBaseContext(), "Please Select A Payment Mode 1", Toast.LENGTH_SHORT).show();
-                } else if (payment_2_mode.getSelectedItem().toString().equals("Payment Mode")) {
-                    payment_type.requestFocus();
-                    Toast.makeText(getBaseContext(), "Please Select A Payment Mode 2", Toast.LENGTH_SHORT).show();
-                } else if (payment_3_mode.getSelectedItem().toString().equals("Payment Mode")) {
-                    payment_type.requestFocus();
-                    Toast.makeText(getBaseContext(), "Please Select A Payment Mode 3", Toast.LENGTH_SHORT).show();
-                } else if (payment_4_mode.getSelectedItem().toString().equals("Payment Mode")) {
-                    payment_type.requestFocus();
-                    Toast.makeText(getBaseContext(), "Please Select A Payment Mode 4", Toast.LENGTH_SHORT).show();
-                } else if (reference_id.getText().toString().equals("")) {
-                    reference_id.requestFocus();
-                    reference_id.setError("This Is A Required Field");
-                } else if (student_id.getText().toString().equals("")) {
-                    student_id.requestFocus();
-                    student_id.setError("This Is A Required Field");
-                } else if (student_year.getSelectedItem().toString().equals("Student Year")) {
-                    student_year.requestFocus();
-                    Toast.makeText(getBaseContext(), "Please Select A Student Year", Toast.LENGTH_SHORT).show();
-                } else {
-                    FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    DatabaseReference myRef = database.getReference("student").child(student_id.getText().toString());
-                    myRef.child("name").setValue(name.getText().toString());
-                    myRef.child("mobile_number").setValue(mobile_number.getText().toString());
-                    myRef.child("mail").setValue(mail.getText().toString());
-                    myRef.child("total_fee").setValue(total_fee.getText().toString());
-                    myRef.child("department").setValue(department.getText().toString());
-                    myRef.child("total_fee_submitted").setValue(total_fee_submitted.getText().toString());
-                    myRef.child("date_of_fee_1").setValue(date_of_fee_1.getText().toString());
-                    myRef.child("date_of_fee_2").setValue(date_of_fee_2.getText().toString());
-                    myRef.child("date_of_fee_3").setValue(date_of_fee_3.getText().toString());
-                    myRef.child("date_of_fee_4").setValue(date_of_fee_4.getText().toString());
-                    myRef.child("payment_1").setValue(payment_1.getText().toString());
-                    myRef.child("payment_2").setValue(payment_2.getText().toString());
-                    myRef.child("payment_3").setValue(payment_3.getText().toString());
-                    myRef.child("payment_4").setValue(payment_4.getText().toString());
-                    myRef.child("payment_type").setValue(payment_type.getSelectedItem().toString());
-                    myRef.child("payment_1_mode").setValue(payment_1_mode.getSelectedItem().toString());
-                    myRef.child("payment_2_mode").setValue(payment_2_mode.getSelectedItem().toString());
-                    myRef.child("payment_3_mode").setValue(payment_3_mode.getSelectedItem().toString());
-                    myRef.child("payment_4_mode").setValue(payment_4_mode.getSelectedItem().toString());
-                    myRef.child("reference_id").setValue(reference_id.getText().toString());
-                    myRef.child("student_year").setValue(student_year.getSelectedItem().toString());
-                    Toast.makeText(getBaseContext(), "Student Details Updated Successfully", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getBaseContext(), AdminDashboardActivity.class));
-                }
+
+                EditText e[]=new EditText[]{ name, mobile_number, mail, total_fee, department,
+                        total_fee_submitted, date_of_fee_1, date_of_fee_2, date_of_fee_3,
+                        date_of_fee_4, payment_1, payment_2, payment_3, payment_4, reference_id, student_id};
+               if (check(e))
+               {
+                   Toast.makeText(StudentDetailsActivity.this, "Error", Toast.LENGTH_SHORT).show();
+               }
+               else
+                   update();
             }
         });
         delete.setOnClickListener(new View.OnClickListener() {
@@ -204,5 +181,70 @@ public class StudentDetailsActivity extends AppCompatActivity implements Adapter
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
+    }
+    private void  update()
+    {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("student").child(student_id.getText().toString());
+        myRef.child("name").setValue(name.getText().toString());
+        myRef.child("mobile_number").setValue(mobile_number.getText().toString());
+        myRef.child("mail").setValue(mail.getText().toString());
+        myRef.child("total_fee").setValue(total_fee.getText().toString());
+        myRef.child("department").setValue(department.getText().toString());
+        myRef.child("total_fee_submitted").setValue(total_fee_submitted.getText().toString());
+        myRef.child("date_of_fee_1").setValue(date_of_fee_1.getText().toString());
+        myRef.child("date_of_fee_2").setValue(date_of_fee_2.getText().toString());
+        myRef.child("date_of_fee_3").setValue(date_of_fee_3.getText().toString());
+        myRef.child("date_of_fee_4").setValue(date_of_fee_4.getText().toString());
+        myRef.child("payment_1").setValue(payment_1.getText().toString());
+        myRef.child("payment_2").setValue(payment_2.getText().toString());
+        myRef.child("payment_3").setValue(payment_3.getText().toString());
+        myRef.child("payment_4").setValue(payment_4.getText().toString());
+        myRef.child("payment_type").setValue(payment_type.getSelectedItem().toString());
+        myRef.child("payment_1_mode").setValue(payment_1_mode.getSelectedItem().toString());
+        myRef.child("payment_2_mode").setValue(payment_2_mode.getSelectedItem().toString());
+        myRef.child("payment_3_mode").setValue(payment_3_mode.getSelectedItem().toString());
+        myRef.child("payment_4_mode").setValue(payment_4_mode.getSelectedItem().toString());
+        myRef.child("reference_id").setValue(reference_id.getText().toString());
+       // myRef.setValue(student_id.getText().toString());
+        myRef.child("student_year").setValue(student_year.getSelectedItem().toString());
+        Toast.makeText(getBaseContext(), "Student Details Updated Successfully", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(getBaseContext(), AdminDashboardActivity.class));
+    }
+    private boolean check(EditText[] e)
+    {
+        for(EditText ed: e )
+        {
+            if(TextUtils.isEmpty(ed.getText().toString()))
+            {
+                ed.setError("This Is A Required Field");
+                return true;
+            }
+        }
+        return false;
+    }
+    private boolean checkId(DatabaseReference db,final String c)
+    {
+        db.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot ds:dataSnapshot.getChildren())
+                {
+                    if(Objects.equals(ds.getKey(),c))
+                    {
+                        exist=true;
+                        break;
+                    }
+                    else
+                        exist=false;
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        return exist;
     }
 }

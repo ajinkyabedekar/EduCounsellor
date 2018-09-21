@@ -31,11 +31,6 @@ public class AllStudentsActivity extends AppCompatActivity {
     Context mContext;
     private ArrayList<AllStudentsEntryVo> details = new ArrayList<>();
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        pg.setVisibility(View.VISIBLE);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
