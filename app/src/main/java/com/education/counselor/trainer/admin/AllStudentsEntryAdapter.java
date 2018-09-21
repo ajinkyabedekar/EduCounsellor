@@ -47,7 +47,7 @@ public class AllStudentsEntryAdapter extends RecyclerView.Adapter<AllStudents> {
         holder.v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in=new Intent(c,StudentDetailsActivity.class);
+                Intent in=new Intent(c,StudentsAcademicsActivity.class);
                 in.putExtra("name",details.get(holder.getAdapterPosition()).getName());
                 c.startActivity(in);
             }

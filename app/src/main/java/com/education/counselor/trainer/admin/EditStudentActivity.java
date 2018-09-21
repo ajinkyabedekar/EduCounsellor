@@ -31,12 +31,6 @@ public class EditStudentActivity extends AppCompatActivity {
     private ArrayList<EditStudentEntryVo> details = new ArrayList<>();
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        pg.setVisibility(View.VISIBLE);
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_student);
