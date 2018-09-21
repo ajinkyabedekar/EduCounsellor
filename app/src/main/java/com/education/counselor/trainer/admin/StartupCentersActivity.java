@@ -31,12 +31,6 @@ public class StartupCentersActivity extends AppCompatActivity {
     private ArrayList<StartupCentersEntryVo> details = new ArrayList<>();
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        pg.setVisibility(View.VISIBLE);
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_startup_centers);

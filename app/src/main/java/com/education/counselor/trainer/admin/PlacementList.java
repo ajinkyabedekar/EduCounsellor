@@ -10,10 +10,12 @@ import com.education.counselor.trainer.R;
 
 class PlacementList extends RecyclerView.ViewHolder {
     TextView sname;
+    View v;
 
     @SuppressLint("SetTextI18n")
     PlacementList(@NonNull View itemView) {
         super(itemView);
         sname = itemView.findViewById(R.id.stext);
+        v=itemView.findViewById(R.id.cd);
     }
 }

@@ -6,6 +6,7 @@
     android:padding="5dp">
 
     <android.support.v7.widget.CardView
+        android:id="@+id/cd"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:clickable="true"
@@ -19,7 +20,7 @@
             android:id="@+id/stext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Placement"
+            android:text="@string/placement"
             android:textSize="20sp"
             android:textStyle="bold" />
     </android.support.v7.widget.CardView>

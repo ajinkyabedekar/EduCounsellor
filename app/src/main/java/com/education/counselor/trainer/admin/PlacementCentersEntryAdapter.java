@@ -1,6 +1,7 @@
 package com.education.counselor.trainer.admin;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -39,8 +40,16 @@ public class PlacementCentersEntryAdapter extends RecyclerView.Adapter<Placement
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PlacementCenters holder, int i) {
+    public void onBindViewHolder(@NonNull final PlacementCenters holder, int i) {
         holder.sname.setText(details.get(i).getName());
+        holder.v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in=new Intent(c,PlacementListActivity.class);
+                in.putExtra("name",details.get(holder.getAdapterPosition()).getName());
+                c.startActivity(in);
+            }
+        });
     }
 
     @Override

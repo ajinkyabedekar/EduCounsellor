@@ -8,14 +8,12 @@ import android.widget.TextView;
 
 import com.education.counselor.trainer.R;
 
-class NewsList extends RecyclerView.ViewHolder {
+class EmployeesList extends RecyclerView.ViewHolder {
     TextView sname;
-    View v;
 
     @SuppressLint("SetTextI18n")
-    NewsList(@NonNull View itemView) {
+    EmployeesList(@NonNull View itemView) {
         super(itemView);
         sname = itemView.findViewById(R.id.stext);
-        v=itemView.findViewById(R.id.cd);
     }
 }

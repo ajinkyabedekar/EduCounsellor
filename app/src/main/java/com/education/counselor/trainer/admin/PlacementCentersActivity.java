@@ -31,12 +31,6 @@ public class PlacementCentersActivity extends AppCompatActivity {
     private ArrayList<PlacementCentersEntryVo> details = new ArrayList<>();
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        pg.setVisibility(View.VISIBLE);
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_placement_centers);

@@ -10,10 +10,12 @@ import com.education.counselor.trainer.R;
 
 class StartupCenters extends RecyclerView.ViewHolder {
     TextView sname;
+    View v;
 
     @SuppressLint("SetTextI18n")
     StartupCenters(@NonNull View itemView) {
         super(itemView);
         sname = itemView.findViewById(R.id.ctext);
+        v=itemView.findViewById(R.id.cd);
     }
 }
