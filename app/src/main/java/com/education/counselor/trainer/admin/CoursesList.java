@@ -10,12 +10,14 @@ import com.education.counselor.trainer.R;
 
 public class CoursesList extends RecyclerView.ViewHolder {
     TextView sname, pname;
+    View v;
 
     @SuppressLint("SetTextI18n")
     CoursesList(@NonNull View itemView) {
         super(itemView);
         sname = itemView.findViewById(R.id.stext);
         pname = itemView.findViewById(R.id.ptext);
+        v=itemView.findViewById(R.id.cd);
         pname.setText("null");
     }
 }

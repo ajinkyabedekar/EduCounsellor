@@ -31,12 +31,6 @@ public class CoursesListActivity extends AppCompatActivity {
     private ArrayList<CoursesListEntryVo> details = new ArrayList<>();
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        pg.setVisibility(View.VISIBLE);
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_courses_list);
@@ -45,7 +39,7 @@ public class CoursesListActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycle);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        db = FirebaseDatabase.getInstance().getReference("student");
+        db = FirebaseDatabase.getInstance().getReference("courses");
         pg.setVisibility(View.VISIBLE);
         db.addValueEventListener(new ValueEventListener() {
             @Override
@@ -59,7 +53,7 @@ public class CoursesListActivity extends AppCompatActivity {
                 adapter = new CoursesListEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
-                Toast.makeText(mContext, adapter.getItemCount() + " students", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, adapter.getItemCount() + " courses", Toast.LENGTH_SHORT).show();
             }
 
             @Override
