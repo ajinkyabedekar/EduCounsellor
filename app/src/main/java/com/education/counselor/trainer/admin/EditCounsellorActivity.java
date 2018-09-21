@@ -31,12 +31,6 @@ public class EditCounsellorActivity extends AppCompatActivity {
     private ArrayList<EditCounsellorEntryVo> details = new ArrayList<>();
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        pg.setVisibility(View.VISIBLE);
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_counsellor);
@@ -59,7 +53,7 @@ public class EditCounsellorActivity extends AppCompatActivity {
                 adapter = new EditCounsellorEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
-                Toast.makeText(mContext, adapter.getItemCount() + " students", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, adapter.getItemCount() + " counsellors", Toast.LENGTH_SHORT).show();
             }
 
             @Override

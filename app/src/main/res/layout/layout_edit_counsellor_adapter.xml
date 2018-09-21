@@ -6,6 +6,7 @@
     android:padding="5dp">
 
     <android.support.v7.widget.CardView
+        android:id="@+id/cd"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:clickable="true"
@@ -38,7 +39,7 @@
                     android:id="@+id/ptext"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Contact Number"
+                    android:hint="@string/contact_number"
                     android:inputType="number"
                     android:text="@string/_7297952357"
                     android:textSize="15sp" />
