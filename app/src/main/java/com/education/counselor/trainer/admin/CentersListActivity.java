@@ -34,12 +34,6 @@ public class CentersListActivity extends AppCompatActivity {
     private ArrayList<CentersListEntryVo> details = new ArrayList<>();
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        pg.setVisibility(View.VISIBLE);
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_centers_list);
