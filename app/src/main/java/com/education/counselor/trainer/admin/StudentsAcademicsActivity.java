@@ -19,6 +19,12 @@ public class StudentsAcademicsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent i=getIntent();
+        String n="";
+        if (i.hasExtra("name")) {
+            n = i.getStringExtra("name");
+        }
+        Toast.makeText(this, ""+n, Toast.LENGTH_SHORT).show();
         setContentView(R.layout.activity_students_academics);
         name = findViewById(R.id.name);
         mobile_number = findViewById(R.id.mobile_number);

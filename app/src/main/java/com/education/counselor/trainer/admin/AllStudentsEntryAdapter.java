@@ -1,6 +1,7 @@
 package com.education.counselor.trainer.admin;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -46,7 +47,9 @@ public class AllStudentsEntryAdapter extends RecyclerView.Adapter<AllStudents> {
         holder.v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(c, "Hello "+details.get(holder.getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
+                Intent in=new Intent(c,StudentsAcademicsActivity.class);
+                in.putExtra("name",details.get(holder.getAdapterPosition()).getName());
+                c.startActivity(in);
             }
         });
     }
