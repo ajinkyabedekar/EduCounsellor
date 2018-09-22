@@ -30,6 +30,7 @@ public class AddStudentActivity extends AppCompatActivity implements AdapterView
     String status_of_payment = "PENDING";
     DatabaseReference db;
     long n;
+    private boolean exist=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

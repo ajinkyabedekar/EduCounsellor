@@ -22,6 +22,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -29,12 +30,14 @@ import java.util.List;
 import java.util.Objects;
 
 public class StudentDetailsActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    EditText name, mobile_number, mail, total_fee, department, total_fee_submitted, date_of_fee_1, date_of_fee_2, date_of_fee_3, date_of_fee_4, payment_1, payment_2, payment_3, payment_4, reference_id, student_id;
+    EditText name, mobile_number, mail, total_fee, department, total_fee_submitted, date_of_fee_1, date_of_fee_2, date_of_fee_3, date_of_fee_4, payment_1, payment_2, payment_3, payment_4, reference_id_1, reference_id_2, reference_id_3, reference_id_4, student_id;
     Spinner payment_type, payment_1_mode, payment_2_mode, payment_3_mode, payment_4_mode, student_year;
     Button transfer_payment, submit, delete;
+    String status_of_payment = "PENDING";
     DatabaseReference studentData;
     private String n="";
     private boolean exist=false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +61,10 @@ public class StudentDetailsActivity extends AppCompatActivity implements Adapter
         payment_2 = findViewById(R.id.payment_2);
         payment_3 = findViewById(R.id.payment_3);
         payment_4 = findViewById(R.id.payment_4);
-        reference_id = findViewById(R.id.reference_id);
+        reference_id_1 = findViewById(R.id.reference_id_1);
+        reference_id_2 = findViewById(R.id.reference_id_2);
+        reference_id_3 = findViewById(R.id.reference_id_3);
+        reference_id_4 = findViewById(R.id.reference_id_4);
         student_id = findViewById(R.id.student_id);
         payment_type = findViewById(R.id.payment_type);
         payment_1_mode = findViewById(R.id.payment_1_mode);
@@ -75,42 +81,67 @@ public class StudentDetailsActivity extends AppCompatActivity implements Adapter
         payment_3_mode.setOnItemSelectedListener(this);
         payment_4_mode.setOnItemSelectedListener(this);
         student_year.setOnItemSelectedListener(this);
-        List<String> payment_type_list = new ArrayList<>();
-        List<String> payment_mode_list = new ArrayList<>();
-        List<String> student_year_list = new ArrayList<>();
+        final List<String> payment_type_list = new ArrayList<>();
+        final List<String> payment_mode_1_list = new ArrayList<>();
+        final List<String> payment_mode_2_list = new ArrayList<>();
+        final List<String> payment_mode_3_list = new ArrayList<>();
+        final List<String> payment_mode_4_list = new ArrayList<>();
+        final List<String> student_year_list = new ArrayList<>();
         payment_type_list.add("Payment Type");
         payment_type_list.add("Installment");
         payment_type_list.add("Full");
-        payment_mode_list.add("Payment Mode");
-        payment_mode_list.add("NEFT");
-        payment_mode_list.add("PayTM");
-        payment_mode_list.add("Online");
-        payment_mode_list.add("Cash");
+        payment_mode_1_list.add("Payment Mode 1");
+        payment_mode_1_list.add("NEFT");
+        payment_mode_1_list.add("PayTM");
+        payment_mode_1_list.add("Online");
+        payment_mode_1_list.add("Cash");
+        payment_mode_2_list.add("Payment Mode 2");
+        payment_mode_2_list.add("NEFT");
+        payment_mode_2_list.add("PayTM");
+        payment_mode_2_list.add("Online");
+        payment_mode_2_list.add("Cash");
+        payment_mode_3_list.add("Payment Mode 3");
+        payment_mode_3_list.add("NEFT");
+        payment_mode_3_list.add("PayTM");
+        payment_mode_3_list.add("Online");
+        payment_mode_3_list.add("Cash");
+        payment_mode_4_list.add("Payment Mode 4");
+        payment_mode_4_list.add("NEFT");
+        payment_mode_4_list.add("PayTM");
+        payment_mode_4_list.add("Online");
+        payment_mode_4_list.add("Cash");
         student_year_list.add("Student Year");
         student_year_list.add("First");
         student_year_list.add("Second");
         student_year_list.add("Third");
         student_year_list.add("Fourth");
         ArrayAdapter<String> payment_type_adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, payment_type_list);
-        ArrayAdapter<String> payment_mode_adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, payment_mode_list);
+        ArrayAdapter<String> payment_mode_1_adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, payment_mode_1_list);
+        ArrayAdapter<String> payment_mode_2_adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, payment_mode_2_list);
+        ArrayAdapter<String> payment_mode_3_adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, payment_mode_3_list);
+        ArrayAdapter<String> payment_mode_4_adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, payment_mode_4_list);
         ArrayAdapter<String> student_year_adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, student_year_list);
         payment_type_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        payment_mode_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        payment_mode_1_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        payment_mode_2_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        payment_mode_3_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        payment_mode_4_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         student_year_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         payment_type.setAdapter(payment_type_adapter);
-        payment_type.setSelection(2);
-        payment_1_mode.setAdapter(payment_mode_adapter);
-        payment_1_mode.setSelection(1);
-        payment_2_mode.setAdapter(payment_mode_adapter);
-        payment_2_mode.setSelection(2);
-        payment_3_mode.setAdapter(payment_mode_adapter);
-        payment_3_mode.setSelection(3);
-        payment_4_mode.setAdapter(payment_mode_adapter);
-        payment_4_mode.setSelection(4);
+        payment_1_mode.setAdapter(payment_mode_1_adapter);
+        payment_2_mode.setAdapter(payment_mode_2_adapter);
+        payment_3_mode.setAdapter(payment_mode_3_adapter);
+        payment_4_mode.setAdapter(payment_mode_4_adapter);
         student_year.setAdapter(student_year_adapter);
-        student_year.setSelection(3);
-
         studentData=FirebaseDatabase.getInstance().getReference("student");
+        transfer_payment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                status_of_payment = "SUCCESS";
+                Toast.makeText(getBaseContext(), "Payment Transferred Successfully", Toast.LENGTH_SHORT).show();
+            }
+        });
+        student_id.setEnabled(false);
         studentData.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -132,9 +163,18 @@ public class StudentDetailsActivity extends AppCompatActivity implements Adapter
                         payment_2.setText(ds.child("payment_2").getValue(String.class));
                         payment_3.setText(ds.child("payment_3").getValue(String.class));
                         payment_4.setText(ds.child("payment_4").getValue(String.class));
-                        reference_id.setText(ds.child("reference_id").getValue(String.class));
+                        payment_type.setSelection(payment_type_list.indexOf(ds.child("payment_type").getValue(String.class)));
+                        payment_1_mode.setSelection(payment_mode_1_list.indexOf(ds.child("payment_1_mode").getValue(String.class)));
+                        payment_2_mode.setSelection(payment_mode_2_list.indexOf(ds.child("payment_2_mode").getValue(String.class)));
+                        payment_3_mode.setSelection(payment_mode_3_list.indexOf(ds.child("payment_3_mode").getValue(String.class)));
+                        payment_4_mode.setSelection(payment_mode_4_list.indexOf(ds.child("payment_4_mode").getValue(String.class)));
+                        reference_id_1.setText(ds.child("payment_1_reference_id").getValue(String.class));
+                        reference_id_2.setText(ds.child("payment_2_reference_id").getValue(String.class));
+                        reference_id_3.setText(ds.child("payment_3_reference_id").getValue(String.class));
+                        reference_id_4.setText(ds.child("payment_4_reference_id").getValue(String.class));
                         student_id.setText(ds.getKey());
-
+                        student_year.setSelection(student_year_list.indexOf(ds.child("student_year").getValue(String.class)));
+                        status_of_payment = ds.child("payment_status").getValue(String.class);
                     }
                 }
             }
@@ -155,22 +195,21 @@ public class StudentDetailsActivity extends AppCompatActivity implements Adapter
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                EditText e[]=new EditText[]{ name, mobile_number, mail, total_fee, department,
-                        total_fee_submitted, date_of_fee_1, date_of_fee_2, date_of_fee_3,
-                        date_of_fee_4, payment_1, payment_2, payment_3, payment_4, reference_id, student_id};
-               if (check(e))
-               {
-                   Toast.makeText(StudentDetailsActivity.this, "Error", Toast.LENGTH_SHORT).show();
-               }
-               else
-                   update();
+                EditText e[]=new EditText[]{ name, mobile_number, mail, total_fee, department, total_fee_submitted, date_of_fee_1, date_of_fee_2, date_of_fee_3, date_of_fee_4, payment_1, payment_2, payment_3, payment_4, reference_id_1, reference_id_2, reference_id_3, reference_id_4, student_id};
+                if (check(e))
+                {
+                    Toast.makeText(StudentDetailsActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                }
+                else
+                    update();
             }
         });
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                studentData.child(student_id.getText().toString()).removeValue();
+                Toast.makeText(getBaseContext(), "Student Deleted Successfully", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getBaseContext(), EditStudentActivity.class));
             }
         });
     }
@@ -205,9 +244,12 @@ public class StudentDetailsActivity extends AppCompatActivity implements Adapter
         myRef.child("payment_2_mode").setValue(payment_2_mode.getSelectedItem().toString());
         myRef.child("payment_3_mode").setValue(payment_3_mode.getSelectedItem().toString());
         myRef.child("payment_4_mode").setValue(payment_4_mode.getSelectedItem().toString());
-        myRef.child("reference_id").setValue(reference_id.getText().toString());
-       // myRef.setValue(student_id.getText().toString());
+        myRef.child("payment_1_reference_id").setValue(reference_id_1.getText().toString());
+        myRef.child("payment_2_reference_id").setValue(reference_id_2.getText().toString());
+        myRef.child("payment_3_reference_id").setValue(reference_id_3.getText().toString());
+        myRef.child("payment_4_reference_id").setValue(reference_id_4.getText().toString());
         myRef.child("student_year").setValue(student_year.getSelectedItem().toString());
+        myRef.child("payment_status").setValue(status_of_payment);
         Toast.makeText(getBaseContext(), "Student Details Updated Successfully", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(getBaseContext(), AdminDashboardActivity.class));
     }
@@ -217,6 +259,7 @@ public class StudentDetailsActivity extends AppCompatActivity implements Adapter
         {
             if(TextUtils.isEmpty(ed.getText().toString()))
             {
+                ed.requestFocus();
                 ed.setError("This Is A Required Field");
                 return true;
             }
