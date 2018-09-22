@@ -15,7 +15,7 @@ class CentersList extends RecyclerView.ViewHolder {
     @SuppressLint("SetTextI18n")
     CentersList(@NonNull View itemView) {
         super(itemView);
-        sname = itemView.findViewById(R.id.ctext);
+        sname = itemView.findViewById(R.id.c_text);
         v=itemView.findViewById(R.id.cd);
     }
 }

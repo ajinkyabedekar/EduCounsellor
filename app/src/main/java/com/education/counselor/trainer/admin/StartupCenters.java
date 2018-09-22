@@ -9,13 +9,13 @@ import android.widget.TextView;
 import com.education.counselor.trainer.R;
 
 class StartupCenters extends RecyclerView.ViewHolder {
-    TextView sname;
+    TextView s_name;
     View v;
 
     @SuppressLint("SetTextI18n")
     StartupCenters(@NonNull View itemView) {
         super(itemView);
-        sname = itemView.findViewById(R.id.ctext);
+        s_name = itemView.findViewById(R.id.c_text);
         v=itemView.findViewById(R.id.cd);
     }
 }

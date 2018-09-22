@@ -41,7 +41,7 @@ public class StartupCentersEntryAdapter extends RecyclerView.Adapter<StartupCent
 
     @Override
     public void onBindViewHolder(@NonNull final StartupCenters holder, int i) {
-        holder.sname.setText(details.get(i).getName());
+        holder.s_name.setText(details.get(i).getName());
         holder.v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

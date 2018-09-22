@@ -41,7 +41,7 @@ public class StartupListEntryAdapter extends RecyclerView.Adapter<StartupList> {
 
     @Override
     public void onBindViewHolder(@NonNull final StartupList holder, int i) {
-        holder.sname.setText(details.get(i).getName());
+        holder.s_name.setText(details.get(i).getName());
         holder.v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

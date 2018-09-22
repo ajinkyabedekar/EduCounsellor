@@ -1,6 +1,7 @@
 package com.education.counselor.trainer.admin;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -59,5 +60,9 @@ public class StartupListActivity extends AppCompatActivity {
                 Toast.makeText(mContext, "Error", Toast.LENGTH_SHORT).show();
             }
         });
+        if (details.size() == 0) {
+            Toast.makeText(getBaseContext(), "No Startup Found", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(getBaseContext(), StartupCentersActivity.class));
+        }
     }
 }

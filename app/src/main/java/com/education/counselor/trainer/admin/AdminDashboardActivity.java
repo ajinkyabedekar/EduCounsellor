@@ -19,11 +19,7 @@ public class AdminDashboardActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if (pressed) {
-            Intent intent = new Intent(Intent.ACTION_MAIN);
-            intent.addCategory(Intent.CATEGORY_HOME);
-            startActivity(intent);
-            android.os.Process.killProcess(android.os.Process.myPid());
-            return;
+            finishAffinity();
         }
         this.pressed = true;
         Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
