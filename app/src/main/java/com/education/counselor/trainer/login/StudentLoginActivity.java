@@ -38,7 +38,7 @@ public class StudentLoginActivity extends AppCompatActivity {
     FirebaseDatabase database;
     private FirebaseAuth mAuth;
     private boolean grant = false;
-    private String umail = "";
+    private String u_mail = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,7 +127,7 @@ public class StudentLoginActivity extends AppCompatActivity {
         final String email = username.getText().toString();
         final String pass = password.getText().toString();
         if (check(email)) {
-            mAuth.signInWithEmailAndPassword(umail, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            mAuth.signInWithEmailAndPassword(u_mail, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
@@ -153,14 +153,14 @@ public class StudentLoginActivity extends AppCompatActivity {
                     if (isEmail) {
                         if (Objects.requireNonNull(snapshot.child("mail").getValue()).toString().equalsIgnoreCase(email)) {
                             grant = true;
-                            umail = email;
+                            u_mail = email;
                             break;
                         } else
                             grant = false;
                     } else {
                         if (Objects.requireNonNull(snapshot.getKey()).equalsIgnoreCase(email)) {
                             grant = true;
-                            umail = Objects.requireNonNull(snapshot.child("mail").getValue()).toString();
+                            u_mail = Objects.requireNonNull(snapshot.child("mail").getValue()).toString();
                             break;
                         } else
                             grant = false;

@@ -62,7 +62,6 @@ public class NewsListActivity extends AppCompatActivity {
                 adapter = new NewsListEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
-                Toast.makeText(mContext, adapter.getItemCount() + " news", Toast.LENGTH_SHORT).show();
             }
 
             @Override

@@ -15,7 +15,7 @@ class PlacementList extends RecyclerView.ViewHolder {
     @SuppressLint("SetTextI18n")
     PlacementList(@NonNull View itemView) {
         super(itemView);
-        sname = itemView.findViewById(R.id.stext);
+        sname = itemView.findViewById(R.id.s_text);
         v=itemView.findViewById(R.id.cd);
     }
 }

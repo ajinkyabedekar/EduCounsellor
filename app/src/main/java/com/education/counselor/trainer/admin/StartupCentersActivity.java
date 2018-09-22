@@ -52,7 +52,6 @@ public class StartupCentersActivity extends AppCompatActivity {
                 adapter = new StartupCentersEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
-                Toast.makeText(mContext, adapter.getItemCount() + " centers", Toast.LENGTH_SHORT).show();
             }
 
             @Override

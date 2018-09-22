@@ -97,7 +97,7 @@
         android:layout_below="@+id/student_layout"
         android:layout_centerInParent="true"
         android:layout_marginTop="30sp"
-        android:background="@drawable/bluebtn"
+        android:background="@drawable/blue_button"
         android:text="@string/submit"
         android:textColor="@color/white" />
 </RelativeLayout>

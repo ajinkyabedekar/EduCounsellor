@@ -13,7 +13,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="44dp"
-        android:background="@drawable/buttonback1"
+        android:background="@drawable/button_back_1"
         android:padding="10sp"
         android:text="@string/add_placement" />
 

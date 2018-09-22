@@ -60,7 +60,6 @@ public class EmployeesListActivity extends AppCompatActivity {
                 adapter = new EmployeesListEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
-                Toast.makeText(mContext, adapter.getItemCount() + " employees", Toast.LENGTH_SHORT).show();
             }
 
             @Override

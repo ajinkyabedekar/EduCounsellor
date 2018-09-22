@@ -52,7 +52,6 @@ public class StartupListActivity extends AppCompatActivity {
                 adapter = new StartupListEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
-                Toast.makeText(mContext, adapter.getItemCount() + " startups", Toast.LENGTH_SHORT).show();
             }
 
             @Override

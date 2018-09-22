@@ -88,7 +88,7 @@
         android:layout_below="@+id/password_layout"
         android:layout_centerInParent="true"
         android:layout_marginTop="20sp"
-        android:background="@drawable/bluebtn"
+        android:background="@drawable/blue_button"
         android:text="@string/submit"
         android:textColor="@color/white" />
 
@@ -99,7 +99,7 @@
         android:layout_below="@+id/submit"
         android:layout_centerInParent="true"
         android:layout_marginTop="10sp"
-        android:background="@drawable/btnred"
+        android:background="@drawable/button_red"
         android:padding="5sp"
         android:text="@string/delete_center"
         android:textColor="@color/white" />

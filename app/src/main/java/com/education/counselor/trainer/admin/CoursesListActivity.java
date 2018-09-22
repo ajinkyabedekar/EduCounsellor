@@ -53,7 +53,6 @@ public class CoursesListActivity extends AppCompatActivity {
                 adapter = new CoursesListEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
-                Toast.makeText(mContext, adapter.getItemCount() + " courses", Toast.LENGTH_SHORT).show();
             }
 
             @Override

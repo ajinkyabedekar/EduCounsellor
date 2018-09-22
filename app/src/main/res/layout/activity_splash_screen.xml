@@ -21,6 +21,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/iv"
         android:gravity="center"
-        android:text="@string/rankethon_nv_1_0"
+        android:text="@string/v_1_0"
         android:textSize="30sp" />
 </RelativeLayout>

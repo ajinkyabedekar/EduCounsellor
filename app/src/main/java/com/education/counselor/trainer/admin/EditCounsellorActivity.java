@@ -53,7 +53,6 @@ public class EditCounsellorActivity extends AppCompatActivity {
                 adapter = new EditCounsellorEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
-                Toast.makeText(mContext, adapter.getItemCount() + " counsellors", Toast.LENGTH_SHORT).show();
             }
 
             @Override

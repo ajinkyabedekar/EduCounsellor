@@ -37,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/buttonback1"
+            android:background="@drawable/button_back_1"
             android:text="@string/counsellor" />
 
         <ImageView
@@ -54,7 +54,7 @@
             android:layout_height="100dp"
             android:layout_below="@id/counsellor"
             android:layout_marginTop="10dp"
-            android:background="@drawable/buttonback1"
+            android:background="@drawable/button_back_1"
             android:text="@string/student" />
 
         <ImageView
@@ -71,7 +71,7 @@
             android:layout_height="100dp"
             android:layout_below="@id/student"
             android:layout_marginTop="10dp"
-            android:background="@drawable/buttonback1"
+            android:background="@drawable/button_back_1"
             android:text="@string/admin" />
 
         <ImageView
@@ -88,7 +88,7 @@
             android:layout_height="100dp"
             android:layout_below="@id/admin"
             android:layout_marginTop="10dp"
-            android:background="@drawable/buttonback1"
+            android:background="@drawable/button_back_1"
             android:text="@string/authority" />
     </RelativeLayout>
 

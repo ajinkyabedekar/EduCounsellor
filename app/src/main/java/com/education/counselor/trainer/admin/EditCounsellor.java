@@ -14,8 +14,8 @@ public class EditCounsellor extends RecyclerView.ViewHolder {
     @SuppressLint("SetTextI18n")
     EditCounsellor(@NonNull View itemView) {
         super(itemView);
-        sname = itemView.findViewById(R.id.stext);
-        pname = itemView.findViewById(R.id.ptext);
+        sname = itemView.findViewById(R.id.s_text);
+        pname = itemView.findViewById(R.id.p_text);
         pname.setText("null");
     }
 }

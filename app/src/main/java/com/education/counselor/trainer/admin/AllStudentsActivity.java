@@ -1,12 +1,12 @@
 package com.education.counselor.trainer.admin;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -31,7 +31,6 @@ public class AllStudentsActivity extends AppCompatActivity {
     Context mContext;
     private ArrayList<AllStudentsEntryVo> details = new ArrayList<>();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +54,6 @@ public class AllStudentsActivity extends AppCompatActivity {
                 adapter = new AllStudentsEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
-                Toast.makeText(mContext, adapter.getItemCount() + " students", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -63,5 +61,9 @@ public class AllStudentsActivity extends AppCompatActivity {
                 Toast.makeText(mContext, "Error", Toast.LENGTH_SHORT).show();
             }
         });
+        if (details.size() == 0) {
+            Toast.makeText(getBaseContext(), "No Students Found", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(getBaseContext(), AdminDashboardActivity.class));
+        }
     }
 }

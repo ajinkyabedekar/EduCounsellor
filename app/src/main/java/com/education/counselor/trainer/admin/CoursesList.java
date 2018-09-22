@@ -15,8 +15,8 @@ public class CoursesList extends RecyclerView.ViewHolder {
     @SuppressLint("SetTextI18n")
     CoursesList(@NonNull View itemView) {
         super(itemView);
-        sname = itemView.findViewById(R.id.stext);
-        pname = itemView.findViewById(R.id.ptext);
+        sname = itemView.findViewById(R.id.s_text);
+        pname = itemView.findViewById(R.id.p_text);
         v=itemView.findViewById(R.id.cd);
         pname.setText("null");
     }

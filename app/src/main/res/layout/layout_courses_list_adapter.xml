@@ -22,7 +22,7 @@
             android:padding="10dp">
 
             <TextView
-                android:id="@+id/stext"
+                android:id="@+id/s_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/name"
@@ -31,10 +31,10 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/ptext"
+                android:id="@+id/p_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/stext"
+                android:layout_below="@id/s_text"
                 android:text="@string/status"
                 android:textSize="15sp" />
         </RelativeLayout>

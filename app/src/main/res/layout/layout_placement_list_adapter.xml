@@ -17,7 +17,7 @@
         app:cardElevation="3dp">
 
         <TextView
-            android:id="@+id/stext"
+            android:id="@+id/s_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/placement"

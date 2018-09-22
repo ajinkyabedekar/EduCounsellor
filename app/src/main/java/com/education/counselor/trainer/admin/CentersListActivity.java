@@ -62,7 +62,6 @@ public class CentersListActivity extends AppCompatActivity {
                 adapter = new CentersListEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
-                Toast.makeText(mContext, adapter.getItemCount() + " centers", Toast.LENGTH_SHORT).show();
             }
 
             @Override

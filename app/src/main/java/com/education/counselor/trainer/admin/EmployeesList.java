@@ -14,6 +14,6 @@ class EmployeesList extends RecyclerView.ViewHolder {
     @SuppressLint("SetTextI18n")
     EmployeesList(@NonNull View itemView) {
         super(itemView);
-        sname = itemView.findViewById(R.id.stext);
+        sname = itemView.findViewById(R.id.s_text);
     }
 }

@@ -40,7 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20sp"
-                android:background="@drawable/buttonback1"
+                android:background="@drawable/button_back_1"
                 android:padding="10sp"
                 android:text="@string/add_student" />
 
@@ -49,7 +49,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20sp"
-                android:background="@drawable/buttonback1"
+                android:background="@drawable/button_back_1"
                 android:padding="10sp"
                 android:text="@string/edit_student_details" />
 
@@ -58,7 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20sp"
-                android:background="@drawable/buttonback1"
+                android:background="@drawable/button_back_1"
                 android:padding="10sp"
                 android:text="@string/students_list" />
 
@@ -67,7 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20sp"
-                android:background="@drawable/buttonback1"
+                android:background="@drawable/button_back_1"
                 android:padding="10sp"
                 android:text="@string/startup_list" />
 
@@ -76,7 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20sp"
-                android:background="@drawable/buttonback1"
+                android:background="@drawable/button_back_1"
                 android:padding="10sp"
                 android:text="@string/placement_list" />
 
@@ -85,7 +85,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20sp"
-                android:background="@drawable/buttonback1"
+                android:background="@drawable/button_back_1"
                 android:padding="10sp"
                 android:text="@string/edit_counsellor_contact" />
 
@@ -94,7 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20sp"
-                android:background="@drawable/buttonback1"
+                android:background="@drawable/button_back_1"
                 android:padding="10sp"
                 android:text="@string/news" />
 
@@ -103,7 +103,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20sp"
-                android:background="@drawable/buttonback1"
+                android:background="@drawable/button_back_1"
                 android:padding="10sp"
                 android:text="@string/current_centers" />
 
@@ -112,7 +112,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20sp"
-                android:background="@drawable/buttonback1"
+                android:background="@drawable/button_back_1"
                 android:padding="10sp"
                 android:text="@string/courses" />
 
@@ -121,7 +121,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20sp"
-                android:background="@drawable/buttonback1"
+                android:background="@drawable/button_back_1"
                 android:padding="10sp"
                 android:text="@string/add_employees" />
 
@@ -130,7 +130,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20sp"
-                android:background="@drawable/buttonback1"
+                android:background="@drawable/button_back_1"
                 android:padding="10sp"
                 android:text="@string/employees_list" />
 
@@ -139,7 +139,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20sp"
-                android:background="@drawable/btnred"
+                android:background="@drawable/button_red"
                 android:padding="10sp"
                 android:text="@string/logout"
                 android:textColor="@color/white" />

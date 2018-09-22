@@ -4,11 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
-import android.text.method.KeyListener;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -22,7 +18,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -35,18 +30,16 @@ public class StudentDetailsActivity extends AppCompatActivity implements Adapter
     Button transfer_payment, submit, delete;
     String status_of_payment = "PENDING";
     DatabaseReference studentData;
-    private String n="";
-    private boolean exist=false;
+    private String n = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        Intent i=getIntent();
+        setContentView(R.layout.activity_student_details);
+        Intent i = getIntent();
         if (i.hasExtra("name")) {
             n = i.getStringExtra("name");
         }
-        setContentView(R.layout.activity_student_details);
         name = findViewById(R.id.name);
         mobile_number = findViewById(R.id.mobile_number);
         mail = findViewById(R.id.mail);
@@ -133,22 +126,13 @@ public class StudentDetailsActivity extends AppCompatActivity implements Adapter
         payment_3_mode.setAdapter(payment_mode_3_adapter);
         payment_4_mode.setAdapter(payment_mode_4_adapter);
         student_year.setAdapter(student_year_adapter);
-        studentData=FirebaseDatabase.getInstance().getReference("student");
-        transfer_payment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                status_of_payment = "SUCCESS";
-                Toast.makeText(getBaseContext(), "Payment Transferred Successfully", Toast.LENGTH_SHORT).show();
-            }
-        });
+        studentData = FirebaseDatabase.getInstance().getReference("student");
         student_id.setEnabled(false);
         studentData.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot ds:dataSnapshot.getChildren())
-                {
-                    if(Objects.equals(ds.child("name").getValue(String.class), n))
-                    {
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    if (Objects.equals(ds.child("name").getValue(String.class), n)) {
                         name.setText(n);
                         mobile_number.setText(ds.child("mobile_number").getValue(String.class));
                         mail.setText(ds.child("mail").getValue(String.class));
@@ -184,23 +168,25 @@ public class StudentDetailsActivity extends AppCompatActivity implements Adapter
 
             }
         });
-
-       /* if(checkId(studentData,editable.toString()) && !TextUtils.isEmpty(student_id.getText()))
-        {
-            Toast.makeText(StudentDetailsActivity.this, "Id "+editable+" already exist", Toast.LENGTH_SHORT).show();
+        if (status_of_payment.equals("PENDING")) {
+            transfer_payment.setEnabled(true);
+            transfer_payment.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    status_of_payment = "SUCCESS";
+                    Toast.makeText(getBaseContext(), "Payment Transferred Successfully", Toast.LENGTH_SHORT).show();
+                }
+            });
+        } else {
+            transfer_payment.setEnabled(false);
         }
-        else
-            Toast.makeText(StudentDetailsActivity.this, "Id "+editable+" accepted", Toast.LENGTH_SHORT).show();
-        */
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EditText e[]=new EditText[]{ name, mobile_number, mail, total_fee, department, total_fee_submitted, date_of_fee_1, date_of_fee_2, date_of_fee_3, date_of_fee_4, payment_1, payment_2, payment_3, payment_4, reference_id_1, reference_id_2, reference_id_3, reference_id_4, student_id};
-                if (check(e))
-                {
+                EditText e[] = new EditText[]{name, mobile_number, mail, total_fee, department, total_fee_submitted, date_of_fee_1, date_of_fee_2, date_of_fee_3, date_of_fee_4, payment_1, payment_2, payment_3, payment_4, reference_id_1, reference_id_2, reference_id_3, reference_id_4, student_id};
+                if (check(e)) {
                     Toast.makeText(StudentDetailsActivity.this, "Error", Toast.LENGTH_SHORT).show();
-                }
-                else
+                } else
                     update();
             }
         });
@@ -221,8 +207,8 @@ public class StudentDetailsActivity extends AppCompatActivity implements Adapter
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
     }
-    private void  update()
-    {
+
+    private void update() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("student").child(student_id.getText().toString());
         myRef.child("name").setValue(name.getText().toString());
@@ -251,43 +237,17 @@ public class StudentDetailsActivity extends AppCompatActivity implements Adapter
         myRef.child("student_year").setValue(student_year.getSelectedItem().toString());
         myRef.child("payment_status").setValue(status_of_payment);
         Toast.makeText(getBaseContext(), "Student Details Updated Successfully", Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(getBaseContext(), AdminDashboardActivity.class));
+        startActivity(new Intent(getBaseContext(), EditStudentActivity.class));
     }
-    private boolean check(EditText[] e)
-    {
-        for(EditText ed: e )
-        {
-            if(TextUtils.isEmpty(ed.getText().toString()))
-            {
+
+    private boolean check(EditText[] e) {
+        for (EditText ed : e) {
+            if (TextUtils.isEmpty(ed.getText().toString())) {
                 ed.requestFocus();
                 ed.setError("This Is A Required Field");
                 return true;
             }
         }
         return false;
-    }
-    private boolean checkId(DatabaseReference db,final String c)
-    {
-        db.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot ds:dataSnapshot.getChildren())
-                {
-                    if(Objects.equals(ds.getKey(),c))
-                    {
-                        exist=true;
-                        break;
-                    }
-                    else
-                        exist=false;
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-        return exist;
     }
 }

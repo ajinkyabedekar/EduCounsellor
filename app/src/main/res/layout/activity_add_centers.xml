@@ -82,7 +82,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/password_layout"
         android:layout_centerInParent="true"
-        android:background="@drawable/bluebtn"
+        android:background="@drawable/blue_button"
         android:text="@string/submit"
         android:textColor="@color/white" />
 </RelativeLayout>

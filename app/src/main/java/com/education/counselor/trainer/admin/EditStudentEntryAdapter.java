@@ -41,8 +41,8 @@ public class EditStudentEntryAdapter extends RecyclerView.Adapter<EditStudent> {
 
     @Override
     public void onBindViewHolder(@NonNull final EditStudent holder, int i) {
-        holder.sname.setText(details.get(i).getName());
-        holder.pname.setText(details.get(i).getPhone());
+        holder.s_name.setText(details.get(i).getName());
+        holder.p_name.setText(details.get(i).getPhone());
         holder.v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
