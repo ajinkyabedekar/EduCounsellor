@@ -51,6 +51,10 @@ public class AllStudentsActivity extends AppCompatActivity {
                     s.setPhone(Objects.requireNonNull(ds.child("mobile_number").getValue()).toString());
                     details.add(s);
                 }
+                if (details.size() == 0) {
+                    Toast.makeText(getBaseContext(), "No Students Found", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getBaseContext(), AdminDashboardActivity.class));
+                }
                 adapter = new AllStudentsEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
@@ -61,9 +65,5 @@ public class AllStudentsActivity extends AppCompatActivity {
                 Toast.makeText(mContext, "Error", Toast.LENGTH_SHORT).show();
             }
         });
-        if (details.size() == 0) {
-            Toast.makeText(getBaseContext(), "No Students Found", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(getBaseContext(), AdminDashboardActivity.class));
-        }
     }
 }

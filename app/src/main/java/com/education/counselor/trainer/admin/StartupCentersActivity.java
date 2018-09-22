@@ -50,6 +50,10 @@ public class StartupCentersActivity extends AppCompatActivity {
                     s.setName(Objects.requireNonNull(ds.child("name").getValue()).toString());
                     details.add(s);
                 }
+                if (details.size() == 0) {
+                    Toast.makeText(getBaseContext(), "No Centers Found", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getBaseContext(), AdminDashboardActivity.class));
+                }
                 adapter = new StartupCentersEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
@@ -60,10 +64,6 @@ public class StartupCentersActivity extends AppCompatActivity {
                 Toast.makeText(mContext, "Error", Toast.LENGTH_SHORT).show();
             }
         });
-        if (details.size() == 0) {
-            Toast.makeText(getBaseContext(), "No Centers Found", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(getBaseContext(), AdminDashboardActivity.class));
-        }
 
     }
 }

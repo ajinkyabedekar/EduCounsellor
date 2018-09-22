@@ -50,6 +50,10 @@ public class StartupListActivity extends AppCompatActivity {
                     s.setName(Objects.requireNonNull(ds.child("name").getValue()).toString());
                     details.add(s);
                 }
+                if (details.size() == 0) {
+                    Toast.makeText(getBaseContext(), "No Startup Found", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getBaseContext(), StartupCentersActivity.class));
+                }
                 adapter = new StartupListEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
@@ -60,9 +64,5 @@ public class StartupListActivity extends AppCompatActivity {
                 Toast.makeText(mContext, "Error", Toast.LENGTH_SHORT).show();
             }
         });
-        if (details.size() == 0) {
-            Toast.makeText(getBaseContext(), "No Startup Found", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(getBaseContext(), StartupCentersActivity.class));
-        }
     }
 }
