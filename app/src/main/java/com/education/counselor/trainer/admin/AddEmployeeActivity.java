@@ -11,6 +11,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.education.counselor.trainer.R;
+import com.education.counselor.trainer.common.multiList;
+import com.education.counselor.trainer.common.spin;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -34,11 +36,22 @@ public class AddEmployeeActivity extends AppCompatActivity {
         employee = findViewById(R.id.employee);
         centers = findViewById(R.id.centers);
         submit = findViewById(R.id.submit);
-        List<String> list = new ArrayList<>();
-        list.add("List1");
-        list.add("List2");
-        ArrayAdapter<String> centers_adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, list);
-        centers.setAdapter(centers_adapter);
+        List<multiList> list=new ArrayList<>();
+
+        multiList s=new multiList();
+        s.setText("Centres");
+        list.add(s);
+
+        s=new multiList();
+        s.setText("item 2");
+        list.add(s);
+
+        s=new multiList();
+        s.setText("item 3");
+        list.add(s);
+
+        final spin adapter=new spin(this,0,list,centers);
+        centers.setAdapter(adapter);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
