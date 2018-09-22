@@ -6,6 +6,17 @@
     android:padding="10dp"
     tools:context=".admin.AllStudentsActivity">
 
+    <Button
+        android:id="@+id/add_counsellor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/button_back_1"
+        android:padding="10sp"
+        android:text="@string/add_counsellor" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycle"
         android:layout_width="match_parent"

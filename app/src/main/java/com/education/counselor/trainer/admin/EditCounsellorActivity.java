@@ -1,12 +1,14 @@
 package com.education.counselor.trainer.admin;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -22,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class EditCounsellorActivity extends AppCompatActivity {
+    Button add_counsellor;
     RecyclerView recyclerView;
     DatabaseReference db;
     EditText name;
@@ -34,6 +37,13 @@ public class EditCounsellorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_counsellor);
+        add_counsellor = findViewById(R.id.add_counsellor);
+        add_counsellor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getBaseContext(), AddCounsellorActivity.class));
+            }
+        });
         mContext = this;
         pg = findViewById(R.id.progress);
         recyclerView = findViewById(R.id.recycle);
@@ -49,6 +59,9 @@ public class EditCounsellorActivity extends AppCompatActivity {
                     s.setName(Objects.requireNonNull(ds.child("name").getValue()).toString());
                     s.setPhone(Objects.requireNonNull(ds.child("mobile_number").getValue()).toString());
                     details.add(s);
+                }
+                if (details.size() == 0) {
+                    Toast.makeText(getBaseContext(), "No Students Found", Toast.LENGTH_SHORT).show();
                 }
                 adapter = new EditCounsellorEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);

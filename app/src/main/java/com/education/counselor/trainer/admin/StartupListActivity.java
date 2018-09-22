@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class StartupListActivity extends AppCompatActivity {
+    Button add_startup;
     RecyclerView recyclerView;
     DatabaseReference db;
     EditText name;
@@ -35,6 +37,13 @@ public class StartupListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_startup_list);
+        add_startup = findViewById(R.id.add_startup);
+        add_startup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getBaseContext(), AddStartupActivity.class));
+            }
+        });
         mContext = this;
         pg = findViewById(R.id.progress);
         recyclerView = findViewById(R.id.recycle);
@@ -52,7 +61,6 @@ public class StartupListActivity extends AppCompatActivity {
                 }
                 if (details.size() == 0) {
                     Toast.makeText(getBaseContext(), "No Startup Found", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getBaseContext(), StartupCentersActivity.class));
                 }
                 adapter = new StartupListEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);

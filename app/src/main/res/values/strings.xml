@@ -104,4 +104,6 @@
     <string name="employee_id">Employee ID</string>
     <string name="submit">Submit</string>
     <string name="employee">Employee</string>
+    <string name="add_startup">Add Startup</string>
+    <string name="add_counsellor">Add Counsellor</string>
 </resources>
