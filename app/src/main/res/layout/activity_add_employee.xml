@@ -90,7 +90,7 @@
             android:inputType="text" />
     </android.support.design.widget.TextInputLayout>
 
-    <com.education.counselor.trainer.common.MultiSelectionSpinner
+    <Spinner
         android:id="@+id/centers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
