@@ -16,11 +16,6 @@ public class spin extends ArrayAdapter<multiList>{
     private LayoutInflater inflater;
     private List<multiList> list;
     public Spinner myspinner;
-    public static String oneSpace =" ";
-    public static int tikMark =0X2714;
-    public static int crossMark =0X2715;
-    public static int tikMarkAroundBox =0X2611;
-    public static int crossMarkAroundBox =0X274E;
     public static String dash ="-";
 
     public spin(@NonNull Context context, int resource, @NonNull List<multiList> objects,Spinner myspinner) {
@@ -77,10 +72,6 @@ public class spin extends ArrayAdapter<multiList>{
                 {
                     clearList();
                 }
-                /**
-                 * if clicked position is two
-                 * that means you want select all item in list
-                 */
                 else if (getPosition == 2)
                 {
                     fillList();
@@ -90,10 +81,6 @@ public class spin extends ArrayAdapter<multiList>{
         return convertView;
     }
 
-
-    /**
-     * clear all items in list
-     */
     public void clearList()
     {
         for (multiList items : list)
@@ -103,9 +90,6 @@ public class spin extends ArrayAdapter<multiList>{
         notifyDataSetChanged();
     }
 
-    /**
-     * select all items in list
-     */
     public void fillList()
     {
         for (multiList items : list)
@@ -115,9 +99,6 @@ public class spin extends ArrayAdapter<multiList>{
         notifyDataSetChanged();
     }
 
-    /**
-     * view holder
-     */
     private class ViewHolder
     {
         private TextView mTextView;
