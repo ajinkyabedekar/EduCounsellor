@@ -2,8 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="70dp"
-    android:padding="5dp">
+    android:layout_height="70dp">
 
     <android.support.v7.widget.CardView
         android:id="@+id/cd"
@@ -12,7 +11,7 @@
         android:clickable="true"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
-        app:cardBackgroundColor="@color/light_blue"
+        app:cardBackgroundColor="@color/orange"
         app:cardCornerRadius="3dp"
         app:cardElevation="3dp">
 
@@ -20,8 +19,10 @@
             android:id="@+id/s_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="10dp"
             android:text="@string/news"
             android:textSize="20sp"
+            android:textColor="@color/white"
             android:textStyle="bold" />
     </android.support.v7.widget.CardView>
 </RelativeLayout>
