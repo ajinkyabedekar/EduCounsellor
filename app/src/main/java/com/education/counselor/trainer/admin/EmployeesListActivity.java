@@ -33,12 +33,6 @@ public class EmployeesListActivity extends AppCompatActivity {
     private ArrayList<EmployeesListEntryVo> details = new ArrayList<>();
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        pg.setVisibility(View.VISIBLE);
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employees_list);
@@ -47,15 +41,19 @@ public class EmployeesListActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycle);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        db = FirebaseDatabase.getInstance().getReference("employees");
+        db = FirebaseDatabase.getInstance().getReference("employee");
         pg.setVisibility(View.VISIBLE);
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     EmployeesListEntryVo s = new EmployeesListEntryVo();
-                    s.setName(Objects.requireNonNull(ds.child("name").getValue()).toString());
+                    s.setName(Objects.requireNonNull(ds.child("employee_name").getValue()).toString());
                     details.add(s);
+                }
+                if (details.size() == 0) {
+                    Toast.makeText(getBaseContext(), "No Employees Found", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getBaseContext(), AdminDashboardActivity.class));
                 }
                 adapter = new EmployeesListEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);

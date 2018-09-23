@@ -32,16 +32,23 @@ public class PlacementListActivity extends AppCompatActivity {
     ProgressBar pg;
     Context mContext;
     private ArrayList<PlacementListEntryVo> details = new ArrayList<>();
+    private String n = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_placement_list);
+        Intent i = getIntent();
+        if (i.hasExtra("name")) {
+            n = i.getStringExtra("name");
+        }
         add_placement = findViewById(R.id.add_placement);
         add_placement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getBaseContext(), AddPlacementActivity.class));
+                Intent in=new Intent(getBaseContext(),AddPlacementActivity.class);
+                in.putExtra("name",n);
+                startActivity(in);
             }
         });
         mContext = this;
@@ -49,18 +56,20 @@ public class PlacementListActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycle);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        db = FirebaseDatabase.getInstance().getReference("centers/placement");
+        db = FirebaseDatabase.getInstance().getReference("placements");
         pg.setVisibility(View.VISIBLE);
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    PlacementListEntryVo s = new PlacementListEntryVo();
-                    s.setName(Objects.requireNonNull(ds.child("name").getValue()).toString());
-                    details.add(s);
+                    if (Objects.equals(ds.child("center").getValue(String.class), n)) {
+                        PlacementListEntryVo s = new PlacementListEntryVo();
+                        s.setName(Objects.requireNonNull(ds.child("name").getValue()).toString());
+                        details.add(s);
+                    }
                 }
                 if (details.size() == 0) {
-                    Toast.makeText(getBaseContext(), "No Startup Found", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "No Placement Found", Toast.LENGTH_SHORT).show();
                 }
                 adapter = new PlacementListEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);

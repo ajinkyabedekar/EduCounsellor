@@ -32,32 +32,43 @@ public class NewsListActivity extends AppCompatActivity {
     ProgressBar pg;
     Context mContext;
     private ArrayList<NewsListEntryVo> details = new ArrayList<>();
+    private String n = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_list);
+        Intent i = getIntent();
+        if (i.hasExtra("name")) {
+            n = i.getStringExtra("name");
+        }
         add_news = findViewById(R.id.add_news);
         add_news.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getBaseContext(), AddNewsActivity.class));
-            }
+                Intent in=new Intent(getBaseContext(),AddNewsActivity.class);
+                in.putExtra("name",n);
+                startActivity(in);            }
         });
         mContext = this;
         pg = findViewById(R.id.progress);
         recyclerView = findViewById(R.id.recycle);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        db = FirebaseDatabase.getInstance().getReference("centers/news");
+        db = FirebaseDatabase.getInstance().getReference("news");
         pg.setVisibility(View.VISIBLE);
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    NewsListEntryVo s = new NewsListEntryVo();
-                    s.setName(Objects.requireNonNull(ds.child("name").getValue()).toString());
-                    details.add(s);
+                    if (Objects.equals(ds.child("center").getValue(String.class), n)) {
+                        NewsListEntryVo s = new NewsListEntryVo();
+                        s.setName(Objects.requireNonNull(ds.child("name").getValue()).toString());
+                        details.add(s);
+                    }
+                }
+                if (details.size() == 0) {
+                    Toast.makeText(getBaseContext(), "No News Found", Toast.LENGTH_SHORT).show();
                 }
                 adapter = new NewsListEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);

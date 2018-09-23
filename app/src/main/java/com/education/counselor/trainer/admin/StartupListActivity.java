@@ -32,11 +32,16 @@ public class StartupListActivity extends AppCompatActivity {
     ProgressBar pg;
     Context mContext;
     private ArrayList<StartupListEntryVo> details = new ArrayList<>();
+    private String n = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_startup_list);
+        Intent i = getIntent();
+        if (i.hasExtra("name")) {
+            n = i.getStringExtra("name");
+        }
         add_startup = findViewById(R.id.add_startup);
         add_startup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,15 +54,17 @@ public class StartupListActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycle);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        db = FirebaseDatabase.getInstance().getReference("centers/startup");
+        db = FirebaseDatabase.getInstance().getReference("startup");
         pg.setVisibility(View.VISIBLE);
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    StartupListEntryVo s = new StartupListEntryVo();
-                    s.setName(Objects.requireNonNull(ds.child("name").getValue()).toString());
-                    details.add(s);
+                    if (Objects.equals(ds.child("center").getValue(String.class), n)) {
+                        StartupListEntryVo s = new StartupListEntryVo();
+                        s.setName(Objects.requireNonNull(ds.child("name").getValue()).toString());
+                        details.add(s);
+                    }
                 }
                 if (details.size() == 0) {
                     Toast.makeText(getBaseContext(), "No Startup Found", Toast.LENGTH_SHORT).show();

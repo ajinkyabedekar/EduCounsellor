@@ -84,6 +84,9 @@ public class CentersDetailsActivity extends AppCompatActivity implements Adapter
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                centerData.child(key).removeValue();
+                Toast.makeText(getBaseContext(), "Center Deleted Successfully", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getBaseContext(), EditStudentActivity.class));
             }
         });
     }

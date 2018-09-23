@@ -65,6 +65,7 @@
         <activity android:name=".admin.CoursesDetailsActivity" />
         <activity android:name=".admin.AddStartupActivity" />
         <activity android:name=".admin.AddCounsellorActivity" />
+        <activity android:name=".admin.AddCoursesActivity" />
     </application>
 
 </manifest>

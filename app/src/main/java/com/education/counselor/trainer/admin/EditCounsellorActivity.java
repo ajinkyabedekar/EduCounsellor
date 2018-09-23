@@ -61,7 +61,7 @@ public class EditCounsellorActivity extends AppCompatActivity {
                     details.add(s);
                 }
                 if (details.size() == 0) {
-                    Toast.makeText(getBaseContext(), "No Students Found", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "No Counsellors Found", Toast.LENGTH_SHORT).show();
                 }
                 adapter = new EditCounsellorEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);

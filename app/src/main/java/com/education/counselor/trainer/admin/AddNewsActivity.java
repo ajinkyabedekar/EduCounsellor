@@ -15,11 +15,16 @@ import com.google.firebase.database.FirebaseDatabase;
 public class AddNewsActivity extends AppCompatActivity {
     EditText name, motto, drive, date;
     Button submit;
+    private String n = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_news);
+        Intent i = getIntent();
+        if (i.hasExtra("name")) {
+            n = i.getStringExtra("name");
+        }
         name = findViewById(R.id.name);
         motto = findViewById(R.id.motto);
         drive = findViewById(R.id.drive);
@@ -47,6 +52,7 @@ public class AddNewsActivity extends AppCompatActivity {
                     myRef.child("motto").setValue(motto.getText().toString());
                     myRef.child("google_drive_link").setValue(drive.getText().toString());
                     myRef.child("date").setValue(date.getText().toString());
+                    myRef.child("center").setValue(n);
                     Toast.makeText(getBaseContext(), "News Added Successfully", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getBaseContext(), NewsListActivity.class));
                 }

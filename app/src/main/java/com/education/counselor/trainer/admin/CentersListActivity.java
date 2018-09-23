@@ -59,6 +59,9 @@ public class CentersListActivity extends AppCompatActivity {
                     s.setName(Objects.requireNonNull(ds.child("name").getValue()).toString());
                     details.add(s);
                 }
+                if (details.size() == 0) {
+                    Toast.makeText(getBaseContext(), "No Centers Found", Toast.LENGTH_SHORT).show();
+                }
                 adapter = new CentersListEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);

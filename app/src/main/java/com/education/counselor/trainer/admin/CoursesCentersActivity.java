@@ -1,6 +1,7 @@
 package com.education.counselor.trainer.admin;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -48,6 +49,10 @@ public class CoursesCentersActivity extends AppCompatActivity {
                     CoursesCentersEntryVo s = new CoursesCentersEntryVo();
                     s.setName(Objects.requireNonNull(ds.child("name").getValue()).toString());
                     details.add(s);
+                }
+                if (details.size() == 0) {
+                    Toast.makeText(getBaseContext(), "No Centers Found", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getBaseContext(), AdminDashboardActivity.class));
                 }
                 adapter = new CoursesCentersEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);

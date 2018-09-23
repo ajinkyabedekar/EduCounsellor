@@ -17,8 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/name"
-            android:inputType="text"
-            android:text="@string/name" />
+            android:inputType="text" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -32,8 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/department"
-            android:inputType="text"
-            android:text="@string/department" />
+            android:inputType="text" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -47,8 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/company_name"
-            android:inputType="text"
-            android:text="@string/company" />
+            android:inputType="text" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -62,8 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/package_name"
-            android:inputType="text"
-            android:text="@string/packag" />
+            android:inputType="text" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -77,8 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/location"
-            android:inputType="text"
-            android:text="@string/location" />
+            android:inputType="text" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -92,8 +87,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/unique_student_id"
-            android:inputType="text"
-            android:text="@string/unique_student_id" />
+            android:inputType="text" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
