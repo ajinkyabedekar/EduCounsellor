@@ -2,7 +2,7 @@ package com.education.counselor.trainer.common;
 
 public class multiList {
     private String text;
-    private boolean selected;
+    private boolean selected=false;
     public String getText() {
         return text;
     }

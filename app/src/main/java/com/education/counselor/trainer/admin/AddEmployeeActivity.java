@@ -28,12 +28,15 @@ public class AddEmployeeActivity extends AppCompatActivity implements AdapterVie
     EditText name, position, mail, login, password, employee;
     Spinner centers;
     Button submit;
-    DatabaseReference db;
+    private DatabaseReference db;
+    private multiList s=new multiList();
+    private final List<multiList> list=new ArrayList<>();
     long n;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        db=FirebaseDatabase.getInstance().getReference("centers");
         setContentView(R.layout.activity_add_employee);
         name = findViewById(R.id.name);
         position = findViewById(R.id.position);
@@ -43,19 +46,25 @@ public class AddEmployeeActivity extends AppCompatActivity implements AdapterVie
         employee = findViewById(R.id.employee);
         centers = findViewById(R.id.centers);
         submit = findViewById(R.id.submit);
-        List<multiList> list=new ArrayList<>();
 
-        multiList s=new multiList();
         s.setText("Centres");
         list.add(s);
 
-        s=new multiList();
-        s.setText("item 2");
-        list.add(s);
+        db.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    s=new multiList();
+                    s.setText(snapshot.child("name").getValue(String.class));
+                    list.add(s);
+                }
+            }
 
-        s=new multiList();
-        s.setText("item 3");
-        list.add(s);
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(AddEmployeeActivity.this, databaseError+"", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         final spinnerAdapter adapter=new spinnerAdapter(this,0,list,centers);
         centers.setAdapter(adapter);
@@ -83,10 +92,10 @@ public class AddEmployeeActivity extends AppCompatActivity implements AdapterVie
                 } else if (employee.getText().toString().equals("")) {
                     employee.requestFocus();
                     employee.setError("This Is A Required Field");
-                } else if (centers.getSelectedItem().toString().equals("")) {
-                    centers.requestFocus();
-                    Toast.makeText(getBaseContext(), "Please Select A Center", Toast.LENGTH_SHORT).show();
-                } else {
+                }  else if(adapter.getCenter().isEmpty()) {
+                    Toast.makeText(AddEmployeeActivity.this, "Please choose a center", Toast.LENGTH_SHORT).show();
+                }
+                else {
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                     DatabaseReference myRef = database.getReference("employee").child(employee.getText().toString());
                     myRef.child("employee_name").setValue(name.getText().toString());
@@ -94,7 +103,7 @@ public class AddEmployeeActivity extends AppCompatActivity implements AdapterVie
                     myRef.child("mail").setValue(mail.getText().toString());
                     myRef.child("login_id").setValue(login.getText().toString());
                     myRef.child("password").setValue(password.getText().toString());
-                    myRef.child("centers").setValue(centers.getSelectedItem().toString());
+                    myRef.child("centers").setValue(adapter.getCenter());
                     Toast.makeText(getBaseContext(), "Employee Added Successfully", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getBaseContext(), EmployeesListActivity.class));
                 }
@@ -113,7 +122,7 @@ public class AddEmployeeActivity extends AppCompatActivity implements AdapterVie
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    if (Objects.equals(ds.child("student_id").getValue(String.class), String.valueOf(n))) {
+                    if (Objects.equals(ds.getKey(), String.valueOf(n))) {
                         generate_random();
                     }
                 }
