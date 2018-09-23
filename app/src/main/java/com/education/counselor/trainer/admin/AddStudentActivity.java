@@ -254,7 +254,7 @@ public class AddStudentActivity extends AppCompatActivity implements AdapterView
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    if (Objects.equals(ds.child("student_id").getValue(String.class), String.valueOf(n))) {
+                    if (Objects.equals(ds.getKey(), String.valueOf(n))) {
                         generate_random();
                     }
                 }

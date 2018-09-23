@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -18,10 +19,12 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
 
-public class AddPlacementActivity extends AppCompatActivity {
+public class AddPlacementActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     EditText name, department, company, package_name, location, student;
     Button submit;
     private String n = "";
+    DatabaseReference db;
+    long number;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,9 @@ public class AddPlacementActivity extends AppCompatActivity {
         location = findViewById(R.id.location);
         student = findViewById(R.id.student);
         submit = findViewById(R.id.submit);
+        generate_random();
+        student.setText(String.valueOf(number));
+        student.setEnabled(false);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,5 +79,37 @@ public class AddPlacementActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void generate_random() {
+        number = (long) Math.floor(Math.random() * 9_000_000_000L) + 1_000_000_000L;
+        validate_random();
+    }
+
+    private void validate_random() {
+        db = FirebaseDatabase.getInstance().getReference("student");
+        db.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    if (Objects.equals(ds.getKey(), String.valueOf(n))) {
+                        generate_random();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
     }
 }

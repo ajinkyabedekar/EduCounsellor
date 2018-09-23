@@ -42,6 +42,7 @@ public class PlacementDetailsActivity extends AppCompatActivity {
         submit = findViewById(R.id.submit);
         delete = findViewById(R.id.delete);
         studentData = FirebaseDatabase.getInstance().getReference("placements");
+        student.setEnabled(false);
         studentData.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

@@ -54,6 +54,7 @@ public class EmployeesDetailsActivity extends AppCompatActivity implements Adapt
         ArrayAdapter<String> centers_adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, list);
         centers.setAdapter(centers_adapter);
         studentData = FirebaseDatabase.getInstance().getReference("employee");
+        employee.setEnabled(false);
         studentData.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
