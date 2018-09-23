@@ -19,6 +19,7 @@
         <TextView
             android:id="@+id/c_text"
             android:layout_width="wrap_content"
+            android:padding="10dp"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textStyle="bold" />
