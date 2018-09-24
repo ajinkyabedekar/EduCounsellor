@@ -16,6 +16,6 @@ class NewsCenters extends RecyclerView.ViewHolder {
     NewsCenters(@NonNull View itemView) {
         super(itemView);
         sname = itemView.findViewById(R.id.c_text);
-        v=itemView.findViewById(R.id.cd);
+        v = itemView.findViewById(R.id.cd);
     }
 }

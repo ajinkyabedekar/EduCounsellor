@@ -24,8 +24,8 @@ public class CentersDetailsActivity extends AppCompatActivity implements Adapter
     EditText name, location, mail, head, password;
     Button submit, delete;
     DatabaseReference centerData;
-    private String n="", key="";
-    private boolean exist=false;
+    private String n = "", key = "";
+    private boolean exist = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +48,7 @@ public class CentersDetailsActivity extends AppCompatActivity implements Adapter
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     if (Objects.equals(ds.child("name").getValue(String.class), n)) {
-                        key=ds.getKey();
+                        key = ds.getKey();
                         name.setText(n);
                         location.setText(ds.child("location").getValue(String.class));
                         mail.setText(ds.child("mail").getValue(String.class));
@@ -100,8 +100,8 @@ public class CentersDetailsActivity extends AppCompatActivity implements Adapter
     public void onNothingSelected(AdapterView<?> adapterView) {
 
     }
-    private void  update()
-    {
+
+    private void update() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("centers").child(key);
         myRef.child("name").setValue(name.getText().toString());
@@ -112,32 +112,27 @@ public class CentersDetailsActivity extends AppCompatActivity implements Adapter
         Toast.makeText(getBaseContext(), "Centers Added Successfully" + key, Toast.LENGTH_SHORT).show();
         startActivity(new Intent(getBaseContext(), CentersListActivity.class));
     }
-    private boolean check(EditText[] e)
-    {
-        for(EditText ed: e )
-        {
-            if(TextUtils.isEmpty(ed.getText().toString()))
-            {
+
+    private boolean check(EditText[] e) {
+        for (EditText ed : e) {
+            if (TextUtils.isEmpty(ed.getText().toString())) {
                 ed.setError("This Is A Required Field");
                 return true;
             }
         }
         return false;
     }
-    private boolean checkId(DatabaseReference db,final String c)
-    {
+
+    private boolean checkId(DatabaseReference db, final String c) {
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot ds:dataSnapshot.getChildren())
-                {
-                    if(Objects.equals(ds.getKey(),c))
-                    {
-                        exist=true;
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    if (Objects.equals(ds.getKey(), c)) {
+                        exist = true;
                         break;
-                    }
-                    else
-                        exist=false;
+                    } else
+                        exist = false;
                 }
             }
 

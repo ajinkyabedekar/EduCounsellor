@@ -24,13 +24,13 @@ public class StudentsAcademicsActivity extends AppCompatActivity implements Adap
     EditText name, mobile_number, mail, project, grade, score, certificate, award, professor, project_name;
     Button submit;
     DatabaseReference studentData;
-    private String n="", student_id;
+    private String n = "", student_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_students_academics);
-        Intent i=getIntent();
+        Intent i = getIntent();
         if (i.hasExtra("name")) {
             n = i.getStringExtra("name");
         }
@@ -45,7 +45,7 @@ public class StudentsAcademicsActivity extends AppCompatActivity implements Adap
         professor = findViewById(R.id.professor);
         project_name = findViewById(R.id.project_name);
         submit = findViewById(R.id.submit);
-        studentData=FirebaseDatabase.getInstance().getReference("student");
+        studentData = FirebaseDatabase.getInstance().getReference("student");
         studentData.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -92,6 +92,7 @@ public class StudentsAcademicsActivity extends AppCompatActivity implements Adap
     public void onNothingSelected(AdapterView<?> adapterView) {
 
     }
+
     private void update() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("student").child(student_id);

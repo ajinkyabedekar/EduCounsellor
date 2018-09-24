@@ -45,8 +45,8 @@ public class PlacementCentersEntryAdapter extends RecyclerView.Adapter<Placement
         holder.v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in=new Intent(c,PlacementListActivity.class);
-                in.putExtra("name",details.get(holder.getAdapterPosition()).getName());
+                Intent in = new Intent(c, PlacementListActivity.class);
+                in.putExtra("name", details.get(holder.getAdapterPosition()).getName());
                 c.startActivity(in);
             }
         });

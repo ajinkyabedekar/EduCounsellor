@@ -23,30 +23,30 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class NewsListActivity extends AppCompatActivity {
-    Button add_news;
+public class InternshipListActivity extends AppCompatActivity {
+    Button add_internship;
     RecyclerView recyclerView;
     DatabaseReference db;
     EditText name;
-    NewsListEntryAdapter adapter;
+    InternshipListEntryAdapter adapter;
     ProgressBar pg;
     Context mContext;
-    private ArrayList<NewsListEntryVo> details = new ArrayList<>();
+    private ArrayList<InternshipListEntryVo> details = new ArrayList<>();
     private String n = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_news_list);
+        setContentView(R.layout.activity_internship_list);
         Intent i = getIntent();
         if (i.hasExtra("name")) {
             n = i.getStringExtra("name");
         }
-        add_news = findViewById(R.id.add_news);
-        add_news.setOnClickListener(new View.OnClickListener() {
+        add_internship = findViewById(R.id.add_internship);
+        add_internship.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in = new Intent(getBaseContext(), AddNewsActivity.class);
+                Intent in = new Intent(getBaseContext(), AddInternshipActivity.class);
                 in.putExtra("name", n);
                 startActivity(in);
             }
@@ -56,22 +56,22 @@ public class NewsListActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycle);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        db = FirebaseDatabase.getInstance().getReference("news");
+        db = FirebaseDatabase.getInstance().getReference("internships");
         pg.setVisibility(View.VISIBLE);
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     if (Objects.equals(ds.child("center").getValue(String.class), n)) {
-                        NewsListEntryVo s = new NewsListEntryVo();
+                        InternshipListEntryVo s = new InternshipListEntryVo();
                         s.setName(Objects.requireNonNull(ds.child("name").getValue()).toString());
                         details.add(s);
                     }
                 }
                 if (details.size() == 0) {
-                    Toast.makeText(getBaseContext(), "No News Found", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "No Internships Found", Toast.LENGTH_SHORT).show();
                 }
-                adapter = new NewsListEntryAdapter(mContext, details);
+                adapter = new InternshipListEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
             }

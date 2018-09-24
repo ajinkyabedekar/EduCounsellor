@@ -15,11 +15,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.Objects;
-
 public class StartupDetailsActivity extends AppCompatActivity {
     DatabaseReference studentData;
     private String n = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +39,7 @@ public class StartupDetailsActivity extends AppCompatActivity {
             }
         });
     }
+
     private void update() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("placement").child("Student ID");

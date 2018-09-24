@@ -12,11 +12,11 @@ import com.education.counselor.trainer.R;
 
 import java.util.ArrayList;
 
-public class NewsListEntryAdapter extends RecyclerView.Adapter<NewsList> {
+public class InternshipCentersEntryAdapter extends RecyclerView.Adapter<InternshipCenters> {
     private Context c;
-    private ArrayList<NewsListEntryVo> details;
+    private ArrayList<InternshipCentersEntryVo> details;
 
-    NewsListEntryAdapter(Context c, ArrayList<NewsListEntryVo> details) {
+    InternshipCentersEntryAdapter(Context c, ArrayList<InternshipCentersEntryVo> details) {
         setHasStableIds(true);
         this.c = c;
         this.details = details;
@@ -34,18 +34,18 @@ public class NewsListEntryAdapter extends RecyclerView.Adapter<NewsList> {
 
     @NonNull
     @Override
-    public NewsList onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(c).inflate(R.layout.layout_news_list_adapter, viewGroup, false);
-        return new NewsList(v);
+    public InternshipCenters onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View v = LayoutInflater.from(c).inflate(R.layout.layout_internship_centers_adapter, viewGroup, false);
+        return new InternshipCenters(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final NewsList holder, int i) {
+    public void onBindViewHolder(@NonNull final InternshipCenters holder, int i) {
         holder.sname.setText(details.get(i).getName());
         holder.v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in = new Intent(c, NewsDetailsActivity.class);
+                Intent in = new Intent(c, InternshipListActivity.class);
                 in.putExtra("name", details.get(holder.getAdapterPosition()).getName());
                 c.startActivity(in);
             }

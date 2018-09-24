@@ -45,8 +45,8 @@ public class StartupListEntryAdapter extends RecyclerView.Adapter<StartupList> {
         holder.v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in=new Intent(c,StartupDetailsActivity.class);
-                in.putExtra("name",details.get(holder.getAdapterPosition()).getName());
+                Intent in = new Intent(c, StartupDetailsActivity.class);
+                in.putExtra("name", details.get(holder.getAdapterPosition()).getName());
                 c.startActivity(in);
             }
         });

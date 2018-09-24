@@ -46,8 +46,8 @@ public class CounsellorCentersEntryAdapter extends RecyclerView.Adapter<Counsell
         holder.v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in=new Intent(c,EditCounsellorActivity.class);
-                in.putExtra("name",details.get(holder.getAdapterPosition()).getName());
+                Intent in = new Intent(c, EditCounsellorActivity.class);
+                in.putExtra("name", details.get(holder.getAdapterPosition()).getName());
                 c.startActivity(in);
             }
         });

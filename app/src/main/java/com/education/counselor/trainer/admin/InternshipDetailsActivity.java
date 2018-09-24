@@ -19,37 +19,41 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
 
-public class NewsDetailsActivity extends AppCompatActivity {
-    EditText name, motto, drive, date;
+public class InternshipDetailsActivity extends AppCompatActivity {
+    EditText name, department, company, stipend, location, student;
     Button submit, delete;
     DatabaseReference studentData;
-    private String n = "", key;
+    private String n = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_news_details);
+        setContentView(R.layout.activity_internship_details);
         Intent i = getIntent();
         if (i.hasExtra("name")) {
             n = i.getStringExtra("name");
         }
         name = findViewById(R.id.name);
-        motto = findViewById(R.id.motto);
-        drive = findViewById(R.id.drive);
-        date = findViewById(R.id.date);
+        department = findViewById(R.id.department);
+        company = findViewById(R.id.company);
+        stipend = findViewById(R.id.stipend);
+        location = findViewById(R.id.location);
+        student = findViewById(R.id.student);
         submit = findViewById(R.id.submit);
         delete = findViewById(R.id.delete);
-        studentData = FirebaseDatabase.getInstance().getReference("news");
+        studentData = FirebaseDatabase.getInstance().getReference("internships");
+        student.setEnabled(false);
         studentData.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     if (Objects.equals(ds.child("name").getValue(String.class), n)) {
                         name.setText(n);
-                        motto.setText(ds.child("motto").getValue(String.class));
-                        drive.setText(ds.child("google_drive_link").getValue(String.class));
-                        date.setText(ds.child("date").getValue(String.class));
-                        key = ds.getKey();
+                        department.setText(ds.child("department").getValue(String.class));
+                        company.setText(ds.child("company").getValue(String.class));
+                        stipend.setText(ds.child("stipend").getValue(String.class));
+                        location.setText(ds.child("location").getValue(String.class));
+                        student.setText(ds.getKey());
                     }
                 }
             }
@@ -62,9 +66,9 @@ public class NewsDetailsActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EditText e[] = new EditText[]{name, motto, drive, date};
+                EditText e[] = new EditText[]{name, department, company, stipend, location, student};
                 if (check(e)) {
-                    Toast.makeText(NewsDetailsActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(InternshipDetailsActivity.this, "Error", Toast.LENGTH_SHORT).show();
                 } else
                     update();
             }
@@ -72,22 +76,23 @@ public class NewsDetailsActivity extends AppCompatActivity {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                studentData.child(key).removeValue();
-                Toast.makeText(getBaseContext(), "Placement Deleted Successfully", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getBaseContext(), EditStudentActivity.class));
+                studentData.child(student.getText().toString()).removeValue();
+                Toast.makeText(getBaseContext(), "Internship Deleted Successfully", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getBaseContext(), InternshipListActivity.class));
             }
         });
     }
 
     private void update() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("news").push();
+        DatabaseReference myRef = database.getReference("Internships").child(student.getText().toString());
         myRef.child("name").setValue(name.getText().toString());
-        myRef.child("motto").setValue(motto.getText().toString());
-        myRef.child("google_drive_link").setValue(drive.getText().toString());
-        myRef.child("date").setValue(date.getText().toString());
-        Toast.makeText(getBaseContext(), "News Updated Successfully", Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(getBaseContext(), NewsListActivity.class));
+        myRef.child("department").setValue(department.getText().toString());
+        myRef.child("company").setValue(company.getText().toString());
+        myRef.child("stipend").setValue(stipend.getText().toString());
+        myRef.child("location").setValue(location.getText().toString());
+        Toast.makeText(getBaseContext(), "Internship Updated Successfully", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(getBaseContext(), InternshipListActivity.class));
     }
 
     private boolean check(EditText[] e) {

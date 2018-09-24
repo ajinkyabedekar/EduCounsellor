@@ -17,7 +17,7 @@ public class CoursesList extends RecyclerView.ViewHolder {
         super(itemView);
         sname = itemView.findViewById(R.id.s_text);
         pname = itemView.findViewById(R.id.p_text);
-        v=itemView.findViewById(R.id.cd);
+        v = itemView.findViewById(R.id.cd);
         pname.setText("null");
     }
 }

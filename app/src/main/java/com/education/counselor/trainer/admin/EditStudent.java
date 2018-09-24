@@ -17,7 +17,7 @@ public class EditStudent extends RecyclerView.ViewHolder {
         super(itemView);
         s_name = itemView.findViewById(R.id.s_text);
         p_name = itemView.findViewById(R.id.p_text);
-        v=itemView.findViewById(R.id.cd);
+        v = itemView.findViewById(R.id.cd);
         p_name.setText("null");
     }
 }

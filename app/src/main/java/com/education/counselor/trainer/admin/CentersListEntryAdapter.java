@@ -45,8 +45,8 @@ public class CentersListEntryAdapter extends RecyclerView.Adapter<CentersList> {
         holder.v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in=new Intent(c,CentersDetailsActivity.class);
-                in.putExtra("name",details.get(holder.getAdapterPosition()).getName());
+                Intent in = new Intent(c, CentersDetailsActivity.class);
+                in.putExtra("name", details.get(holder.getAdapterPosition()).getName());
                 c.startActivity(in);
             }
         });

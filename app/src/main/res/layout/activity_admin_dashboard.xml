@@ -135,6 +135,15 @@
                 android:text="@string/employees_list" />
 
             <Button
+                android:id="@+id/internships"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/button_back_1"
+                android:padding="10sp"
+                android:text="@string/internships" />
+
+            <Button
                 android:id="@+id/logout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

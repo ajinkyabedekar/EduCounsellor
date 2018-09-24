@@ -45,8 +45,8 @@ public class EmployeesListEntryAdapter extends RecyclerView.Adapter<EmployeesLis
         holder.v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in=new Intent(c,EmployeesDetailsActivity.class);
-                in.putExtra("name",details.get(holder.getAdapterPosition()).getName());
+                Intent in = new Intent(c, EmployeesDetailsActivity.class);
+                in.putExtra("name", details.get(holder.getAdapterPosition()).getName());
                 c.startActivity(in);
             }
         });

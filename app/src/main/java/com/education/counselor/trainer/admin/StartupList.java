@@ -16,6 +16,6 @@ class StartupList extends RecyclerView.ViewHolder {
     StartupList(@NonNull View itemView) {
         super(itemView);
         s_name = itemView.findViewById(R.id.s_text);
-        v=itemView.findViewById(R.id.cd);
+        v = itemView.findViewById(R.id.cd);
     }
 }

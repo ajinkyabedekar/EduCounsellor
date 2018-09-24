@@ -25,18 +25,18 @@ import java.util.List;
 import java.util.Objects;
 
 public class AddEmployeeActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    private final List<multiList> list = new ArrayList<>();
     EditText name, position, mail, login, password, employee;
     Spinner centers;
     Button submit;
-    private DatabaseReference db;
-    private multiList s=new multiList();
-    private final List<multiList> list=new ArrayList<>();
     long n;
+    private DatabaseReference db;
+    private multiList s = new multiList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        db=FirebaseDatabase.getInstance().getReference("centers");
+        db = FirebaseDatabase.getInstance().getReference("centers");
         setContentView(R.layout.activity_add_employee);
         name = findViewById(R.id.name);
         position = findViewById(R.id.position);
@@ -54,7 +54,7 @@ public class AddEmployeeActivity extends AppCompatActivity implements AdapterVie
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    s=new multiList();
+                    s = new multiList();
                     s.setText(snapshot.child("name").getValue(String.class));
                     list.add(s);
                 }
@@ -62,11 +62,11 @@ public class AddEmployeeActivity extends AppCompatActivity implements AdapterVie
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(AddEmployeeActivity.this, databaseError+"", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddEmployeeActivity.this, databaseError + "", Toast.LENGTH_SHORT).show();
             }
         });
 
-        final spinnerAdapter adapter=new spinnerAdapter(this,0,list,centers);
+        final spinnerAdapter adapter = new spinnerAdapter(this, 0, list, centers);
         centers.setAdapter(adapter);
         generate_random();
         employee.setText(String.valueOf(n));
@@ -92,10 +92,9 @@ public class AddEmployeeActivity extends AppCompatActivity implements AdapterVie
                 } else if (employee.getText().toString().equals("")) {
                     employee.requestFocus();
                     employee.setError("This Is A Required Field");
-                }  else if(adapter.getCenter().isEmpty()) {
+                } else if (adapter.getCenter().isEmpty()) {
                     Toast.makeText(AddEmployeeActivity.this, "Please choose a center", Toast.LENGTH_SHORT).show();
-                }
-                else {
+                } else {
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                     DatabaseReference myRef = database.getReference("employee").child(employee.getText().toString());
                     myRef.child("employee_name").setValue(name.getText().toString());

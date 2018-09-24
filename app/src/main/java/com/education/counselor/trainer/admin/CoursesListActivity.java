@@ -32,16 +32,23 @@ public class CoursesListActivity extends AppCompatActivity {
     ProgressBar pg;
     Context mContext;
     private ArrayList<CoursesListEntryVo> details = new ArrayList<>();
+    private String n = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_courses_list);
+        Intent i = getIntent();
+        if (i.hasExtra("name")) {
+            n = i.getStringExtra("name");
+        }
         add_course = findViewById(R.id.add_course);
         add_course.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getBaseContext(), AddCoursesActivity.class));
+                Intent in = new Intent(getBaseContext(), AddCoursesActivity.class);
+                in.putExtra("name", n);
+                startActivity(in);
             }
         });
         mContext = this;
@@ -55,10 +62,12 @@ public class CoursesListActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    CoursesListEntryVo s = new CoursesListEntryVo();
-                    s.setName(Objects.requireNonNull(ds.child("name").getValue()).toString());
-                    s.setPhone(Objects.requireNonNull(ds.child("mobile_number").getValue()).toString());
-                    details.add(s);
+                    if (Objects.equals(ds.child("center").getValue(String.class), n)) {
+                        CoursesListEntryVo s = new CoursesListEntryVo();
+                        s.setName(Objects.requireNonNull(ds.child("course_name").getValue()).toString());
+                        s.setPhone(Objects.requireNonNull(ds.child("course_status").getValue()).toString());
+                        details.add(s);
+                    }
                 }
                 if (details.size() == 0) {
                     Toast.makeText(getBaseContext(), "No Courses Found", Toast.LENGTH_SHORT).show();

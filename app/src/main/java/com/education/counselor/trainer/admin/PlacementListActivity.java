@@ -46,8 +46,8 @@ public class PlacementListActivity extends AppCompatActivity {
         add_placement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in=new Intent(getBaseContext(),AddPlacementActivity.class);
-                in.putExtra("name",n);
+                Intent in = new Intent(getBaseContext(), AddPlacementActivity.class);
+                in.putExtra("name", n);
                 startActivity(in);
             }
         });

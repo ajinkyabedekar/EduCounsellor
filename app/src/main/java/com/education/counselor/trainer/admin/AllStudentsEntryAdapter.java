@@ -34,7 +34,7 @@ public class AllStudentsEntryAdapter extends RecyclerView.Adapter<AllStudents> {
 
     @NonNull
     @Override
-    public AllStudents onCreateViewHolder(@NonNull ViewGroup viewGroup,final int i) {
+    public AllStudents onCreateViewHolder(@NonNull ViewGroup viewGroup, final int i) {
         View v = LayoutInflater.from(c).inflate(R.layout.layout_all_students_adapter, viewGroup, false);
         return new AllStudents(v);
     }
@@ -46,8 +46,8 @@ public class AllStudentsEntryAdapter extends RecyclerView.Adapter<AllStudents> {
         holder.v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in=new Intent(c,StudentsAcademicsActivity.class);
-                in.putExtra("name",details.get(holder.getAdapterPosition()).getName());
+                Intent in = new Intent(c, StudentsAcademicsActivity.class);
+                in.putExtra("name", details.get(holder.getAdapterPosition()).getName());
                 c.startActivity(in);
             }
         });

@@ -16,6 +16,6 @@ class PlacementList extends RecyclerView.ViewHolder {
     PlacementList(@NonNull View itemView) {
         super(itemView);
         sname = itemView.findViewById(R.id.s_text);
-        v=itemView.findViewById(R.id.cd);
+        v = itemView.findViewById(R.id.cd);
     }
 }

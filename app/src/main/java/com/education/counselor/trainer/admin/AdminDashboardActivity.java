@@ -13,7 +13,7 @@ import com.education.counselor.trainer.launcher.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class AdminDashboardActivity extends AppCompatActivity {
-    Button logout, add_student, edit_student, student_list, startup_list, placement_list, edit_counsellor, news, centers, courses, add_employee, employee_list;
+    Button logout, add_student, edit_student, student_list, startup_list, placement_list, edit_counsellor, news, centers, courses, add_employee, employee_list, internships;
     private boolean pressed = false;
 
     @Override
@@ -48,6 +48,7 @@ public class AdminDashboardActivity extends AppCompatActivity {
         courses = findViewById(R.id.courses);
         add_employee = findViewById(R.id.add_employee);
         employee_list = findViewById(R.id.employee_list);
+        internships = findViewById(R.id.internships);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -119,6 +120,12 @@ public class AdminDashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getBaseContext(), EmployeesListActivity.class));
+            }
+        });
+        internships.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getBaseContext(), InternshipCentersActivity.class));
             }
         });
     }

@@ -19,8 +19,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
 
-public class AddPlacementActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    EditText name, department, company, package_name, location, student;
+public class AddInternshipActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    EditText name, department, company, stipend, location, student;
     Button submit;
     DatabaseReference db;
     long number;
@@ -29,7 +29,7 @@ public class AddPlacementActivity extends AppCompatActivity implements AdapterVi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_placement);
+        setContentView(R.layout.activity_add_internship);
         Intent i = getIntent();
         if (i.hasExtra("name")) {
             n = i.getStringExtra("name");
@@ -37,7 +37,7 @@ public class AddPlacementActivity extends AppCompatActivity implements AdapterVi
         name = findViewById(R.id.name);
         department = findViewById(R.id.department);
         company = findViewById(R.id.company);
-        package_name = findViewById(R.id.package_name);
+        stipend = findViewById(R.id.stipend);
         location = findViewById(R.id.location);
         student = findViewById(R.id.student);
         submit = findViewById(R.id.submit);
@@ -56,9 +56,9 @@ public class AddPlacementActivity extends AppCompatActivity implements AdapterVi
                 } else if (company.getText().toString().equals("")) {
                     company.requestFocus();
                     company.setError("This Is A Required Field");
-                } else if (package_name.getText().toString().equals("")) {
-                    package_name.requestFocus();
-                    package_name.setError("This Is A Required Field");
+                } else if (stipend.getText().toString().equals("")) {
+                    stipend.requestFocus();
+                    stipend.setError("This Is A Required Field");
                 } else if (location.getText().toString().equals("")) {
                     location.requestFocus();
                     location.setError("This Is A Required Field");
@@ -67,15 +67,15 @@ public class AddPlacementActivity extends AppCompatActivity implements AdapterVi
                     student.setError("This Is A Required Field");
                 } else {
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    DatabaseReference myRef = database.getReference("placements").child(student.getText().toString());
+                    DatabaseReference myRef = database.getReference("internships").child(student.getText().toString());
                     myRef.child("name").setValue(name.getText().toString());
                     myRef.child("department").setValue(department.getText().toString());
                     myRef.child("company").setValue(company.getText().toString());
-                    myRef.child("package_name").setValue(package_name.getText().toString());
+                    myRef.child("stipend").setValue(stipend.getText().toString());
                     myRef.child("location").setValue(location.getText().toString());
                     myRef.child("center").setValue(n);
-                    Toast.makeText(getBaseContext(), "Placement Added Successfully", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getBaseContext(), PlacementListActivity.class));
+                    Toast.makeText(getBaseContext(), "Internship Added Successfully", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getBaseContext(), InternshipListActivity.class));
                 }
             }
         });
@@ -87,7 +87,7 @@ public class AddPlacementActivity extends AppCompatActivity implements AdapterVi
     }
 
     private void validate_random() {
-        db = FirebaseDatabase.getInstance().getReference("placement");
+        db = FirebaseDatabase.getInstance().getReference("internship");
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

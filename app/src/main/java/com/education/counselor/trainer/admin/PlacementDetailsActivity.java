@@ -78,10 +78,11 @@ public class PlacementDetailsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 studentData.child(student.getText().toString()).removeValue();
                 Toast.makeText(getBaseContext(), "Placement Deleted Successfully", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getBaseContext(), EditStudentActivity.class));
+                startActivity(new Intent(getBaseContext(), PlacementListActivity.class));
             }
         });
     }
+
     private void update() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("placements").child(student.getText().toString());

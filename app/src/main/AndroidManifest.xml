@@ -66,6 +66,10 @@
         <activity android:name=".admin.AddStartupActivity" />
         <activity android:name=".admin.AddCounsellorActivity" />
         <activity android:name=".admin.AddCoursesActivity" />
+        <activity android:name=".admin.InternshipCentersActivity" />
+        <activity android:name=".admin.InternshipDetailsActivity" />
+        <activity android:name=".admin.InternshipListActivity" />
+        <activity android:name=".admin.AddInternshipActivity" />
     </application>
 
 </manifest>

@@ -105,6 +105,7 @@ public class EmployeesDetailsActivity extends AppCompatActivity implements Adapt
     public void onNothingSelected(AdapterView<?> adapterView) {
 
     }
+
     private void update() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("employee").child(employee.getText().toString());
