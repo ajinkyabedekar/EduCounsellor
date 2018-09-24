@@ -95,12 +95,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/employee_layout" />
+    <TextView
+        android:id="@+id/available"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/centers"
+        android:text="Assigned centres:\n"
+        />
 
     <Button
         android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/centers"
+        android:layout_below="@+id/available"
         android:layout_centerInParent="true"
         android:layout_marginTop="20sp"
         android:background="@drawable/blue_button"
@@ -114,6 +121,7 @@
         android:layout_below="@+id/submit"
         android:layout_centerInParent="true"
         android:layout_marginTop="10sp"
+        android:padding="5dp"
         android:background="@drawable/button_red"
         android:text="@string/delete_employee"
         android:textColor="@color/white" />

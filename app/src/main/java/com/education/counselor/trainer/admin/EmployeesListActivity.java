@@ -45,6 +45,7 @@ public class EmployeesListActivity extends AppCompatActivity {
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                details.clear();
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     EmployeesListEntryVo s = new EmployeesListEntryVo();
                     s.setName(Objects.requireNonNull(ds.child("employee_name").getValue()).toString());
