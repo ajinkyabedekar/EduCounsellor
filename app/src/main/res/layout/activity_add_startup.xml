@@ -44,7 +44,7 @@
             android:id="@+id/startup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Startup Name"
+            android:hint="@string/startup_name"
             android:inputType="text" />
     </android.support.design.widget.TextInputLayout>
 

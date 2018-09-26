@@ -101,4 +101,5 @@
     <string name="add_detailed_content_of_enrolled_users">Add Detailed Content of Enrolled Users</string>
     <string name="delete_course">Delete Course</string>
     <string name="internships">Internships</string>
+    <string name="startup_name">Startup Name</string>
 </resources>

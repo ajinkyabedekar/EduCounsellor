@@ -71,6 +71,15 @@
         <activity android:name=".admin.InternshipListActivity" />
         <activity android:name=".admin.AddInternshipActivity" />
         <activity android:name=".authority.college.GiveSuggestionActivity" />
+        <activity android:name=".authority.college.SuggestionListActivity" />
+        <activity android:name=".authority.college.InternshipListActivity" />
+        <activity android:name=".authority.college.PlacementListActivity" />
+        <activity android:name=".authority.college.ProjectListActivity" />
+        <activity android:name=".authority.college.StartupListActivity" />
+        <activity android:name=".authority.school.GiveSuggestionActivity" />
+        <activity android:name=".authority.school.SuggestionListActivity" />
+        <activity android:name=".authority.school.StartupListActivity" />
+        <activity android:name=".authority.school.ProjectListActivity" />
     </application>
 
 </manifest>
