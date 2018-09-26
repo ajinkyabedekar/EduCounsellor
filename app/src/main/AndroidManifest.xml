@@ -70,6 +70,7 @@
         <activity android:name=".admin.InternshipDetailsActivity" />
         <activity android:name=".admin.InternshipListActivity" />
         <activity android:name=".admin.AddInternshipActivity" />
+        <activity android:name=".authority.college.GiveSuggestionActivity" />
     </application>
 
 </manifest>
