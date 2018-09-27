@@ -1,14 +1,12 @@
 package com.education.counselor.trainer.authority.college;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -25,7 +23,6 @@ import java.util.Objects;
 public class ProjectListActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     DatabaseReference db;
-    EditText name;
     ProjectListEntryAdapter adapter;
     ProgressBar pg;
     Context mContext;
@@ -36,10 +33,6 @@ public class ProjectListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_project_list);
-        Intent i = getIntent();
-        if (i.hasExtra("name")) {
-            n = i.getStringExtra("name");
-        }
         mContext = this;
         pg = findViewById(R.id.progress);
         recyclerView = findViewById(R.id.recycle);

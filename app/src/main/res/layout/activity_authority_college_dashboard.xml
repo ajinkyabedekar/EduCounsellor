@@ -1,6 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".authority.college.AuthorityCollegeDashboardActivity" />
+    tools:context=".authority.college.AuthorityCollegeDashboardActivity">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/dash"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="5dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:padding="10sp"
+            android:text="College Authority Dashboard"
+            android:textSize="30sp" />
+
+    </android.support.v7.widget.CardView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/dash">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <Button
+                android:id="@+id/give_suggestions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/button_back_1"
+                android:padding="10sp"
+                android:text="Give Suggestions" />
+
+            <Button
+                android:id="@+id/internship_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/button_back_1"
+                android:padding="10sp"
+                android:text="Internship List" />
+
+            <Button
+                android:id="@+id/placement_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/button_back_1"
+                android:padding="10sp"
+                android:text="Placement List" />
+
+            <Button
+                android:id="@+id/project_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/button_back_1"
+                android:padding="10sp"
+                android:text="Project List" />
+
+            <Button
+                android:id="@+id/startup_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/button_back_1"
+                android:padding="10sp"
+                android:text="Startup List" />
+
+            <Button
+                android:id="@+id/suggestion_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/button_back_1"
+                android:padding="10sp"
+                android:text="Suggestion List" />
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

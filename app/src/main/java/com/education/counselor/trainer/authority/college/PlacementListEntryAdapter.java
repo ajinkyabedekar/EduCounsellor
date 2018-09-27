@@ -34,7 +34,7 @@ public class PlacementListEntryAdapter extends RecyclerView.Adapter<PlacementLis
     @NonNull
     @Override
     public PlacementList onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(c).inflate(R.layout.layout_placement_list_adapter, viewGroup, false);
+        View v = LayoutInflater.from(c).inflate(R.layout.layout_placement_list_adapter2, viewGroup, false);
         return new PlacementList(v);
     }
 
