@@ -25,7 +25,6 @@ import java.util.Objects;
 public class StartupListActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     DatabaseReference db;
-    EditText name;
     StartupListEntryAdapter adapter;
     ProgressBar pg;
     Context mContext;
@@ -35,11 +34,7 @@ public class StartupListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_startup_list);
-        Intent i = getIntent();
-        if (i.hasExtra("name")) {
-            n = i.getStringExtra("name");
-        }
+        setContentView(R.layout.activity_startup_list3);
         mContext = this;
         pg = findViewById(R.id.progress);
         recyclerView = findViewById(R.id.recycle);

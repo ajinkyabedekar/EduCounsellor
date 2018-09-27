@@ -18,7 +18,7 @@ public class GiveSuggestionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_give_suggestion);
+        setContentView(R.layout.activity_give_suggestion2);
         suggestion = findViewById(R.id.suggestion);
         submit = findViewById(R.id.submit);
         submit.setOnClickListener(new View.OnClickListener() {

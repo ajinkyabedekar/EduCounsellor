@@ -34,7 +34,7 @@ public class ProjectListEntryAdapter extends RecyclerView.Adapter<ProjectList> {
     @NonNull
     @Override
     public ProjectList onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(c).inflate(R.layout.layout_project_list_adapter, viewGroup, false);
+        View v = LayoutInflater.from(c).inflate(R.layout.layout_project_list_adapter2, viewGroup, false);
         return new ProjectList(v);
     }
 

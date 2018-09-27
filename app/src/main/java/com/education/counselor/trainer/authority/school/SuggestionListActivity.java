@@ -25,7 +25,6 @@ import java.util.Objects;
 public class SuggestionListActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     DatabaseReference db;
-    EditText name;
     SuggestionListEntryAdapter adapter;
     ProgressBar pg;
     Context mContext;
@@ -35,11 +34,7 @@ public class SuggestionListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_suggestion_list);
-        Intent i = getIntent();
-        if (i.hasExtra("name")) {
-            n = i.getStringExtra("name");
-        }
+        setContentView(R.layout.activity_suggestion_list2);
         mContext = this;
         pg = findViewById(R.id.progress);
         recyclerView = findViewById(R.id.recycle);

@@ -34,7 +34,7 @@ public class SuggestionListEntryAdapter extends RecyclerView.Adapter<SuggestionL
     @NonNull
     @Override
     public SuggestionList onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(c).inflate(R.layout.layout_suggestion_list_adapter, viewGroup, false);
+        View v = LayoutInflater.from(c).inflate(R.layout.layout_suggestion_list_adapter2, viewGroup, false);
         return new SuggestionList(v);
     }
 
