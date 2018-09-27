@@ -34,7 +34,7 @@ public class StartupListEntryAdapter extends RecyclerView.Adapter<StartupList> {
     @NonNull
     @Override
     public StartupList onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(c).inflate(R.layout.layout_startup_list_adapter, viewGroup, false);
+        View v = LayoutInflater.from(c).inflate(R.layout.layout_startup_list_adapter2, viewGroup, false);
         return new StartupList(v);
     }
 
