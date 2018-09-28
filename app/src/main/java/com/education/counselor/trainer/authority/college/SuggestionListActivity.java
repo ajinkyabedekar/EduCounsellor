@@ -27,7 +27,6 @@ public class SuggestionListActivity extends AppCompatActivity {
     ProgressBar pg;
     Context mContext;
     private ArrayList<SuggestionListEntryVo> details = new ArrayList<>();
-    private String n = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +37,7 @@ public class SuggestionListActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycle);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        db = FirebaseDatabase.getInstance().getReference("suggestion");
+        db = FirebaseDatabase.getInstance().getReference("suggestions");
         pg.setVisibility(View.VISIBLE);
         db.addValueEventListener(new ValueEventListener() {
             @Override
@@ -49,7 +48,7 @@ public class SuggestionListActivity extends AppCompatActivity {
                     details.add(s);
                 }
                 if (details.size() == 0) {
-                    Toast.makeText(getBaseContext(), "No Suggestion Found", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "No Suggestions Found", Toast.LENGTH_SHORT).show();
                 }
                 adapter = new SuggestionListEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);
