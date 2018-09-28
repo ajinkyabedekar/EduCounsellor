@@ -44,11 +44,9 @@ public class PlacementListActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    if (Objects.equals(ds.child("center").getValue(String.class), n)) {
-                        PlacementListEntryVo s = new PlacementListEntryVo();
-                        s.setName(Objects.requireNonNull(ds.child("name").getValue()).toString());
-                        details.add(s);
-                    }
+                    PlacementListEntryVo s = new PlacementListEntryVo();
+                    s.setName(Objects.requireNonNull(ds.child("name").getValue()).toString());
+                    details.add(s);
                 }
                 if (details.size() == 0) {
                     Toast.makeText(getBaseContext(), "No Placement Found", Toast.LENGTH_SHORT).show();

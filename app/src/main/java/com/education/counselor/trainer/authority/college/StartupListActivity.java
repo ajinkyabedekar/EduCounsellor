@@ -44,11 +44,9 @@ public class StartupListActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    if (Objects.equals(ds.child("center").getValue(String.class), n)) {
-                        StartupListEntryVo s = new StartupListEntryVo();
-                        s.setName(Objects.requireNonNull(ds.child("name").getValue()).toString());
-                        details.add(s);
-                    }
+                    StartupListEntryVo s = new StartupListEntryVo();
+                    s.setName(Objects.requireNonNull(ds.child("name").getValue()).toString());
+                    details.add(s);
                 }
                 if (details.size() == 0) {
                     Toast.makeText(getBaseContext(), "No Startup Found", Toast.LENGTH_SHORT).show();
