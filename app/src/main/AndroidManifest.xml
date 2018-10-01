@@ -80,6 +80,9 @@
         <activity android:name=".authority.school.SuggestionListActivity" />
         <activity android:name=".authority.school.StartupListActivity" />
         <activity android:name=".authority.school.ProjectListActivity" />
+        <activity android:name=".student.AttendanceActivity" />
+        <activity android:name=".student.AddQueryActivity" />
+        <activity android:name=".student.QueryListActivity"></activity>
     </application>
 
 </manifest>
