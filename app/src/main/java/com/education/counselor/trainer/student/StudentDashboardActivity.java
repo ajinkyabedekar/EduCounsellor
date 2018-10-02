@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.education.counselor.trainer.R;
 
 public class StudentDashboardActivity extends AppCompatActivity {
-    Button attend_class, query_list;
+    Button attend_class, add_query, query_list, courses_list;
     private boolean pressed = false;
 
     @Override
@@ -41,6 +41,14 @@ public class StudentDashboardActivity extends AppCompatActivity {
                 startActivity(new Intent(getBaseContext(), AttendanceActivity.class));
             }
         });
+        add_query = findViewById(R.id.add_query);
+        add_query.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(), AddQueryActivity.class));
+            }
+        });
+        query_list = findViewById(R.id.query_list);
         query_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
