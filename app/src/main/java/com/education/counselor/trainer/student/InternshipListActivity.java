@@ -37,7 +37,7 @@ public class InternshipListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_internship_list);
+        setContentView(R.layout.activity_internship_list3);
         Intent i = getIntent();
         if (i.hasExtra("name")) {
             n = i.getStringExtra("name");

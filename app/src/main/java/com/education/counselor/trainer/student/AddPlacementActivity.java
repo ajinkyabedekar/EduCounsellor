@@ -29,7 +29,7 @@ public class AddPlacementActivity extends AppCompatActivity implements AdapterVi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_placement);
+        setContentView(R.layout.activity_add_placement2);
         Intent i = getIntent();
         if (i.hasExtra("name")) {
             n = i.getStringExtra("name");

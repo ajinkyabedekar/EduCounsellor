@@ -1,9 +1,9 @@
 package com.education.counselor.trainer.student;
 
-public class locationParameter {
+public class LocationParameter {
     double lattitude,longitude;
 
-    public locationParameter(double lattitude, double longitude) {
+    public LocationParameter(double lattitude, double longitude) {
         this.lattitude = lattitude;
         this.longitude = longitude;
     }

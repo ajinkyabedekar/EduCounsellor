@@ -34,7 +34,7 @@ public class CoursesListEntryAdapter extends RecyclerView.Adapter<CoursesList> {
     @NonNull
     @Override
     public CoursesList onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(c).inflate(R.layout.layout_courses_list_adapter, viewGroup, false);
+        View v = LayoutInflater.from(c).inflate(R.layout.layout_courses_list_adapter2, viewGroup, false);
         return new CoursesList(v);
     }
 

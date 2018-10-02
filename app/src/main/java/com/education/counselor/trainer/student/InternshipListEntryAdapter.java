@@ -35,7 +35,7 @@ public class InternshipListEntryAdapter extends RecyclerView.Adapter<InternshipL
     @NonNull
     @Override
     public InternshipList onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(c).inflate(R.layout.layout_internship_list_adapter, viewGroup, false);
+        View v = LayoutInflater.from(c).inflate(R.layout.layout_internship_list_adapter3, viewGroup, false);
         return new InternshipList(v);
     }
 
