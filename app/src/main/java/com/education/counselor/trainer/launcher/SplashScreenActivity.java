@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -24,6 +25,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
+
+import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
 public class SplashScreenActivity extends AppCompatActivity {
     String email, access;
@@ -92,5 +95,15 @@ public class SplashScreenActivity extends AppCompatActivity {
                 }
             }, 1000);
         }
+    }
+    private void requestPermission()
+    {
+        ActivityCompat.requestPermissions(this,new String[]{ACCESS_FINE_LOCATION},1);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        requestPermission();
     }
 }
