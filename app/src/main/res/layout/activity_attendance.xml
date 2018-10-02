@@ -1,7 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     tools:context=".student.AttendanceActivity">
-</android.support.constraint.ConstraintLayout>
+<TextView
+    android:id="@+id/lat"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Latitude: "
+    android:textSize="25dp"
+    android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/latText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="null"
+        android:layout_toRightOf="@id/lat"
+        android:textSize="20dp"/>
+    <TextView
+        android:id="@+id/lng"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Longitude: "
+        android:layout_below="@id/lat"
+        android:textSize="25dp"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/lngText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="null"
+        android:layout_toRightOf="@id/lng"
+        android:layout_below="@id/lat"
+        android:textSize="20dp"/>
+</RelativeLayout>
