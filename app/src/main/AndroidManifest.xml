@@ -82,7 +82,8 @@
         <activity android:name=".authority.school.ProjectListActivity" />
         <activity android:name=".student.AttendanceActivity" />
         <activity android:name=".student.AddQueryActivity" />
-        <activity android:name=".student.QueryListActivity"></activity>
+        <activity android:name=".student.QueryListActivity" />
+        <activity android:name=".student.CoursesListActivity"></activity>
     </application>
 
 </manifest>

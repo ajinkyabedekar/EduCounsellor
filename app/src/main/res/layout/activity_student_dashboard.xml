@@ -45,6 +45,15 @@
                 android:text="Attend Class" />
 
             <Button
+                android:id="@+id/add_query"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/button_back_1"
+                android:padding="10sp"
+                android:text="Add Query" />
+
+            <Button
                 android:id="@+id/query_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -52,6 +61,15 @@
                 android:background="@drawable/button_back_1"
                 android:padding="10sp"
                 android:text="Query List" />
+
+            <Button
+                android:id="@+id/courses_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/button_back_1"
+                android:padding="10sp"
+                android:text="Courses List" />
         </LinearLayout>
 
     </ScrollView>

@@ -27,7 +27,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/name"
                 android:textSize="20sp"
-
                 android:textStyle="bold" />
 
             <TextView
