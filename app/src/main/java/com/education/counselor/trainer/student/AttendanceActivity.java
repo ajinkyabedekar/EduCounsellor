@@ -70,8 +70,7 @@ public class AttendanceActivity extends AppCompatActivity {
                     db.child("location").setValue(myLoc).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-                            Snackbar.make(view,"Location added",Snackbar.LENGTH_SHORT)
-                                    .setAction("OK",null).show();
+                            Snackbar.make(view,"Location added",Snackbar.LENGTH_SHORT).show();
                         }
                     });
 
