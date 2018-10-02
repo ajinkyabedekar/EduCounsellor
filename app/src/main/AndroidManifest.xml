@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission. ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -83,8 +84,14 @@
         <activity android:name=".student.AttendanceActivity" />
         <activity android:name=".student.AddQueryActivity" />
         <activity android:name=".student.QueryListActivity" />
-        <activity android:name=".student.EnrolledCourseActivity" />
-        <activity android:name=".student.CoursesDisplay"></activity>
+        <activity android:name=".student.CoursesListActivity" />
+        <activity android:name=".student.ProjectDetailsActivity" />
+        <activity android:name=".student.AddInternshipActivity" />
+        <activity android:name=".student.AddPlacementActivity" />
+        <activity android:name=".student.InternshipDetailsActivity" />
+        <activity android:name=".student.InternshipListActivity" />
+        <activity android:name=".student.PlacementDetailsActivity" />
+        <activity android:name=".student.PlacementListActivity" />
     </application>
 
 </manifest>

@@ -73,7 +73,7 @@ public class CoursesDetailsActivity extends AppCompatActivity {
                         hours.setText(ds.child("hours").getValue(String.class));
                         details.setText(ds.child("details").getValue(String.class));
                         content.setText(ds.child("content").getValue(String.class));
-                        enrollments.setText(ds.child("category").getValue(String.class));
+                        enrollments.setText(ds.child("enrollments").getValue(String.class));
                         batches.setText(ds.child("batch_count").getValue(String.class));
                         year.setText(ds.child("enrollments_year_wise").getValue(String.class));
                         month.setText(ds.child("enrollments_month_wise").getValue(String.class));
