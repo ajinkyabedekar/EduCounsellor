@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.education.counselor.trainer.R;
+import com.education.counselor.trainer.admin.AdminDashboardActivity;
 import com.education.counselor.trainer.student.StudentDashboardActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -120,7 +121,12 @@ public class StudentLoginActivity extends AppCompatActivity {
 
     @Override
     public void onStart() {
+
         super.onStart();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            startActivity(new Intent(getBaseContext(), StudentDashboardActivity.class));
+        }
     }
 
     public void login() {
