@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.education.counselor.trainer.R;
 
 public class StudentDashboardActivity extends AppCompatActivity {
-    Button attend_class, add_query, query_list, courses_list;
+    Button attend_class, add_query, query_list, courses_list, project_details, internship_list, placement_list;
     private boolean pressed = false;
 
     @Override
@@ -53,6 +53,34 @@ public class StudentDashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getBaseContext(), QueryListActivity.class));
+            }
+        });
+        courses_list = findViewById(R.id.courses_list);
+        courses_list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(), CoursesListActivity.class));
+            }
+        });
+        project_details = findViewById(R.id.project_details);
+        project_details.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(), ProjectDetailsActivity.class));
+            }
+        });
+        internship_list = findViewById(R.id.internship_list);
+        internship_list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(), InternshipListActivity.class));
+            }
+        });
+        placement_list = findViewById(R.id.placement_list);
+        placement_list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(), PlacementListActivity.class));
             }
         });
     }
