@@ -5,36 +5,57 @@
     android:layout_height="match_parent"
     android:padding="10dp"
     tools:context=".student.AttendanceActivity">
-    <TextView
-        android:id="@+id/lat"
+    <android.support.v7.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Latitude: "
-        android:textSize="25dp"
-        android:textStyle="bold" />
-    <TextView
-        android:id="@+id/latText"
-        android:layout_toRightOf="@id/lat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="null"
-        android:textSize="20dp" />
-    <TextView
-    android:id="@+id/lng"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Longitude: "
-        android:layout_below="@id/lat"
-    android:textSize="25dp"
-    android:textStyle="bold" />
-    <TextView
-        android:id="@+id/lngText"
-        android:layout_toRightOf="@id/lng"
-        android:layout_below="@id/lat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="null"
-        android:textSize="20dp" />
+        android:layout_centerHorizontal="true">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+            <TextView
+                android:id="@+id/title"
+                android:text="Current Location"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:textSize="15dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/lat"
+                android:layout_below="@id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Latitude: "
+                android:textSize="20dp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/latText"
+                android:layout_below="@id/title"
+                android:layout_toRightOf="@id/lat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="null"
+                android:textSize="20dp" />
+            <TextView
+                android:id="@+id/lng"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Longitude: "
+                android:layout_below="@id/lat"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/lngText"
+                android:layout_toRightOf="@id/lng"
+                android:layout_below="@id/lat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="null"
+                android:textSize="20dp" />
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
     <Button
         android:id="@+id/attend"
         android:layout_width="wrap_content"
