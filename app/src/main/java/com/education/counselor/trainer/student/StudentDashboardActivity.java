@@ -34,6 +34,7 @@ public class StudentDashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_dashboard);
         attend_class = findViewById(R.id.attend_class);
+        add_query = findViewById(R.id.add_query);
         query_list=findViewById(R.id.query_list);
         attend_class.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,7 +42,6 @@ public class StudentDashboardActivity extends AppCompatActivity {
                 startActivity(new Intent(getBaseContext(), AttendanceActivity.class));
             }
         });
-        add_query = findViewById(R.id.add_query);
         add_query.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
