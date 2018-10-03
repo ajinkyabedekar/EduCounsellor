@@ -38,8 +38,6 @@ public class StudentLoginActivity extends AppCompatActivity {
     DatabaseReference ref;
     FirebaseDatabase database;
     private FirebaseAuth mAuth;
-    private boolean grant = false;
-    private String u_mail = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +59,7 @@ public class StudentLoginActivity extends AppCompatActivity {
                     password.requestFocus();
                     password.setError("This Is A Required Field");
                 } else {
-                    login();
+                    check(username.getText().toString());
                 }
             }
         });
@@ -129,11 +127,9 @@ public class StudentLoginActivity extends AppCompatActivity {
         }
     }
 
-    public void login() {
-        final String email = username.getText().toString();
+    public void login(String email) {
         final String pass = password.getText().toString();
-        if (check(email)) {
-            mAuth.signInWithEmailAndPassword(u_mail, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            mAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
@@ -144,11 +140,10 @@ public class StudentLoginActivity extends AppCompatActivity {
                     }
                 }
             });
-        } else
-            Toast.makeText(StudentLoginActivity.this, "The email do not exist", Toast.LENGTH_SHORT).show();
-    }
+        }
 
-    public boolean check(final String email) {
+
+    public void check(final String email) {
         final boolean isEmail;
         isEmail = email.contains("@");
         ref = database.getReference("student");
@@ -158,20 +153,18 @@ public class StudentLoginActivity extends AppCompatActivity {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     if (isEmail) {
                         if (Objects.requireNonNull(snapshot.child("mail").getValue()).toString().equalsIgnoreCase(email)) {
-                            grant = true;
-                            u_mail = email;
-                            break;
-                        } else
-                            grant = false;
-                    } else {
+                            login(email);
+                            return;
+                        }
+                    }
+                    else {
                         if (Objects.requireNonNull(snapshot.getKey()).equalsIgnoreCase(email)) {
-                            grant = true;
-                            u_mail = Objects.requireNonNull(snapshot.child("mail").getValue()).toString();
-                            break;
-                        } else
-                            grant = false;
+                           login(snapshot.child("mail").getValue().toString());
+                            return;
+                        }
                     }
                 }
+                Toast.makeText(StudentLoginActivity.this, "Entered username doesn't exist", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -179,7 +172,6 @@ public class StudentLoginActivity extends AppCompatActivity {
                 Toast.makeText(StudentLoginActivity.this, databaseError.toString(), Toast.LENGTH_SHORT).show();
             }
         });
-        return grant;
     }
 
     public void reset(String email) {

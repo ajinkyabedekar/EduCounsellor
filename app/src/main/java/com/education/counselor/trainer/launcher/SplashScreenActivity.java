@@ -34,6 +34,7 @@ import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
 public class SplashScreenActivity extends AppCompatActivity {
     String email, access;
+    boolean grant=false;
     DatabaseReference db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,76 +43,82 @@ public class SplashScreenActivity extends AppCompatActivity {
         ((ImageView) findViewById(R.id.iv)).setImageResource(R.mipmap.ic_logo);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         db = FirebaseDatabase.getInstance().getReference();
-        if (ContextCompat.checkSelfPermission(SplashScreenActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            requestPermission();
-        } else {
-            if (user != null) {
-                email = user.getEmail();
-                db.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                            for (DataSnapshot dataSnapshot1 : ds.getChildren()) {
-                                if (Objects.equals(dataSnapshot1.child("mail").getValue(String.class), email)) {
-                                    access = ds.getKey();
-                                }
-                            }
-                        }
-                        if (access != null) {
-                            switch (access) {
-                                case "admin":
-                                    startActivity(new Intent(getBaseContext(), AdminDashboardActivity.class));
-                                    break;
-                                case "college_authority":
-                                    startActivity(new Intent(getBaseContext(), AuthorityCollegeDashboardActivity.class));
-                                    break;
-                                case "school_authority":
-                                    startActivity(new Intent(getBaseContext(), AuthoritySchoolDashboardActivity.class));
-                                    break;
-                                case "counsellor":
-                                    startActivity(new Intent(getBaseContext(), CounsellorDashboardActivity.class));
-                                    break;
-                                case "student":
-                                    startActivity(new Intent(getBaseContext(), StudentDashboardActivity.class));
-                                    break;
-                                default:
-                                    Toast.makeText(getBaseContext(), "Please Check Your Network Connection", Toast.LENGTH_SHORT).show();
-                                    break;
-                            }
-                        } else {
-                            Toast.makeText(getBaseContext(), "Please Check Your Network Connection", Toast.LENGTH_SHORT).show();
-                        }
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-            } else {
+        checkUser(user);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                //((ImageView) findViewById(R.id.iv)).setImageResource(R.mipmap.ic_logo);
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        ((ImageView) findViewById(R.id.iv)).setImageResource(R.mipmap.ic_logo);
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-                            }
-                        }, 1000);
+                        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                        finish();
                     }
                 }, 1000);
             }
+        }, 1000);
+    }
+    private void checkUser(final FirebaseUser user)
+    {
+        if (user != null) {
+            email = user.getEmail();
+            db.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                        for (DataSnapshot dataSnapshot1 : ds.getChildren()) {
+                            if (Objects.equals(dataSnapshot1.child("mail").getValue(String.class), email))
+                                access = ds.getKey();
+                        }
+                    }
+                    if (access != null) {
+                        switch (access) {
+                            case "admin":
+                                startActivity(new Intent(getBaseContext(), AdminDashboardActivity.class));
+                                break;
+                            case "college_authority":
+                                Toast.makeText(SplashScreenActivity.this, "Welcome "+user.getDisplayName(), Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getBaseContext(), AuthorityCollegeDashboardActivity.class));
+                                break;
+                            case "school_authority":
+                                Toast.makeText(SplashScreenActivity.this, "Welcome "+user.getDisplayName(), Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getBaseContext(), AuthoritySchoolDashboardActivity.class));
+                                break;
+                            case "counsellor":
+                                Toast.makeText(SplashScreenActivity.this, "Welcome "+user.getDisplayName(), Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getBaseContext(), CounsellorDashboardActivity.class));
+                                break;
+                            case "student":
+                                Toast.makeText(SplashScreenActivity.this, "Welcome "+user.getDisplayName(), Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getBaseContext(), StudentDashboardActivity.class));
+                                break;
+                            default:
+                                Toast.makeText(getBaseContext(), "Please Check Your Network Connection", Toast.LENGTH_SHORT).show();
+                                break;
+                        }
+                    } else {
+                        Toast.makeText(getBaseContext(), "Please Check Your Network Connection", Toast.LENGTH_SHORT).show();
+                        grant=false;
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+        }
+        else {
+
         }
     }
-    private void requestPermission()
-    {
-        ActivityCompat.requestPermissions(SplashScreenActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-    }
+
+
+
 
     @Override
     protected void onStart() {
         super.onStart();
-        requestPermission();
     }
 }

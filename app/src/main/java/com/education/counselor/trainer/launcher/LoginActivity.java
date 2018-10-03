@@ -1,8 +1,13 @@
 package com.education.counselor.trainer.launcher;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -23,6 +28,8 @@ public class LoginActivity extends AppCompatActivity {
         counsellor = findViewById(R.id.counsellor);
         authority = findViewById(R.id.authority);
         admin = findViewById(R.id.admin);
+        if (ContextCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
+            requestPermission();
         student.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,5 +54,9 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(new Intent(getBaseContext(), AdminLoginActivity.class));
             }
         });
+    }
+    private void requestPermission()
+    {
+        ActivityCompat.requestPermissions(LoginActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
     }
 }
