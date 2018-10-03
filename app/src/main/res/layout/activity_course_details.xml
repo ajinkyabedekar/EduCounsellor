@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    tools:context=".student.CourseDetails">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Course Details"
+        android:textSize="30dp"
+        android:textColor="#3949AB"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"/>
+
+    <View style="@style/divider"
+        android:layout_below="@id/title"/>
+
+    <TextView
+        android:id="@+id/feesub"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:text="Fee submitted type:  "
+        android:textSize="20dp"
+        android:textColor="#000000"/>
+    <TextView
+        android:id="@+id/feesubText"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/feesub"
+        android:layout_below="@id/title"
+        android:textSize="20dp" />
+    <TextView
+        android:id="@+id/nextPay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/feesub"
+        android:text="Next payment date:  "
+        android:textSize="20dp"
+        android:textColor="#000000"/>
+    <TextView
+        android:id="@+id/nextPayText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/nextPay"
+        android:layout_below="@id/feesub"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/courseStat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nextPay"
+        android:text="Status:  "
+        android:textSize="20dp"
+        android:textColor="#000000"/>
+    <TextView
+        android:id="@+id/courseStatText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/courseStat"
+        android:layout_below="@id/nextPayText"
+        android:textSize="20dp" />
+    <TextView
+        android:id="@+id/courseContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/courseStat"
+        android:text="Content:  "
+        android:textSize="20dp"
+        android:textColor="#000000"/>
+    <TextView
+        android:id="@+id/courseContentText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/courseContent"
+        android:layout_below="@id/courseStat"
+        android:textSize="20dp" />
+    <TextView
+        android:id="@+id/desciption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/courseContentText"
+        android:text="Description:  "
+        android:textSize="20dp"
+        android:textColor="#000000"/>
+    <TextView
+        android:id="@+id/desciptionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/desciption"
+        android:layout_below="@id/courseContent"
+        android:textSize="20dp" />
+    <TextView
+        android:id="@+id/sid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/desciptionText"
+        android:text="Student id:  "
+        android:textSize="20dp"
+        android:textColor="#000000"/>
+    <TextView
+        android:id="@+id/sidText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/sid"
+        android:layout_below="@id/desciptionText"
+        android:textSize="20dp" />
+    <Button
+        android:id="@+id/totalReview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_back_1"
+        android:text="Total reviews Given"
+        android:layout_below="@id/sid"/>
+    <Button
+        android:id="@+id/activeProjectBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@drawable/button_back_1"
+        android:text="Active projects on your id"
+        android:layout_below="@id/totalReview"
+        android:layout_marginTop="10dp"/>
+
+</RelativeLayout>
