@@ -34,7 +34,6 @@ public class CourseDetails extends AppCompatActivity {
         id=findViewById(R.id.sidText);
         review=findViewById(R.id.totalReview);
         project=findViewById(R.id.activeProjectBtn);
-        Toast.makeText(this, ""+data[0]+data[1], Toast.LENGTH_SHORT).show();
         db=FirebaseDatabase.getInstance().getReference("courses");
         db.addValueEventListener(new ValueEventListener() {
             @Override
