@@ -13,7 +13,7 @@ Button active ,inactive;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_enrolled_course);
+        setContentView(R.layout.enrolled_courses);
         active=findViewById(R.id.active);
         inactive=findViewById(R.id.inactive);
         active.setOnClickListener(new View.OnClickListener() {

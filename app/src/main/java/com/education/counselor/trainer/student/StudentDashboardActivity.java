@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.education.counselor.trainer.R;
+import com.education.counselor.trainer.admin.CoursesListActivity;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
@@ -66,7 +67,7 @@ public class StudentDashboardActivity extends AppCompatActivity {
         courses_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(), CoursesListActivity.class));
+                startActivity(new Intent(getBaseContext(), EnrolledCourseActivity.class));
             }
         });
         project_details = findViewById(R.id.project_details);

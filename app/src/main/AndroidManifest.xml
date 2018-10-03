@@ -91,6 +91,8 @@
         <activity android:name=".student.InternshipListActivity" />
         <activity android:name=".student.PlacementDetailsActivity" />
         <activity android:name=".student.PlacementListActivity" />
+        <activity android:name=".student.EnrolledCourseActivity" />
+        <activity android:name=".student.CoursesDisplay" />
     </application>
 
 </manifest>
