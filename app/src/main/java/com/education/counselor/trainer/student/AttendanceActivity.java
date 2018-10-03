@@ -1,11 +1,7 @@
 package com.education.counselor.trainer.student;
 
-import android.Manifest;
-import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -30,7 +26,7 @@ public class AttendanceActivity extends AppCompatActivity {
     Button attend;
     private FusedLocationProviderClient client;
     DatabaseReference db;
-    locationParameter myLoc;
+    LocationParameter myLoc;
     @Override
     protected void onStart() {
         super.onStart();
@@ -58,7 +54,7 @@ public class AttendanceActivity extends AppCompatActivity {
                     lng=location.getLongitude();
                     latitudetv.setText(lat+"");
                     longitudetv.setText(lng+"");
-                    myLoc=new locationParameter(lat,lng);
+                    myLoc=new LocationParameter(lat,lng);
                 }
             }
         });
