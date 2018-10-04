@@ -1,7 +1,7 @@
 package com.education.counselor.trainer.student;
 
 public class courses {
-    String course_name,course_id;
+    private String course_name, course_id;
 
     public courses(String course_name, String course_id) {
         this.course_name = course_name;
@@ -16,7 +16,7 @@ public class courses {
         this.course_name = course_name;
     }
 
-    public String getCourse_id() {
+    String getCourse_id() {
         return course_id;
     }
 

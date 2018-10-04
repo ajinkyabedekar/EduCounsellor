@@ -10,6 +10,7 @@ import com.education.counselor.trainer.R;
 
 public class AuthorityCollegeDashboardActivity extends AppCompatActivity {
     Button give_suggestions, internship_list, placement_list, project_list, startup_list, suggestion_list;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

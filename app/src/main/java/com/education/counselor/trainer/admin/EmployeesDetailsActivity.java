@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -21,17 +20,14 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 public class EmployeesDetailsActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    private final List<multiList> centreList = new ArrayList<>();
     EditText name, position, mail, login, password, employee;
     TextView assigned;
     Spinner centers;
@@ -39,8 +35,8 @@ public class EmployeesDetailsActivity extends AppCompatActivity implements Adapt
     DatabaseReference emp;
     private String n = "", key;
     private multiList s = new multiList();
-    private final List<multiList> centreList = new ArrayList<>();
-    private  spinnerAdapter adapter;
+    private spinnerAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +54,7 @@ public class EmployeesDetailsActivity extends AppCompatActivity implements Adapt
         centers = findViewById(R.id.centers);
         submit = findViewById(R.id.submit);
         delete = findViewById(R.id.delete);
-        assigned=findViewById(R.id.available);
+        assigned = findViewById(R.id.available);
 
         s.setText("Centres");
         centreList.add(s);
@@ -94,8 +90,8 @@ public class EmployeesDetailsActivity extends AppCompatActivity implements Adapt
                         password.setText(ds.child("password").getValue(String.class));
                         employee.setText(ds.getKey());
 
-                        List retrievedList=(ArrayList)ds.child("centers").getValue();
-                        Toast.makeText(EmployeesDetailsActivity.this, retrievedList+"", Toast.LENGTH_SHORT).show();
+                        List retrievedList = (ArrayList) ds.child("centers").getValue();
+                        Toast.makeText(EmployeesDetailsActivity.this, retrievedList + "", Toast.LENGTH_SHORT).show();
 
                         //List<multiList> newList=new ArrayList<>();
                         /*for(Object o: Objects.requireNonNull(retrievedList))
@@ -129,18 +125,17 @@ public class EmployeesDetailsActivity extends AppCompatActivity implements Adapt
                         }
                         adapter = new spinnerAdapter(EmployeesDetailsActivity.this, 0, newList, centers);
                         centers.setAdapter(adapter);*/
-                        StringBuffer sb=new StringBuffer();
+                        StringBuilder sb = new StringBuilder();
                         sb.append("Assigned Centers:\n\n");
-                        if(!(retrievedList==null))
-                        {
-                            for(Object o : retrievedList)
-                                sb.append((String)o).append("\n");
+                        if (!(retrievedList == null)) {
+                            for (Object o : retrievedList)
+                                sb.append((String) o).append("\n");
                         }
                         assigned.setText(sb.toString());
-                        }
-
                     }
+
                 }
+            }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -187,7 +182,7 @@ public class EmployeesDetailsActivity extends AppCompatActivity implements Adapt
         myRef.child("centers").setValue(adapter.getCenter());
         Toast.makeText(getBaseContext(), "Employee Added Successfully", Toast.LENGTH_SHORT).show();
         finish();
-       // startActivity(new Intent(getBaseContext(), EmployeesListActivity.class));
+        // startActivity(new Intent(getBaseContext(), EmployeesListActivity.class));
     }
 
     private boolean check(EditText[] e) {

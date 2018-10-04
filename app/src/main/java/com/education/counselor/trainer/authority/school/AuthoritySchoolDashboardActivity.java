@@ -8,14 +8,13 @@ import android.widget.Button;
 
 import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.authority.college.GiveSuggestionActivity;
-import com.education.counselor.trainer.authority.college.InternshipListActivity;
-import com.education.counselor.trainer.authority.college.PlacementListActivity;
 import com.education.counselor.trainer.authority.college.ProjectListActivity;
 import com.education.counselor.trainer.authority.college.StartupListActivity;
 import com.education.counselor.trainer.authority.college.SuggestionListActivity;
 
 public class AuthoritySchoolDashboardActivity extends AppCompatActivity {
     Button give_suggestions, project_list, startup_list, suggestion_list;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

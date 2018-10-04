@@ -14,9 +14,6 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.education.counselor.trainer.R;
-import com.education.counselor.trainer.admin.CoursesListActivity;
-
-import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
 public class StudentDashboardActivity extends AppCompatActivity {
     Button attend_class, add_query, query_list, courses_list, project_details, internship_list, placement_list, call_counsellor;
@@ -37,13 +34,14 @@ public class StudentDashboardActivity extends AppCompatActivity {
             }
         }, 2000);
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_dashboard);
         attend_class = findViewById(R.id.attend_class);
         add_query = findViewById(R.id.add_query);
-        query_list=findViewById(R.id.query_list);
+        query_list = findViewById(R.id.query_list);
         attend_class.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,10 +95,8 @@ public class StudentDashboardActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (ContextCompat.checkSelfPermission(StudentDashboardActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     Toast.makeText(getBaseContext(), "Please Provide Permissions", Toast.LENGTH_SHORT).show();
-                    ActivityCompat.requestPermissions(StudentDashboardActivity.this, new String[]{Manifest.permission.CALL_PHONE},1);
-                }
-                else
-                {
+                    ActivityCompat.requestPermissions(StudentDashboardActivity.this, new String[]{Manifest.permission.CALL_PHONE}, 1);
+                } else {
                     Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "7425835169"));
                     startActivity(intent);
                 }

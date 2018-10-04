@@ -3,20 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center">
+
     <Button
         android:id="@+id/active"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Active enrolled coursess"
+        android:background="@drawable/button_back_1"
         android:padding="10dp"
-        android:background="@drawable/button_back_1"/>
+        android:text="@string/active_enrolled_coursess" />
+
     <Button
         android:id="@+id/inactive"
-        android:layout_below="@id/active"
-        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Inactive enrolled coursess"
+        android:layout_below="@id/active"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_back_1"
         android:padding="10dp"
-        android:background="@drawable/button_back_1"/>
+        android:text="@string/inactive_enrolled_coursess" />
 </RelativeLayout>

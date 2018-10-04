@@ -22,7 +22,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/name"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:importantForAutofill="no"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -36,7 +38,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mobile_number"
-                android:inputType="number" />
+                android:inputType="number"
+                android:importantForAutofill="no"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -50,7 +54,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mail"
-                android:inputType="textWebEmailAddress" />
+                android:inputType="textWebEmailAddress"
+                android:importantForAutofill="no"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -64,7 +70,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/total_fee"
-                android:inputType="number" />
+                android:inputType="number"
+                android:importantForAutofill="no"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -78,7 +86,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/department"
-                android:inputType="text" />
+                android:inputType="text"
+                android:importantForAutofill="no"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -92,7 +102,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/total_fee_submitted"
-                android:inputType="number" />
+                android:inputType="number"
+                android:importantForAutofill="no"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -106,7 +118,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/date_of_fee_payment_1"
-                android:inputType="date" />
+                android:inputType="date"
+                android:importantForAutofill="no"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -120,7 +134,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/date_of_fee_payment_2"
-                android:inputType="date" />
+                android:inputType="date"
+                android:importantForAutofill="no"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -134,7 +150,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/date_of_fee_payment_3"
-                android:inputType="date" />
+                android:inputType="date"
+                android:importantForAutofill="no"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -148,7 +166,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/date_of_fee_payment_4"
-                android:inputType="date" />
+                android:inputType="date"
+                android:importantForAutofill="no"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -162,7 +182,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/payment_1"
-                android:inputType="number" />
+                android:inputType="number"
+                android:importantForAutofill="no"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -176,7 +198,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/payment_2"
-                android:inputType="number" />
+                android:inputType="number"
+                android:importantForAutofill="no"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -190,7 +214,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/payment_3"
-                android:inputType="number" />
+                android:inputType="number"
+                android:importantForAutofill="no"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -204,7 +230,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/payment_4"
-                android:inputType="number" />
+                android:inputType="number"
+                android:importantForAutofill="no"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <Spinner
@@ -248,7 +276,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/payment_1_reference_id"
-                android:inputType="textAutoComplete" />
+                android:inputType="textAutoComplete"
+                android:importantForAutofill="no"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -262,7 +292,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/payment_2_reference_id"
-                android:inputType="textAutoComplete" />
+                android:inputType="textAutoComplete"
+                android:importantForAutofill="no"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -276,7 +308,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/payment_3_reference_id"
-                android:inputType="textAutoComplete" />
+                android:inputType="textAutoComplete"
+                android:importantForAutofill="no"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -290,7 +324,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/payment_4_reference_id"
-                android:inputType="textAutoComplete" />
+                android:inputType="textAutoComplete"
+                android:importantForAutofill="no"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -304,7 +340,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/unique_student_id"
-                android:inputType="textAutoComplete" />
+                android:inputType="textAutoComplete"
+                android:importantForAutofill="no"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <Spinner
@@ -317,8 +355,8 @@
             android:id="@+id/transfer_payment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
             android:layout_below="@id/student_year"
+            android:layout_alignParentStart="true"
             android:background="@drawable/button_back_2"
             android:text="@string/transfer_payment"
             android:textColor="@color/white" />
@@ -327,8 +365,8 @@
             android:id="@+id/submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
             android:layout_below="@id/student_year"
+            android:layout_alignParentEnd="true"
             android:background="@drawable/blue_button"
             android:text="@string/submit"
             android:textColor="@color/white" />

@@ -1,14 +1,9 @@
 package com.education.counselor.trainer.launcher;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -19,7 +14,6 @@ import com.education.counselor.trainer.authority.college.AuthorityCollegeDashboa
 import com.education.counselor.trainer.authority.school.AuthoritySchoolDashboardActivity;
 import com.education.counselor.trainer.counsellor.CounsellorDashboardActivity;
 import com.education.counselor.trainer.student.StudentDashboardActivity;
-import com.firebase.client.Firebase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -30,12 +24,11 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
 
-import static android.Manifest.permission.ACCESS_FINE_LOCATION;
-
 public class SplashScreenActivity extends AppCompatActivity {
     String email, access;
-    boolean grant=false;
+    boolean grant = false;
     DatabaseReference db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,8 +52,8 @@ public class SplashScreenActivity extends AppCompatActivity {
             }
         }, 1000);
     }
-    private void checkUser(final FirebaseUser user)
-    {
+
+    private void checkUser(final FirebaseUser user) {
         if (user != null) {
             email = user.getEmail();
             db.addValueEventListener(new ValueEventListener() {
@@ -78,19 +71,19 @@ public class SplashScreenActivity extends AppCompatActivity {
                                 startActivity(new Intent(getBaseContext(), AdminDashboardActivity.class));
                                 break;
                             case "college_authority":
-                                Toast.makeText(SplashScreenActivity.this, "Welcome "+user.getDisplayName(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SplashScreenActivity.this, "Welcome " + user.getDisplayName(), Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(getBaseContext(), AuthorityCollegeDashboardActivity.class));
                                 break;
                             case "school_authority":
-                                Toast.makeText(SplashScreenActivity.this, "Welcome "+user.getDisplayName(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SplashScreenActivity.this, "Welcome " + user.getDisplayName(), Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(getBaseContext(), AuthoritySchoolDashboardActivity.class));
                                 break;
                             case "counsellor":
-                                Toast.makeText(SplashScreenActivity.this, "Welcome "+user.getDisplayName(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SplashScreenActivity.this, "Welcome " + user.getDisplayName(), Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(getBaseContext(), CounsellorDashboardActivity.class));
                                 break;
                             case "student":
-                                Toast.makeText(SplashScreenActivity.this, "Welcome "+user.getDisplayName(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SplashScreenActivity.this, "Welcome " + user.getDisplayName(), Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(getBaseContext(), StudentDashboardActivity.class));
                                 break;
                             default:
@@ -99,7 +92,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                         }
                     } else {
                         Toast.makeText(getBaseContext(), "Please Check Your Network Connection", Toast.LENGTH_SHORT).show();
-                        grant=false;
+                        grant = false;
                     }
                 }
 
@@ -109,12 +102,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                 }
             });
         }
-        else {
-
-        }
     }
-
-
 
 
     @Override

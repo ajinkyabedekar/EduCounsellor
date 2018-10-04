@@ -15,7 +15,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.education.counselor.trainer.R;
-import com.education.counselor.trainer.admin.AdminDashboardActivity;
 import com.education.counselor.trainer.student.StudentDashboardActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -129,18 +128,18 @@ public class StudentLoginActivity extends AppCompatActivity {
 
     public void login(String email) {
         final String pass = password.getText().toString();
-            mAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        Toast.makeText(getBaseContext(), "Authentication succeeded.", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(getBaseContext(), StudentDashboardActivity.class));
-                    } else {
-                        Toast.makeText(getBaseContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
-                    }
+        mAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(getBaseContext(), "Authentication succeeded.", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getBaseContext(), StudentDashboardActivity.class));
+                } else {
+                    Toast.makeText(getBaseContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
                 }
-            });
-        }
+            }
+        });
+    }
 
 
     public void check(final String email) {
@@ -156,10 +155,9 @@ public class StudentLoginActivity extends AppCompatActivity {
                             login(email);
                             return;
                         }
-                    }
-                    else {
+                    } else {
                         if (Objects.requireNonNull(snapshot.getKey()).equalsIgnoreCase(email)) {
-                           login(snapshot.child("mail").getValue().toString());
+                            login(Objects.requireNonNull(snapshot.child("mail").getValue()).toString());
                             return;
                         }
                     }

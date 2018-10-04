@@ -14,15 +14,17 @@
             android:id="@+id/suggestion"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Suggestion"
-            android:inputType="textMultiLine" />
+            android:hint="@string/suggestion"
+            android:inputType="textMultiLine"
+            android:importantForAutofill="no"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
         android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/suggestion_layout"
         android:layout_centerHorizontal="true"
-        android:text="@string/submit"
-        android:layout_below="@+id/suggestion_layout" />
+        android:text="@string/submit" />
 </RelativeLayout>

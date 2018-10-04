@@ -1,11 +1,12 @@
 package com.education.counselor.trainer.student;
 
+import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -24,9 +25,10 @@ public class AttendanceActivity extends AppCompatActivity {
     double lat, lng;
     TextView latitudetv, longitudetv;
     Button attend;
-    private FusedLocationProviderClient client;
     DatabaseReference db;
     LocationParameter myLoc;
+    private FusedLocationProviderClient client;
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -36,45 +38,43 @@ public class AttendanceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attendance);
-        db=FirebaseDatabase.getInstance().getReference("student");
+        db = FirebaseDatabase.getInstance().getReference("student");
         latitudetv = findViewById(R.id.latText);
         longitudetv = findViewById(R.id.lngText);
-        attend=findViewById(R.id.attend);
+        attend = findViewById(R.id.attend);
         client = LocationServices.getFusedLocationProviderClient(this);
         if (ActivityCompat.checkSelfPermission(AttendanceActivity.this,
-                ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
+                ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return;
         }
         client.getLastLocation().addOnSuccessListener(AttendanceActivity.this, new OnSuccessListener<Location>() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onSuccess(Location location) {
-                if(location!=null)
-                {
-                    lat=location.getLatitude();
-                    lng=location.getLongitude();
-                    latitudetv.setText(lat+"");
-                    longitudetv.setText(lng+"");
-                    myLoc=new LocationParameter(lat,lng);
+                if (location != null) {
+                    lat = location.getLatitude();
+                    lng = location.getLongitude();
+                    latitudetv.setText(lat + "");
+                    longitudetv.setText(lng + "");
+                    myLoc = new LocationParameter(lat, lng);
                 }
             }
         });
         attend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-                if(myLoc!=null)
-                {
+                if (myLoc != null) {
                     db.child("location").setValue(myLoc).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-                            Snackbar.make(view,"Location added",Snackbar.LENGTH_SHORT).show();
+                            Snackbar.make(view, "Location added", Snackbar.LENGTH_SHORT).show();
                         }
                     });
 
-                }
-                else
+                } else
                     Toast.makeText(AttendanceActivity.this, "Location is not set", Toast.LENGTH_SHORT).show();
             }
         });
-       }
+    }
 
 }
