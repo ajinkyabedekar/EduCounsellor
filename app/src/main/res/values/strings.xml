@@ -49,7 +49,6 @@
     <string name="admin_dashboard">ADMIN DASHBOARD</string>
     <string name="edit_student_details">Edit Student Details</string>
     <string name="students_list">Students List</string>
-    <string name="placement_list">Placement List</string>
     <string name="edit_counsellor_contact">Edit Counsellor Contact</string>
     <string name="current_centers">Current Centers</string>
     <string name="courses">Courses</string>
@@ -100,10 +99,6 @@
     <string name="add_detailed_content_of_enrolled_users">Add Detailed Content of Enrolled Users</string>
     <string name="internships">Internships</string>
     <string name="school_authority_dashboard">School Authority Dashboard</string>
-    <string name="give_suggestions">Give Suggestions</string>
-    <string name="project_list">Project List</string>
-    <string name="suggestion_list">Suggestion List</string>
-    <string name="startup_list">Startup List</string>
     <string name="course_id">Course_id</string>
     <string name="active_enrolled_coursess">Active enrolled coursess</string>
     <string name="inactive_enrolled_coursess">Inactive enrolled coursess</string>
@@ -124,4 +119,18 @@
     <string name="null0">null</string>
     <string name="attend">Attend</string>
     <string name="suggestion">suggestion</string>
+    <string name="student_dashboard">Student Dashboard</string>
+    <string name="attend_class">Attend Class</string>
+    <string name="add_query">Add Query</string>
+    <string name="query_list">Query List</string>
+    <string name="courses_list">Courses List</string>
+    <string name="active_project_details">Active Project Details</string>
+    <string name="call_counsellor">Call Counsellor</string>
+    <string name="college_authority_dashboard">College Authority Dashboard</string>
+    <string name="give_suggestions">Give Suggestions</string>
+    <string name="internship_list">Internship List</string>
+    <string name="placement_list">Placement List</string>
+    <string name="project_list">Project List</string>
+    <string name="startup_list">Startup List</string>
+    <string name="suggestion_list">Suggestion List</string>
 </resources>

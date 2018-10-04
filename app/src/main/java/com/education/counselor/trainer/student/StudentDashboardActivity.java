@@ -14,9 +14,11 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.education.counselor.trainer.R;
+import com.education.counselor.trainer.launcher.LoginActivity;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class StudentDashboardActivity extends AppCompatActivity {
-    Button attend_class, add_query, query_list, courses_list, project_details, internship_list, placement_list, call_counsellor;
+    Button logout, attend_class, add_query, query_list, courses_list, project_details, internship_list, placement_list, call_counsellor;
     private boolean pressed = false;
 
     @Override
@@ -39,9 +41,17 @@ public class StudentDashboardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_dashboard);
+        logout = findViewById(R.id.logout);
         attend_class = findViewById(R.id.attend_class);
         add_query = findViewById(R.id.add_query);
         query_list = findViewById(R.id.query_list);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(getBaseContext(), LoginActivity.class));
+            }
+        });
         attend_class.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
