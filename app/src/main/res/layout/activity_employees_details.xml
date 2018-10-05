@@ -17,8 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/employee_name"
-            android:inputType="textPersonName"
             android:importantForAutofill="no"
+            android:inputType="textPersonName"
             tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
@@ -33,8 +33,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/position"
-            android:inputType="text"
             android:importantForAutofill="no"
+            android:inputType="text"
             tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
@@ -49,8 +49,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/mail"
-            android:inputType="textWebEmailAddress"
             android:importantForAutofill="no"
+            android:inputType="textWebEmailAddress"
             tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
@@ -65,8 +65,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/login_id"
-            android:inputType="text"
             android:importantForAutofill="no"
+            android:inputType="text"
             tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
@@ -81,8 +81,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/password"
-            android:inputType="textPassword"
             android:importantForAutofill="no"
+            android:inputType="textPassword"
             tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
@@ -97,8 +97,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/employee_id"
-            android:inputType="text"
             android:importantForAutofill="no"
+            android:inputType="text"
             tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 

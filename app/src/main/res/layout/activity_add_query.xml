@@ -15,8 +15,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/query"
-            android:inputType="text"
             android:importantForAutofill="no"
+            android:inputType="text"
             tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 

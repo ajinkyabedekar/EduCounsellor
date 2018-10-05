@@ -93,7 +93,14 @@
         <activity android:name=".student.PlacementListActivity" />
         <activity android:name=".student.EnrolledCourseActivity" />
         <activity android:name=".student.CoursesDisplay" />
-        <activity android:name=".student.CourseDetails"></activity>
+        <activity android:name=".student.CourseDetails" />
+        <activity android:name=".counsellor.StartClassCentersActivity" />
+        <activity android:name=".counsellor.StartClassCoursesActivity" />
+        <activity android:name=".counsellor.StartClassBatchesActivity" />
+        <activity android:name=".counsellor.StartClassActivity" />
+        <activity android:name=".counsellor.AttendanceActivity" />
+        <activity android:name=".counsellor.ResponsibleCentersListActivity" />
+        <activity android:name=".counsellor.ResponsibleCentersDetailsActivity" />
     </application>
 
 </manifest>

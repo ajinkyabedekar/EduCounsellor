@@ -1,4 +1,4 @@
-package com.education.counselor.trainer.student;
+package com.education.counselor.trainer.counsellor;
 
 import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
@@ -38,8 +38,8 @@ public class AttendanceActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_attendance);
-        db = FirebaseDatabase.getInstance().getReference("student");
+        setContentView(R.layout.activity_attendance2);
+        db = FirebaseDatabase.getInstance().getReference("counsellor");
         latitudetv = findViewById(R.id.latText);
         longitudetv = findViewById(R.id.lngText);
         attend = findViewById(R.id.attend);

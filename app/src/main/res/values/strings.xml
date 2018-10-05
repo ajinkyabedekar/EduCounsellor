@@ -133,4 +133,8 @@
     <string name="project_list">Project List</string>
     <string name="startup_list">Startup List</string>
     <string name="suggestion_list">Suggestion List</string>
+    <string name="counsellor_dashboard">Counsellor Dashboard</string>
+    <string name="start_class">Start Class</string>
+    <string name="attendance">Attendance</string>
+    <string name="responsible_centers">Responsible Centers</string>
 </resources>
