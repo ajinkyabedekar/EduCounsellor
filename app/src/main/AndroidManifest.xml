@@ -101,6 +101,22 @@
         <activity android:name=".counsellor.AttendanceActivity" />
         <activity android:name=".counsellor.ResponsibleCentersListActivity" />
         <activity android:name=".counsellor.ResponsibleCentersDetailsActivity" />
+        <activity android:name=".counsellor.AddNewsActivity" />
+        <activity android:name=".counsellor.InternshipDetailsActivity" />
+        <activity android:name=".counsellor.PlacementDetailsActivity" />
+        <activity android:name=".counsellor.StartupDetailsActivity" />
+        <activity android:name=".counsellor.AddInternshipActivity" />
+        <activity android:name=".counsellor.AddPlacementActivity" />
+        <activity android:name=".counsellor.AddStartupActivity" />
+        <activity android:name=".counsellor.NewsDetailsActivity" />
+        <activity android:name=".counsellor.InternshipListActivity" />
+        <activity android:name=".counsellor.NewsListActivity" />
+        <activity android:name=".counsellor.PlacementListActivity" />
+        <activity android:name=".counsellor.StartupListActivity" />
+        <activity android:name=".counsellor.InternshipCentersActivity" />
+        <activity android:name=".counsellor.NewsCentersActivity" />
+        <activity android:name=".counsellor.PlacementCentersActivity" />
+        <activity android:name=".counsellor.StartupCentersActivity" />
     </application>
 
 </manifest>
