@@ -139,4 +139,10 @@
     <string name="startup_list">Startup List</string>
     <string name="placement_list">Placement List</string>
     <string name="internship_list">Internship List</string>
+    <string name="my_account">My Account</string>
+    <string name="authority_meet">Authority Meet</string>
+    <string name="hod_meet">HOD Meet</string>
+    <string name="rankethon_meet">Rankethon Meet</string>
+    <string name="student_meet">Student Meet</string>
+    <string name="daily_report">Daily Report</string>
 </resources>

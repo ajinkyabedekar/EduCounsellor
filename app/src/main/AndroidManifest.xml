@@ -117,6 +117,12 @@
         <activity android:name=".counsellor.NewsCentersActivity" />
         <activity android:name=".counsellor.PlacementCentersActivity" />
         <activity android:name=".counsellor.StartupCentersActivity" />
+        <activity android:name=".counsellor.MyAccountActivity" />
+        <activity android:name=".counsellor.AuthorityMeetActivity" />
+        <activity android:name=".counsellor.HodMeetActivity" />
+        <activity android:name=".counsellor.RankethonMeetActivity" />
+        <activity android:name=".counsellor.StudentMeetActivity" />
+        <activity android:name=".counsellor.DailyReportActivity" />
     </application>
 
 </manifest>

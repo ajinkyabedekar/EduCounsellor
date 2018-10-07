@@ -11,12 +11,19 @@ import com.education.counselor.trainer.launcher.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class CounsellorDashboardActivity extends AppCompatActivity {
-    Button start_class, attendance, responsible_centers, startup_list, news_list, placement_list, internship_list, logout;
+    Button my_account, start_class, attendance, responsible_centers, startup_list, news_list, placement_list, internship_list, authority_meet, hod_meet, rankethon_meet, student_meet, daily_report, logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_counsellor_dashboard);
+        my_account = findViewById(R.id.my_account);
+        my_account.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(), MyAccountActivity.class));
+            }
+        });
         start_class = findViewById(R.id.start_class);
         start_class.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +71,40 @@ public class CounsellorDashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getBaseContext(), InternshipListActivity.class));
+            }
+        });
+        authority_meet = findViewById(R.id.authority_meet);
+        authority_meet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(), AuthorityMeetActivity.class));
+            }
+        });
+        hod_meet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(), HodMeetActivity.class));
+            }
+        });
+        rankethon_meet = findViewById(R.id.rankethon_meet);
+        rankethon_meet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(), RankethonMeetActivity.class));
+            }
+        });
+        student_meet = findViewById(R.id.student_meet);
+        student_meet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(), StudentMeetActivity.class));
+            }
+        });
+        daily_report = findViewById(R.id.daily_report);
+        daily_report.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(), DailyReportActivity.class));
             }
         });
         logout = findViewById(R.id.logout);

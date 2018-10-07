@@ -36,6 +36,15 @@
             android:paddingRight="10dp">
 
             <Button
+                android:id="@+id/my_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/button_back_1"
+                android:padding="10sp"
+                android:text="@string/my_account" />
+
+            <Button
                 android:id="@+id/start_class"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -97,6 +106,50 @@
                 android:background="@drawable/button_back_1"
                 android:padding="10sp"
                 android:text="@string/internship_list" />
+
+            <Button
+                android:id="@+id/authority_meet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/button_back_1"
+                android:padding="10sp"
+                android:text="@string/authority_meet" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/button_back_1"
+                android:padding="10sp"
+                android:text="@string/hod_meet" />
+
+            <Button
+                android:id="@+id/rankethon_meet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/button_back_1"
+                android:padding="10sp"
+                android:text="@string/rankethon_meet" />
+
+            <Button
+                android:id="@+id/student_meet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/button_back_1"
+                android:padding="10sp"
+                android:text="@string/student_meet" />
+
+            <Button
+                android:id="@+id/daily_report"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/button_back_1"
+                android:padding="10sp"
+                android:text="@string/daily_report" />
 
             <Button
                 android:id="@+id/logout"
