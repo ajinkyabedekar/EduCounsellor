@@ -128,13 +128,15 @@
     <string name="call_counsellor">Call Counsellor</string>
     <string name="college_authority_dashboard">College Authority Dashboard</string>
     <string name="give_suggestions">Give Suggestions</string>
-    <string name="internship_list">Internship List</string>
-    <string name="placement_list">Placement List</string>
     <string name="project_list">Project List</string>
-    <string name="startup_list">Startup List</string>
     <string name="suggestion_list">Suggestion List</string>
     <string name="counsellor_dashboard">Counsellor Dashboard</string>
     <string name="start_class">Start Class</string>
     <string name="attendance">Attendance</string>
     <string name="responsible_centers">Responsible Centers</string>
+    <string name="take_attendance">Take Attendance</string>
+    <string name="news_list">News List</string>
+    <string name="startup_list">Startup List</string>
+    <string name="placement_list">Placement List</string>
+    <string name="internship_list">Internship List</string>
 </resources>

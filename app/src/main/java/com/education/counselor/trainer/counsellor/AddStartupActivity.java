@@ -20,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Objects;
 
 public class AddStartupActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    EditText name, department, company, package_name, location, student;
+    EditText name, vision, website, team, funding, turnover, student, id;
     Button submit;
     DatabaseReference db;
     long number;
@@ -35,11 +35,13 @@ public class AddStartupActivity extends AppCompatActivity implements AdapterView
             n = i.getStringExtra("name");
         }
         name = findViewById(R.id.name);
-        department = findViewById(R.id.department);
-        company = findViewById(R.id.company);
-        package_name = findViewById(R.id.package_name);
-        location = findViewById(R.id.location);
+        vision = findViewById(R.id.vision);
+        website = findViewById(R.id.website);
+        team = findViewById(R.id.team);
+        funding = findViewById(R.id.funding);
+        turnover = findViewById(R.id.turnover);
         student = findViewById(R.id.student);
+        id = findViewById(R.id.id);
         submit = findViewById(R.id.submit);
         generate_random();
         student.setText(String.valueOf(number));
@@ -50,29 +52,36 @@ public class AddStartupActivity extends AppCompatActivity implements AdapterView
                 if (name.getText().toString().equals("")) {
                     name.requestFocus();
                     name.setError("This Is A Required Field");
-                } else if (department.getText().toString().equals("")) {
-                    department.requestFocus();
-                    department.setError("This Is A Required Field");
-                } else if (company.getText().toString().equals("")) {
-                    company.requestFocus();
-                    company.setError("This Is A Required Field");
-                } else if (package_name.getText().toString().equals("")) {
-                    package_name.requestFocus();
-                    package_name.setError("This Is A Required Field");
-                } else if (location.getText().toString().equals("")) {
-                    location.requestFocus();
-                    location.setError("This Is A Required Field");
+                } else if (vision.getText().toString().equals("")) {
+                    vision.requestFocus();
+                    vision.setError("This Is A Required Field");
+                } else if (website.getText().toString().equals("")) {
+                    website.requestFocus();
+                    website.setError("This Is A Required Field");
+                } else if (team.getText().toString().equals("")) {
+                    team.requestFocus();
+                    team.setError("This Is A Required Field");
+                } else if (funding.getText().toString().equals("")) {
+                    funding.requestFocus();
+                    funding.setError("This Is A Required Field");
+                } else if (turnover.getText().toString().equals("")) {
+                    turnover.requestFocus();
+                    turnover.setError("This Is A Required Field");
                 } else if (student.getText().toString().equals("")) {
                     student.requestFocus();
                     student.setError("This Is A Required Field");
+                } else if (id.getText().toString().equals("")) {
+                    id.requestFocus();
+                    id.setError("This Is A Required Field");
                 } else {
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    DatabaseReference myRef = database.getReference("startup").child(student.getText().toString());
+                    DatabaseReference myRef = database.getReference("startup").child(id.getText().toString());
                     myRef.child("name").setValue(name.getText().toString());
-                    myRef.child("department").setValue(department.getText().toString());
-                    myRef.child("company").setValue(company.getText().toString());
-                    myRef.child("package_name").setValue(package_name.getText().toString());
-                    myRef.child("location").setValue(location.getText().toString());
+                    myRef.child("vision").setValue(vision.getText().toString());
+                    myRef.child("website").setValue(website.getText().toString());
+                    myRef.child("funding").setValue(funding.getText().toString());
+                    myRef.child("turnover").setValue(turnover.getText().toString());
+                    myRef.child("student_name").setValue(student.getText().toString());
                     myRef.child("center").setValue(n);
                     Toast.makeText(getBaseContext(), "Startup Added Successfully", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getBaseContext(), StartupListActivity.class));
