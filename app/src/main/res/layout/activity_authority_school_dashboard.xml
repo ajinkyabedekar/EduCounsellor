@@ -20,7 +20,6 @@
             android:padding="10sp"
             android:text="@string/school_authority_dashboard"
             android:textSize="30sp" />
-
     </android.support.v7.widget.CardView>
 
     <ScrollView
@@ -81,7 +80,5 @@
                 android:text="@string/logout"
                 android:textColor="@color/white" />
         </LinearLayout>
-
     </ScrollView>
-
 </RelativeLayout>

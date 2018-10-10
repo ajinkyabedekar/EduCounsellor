@@ -9,6 +9,18 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.education.counselor.trainer.R;
+import com.education.counselor.trainer.admin.centers.list.CentersListActivity;
+import com.education.counselor.trainer.admin.counsellor.centers.CounsellorCentersActivity;
+import com.education.counselor.trainer.admin.courses.centers.CoursesCentersActivity;
+import com.education.counselor.trainer.admin.employee.AddEmployeeActivity;
+import com.education.counselor.trainer.admin.employee.list.EmployeesListActivity;
+import com.education.counselor.trainer.admin.internship.centers.InternshipCentersActivity;
+import com.education.counselor.trainer.admin.news.centers.NewsCentersActivity;
+import com.education.counselor.trainer.admin.placement.centers.PlacementCentersActivity;
+import com.education.counselor.trainer.admin.startup.centers.StartupCentersActivity;
+import com.education.counselor.trainer.admin.student.AddStudentActivity;
+import com.education.counselor.trainer.admin.student.all.AllStudentsActivity;
+import com.education.counselor.trainer.admin.student.edit.EditStudentActivity;
 import com.education.counselor.trainer.launcher.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 

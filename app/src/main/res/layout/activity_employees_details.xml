@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:padding="10sp"
-    tools:context=".admin.EmployeesDetailsActivity">
+    tools:context=".admin.employee.EmployeesDetailsActivity">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/name_layout"
@@ -122,7 +122,7 @@
         android:layout_below="@+id/available"
         android:layout_centerInParent="true"
         android:layout_marginTop="20sp"
-        android:background="@drawable/blue_button"
+        android:background="@drawable/button_blue"
         android:text="@string/submit"
         android:textColor="@color/white" />
 

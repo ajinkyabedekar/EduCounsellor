@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="15dp"
-    tools:context=".student.CourseDetails">
+    tools:context=".student.course.CourseDetailsActivity">
 
     <TextView
         android:id="@+id/title"
@@ -21,7 +21,7 @@
         android:layout_below="@id/title" />
 
     <TextView
-        android:id="@+id/feesub"
+        android:id="@+id/fee_sub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/title"
@@ -31,19 +31,19 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/feesubText"
+        android:id="@+id/fee_sub_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/title"
         android:layout_marginTop="10dp"
-        android:layout_toEndOf="@id/feesub"
+        android:layout_toEndOf="@id/fee_sub"
         android:textSize="20sp" />
 
     <TextView
         android:id="@+id/nextPay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/feesub"
+        android:layout_below="@id/fee_sub"
         android:text="@string/next_payment_date"
         android:textColor="#000000"
         android:textSize="20sp" />
@@ -52,7 +52,7 @@
         android:id="@+id/nextPayText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/feesub"
+        android:layout_below="@id/fee_sub"
         android:layout_toEndOf="@id/nextPay"
         android:textSize="20sp" />
 
@@ -91,7 +91,7 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/desciption"
+        android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/courseContentText"
@@ -100,18 +100,18 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/desciptionText"
+        android:id="@+id/description_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/courseContent"
-        android:layout_toEndOf="@id/desciption"
+        android:layout_toEndOf="@id/description"
         android:textSize="20sp" />
 
     <TextView
         android:id="@+id/sid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/desciptionText"
+        android:layout_below="@id/description_text"
         android:text="@string/student_id"
         android:textColor="#000000"
         android:textSize="20sp" />
@@ -120,7 +120,7 @@
         android:id="@+id/sidText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/desciptionText"
+        android:layout_below="@id/description_text"
         android:layout_toEndOf="@id/sid"
         android:textSize="20sp" />
 

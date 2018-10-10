@@ -62,7 +62,6 @@
     <string name="tutor_score">Tutor Score</string>
     <string name="certificate">Certificate</string>
     <string name="award">Award</string>
-    <string name="name_of_professor_in_team">Name of Professor in Team</string>
     <string name="project_name">Project Name</string>
     <string name="add_news">Add News</string>
     <string name="add_placement">Add Placement</string>
@@ -131,7 +130,6 @@
     <string name="project_list">Project List</string>
     <string name="suggestion_list">Suggestion List</string>
     <string name="counsellor_dashboard">Counsellor Dashboard</string>
-    <string name="start_class">Start Class</string>
     <string name="attendance">Attendance</string>
     <string name="responsible_centers">Responsible Centers</string>
     <string name="take_attendance">Take Attendance</string>
@@ -144,5 +142,30 @@
     <string name="hod_meet">HOD Meet</string>
     <string name="rankethon_meet">Rankethon Meet</string>
     <string name="student_meet">Student Meet</string>
+    <string name="stipend">Stipend</string>
+    <string name="vision">Vision</string>
+    <string name="website">Website</string>
+    <string name="team">Team</string>
+    <string name="funding">Funding</string>
+    <string name="turnover">Turnover</string>
+    <string name="student_name">Student Name</string>
+    <string name="meeting_summary">Meeting Summary</string>
     <string name="daily_report">Daily Report</string>
+    <string name="add_internship">Add Internship</string>
+    <string name="net_registrations_done">Net Registrations Done</string>
+    <string name="amount_net_collected">Amount Net Collected</string>
+    <string name="last_month_collection">Last Month Collection</string>
+    <string name="collection_by_month_for_last_12_months">Collection By Month For Last 12 Months</string>
+    <string name="total_absence_month_wise">Total Absence Month Wise</string>
+    <string name="average_rating">Average Rating</string>
+    <string name="name_of_project">Name of Project</string>
+    <string name="link_of_project">Link of Project</string>
+    <string name="grade_obtained">Grade Obtained</string>
+    <string name="certification_status">Certification Status</string>
+    <string name="award_status">Award Status</string>
+    <string name="name_of_professor_in_team">Name of Professor in Team</string>
+    <string name="current_batch">Current Batch</string>
+    <string name="time">Time :</string>
+    <string name="start_class">Start Class</string>
+    <string name="internship">Internship</string>
 </resources>

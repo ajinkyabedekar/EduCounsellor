@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:padding="10dp"
-    tools:context=".admin.StudentDetailsActivity">
+    tools:context=".admin.student.StudentDetailsActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -19,6 +19,8 @@
 
             <EditText
                 android:id="@+id/name"
+                android:importantForAutofill="no"
+                tools:targetApi="o"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/name"
@@ -34,6 +36,8 @@
             <EditText
                 android:id="@+id/mobile_number"
                 android:layout_width="match_parent"
+                android:importantForAutofill="no"
+                tools:targetApi="o"
                 android:layout_height="wrap_content"
                 android:hint="@string/mobile_number"
                 android:inputType="number" />
@@ -49,6 +53,8 @@
                 android:id="@+id/mail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:importantForAutofill="no"
+                tools:targetApi="o"
                 android:hint="@string/mail"
                 android:inputType="textWebEmailAddress" />
         </android.support.design.widget.TextInputLayout>
@@ -61,6 +67,8 @@
 
             <EditText
                 android:id="@+id/total_fee"
+                android:importantForAutofill="no"
+                tools:targetApi="o"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/total_fee"
@@ -75,6 +83,8 @@
 
             <EditText
                 android:id="@+id/department"
+                android:importantForAutofill="no"
+                tools:targetApi="o"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/department"
@@ -88,6 +98,8 @@
             android:layout_below="@+id/department_layout">
 
             <EditText
+                android:importantForAutofill="no"
+                tools:targetApi="o"
                 android:id="@+id/total_fee_submitted"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -106,6 +118,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/date_of_fee_payment_1"
+                android:importantForAutofill="no"
+                tools:targetApi="o"
                 android:inputType="date" />
         </android.support.design.widget.TextInputLayout>
 
@@ -119,6 +133,8 @@
                 android:id="@+id/date_of_fee_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:importantForAutofill="no"
+                tools:targetApi="o"
                 android:hint="@string/date_of_fee_payment_2"
                 android:inputType="date" />
         </android.support.design.widget.TextInputLayout>
@@ -131,6 +147,8 @@
 
             <EditText
                 android:id="@+id/date_of_fee_3"
+                android:importantForAutofill="no"
+                tools:targetApi="o"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/date_of_fee_payment_3"
@@ -145,6 +163,8 @@
 
             <EditText
                 android:id="@+id/date_of_fee_4"
+                android:importantForAutofill="no"
+                tools:targetApi="o"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/date_of_fee_payment_4"
@@ -162,6 +182,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/payment_1"
+                android:importantForAutofill="no"
+                tools:targetApi="o"
                 android:inputType="number" />
         </android.support.design.widget.TextInputLayout>
 
@@ -173,6 +195,8 @@
 
             <EditText
                 android:id="@+id/payment_2"
+                android:importantForAutofill="no"
+                tools:targetApi="o"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/payment_2"
@@ -186,6 +210,8 @@
             android:layout_below="@+id/payment_2_layout">
 
             <EditText
+                android:importantForAutofill="no"
+                tools:targetApi="o"
                 android:id="@+id/payment_3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -200,6 +226,8 @@
             android:layout_below="@+id/payment_3_layout">
 
             <EditText
+                android:importantForAutofill="no"
+                tools:targetApi="o"
                 android:id="@+id/payment_4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -245,6 +273,8 @@
 
             <EditText
                 android:id="@+id/reference_id_1"
+                android:importantForAutofill="no"
+                tools:targetApi="o"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/payment_1_reference_id"
@@ -258,6 +288,8 @@
             android:layout_below="@+id/reference_id_1_layout">
 
             <EditText
+                android:importantForAutofill="no"
+                tools:targetApi="o"
                 android:id="@+id/reference_id_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -273,6 +305,8 @@
 
             <EditText
                 android:id="@+id/reference_id_3"
+                android:importantForAutofill="no"
+                tools:targetApi="o"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/payment_3_reference_id"
@@ -288,6 +322,8 @@
             <EditText
                 android:id="@+id/reference_id_4"
                 android:layout_width="match_parent"
+                android:importantForAutofill="no"
+                tools:targetApi="o"
                 android:layout_height="wrap_content"
                 android:hint="@string/payment_4_reference_id"
                 android:inputType="textAutoComplete" />
@@ -302,6 +338,8 @@
             <EditText
                 android:id="@+id/student_id"
                 android:layout_width="match_parent"
+                android:importantForAutofill="no"
+                tools:targetApi="o"
                 android:layout_height="wrap_content"
                 android:hint="@string/unique_student_id"
                 android:inputType="textAutoComplete" />
@@ -332,7 +370,7 @@
             android:layout_below="@+id/transfer_payment"
             android:layout_centerInParent="true"
             android:layout_marginTop="20sp"
-            android:background="@drawable/blue_button"
+            android:background="@drawable/button_blue"
             android:text="@string/submit"
             android:textColor="@color/white" />
 

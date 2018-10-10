@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    tools:context=".admin.InternshipListActivity">
+    tools:context=".admin.internship.list.InternshipListActivity">
 
     <Button
         android:id="@+id/add_internship"
@@ -15,7 +15,7 @@
         android:layout_marginTop="44dp"
         android:background="@drawable/button_back_1"
         android:padding="10sp"
-        android:text="Add Internship" />
+        android:text="@string/add_internship" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycle"

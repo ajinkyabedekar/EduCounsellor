@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:padding="20dp"
-    tools:context=".login.AuthoritySchoolLoginActivity">
+    tools:context=".login.authority.login.AuthoritySchoolLoginActivity">
 
     <TextView
         android:id="@+id/text_log"
@@ -79,9 +79,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/not_yet"
             android:layout_centerInParent="true"
-            android:background="@drawable/trans_button"
+            android:background="@drawable/button_trans"
             android:text="@string/reset"
             android:textColor="@color/colorPrimary" />
     </RelativeLayout>
-
 </RelativeLayout>

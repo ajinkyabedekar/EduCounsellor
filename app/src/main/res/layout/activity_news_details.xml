@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:padding="10sp"
-    tools:context=".admin.NewsDetailsActivity">
+    tools:context=".admin.news.NewsDetailsActivity">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/name_layout"
@@ -15,10 +15,11 @@
         <EditText
             android:id="@+id/name"
             android:layout_width="match_parent"
+            android:importantForAutofill="no"
+            android:inputType="text"
             android:layout_height="wrap_content"
             android:hint="@string/name"
-            android:inputType="text"
-            android:text="@string/news" />
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -33,7 +34,8 @@
             android:layout_height="wrap_content"
             android:hint="@string/motto"
             android:inputType="text"
-            android:text="@string/news_motto" />
+            android:importantForAutofill="no"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -45,10 +47,11 @@
         <EditText
             android:id="@+id/drive"
             android:layout_width="match_parent"
+            android:importantForAutofill="no"
+            android:inputType="textUri"
             android:layout_height="wrap_content"
             android:hint="@string/google_drive_link"
-            android:inputType="textUri"
-            android:text="@string/google_drive_link_to_news" />
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -60,10 +63,11 @@
         <EditText
             android:id="@+id/date"
             android:layout_width="match_parent"
+            android:importantForAutofill="no"
+            android:inputType="date"
             android:layout_height="wrap_content"
             android:hint="@string/date"
-            android:inputType="date"
-            android:text="@string/_13_09_2018" />
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
@@ -73,7 +77,7 @@
         android:layout_below="@+id/date_layout"
         android:layout_centerInParent="true"
         android:layout_marginTop="20sp"
-        android:background="@drawable/blue_button"
+        android:background="@drawable/button_blue"
         android:text="@string/submit"
         android:textColor="@color/white" />
 

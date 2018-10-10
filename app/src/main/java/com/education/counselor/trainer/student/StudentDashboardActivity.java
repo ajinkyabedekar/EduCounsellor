@@ -15,6 +15,12 @@ import android.widget.Toast;
 
 import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.launcher.LoginActivity;
+import com.education.counselor.trainer.student.attendance.AttendanceActivity;
+import com.education.counselor.trainer.student.course.EnrolledCourseActivity;
+import com.education.counselor.trainer.student.internship.InternshipListActivity;
+import com.education.counselor.trainer.student.placement.PlacementListActivity;
+import com.education.counselor.trainer.student.query.AddQueryActivity;
+import com.education.counselor.trainer.student.query.QueryListActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class StudentDashboardActivity extends AppCompatActivity {

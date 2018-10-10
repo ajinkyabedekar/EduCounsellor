@@ -12,9 +12,9 @@ import android.widget.Button;
 
 import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.login.AdminLoginActivity;
-import com.education.counselor.trainer.login.AuthorityChoiceActivity;
 import com.education.counselor.trainer.login.CounsellorLoginActivity;
 import com.education.counselor.trainer.login.StudentLoginActivity;
+import com.education.counselor.trainer.login.authority.AuthorityChoiceActivity;
 
 public class LoginActivity extends AppCompatActivity {
     Button student, counsellor, authority, admin;

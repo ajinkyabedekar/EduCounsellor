@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.education.counselor.trainer.R;
-import com.education.counselor.trainer.admin.StartupListActivity;
+import com.education.counselor.trainer.admin.startup.list.StartupListActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

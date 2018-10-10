@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:padding="10sp"
-    tools:context=".admin.InternshipDetailsActivity">
+    tools:context=".admin.internship.InternshipDetailsActivity">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/name_layout"
@@ -15,6 +15,8 @@
         <EditText
             android:id="@+id/name"
             android:layout_width="match_parent"
+            android:importantForAutofill="no"
+            tools:targetApi="o"
             android:layout_height="wrap_content"
             android:hint="@string/name"
             android:inputType="text" />
@@ -28,6 +30,8 @@
 
         <EditText
             android:id="@+id/department"
+            android:importantForAutofill="no"
+            tools:targetApi="o"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/department"
@@ -41,6 +45,8 @@
         android:layout_below="@+id/department_layout">
 
         <EditText
+            android:importantForAutofill="no"
+            tools:targetApi="o"
             android:id="@+id/company"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -58,7 +64,9 @@
             android:id="@+id/stipend"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Stipend"
+            android:hint="@string/stipend"
+            android:importantForAutofill="no"
+            tools:targetApi="o"
             android:inputType="text" />
     </android.support.design.widget.TextInputLayout>
 
@@ -72,7 +80,9 @@
             android:id="@+id/location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Location"
+            android:hint="@string/location"
+            android:importantForAutofill="no"
+            tools:targetApi="o"
             android:inputType="text" />
     </android.support.design.widget.TextInputLayout>
 
@@ -86,6 +96,8 @@
             android:id="@+id/student"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:importantForAutofill="no"
+            tools:targetApi="o"
             android:hint="@string/unique_student_id"
             android:inputType="text" />
     </android.support.design.widget.TextInputLayout>
@@ -97,7 +109,7 @@
         android:layout_below="@+id/student_layout"
         android:layout_centerInParent="true"
         android:layout_marginTop="20sp"
-        android:background="@drawable/blue_button"
+        android:background="@drawable/button_blue"
         android:text="@string/submit"
         android:textColor="@color/white" />
 

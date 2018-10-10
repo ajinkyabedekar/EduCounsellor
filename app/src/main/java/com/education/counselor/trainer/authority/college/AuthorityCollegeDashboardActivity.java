@@ -7,6 +7,11 @@ import android.view.View;
 import android.widget.Button;
 
 import com.education.counselor.trainer.R;
+import com.education.counselor.trainer.authority.college.internship_list.InternshipListActivity;
+import com.education.counselor.trainer.authority.college.placement_list.PlacementListActivity;
+import com.education.counselor.trainer.authority.college.project_list.ProjectListActivity;
+import com.education.counselor.trainer.authority.college.startup_list.StartupListActivity;
+import com.education.counselor.trainer.authority.college.suggestion_list.SuggestionListActivity;
 import com.education.counselor.trainer.launcher.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 

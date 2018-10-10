@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:padding="10sp"
-    tools:context=".admin.CentersDetailsActivity">
+    tools:context=".admin.centers.CentersDetailsActivity">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/name_layout"
@@ -18,7 +18,8 @@
             android:layout_height="wrap_content"
             android:hint="@string/name"
             android:inputType="text"
-            android:text="@string/name" />
+            android:importantForAutofill="no"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -33,7 +34,8 @@
             android:layout_height="wrap_content"
             android:hint="@string/location_address"
             android:inputType="text"
-            android:text="@string/location" />
+            android:importantForAutofill="no"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -44,11 +46,12 @@
 
         <EditText
             android:id="@+id/mail"
+            android:importantForAutofill="no"
+            android:inputType="textWebEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/mail"
-            android:inputType="textWebEmailAddress"
-            android:text="@string/mail" />
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -59,11 +62,12 @@
 
         <EditText
             android:id="@+id/head"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/head_name"
-            android:inputType="textPersonName"
-            android:text="@string/head" />
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -74,11 +78,12 @@
 
         <EditText
             android:id="@+id/password"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/unique_password"
-            android:inputType="textPassword"
-            android:text="@string/password" />
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
@@ -88,7 +93,7 @@
         android:layout_below="@+id/password_layout"
         android:layout_centerInParent="true"
         android:layout_marginTop="20sp"
-        android:background="@drawable/blue_button"
+        android:background="@drawable/button_blue"
         android:text="@string/submit"
         android:textColor="@color/white" />
 

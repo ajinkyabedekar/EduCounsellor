@@ -7,6 +7,18 @@ import android.view.View;
 import android.widget.Button;
 
 import com.education.counselor.trainer.R;
+import com.education.counselor.trainer.counsellor.attendance.AttendanceActivity;
+import com.education.counselor.trainer.counsellor.internship.list.InternshipListActivity;
+import com.education.counselor.trainer.counsellor.meeting.AuthorityMeetActivity;
+import com.education.counselor.trainer.counsellor.meeting.HodMeetActivity;
+import com.education.counselor.trainer.counsellor.meeting.RankethonMeetActivity;
+import com.education.counselor.trainer.counsellor.meeting.StudentMeetActivity;
+import com.education.counselor.trainer.counsellor.news.list.NewsListActivity;
+import com.education.counselor.trainer.counsellor.placement.list.PlacementListActivity;
+import com.education.counselor.trainer.counsellor.report.DailyReportActivity;
+import com.education.counselor.trainer.counsellor.responsible_centers.list.ResponsibleCentersListActivity;
+import com.education.counselor.trainer.counsellor.start_class.centers.StartClassCentersActivity;
+import com.education.counselor.trainer.counsellor.startup.list.StartupListActivity;
 import com.education.counselor.trainer.launcher.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
