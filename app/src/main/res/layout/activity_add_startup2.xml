@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:padding="10sp"
-    tools:context=".counsellor.AddStartupActivity">
+    tools:context=".counsellor.startup.AddStartupActivity">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/name_layout"
@@ -32,7 +32,7 @@
             android:id="@+id/vision"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Vision"
+            android:hint="@string/vision"
             android:importantForAutofill="no"
             android:inputType="text"
             tools:targetApi="o" />
@@ -48,7 +48,7 @@
             android:id="@+id/website"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Website"
+            android:hint="@string/website"
             android:importantForAutofill="no"
             android:inputType="text"
             tools:targetApi="o" />
@@ -64,7 +64,7 @@
             android:id="@+id/team"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Team"
+            android:hint="@string/team"
             android:importantForAutofill="no"
             android:inputType="text"
             tools:targetApi="o" />
@@ -80,7 +80,7 @@
             android:id="@+id/funding"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Funding"
+            android:hint="@string/funding"
             android:importantForAutofill="no"
             android:inputType="text"
             tools:targetApi="o" />
@@ -96,7 +96,7 @@
             android:id="@+id/turnover"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Turnover"
+            android:hint="@string/turnover"
             android:importantForAutofill="no"
             android:inputType="text"
             tools:targetApi="o" />
@@ -112,7 +112,7 @@
             android:id="@+id/student"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Student Name"
+            android:hint="@string/student_name"
             android:importantForAutofill="no"
             android:inputType="text"
             tools:targetApi="o" />
@@ -128,7 +128,7 @@
             android:id="@+id/id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Unique Student ID"
+            android:hint="@string/unique_student_id"
             android:importantForAutofill="no"
             android:inputType="text"
             tools:targetApi="o" />
@@ -141,7 +141,7 @@
         android:layout_below="@+id/id_layout"
         android:layout_centerInParent="true"
         android:layout_marginTop="30sp"
-        android:background="@drawable/blue_button"
+        android:background="@drawable/button_blue"
         android:text="@string/submit"
         android:textColor="@color/white" />
 </RelativeLayout>

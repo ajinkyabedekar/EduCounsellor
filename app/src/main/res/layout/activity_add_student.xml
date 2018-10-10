@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:padding="10dp"
-    tools:context=".admin.AddStudentActivity">
+    tools:context=".admin.student.AddStudentActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -367,7 +367,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/student_year"
             android:layout_alignParentEnd="true"
-            android:background="@drawable/blue_button"
+            android:background="@drawable/button_blue"
             android:text="@string/submit"
             android:textColor="@color/white" />
     </RelativeLayout>

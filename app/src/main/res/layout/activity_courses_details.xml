@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:padding="10sp"
-    tools:context=".admin.CoursesDetailsActivity">
+    tools:context=".admin.courses.CoursesDetailsActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -18,6 +18,8 @@
 
             <EditText
                 android:id="@+id/name"
+                android:importantForAutofill="no"
+                tools:targetApi="o"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/name"
@@ -32,6 +34,8 @@
 
             <EditText
                 android:id="@+id/hours"
+                android:importantForAutofill="no"
+                tools:targetApi="o"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/course_hours"
@@ -48,6 +52,8 @@
                 android:id="@+id/details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:importantForAutofill="no"
+                tools:targetApi="o"
                 android:hint="@string/course_brief_details"
                 android:inputType="text" />
         </android.support.design.widget.TextInputLayout>
@@ -60,6 +66,8 @@
 
             <EditText
                 android:id="@+id/content"
+                android:importantForAutofill="no"
+                tools:targetApi="o"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/course_content"
@@ -73,6 +81,8 @@
             android:layout_below="@+id/content_layout">
 
             <EditText
+                android:importantForAutofill="no"
+                tools:targetApi="o"
                 android:id="@+id/enrollments"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -88,6 +98,8 @@
 
             <EditText
                 android:id="@+id/batches"
+                android:importantForAutofill="no"
+                tools:targetApi="o"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/total_batches"
@@ -101,6 +113,8 @@
             android:layout_below="@+id/batches_layout">
 
             <EditText
+                android:importantForAutofill="no"
+                tools:targetApi="o"
                 android:id="@+id/year"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -118,6 +132,8 @@
                 android:id="@+id/month"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:importantForAutofill="no"
+                tools:targetApi="o"
                 android:hint="@string/total_enrollments_month_wise"
                 android:inputType="number" />
         </android.support.design.widget.TextInputLayout>
@@ -141,7 +157,7 @@
             android:layout_below="@+id/status"
             android:layout_centerInParent="true"
             android:layout_marginTop="20sp"
-            android:background="@drawable/blue_button"
+            android:background="@drawable/button_blue"
             android:text="@string/add_detailed_content_of_enrolled_users"
             android:textColor="@color/white" />
 
@@ -152,7 +168,7 @@
             android:layout_below="@+id/detailed"
             android:layout_centerInParent="true"
             android:layout_marginTop="20sp"
-            android:background="@drawable/blue_button"
+            android:background="@drawable/button_blue"
             android:text="@string/submit"
             android:textColor="@color/white" />
 

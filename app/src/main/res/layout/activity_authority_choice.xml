@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:padding="20dp"
-    tools:context=".login.AuthorityChoiceActivity">
+    tools:context=".login.authority.AuthorityChoiceActivity">
 
     <Button
         android:id="@+id/school"

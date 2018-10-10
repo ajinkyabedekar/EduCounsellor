@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:padding="10sp"
-    tools:context=".student.AddPlacementActivity">
+    tools:context=".student.placement.AddPlacementActivity">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/name_layout"
@@ -17,7 +17,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/name"
-            android:inputType="text" />
+            android:importantForAutofill="no"
+            android:inputType="text"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -27,6 +29,8 @@
         android:layout_below="@+id/name_layout">
 
         <EditText
+            android:importantForAutofill="no"
+            tools:targetApi="o"
             android:id="@+id/department"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -42,6 +46,8 @@
 
         <EditText
             android:id="@+id/company"
+            android:importantForAutofill="no"
+            tools:targetApi="o"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/company_name"
@@ -57,6 +63,8 @@
         <EditText
             android:id="@+id/package_name"
             android:layout_width="match_parent"
+            android:importantForAutofill="no"
+            tools:targetApi="o"
             android:layout_height="wrap_content"
             android:hint="@string/package_name"
             android:inputType="text" />
@@ -70,6 +78,8 @@
 
         <EditText
             android:id="@+id/location"
+            android:importantForAutofill="no"
+            tools:targetApi="o"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/location"
@@ -85,6 +95,8 @@
         <EditText
             android:id="@+id/student"
             android:layout_width="match_parent"
+            android:importantForAutofill="no"
+            tools:targetApi="o"
             android:layout_height="wrap_content"
             android:hint="@string/unique_student_id"
             android:inputType="text" />
@@ -97,7 +109,7 @@
         android:layout_below="@+id/student_layout"
         android:layout_centerInParent="true"
         android:layout_marginTop="30sp"
-        android:background="@drawable/blue_button"
+        android:background="@drawable/button_blue"
         android:text="@string/submit"
         android:textColor="@color/white" />
 </RelativeLayout>

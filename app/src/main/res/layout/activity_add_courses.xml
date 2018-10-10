@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:padding="10sp"
-    tools:context=".admin.AddCoursesActivity">
+    tools:context=".admin.courses.AddCoursesActivity">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/name_layout"
@@ -17,7 +17,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/course_name"
-            android:inputType="text" />
+            android:importantForAutofill="no"
+            android:inputType="text"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -31,7 +33,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/course_hours"
-            android:inputType="text" />
+            android:importantForAutofill="no"
+            android:inputType="text"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -45,7 +49,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/course_brief_details"
-            android:inputType="text" />
+            android:importantForAutofill="no"
+            android:inputType="text"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -59,7 +65,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/course_content"
-            android:inputType="text" />
+            android:importantForAutofill="no"
+            android:inputType="text"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <Spinner
@@ -81,7 +89,7 @@
         android:layout_below="@+id/status"
         android:layout_centerInParent="true"
         android:layout_marginTop="30sp"
-        android:background="@drawable/blue_button"
+        android:background="@drawable/button_blue"
         android:text="@string/submit"
         android:textColor="@color/white" />
 </RelativeLayout>

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:padding="10sp"
-    tools:context=".admin.AddCentersActivity">
+    tools:context=".admin.centers.AddCentersActivity">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/name_layout"
@@ -17,7 +17,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/name"
-            android:inputType="text" />
+            android:importantForAutofill="no"
+            android:inputType="text"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -31,7 +33,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/location_address"
-            android:inputType="text" />
+            android:importantForAutofill="no"
+            android:inputType="text"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -45,7 +49,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/mail"
-            android:inputType="textWebEmailAddress" />
+            android:importantForAutofill="no"
+            android:inputType="textWebEmailAddress"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -59,7 +65,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/head_name"
-            android:inputType="textPersonName" />
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -73,7 +81,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/unique_password"
-            android:inputType="textPassword" />
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
@@ -82,7 +92,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/password_layout"
         android:layout_centerInParent="true"
-        android:background="@drawable/blue_button"
+        android:background="@drawable/button_blue"
         android:text="@string/submit"
         android:textColor="@color/white" />
 </RelativeLayout>
