@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    tools:context=".counsellor.StartClassCentersActivity">
+    tools:context=".counsellor.start_class.centers.StartClassCentersActivity">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycle"
