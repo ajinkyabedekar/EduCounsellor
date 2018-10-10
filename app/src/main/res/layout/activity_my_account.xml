@@ -16,6 +16,8 @@
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:importantForAutofill="no"
+            tools:targetApi="o"
             android:hint="@string/name"
             android:inputType="textPersonName" />
     </android.support.design.widget.TextInputLayout>
@@ -28,6 +30,8 @@
 
         <EditText
             android:id="@+id/mail"
+            android:importantForAutofill="no"
+            tools:targetApi="o"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/mail"
@@ -42,9 +46,11 @@
 
         <EditText
             android:id="@+id/registrations"
+            android:importantForAutofill="no"
+            tools:targetApi="o"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Net Registrations Done"
+            android:hint="@string/net_registrations_done"
             android:inputType="number" />
     </android.support.design.widget.TextInputLayout>
 
@@ -57,8 +63,10 @@
         <EditText
             android:id="@+id/amount"
             android:layout_width="match_parent"
+            android:importantForAutofill="no"
+            tools:targetApi="o"
             android:layout_height="wrap_content"
-            android:hint="Amount Net Collected"
+            android:hint="@string/amount_net_collected"
             android:inputType="number" />
     </android.support.design.widget.TextInputLayout>
 
@@ -70,9 +78,11 @@
 
         <EditText
             android:id="@+id/collection_month"
+            android:importantForAutofill="no"
+            tools:targetApi="o"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Last Month Collection"
+            android:hint="@string/last_month_collection"
             android:inputType="number" />
     </android.support.design.widget.TextInputLayout>
 
@@ -84,9 +94,11 @@
 
         <EditText
             android:id="@+id/collection_months"
+            android:importantForAutofill="no"
+            tools:targetApi="o"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Collection By Month For Last 12 Months"
+            android:hint="@string/collection_by_month_for_last_12_months"
             android:inputType="number" />
     </android.support.design.widget.TextInputLayout>
 
@@ -98,9 +110,11 @@
 
         <EditText
             android:id="@+id/absence"
+            android:importantForAutofill="no"
+            tools:targetApi="o"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Total Absence Month Wise"
+            android:hint="@string/total_absence_month_wise"
             android:inputType="number" />
     </android.support.design.widget.TextInputLayout>
 
@@ -111,10 +125,12 @@
         android:layout_below="@+id/absence_layout">
 
         <EditText
+            android:importantForAutofill="no"
+            tools:targetApi="o"
             android:id="@+id/rating"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Average Rating"
+            android:hint="@string/average_rating"
             android:inputType="number" />
     </android.support.design.widget.TextInputLayout>
 
@@ -124,7 +140,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/rating_layout"
         android:layout_centerInParent="true"
-        android:background="@drawable/blue_button"
+        android:background="@drawable/button_blue"
         android:text="@string/submit"
         android:textColor="@color/white" />
 </RelativeLayout>

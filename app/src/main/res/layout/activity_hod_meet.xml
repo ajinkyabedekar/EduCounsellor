@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:padding="10sp"
-    tools:context=".counsellor.HodMeetActivity">
+    tools:context=".counsellor.meeting.HodMeetActivity">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/summary_layout"
@@ -13,10 +13,12 @@
         android:layout_height="wrap_content">
 
         <EditText
+            android:importantForAutofill="no"
+            tools:targetApi="o"
             android:id="@+id/summary"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Meeting Summary"
+            android:hint="@string/meeting_summary"
             android:inputType="textMultiLine" />
     </android.support.design.widget.TextInputLayout>
 
@@ -26,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/summary_layout"
         android:layout_centerInParent="true"
-        android:background="@drawable/blue_button"
-        android:text="Submit"
+        android:background="@drawable/button_blue"
+        android:text="@string/submit"
         android:textColor="@color/white" />
 </RelativeLayout>
