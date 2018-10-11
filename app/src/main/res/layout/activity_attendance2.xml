@@ -69,6 +69,17 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:background="@drawable/com_facebook_button_send_background"
-        android:text="@string/take_attendance"
+        android:text="@string/take_class"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/com_facebook_button_send_background"
+        android:padding="10dp"
+        android:text="@string/exit"
+        android:visibility="gone"
         android:textColor="@color/white" />
 </RelativeLayout>
