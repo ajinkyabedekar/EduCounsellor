@@ -90,6 +90,13 @@ public class AddCoursesActivity extends AppCompatActivity implements AdapterView
                     ref.child("content").setValue(content.getText().toString());
                     ref.child("category").setValue(category.getSelectedItem().toString());
                     ref.child("status").setValue(status.getSelectedItem().toString());
+                    ref = FirebaseDatabase.getInstance().getReference("courses").child(String.valueOf(number));
+                    ref.child("name").setValue(name.getText().toString());
+                    ref.child("hours").setValue(hours.getText().toString());
+                    ref.child("details").setValue(details.getText().toString());
+                    ref.child("content").setValue(content.getText().toString());
+                    ref.child("category").setValue(category.getSelectedItem().toString());
+                    ref.child("status").setValue(status.getSelectedItem().toString());
                     Toast.makeText(getBaseContext(), "Course Added Successfully", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getBaseContext(), CoursesListActivity.class));
                 }

@@ -138,6 +138,17 @@ public class CoursesDetailsActivity extends AppCompatActivity {
         myRef.child("category").setValue(category.getSelectedItem().toString());
         myRef.child("status").setValue(status.getSelectedItem().toString());
         Toast.makeText(getBaseContext(), "Course Updated Successfully", Toast.LENGTH_SHORT).show();
+        myRef = FirebaseDatabase.getInstance().getReference("courses").child(course_id);
+        myRef.child("name").setValue(name.getText().toString());
+        myRef.child("hours").setValue(hours.getText().toString());
+        myRef.child("details").setValue(details.getText().toString());
+        myRef.child("content").setValue(content.getText().toString());
+        myRef.child("enrollments").setValue(enrollments.getText().toString());
+        myRef.child("batch_count").setValue(batches.getText().toString());
+        myRef.child("enrollments_year_wise").setValue(year.getText().toString());
+        myRef.child("enrollments_month_wise").setValue(month.getText().toString());
+        myRef.child("category").setValue(category.getSelectedItem().toString());
+        myRef.child("status").setValue(status.getSelectedItem().toString());
         startActivity(new Intent(getBaseContext(), CoursesListActivity.class));
     }
 

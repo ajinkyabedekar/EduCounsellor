@@ -1,7 +1,7 @@
 package com.education.counselor.trainer.counsellor.start_class.batches;
 
 public class StartClassBatchesEntryVo {
-    private String name;
+    private String name, time;
 
     StartClassBatchesEntryVo() {
     }
@@ -12,5 +12,13 @@ public class StartClassBatchesEntryVo {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }

@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.education.counselor.trainer.R;
 
@@ -41,9 +42,12 @@ public class StartClassBatchesEntryAdapter extends RecyclerView.Adapter<StartCla
     @Override
     public void onBindViewHolder(@NonNull final StartClassBatches holder, int i) {
         holder.s_name.setText(details.get(i).getName());
-        holder.v.setOnClickListener(new View.OnClickListener() {
+        holder.time.setText(details.get(i).getTime());
+        holder.start.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
+                Toast.makeText(c, "Class Started", Toast.LENGTH_SHORT).show();
+                holder.start.setEnabled(false);
             }
         });
     }
