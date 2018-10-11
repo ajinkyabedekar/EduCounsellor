@@ -1,6 +1,7 @@
 package com.education.counselor.trainer.counsellor.start_class.centers;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.education.counselor.trainer.R;
+import com.education.counselor.trainer.counsellor.start_class.courses.StartClassCoursesActivity;
 
 import java.util.ArrayList;
 
@@ -44,6 +46,9 @@ public class StartClassCentersEntryAdapter extends RecyclerView.Adapter<StartCla
         holder.v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent in = new Intent(c, StartClassCoursesActivity.class);
+                in.putExtra("name", details.get(holder.getAdapterPosition()).getName());
+                c.startActivity(in);
             }
         });
     }

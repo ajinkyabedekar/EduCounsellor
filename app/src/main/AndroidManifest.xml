@@ -97,7 +97,6 @@
         <activity android:name=".counsellor.start_class.centers.StartClassCentersActivity" />
         <activity android:name=".counsellor.start_class.courses.StartClassCoursesActivity" />
         <activity android:name=".counsellor.start_class.batches.StartClassBatchesActivity" />
-        <activity android:name=".counsellor.start_class.StartClassActivity" />
         <activity android:name=".counsellor.attendance.AttendanceActivity" />
         <activity android:name=".counsellor.responsible_centers.list.ResponsibleCentersListActivity" />
         <activity android:name=".counsellor.responsible_centers.ResponsibleCentersDetailsActivity" />

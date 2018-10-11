@@ -4,18 +4,22 @@ import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.education.counselor.trainer.R;
 
 class StartClassBatches extends RecyclerView.ViewHolder {
-    TextView s_name;
-    View v;
+    TextView s_name, time;
+    Button start;
+    private View v;
 
     @SuppressLint("SetTextI18n")
     StartClassBatches(@NonNull View itemView) {
         super(itemView);
         s_name = itemView.findViewById(R.id.c_text);
+        time = itemView.findViewById(R.id.timeText);
+        start = itemView.findViewById(R.id.start);
         v = itemView.findViewById(R.id.cd);
     }
 
@@ -25,6 +29,22 @@ class StartClassBatches extends RecyclerView.ViewHolder {
 
     public void setS_name(TextView s_name) {
         this.s_name = s_name;
+    }
+
+    public TextView getTime() {
+        return time;
+    }
+
+    public void setTime(TextView time) {
+        this.time = time;
+    }
+
+    public Button getStart() {
+        return start;
+    }
+
+    public void setStart(Button start) {
+        this.start = start;
     }
 
     public View getV() {

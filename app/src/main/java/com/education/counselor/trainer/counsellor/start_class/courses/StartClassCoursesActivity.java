@@ -1,6 +1,7 @@
 package com.education.counselor.trainer.counsellor.start_class.courses;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -27,30 +28,39 @@ public class StartClassCoursesActivity extends AppCompatActivity {
     ProgressBar pg;
     Context mContext;
     private ArrayList<StartClassCoursesEntryVo> details = new ArrayList<>();
+    String center = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_class_courses);
+        Intent i = getIntent();
+        if (i.hasExtra("name")) {
+            center = i.getStringExtra("name");
+        }
         mContext = this;
         pg = findViewById(R.id.progress);
         recyclerView = findViewById(R.id.recycle);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        db = FirebaseDatabase.getInstance().getReference("CoursesListEntryVo");
+        db = FirebaseDatabase.getInstance().getReference("centers");
         pg.setVisibility(View.VISIBLE);
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    StartClassCoursesEntryVo s = new StartClassCoursesEntryVo();
-                    s.setName(Objects.requireNonNull(ds.child("name").getValue()).toString());
-                    details.add(s);
+                    if (Objects.equals(ds.child("name").getValue(String.class), center)) {
+                        for (DataSnapshot d : ds.child("courses").getChildren()) {
+                            StartClassCoursesEntryVo s = new StartClassCoursesEntryVo();
+                            s.setName(Objects.requireNonNull(d.child("name").getValue()).toString());
+                            details.add(s);
+                        }
+                    }
                 }
                 if (details.size() == 0) {
                     Toast.makeText(getBaseContext(), "No Courses Found", Toast.LENGTH_SHORT).show();
                 }
-                adapter = new StartClassCoursesEntryAdapter(mContext, details);
+                adapter = new StartClassCoursesEntryAdapter(mContext, details, center);
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
             }

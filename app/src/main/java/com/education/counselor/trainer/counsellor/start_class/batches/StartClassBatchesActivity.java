@@ -1,6 +1,7 @@
 package com.education.counselor.trainer.counsellor.start_class.batches;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -27,25 +28,42 @@ public class StartClassBatchesActivity extends AppCompatActivity {
     ProgressBar pg;
     Context mContext;
     private ArrayList<StartClassBatchesEntryVo> details = new ArrayList<>();
+    String course = "", center = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_class_batches);
+        Intent i = getIntent();
+        if (i.hasExtra("course")) {
+            course = i.getStringExtra("course");
+        }
+        if (i.hasExtra("center")) {
+            center = i.getStringExtra("center");
+        }
         mContext = this;
         pg = findViewById(R.id.progress);
         recyclerView = findViewById(R.id.recycle);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        db = FirebaseDatabase.getInstance().getReference("batches");
+        db = FirebaseDatabase.getInstance().getReference("centers");
         pg.setVisibility(View.VISIBLE);
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    StartClassBatchesEntryVo s = new StartClassBatchesEntryVo();
-                    s.setName(Objects.requireNonNull(ds.child("name").getValue()).toString());
-                    details.add(s);
+                    if (Objects.equals(ds.child("name").getValue(String.class), center)) {
+                        for (DataSnapshot d : ds.child("courses").getChildren()) {
+                            if (Objects.equals(ds.child("name").getValue(String.class), course)) {
+                                for (DataSnapshot sd : d.child("batches").getChildren()) {
+                                    StartClassBatchesEntryVo s = new StartClassBatchesEntryVo();
+                                    s.setName(Objects.requireNonNull(sd.child("name").getValue()).toString());
+                                    s.setTime(sd.child("time").getValue(String.class));
+                                    details.add(s);
+                                }
+                            }
+                        }
+                    }
                 }
                 if (details.size() == 0) {
                     Toast.makeText(getBaseContext(), "No Batches Found", Toast.LENGTH_SHORT).show();
