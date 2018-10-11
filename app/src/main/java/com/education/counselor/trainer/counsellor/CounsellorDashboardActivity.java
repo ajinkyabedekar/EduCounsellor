@@ -23,7 +23,11 @@ import com.education.counselor.trainer.launcher.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class CounsellorDashboardActivity extends AppCompatActivity {
-    Button my_account, start_class, attendance, responsible_centers, startup_list, news_list, placement_list, internship_list, authority_meet, hod_meet, rankethon_meet, student_meet, daily_report, logout;
+    Button my_account, start_class, attendance,
+            responsible_centers, startup_list,
+            news_list, placement_list, internship_list,
+            authority_meet, hod_meet, rankethon_meet,
+            student_meet, daily_report, logout,coursewise;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +96,7 @@ public class CounsellorDashboardActivity extends AppCompatActivity {
                 startActivity(new Intent(getBaseContext(), AuthorityMeetActivity.class));
             }
         });
+        hod_meet = findViewById(R.id.hod_meet);
         hod_meet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -125,6 +130,13 @@ public class CounsellorDashboardActivity extends AppCompatActivity {
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(getBaseContext(), LoginActivity.class));
+            }
+        });
+        coursewise=findViewById(R.id.coursewise);
+        coursewise.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getBaseContext(), CoursewiseStudentList.class));
             }
         });
     }

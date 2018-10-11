@@ -3,27 +3,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
+    android:gravity="center"
     tools:context=".student.query.AddQueryActivity">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Any query;"
+        android:textSize="18dp"/>
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/query_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
         <EditText
             android:id="@+id/query"
+            android:layout_marginTop="30dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="@string/query"
+            android:layout_height="wrap_content"
             android:importantForAutofill="no"
             android:inputType="text"
             tools:targetApi="o" />
-    </android.support.design.widget.TextInputLayout>
 
     <Button
         android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/query_layout"
+        android:layout_below="@+id/query"
+        android:text="Submit"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/white"
+        android:background="@drawable/button_back_2"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

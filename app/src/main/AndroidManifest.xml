@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-1871442144078034~9676854016"/>
         <activity android:name=".launcher.LoginActivity" />
         <activity android:name=".login.StudentLoginActivity" />
         <activity android:name=".login.CounsellorLoginActivity" />

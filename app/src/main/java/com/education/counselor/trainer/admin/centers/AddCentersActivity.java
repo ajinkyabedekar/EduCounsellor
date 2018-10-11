@@ -21,6 +21,8 @@ public class AddCentersActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_centers);
+
+
         name = findViewById(R.id.name);
         location = findViewById(R.id.location);
         mail = findViewById(R.id.mail);
