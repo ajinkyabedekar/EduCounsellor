@@ -1,5 +1,6 @@
 package com.education.counselor.trainer.admin.courses.list;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -16,11 +17,13 @@ import java.util.ArrayList;
 public class CoursesListEntryAdapter extends RecyclerView.Adapter<CoursesList> {
     private Context c;
     private ArrayList<CoursesListEntryVo> details;
+    private String n;
 
-    CoursesListEntryAdapter(Context c, ArrayList<CoursesListEntryVo> details) {
+    CoursesListEntryAdapter(Context c, ArrayList<CoursesListEntryVo> details, String n) {
         setHasStableIds(true);
         this.c = c;
         this.details = details;
+        this.n = n;
     }
 
     @Override
@@ -49,7 +52,9 @@ public class CoursesListEntryAdapter extends RecyclerView.Adapter<CoursesList> {
             public void onClick(View view) {
                 Intent in = new Intent(c, CoursesDetailsActivity.class);
                 in.putExtra("name", details.get(holder.getAdapterPosition()).getName());
+                in.putExtra("center", n);
                 c.startActivity(in);
+                ((Activity) c).finish();
             }
         });
     }

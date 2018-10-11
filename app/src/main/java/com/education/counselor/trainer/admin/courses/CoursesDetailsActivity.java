@@ -29,7 +29,7 @@ public class CoursesDetailsActivity extends AppCompatActivity {
     Spinner category, status;
     Button detailed, submit, delete;
     DatabaseReference studentData;
-    private String n = "", course_id;
+    private String n = "", course_id, center, key;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +38,9 @@ public class CoursesDetailsActivity extends AppCompatActivity {
         Intent i = getIntent();
         if (i.hasExtra("name")) {
             n = i.getStringExtra("name");
+        }
+        if (i.hasExtra("center")) {
+            center = i.getStringExtra("center");
         }
         name = findViewById(R.id.name);
         hours = findViewById(R.id.hours);
@@ -64,23 +67,27 @@ public class CoursesDetailsActivity extends AppCompatActivity {
         ArrayAdapter<String> status_adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, status_list);
         category.setAdapter(category_adapter);
         status.setAdapter(status_adapter);
-        studentData = FirebaseDatabase.getInstance().getReference("CoursesListEntryVo");
+        studentData = FirebaseDatabase.getInstance().getReference("centers");
         studentData.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    if (Objects.equals(ds.child("name").getValue(String.class), n)) {
-                        name.setText(n);
-                        hours.setText(ds.child("hours").getValue(String.class));
-                        details.setText(ds.child("details").getValue(String.class));
-                        content.setText(ds.child("content").getValue(String.class));
-                        enrollments.setText(ds.child("enrollments").getValue(String.class));
-                        batches.setText(ds.child("batch_count").getValue(String.class));
-                        year.setText(ds.child("enrollments_year_wise").getValue(String.class));
-                        month.setText(ds.child("enrollments_month_wise").getValue(String.class));
-                        category.setSelection(category_list.indexOf(ds.child("category").getValue(String.class)));
-                        status.setSelection(status_list.indexOf(ds.child("status").getValue(String.class)));
-                        course_id = ds.getKey();
+                    if (Objects.equals(ds.child("name").getValue(String.class), center)) {
+                        for (DataSnapshot d : ds.child("courses").getChildren()) {
+                            if (Objects.equals(d.child("name").getValue(String.class), n)) {
+                                name.setText(n);
+                                hours.setText(d.child("hours").getValue(String.class));
+                                details.setText(d.child("details").getValue(String.class));
+                                content.setText(d.child("content").getValue(String.class));
+                                enrollments.setText(d.child("enrollments").getValue(String.class));
+                                batches.setText(d.child("batch_count").getValue(String.class));
+                                year.setText(d.child("enrollments_year_wise").getValue(String.class));
+                                month.setText(d.child("enrollments_month_wise").getValue(String.class));
+                                category.setSelection(category_list.indexOf(d.child("category").getValue(String.class)));
+                                status.setSelection(status_list.indexOf(d.child("status").getValue(String.class)));
+                                course_id = d.getKey();
+                            }
+                        }
                     }
                 }
             }
@@ -90,6 +97,7 @@ public class CoursesDetailsActivity extends AppCompatActivity {
 
             }
         });
+        getKey();
         detailed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -103,7 +111,7 @@ public class CoursesDetailsActivity extends AppCompatActivity {
                 if (check(e)) {
                     Toast.makeText(CoursesDetailsActivity.this, "Error", Toast.LENGTH_SHORT).show();
                 } else
-                    update();
+                    update(key, course_id);
             }
         });
         delete.setOnClickListener(new View.OnClickListener() {
@@ -116,9 +124,9 @@ public class CoursesDetailsActivity extends AppCompatActivity {
         });
     }
 
-    private void update() {
+    private void update(String key, String course_id) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("CoursesListEntryVo").child(course_id);
+        DatabaseReference myRef = database.getReference("centers").child(key).child("courses").child(course_id);
         myRef.child("name").setValue(name.getText().toString());
         myRef.child("hours").setValue(hours.getText().toString());
         myRef.child("details").setValue(details.getText().toString());
@@ -131,6 +139,25 @@ public class CoursesDetailsActivity extends AppCompatActivity {
         myRef.child("status").setValue(status.getSelectedItem().toString());
         Toast.makeText(getBaseContext(), "Course Updated Successfully", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(getBaseContext(), CoursesListActivity.class));
+    }
+
+    private void getKey() {
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("centers");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    if (Objects.equals(snapshot.child("name").getValue(), String.valueOf(center))) {
+                        key = snapshot.getKey();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private boolean check(EditText[] e) {

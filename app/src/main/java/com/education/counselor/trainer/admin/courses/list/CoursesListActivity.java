@@ -55,23 +55,25 @@ public class CoursesListActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycle);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        db = FirebaseDatabase.getInstance().getReference("CoursesListEntryVo");
+        db = FirebaseDatabase.getInstance().getReference("centers");
         pg.setVisibility(View.VISIBLE);
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    if (Objects.equals(ds.child("center").getValue(String.class), n)) {
-                        CoursesListEntryVo s = new CoursesListEntryVo();
-                        s.setName(Objects.requireNonNull(ds.child("course_name").getValue()).toString());
-                        s.setPhone(Objects.requireNonNull(ds.child("course_status").getValue()).toString());
-                        details.add(s);
+                    if (Objects.equals(ds.child("name").getValue(String.class), n)) {
+                        for (DataSnapshot d : ds.child("courses").getChildren()) {
+                            CoursesListEntryVo s = new CoursesListEntryVo();
+                            s.setName(Objects.requireNonNull(d.child("name").getValue()).toString());
+                            s.setPhone(d.child("status").getValue(String.class));
+                            details.add(s);
+                        }
                     }
                 }
                 if (details.size() == 0) {
                     Toast.makeText(getBaseContext(), "No Courses Found", Toast.LENGTH_SHORT).show();
                 }
-                adapter = new CoursesListEntryAdapter(mContext, details);
+                adapter = new CoursesListEntryAdapter(mContext, details, n);
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
             }

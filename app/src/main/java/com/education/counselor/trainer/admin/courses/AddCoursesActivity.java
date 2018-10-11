@@ -30,7 +30,7 @@ public class AddCoursesActivity extends AppCompatActivity implements AdapterView
     Button submit;
     DatabaseReference db;
     long number;
-    private String n = "";
+    private String n = "", key;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +61,7 @@ public class AddCoursesActivity extends AppCompatActivity implements AdapterView
         ArrayAdapter<String> status_adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, status_list);
         category.setAdapter(category_adapter);
         status.setAdapter(status_adapter);
+        getKey();
         generate_random();
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,18 +83,35 @@ public class AddCoursesActivity extends AppCompatActivity implements AdapterView
                 } else if (status.getSelectedItem().toString().equals("Status")) {
                     Toast.makeText(getBaseContext(), "Please Select A Status", Toast.LENGTH_SHORT).show();
                 } else {
-                    FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    DatabaseReference reference = database.getReference("Courses").child(String.valueOf(number));
-                    reference.child("name").setValue(name.getText().toString());
-                    reference.child("hours").setValue(hours.getText().toString());
-                    reference.child("details").setValue(details.getText().toString());
-                    reference.child("content").setValue(content.getText().toString());
-                    reference.child("category").setValue(category.getSelectedItem().toString());
-                    reference.child("status").setValue(status.getSelectedItem().toString());
-                    reference.child("center").setValue(n);
+                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference("centers").child(key).child("courses").child(String.valueOf(number));
+                    ref.child("name").setValue(name.getText().toString());
+                    ref.child("hours").setValue(hours.getText().toString());
+                    ref.child("details").setValue(details.getText().toString());
+                    ref.child("content").setValue(content.getText().toString());
+                    ref.child("category").setValue(category.getSelectedItem().toString());
+                    ref.child("status").setValue(status.getSelectedItem().toString());
                     Toast.makeText(getBaseContext(), "Course Added Successfully", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getBaseContext(), CoursesListActivity.class));
                 }
+            }
+        });
+    }
+
+    private void getKey() {
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("centers");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    if (Objects.equals(snapshot.child("name").getValue(), String.valueOf(n))) {
+                        key = snapshot.getKey();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
     }
@@ -104,7 +122,7 @@ public class AddCoursesActivity extends AppCompatActivity implements AdapterView
     }
 
     private void validate_random() {
-        db = FirebaseDatabase.getInstance().getReference("student");
+        db = FirebaseDatabase.getInstance().getReference("centers").child("courses");
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
