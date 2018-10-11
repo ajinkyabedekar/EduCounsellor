@@ -29,14 +29,6 @@ public class CoursesList extends RecyclerView.ViewHolder {
         this.s_name = s_name;
     }
 
-    public TextView getP_name() {
-        return p_name;
-    }
-
-    public void setP_name(TextView p_name) {
-        this.p_name = p_name;
-    }
-
     public View getV() {
         return v;
     }

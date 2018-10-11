@@ -124,6 +124,5 @@
         <activity android:name=".counsellor.meeting.StudentMeetActivity" />
         <activity android:name=".counsellor.report.DailyReportActivity" />
         <activity android:name=".counsellor.CoursewiseStudentList" />
-
     </application>
 </manifest>
