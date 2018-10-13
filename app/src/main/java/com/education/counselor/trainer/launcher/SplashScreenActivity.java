@@ -61,8 +61,9 @@ public class SplashScreenActivity extends AppCompatActivity {
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     for (DataSnapshot ds : dataSnapshot.getChildren()) {
                         for (DataSnapshot dataSnapshot1 : ds.getChildren()) {
-                            if (Objects.equals(dataSnapshot1.child("mail").getValue(String.class), email))
+                            if (Objects.equals(dataSnapshot1.child("mail").getValue(String.class), email)) {
                                 access = ds.getKey();
+                            }
                         }
                     }
                     if (access != null) {
@@ -71,19 +72,16 @@ public class SplashScreenActivity extends AppCompatActivity {
                                 startActivity(new Intent(getBaseContext(), AdminDashboardActivity.class));
                                 break;
                             case "college_authority":
-                                Toast.makeText(SplashScreenActivity.this, "Welcome " + user.getDisplayName(), Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(getBaseContext(), AuthorityCollegeDashboardActivity.class));
                                 break;
                             case "school_authority":
-                                Toast.makeText(SplashScreenActivity.this, "Welcome " + user.getDisplayName(), Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(getBaseContext(), AuthoritySchoolDashboardActivity.class));
                                 break;
                             case "counsellor":
-                                Toast.makeText(SplashScreenActivity.this, "Welcome " + user.getDisplayName(), Toast.LENGTH_SHORT).show();
+                            case "employee":
                                 startActivity(new Intent(getBaseContext(), CounsellorDashboardActivity.class));
                                 break;
                             case "student":
-                                Toast.makeText(SplashScreenActivity.this, "Welcome " + user.getDisplayName(), Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(getBaseContext(), StudentDashboardActivity.class));
                                 break;
                             default:
@@ -91,7 +89,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                                 break;
                         }
                     } else {
-                        Toast.makeText(getBaseContext(), "Please Check Your Network Connection", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "Please Check Your Network Connection and Login", Toast.LENGTH_SHORT).show();
                         grant = false;
                     }
                 }

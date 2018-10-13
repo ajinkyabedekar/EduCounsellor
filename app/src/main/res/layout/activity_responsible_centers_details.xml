@@ -1,111 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
     android:padding="10sp"
+    android:orientation="vertical"
     tools:context=".counsellor.responsible_centers.ResponsibleCentersDetailsActivity">
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/name_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/name"
-            android:layout_width="match_parent"
-            android:importantForAutofill="no"
-            android:inputType="text"
-            android:layout_height="wrap_content"
-            android:hint="@string/name"
-            tools:targetApi="o" />
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/location_layout"
+    <Button
+        android:id="@+id/startup_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/name_layout">
-
-        <EditText
-            android:id="@+id/location"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/location_address"
-            android:importantForAutofill="no"
-            android:inputType="text"
-            tools:targetApi="o" />
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/mail_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/location_layout">
-
-        <EditText
-            android:id="@+id/mail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/mail"
-            android:inputType="textWebEmailAddress"
-            android:importantForAutofill="no"
-            tools:targetApi="o" />
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/head_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/mail_layout">
-
-        <EditText
-            android:id="@+id/head"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/head_name"
-            android:importantForAutofill="no"
-            android:inputType="textPersonName"
-            tools:targetApi="o" />
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/password_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/head_layout">
-
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/unique_password"
-            android:inputType="textPassword"
-            android:importantForAutofill="no"
-            tools:targetApi="o" />
-    </android.support.design.widget.TextInputLayout>
+        android:layout_marginBottom="20sp"
+        android:background="@drawable/button_back_1"
+        android:padding="10sp"
+        android:text="@string/startup_list" />
 
     <Button
-        android:id="@+id/submit"
-        android:layout_width="wrap_content"
+        android:id="@+id/news_list"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/password_layout"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="20sp"
-        android:background="@drawable/button_blue"
-        android:text="@string/submit"
-        android:textColor="@color/white" />
+        android:layout_marginBottom="20sp"
+        android:background="@drawable/button_back_1"
+        android:padding="10sp"
+        android:text="@string/news_list" />
 
     <Button
-        android:id="@+id/delete"
-        android:layout_width="wrap_content"
+        android:id="@+id/placement_list"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/submit"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="10sp"
-        android:background="@drawable/button_red"
-        android:padding="5sp"
-        android:text="@string/delete_center"
-        android:textColor="@color/white" />
-</RelativeLayout>
+        android:layout_marginBottom="20sp"
+        android:background="@drawable/button_back_1"
+        android:padding="10sp"
+        android:text="@string/placement_list" />
+
+    <Button
+        android:id="@+id/internship_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20sp"
+        android:background="@drawable/button_back_1"
+        android:padding="10sp"
+        android:text="@string/internship_list" />
+</LinearLayout>

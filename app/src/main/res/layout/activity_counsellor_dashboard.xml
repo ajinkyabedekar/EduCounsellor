@@ -77,44 +77,8 @@
                 android:layout_marginBottom="20sp"
                 android:background="@drawable/button_back_1"
                 android:padding="10sp"
-                android:text="Coursewise student list" />
+                android:text="@string/course_wise_student_list" />
 
-
-            <Button
-                android:id="@+id/startup_list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20sp"
-                android:background="@drawable/button_back_1"
-                android:padding="10sp"
-                android:text="@string/startup_list" />
-
-            <Button
-                android:id="@+id/news_list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20sp"
-                android:background="@drawable/button_back_1"
-                android:padding="10sp"
-                android:text="@string/news_list" />
-
-            <Button
-                android:id="@+id/placement_list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20sp"
-                android:background="@drawable/button_back_1"
-                android:padding="10sp"
-                android:text="@string/placement_list" />
-
-            <Button
-                android:id="@+id/internship_list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20sp"
-                android:background="@drawable/button_back_1"
-                android:padding="10sp"
-                android:text="@string/internship_list" />
 
             <Button
                 android:id="@+id/authority_meet"

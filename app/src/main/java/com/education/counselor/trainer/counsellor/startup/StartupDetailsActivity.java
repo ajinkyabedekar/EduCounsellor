@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Objects;
 
 public class StartupDetailsActivity extends AppCompatActivity {
-    EditText name, department, company, package_name, location, student;
+    EditText name, vision, website, team, funding, turnover, student, id;
     Button submit, delete;
     DatabaseReference studentData;
     private String n = "";
@@ -35,26 +35,30 @@ public class StartupDetailsActivity extends AppCompatActivity {
             n = i.getStringExtra("name");
         }
         name = findViewById(R.id.name);
-        department = findViewById(R.id.department);
-        company = findViewById(R.id.company);
-        package_name = findViewById(R.id.package_name);
-        location = findViewById(R.id.location);
+        vision = findViewById(R.id.vision);
+        website = findViewById(R.id.website);
+        team = findViewById(R.id.team);
+        funding = findViewById(R.id.funding);
+        turnover = findViewById(R.id.turnover);
         student = findViewById(R.id.student);
+        id = findViewById(R.id.id);
         submit = findViewById(R.id.submit);
         delete = findViewById(R.id.delete);
         studentData = FirebaseDatabase.getInstance().getReference("startup");
-        student.setEnabled(false);
+        id.setEnabled(false);
         studentData.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     if (Objects.equals(ds.child("name").getValue(String.class), n)) {
                         name.setText(n);
-                        department.setText(ds.child("department").getValue(String.class));
-                        company.setText(ds.child("company").getValue(String.class));
-                        package_name.setText(ds.child("package_name").getValue(String.class));
-                        location.setText(ds.child("location").getValue(String.class));
-                        student.setText(ds.getKey());
+                        vision.setText(ds.child("vision").getValue(String.class));
+                        website.setText(ds.child("website").getValue(String.class));
+                        team.setText(ds.child("team").getValue(String.class));
+                        funding.setText(ds.child("funding").getValue(String.class));
+                        turnover.setText(ds.child("turnover").getValue(String.class));
+                        student.setText(ds.child("student_name").getValue(String.class));
+                        id.setText(ds.getKey());
                     }
                 }
             }
@@ -67,7 +71,7 @@ public class StartupDetailsActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EditText e[] = new EditText[]{name, department, company, package_name, location, student};
+                EditText e[] = new EditText[]{name, vision, website, team, funding, turnover, student, id};
                 if (check(e)) {
                     Toast.makeText(StartupDetailsActivity.this, "Error", Toast.LENGTH_SHORT).show();
                 } else
@@ -77,7 +81,7 @@ public class StartupDetailsActivity extends AppCompatActivity {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                studentData.child(student.getText().toString()).removeValue();
+                studentData.child(id.getText().toString()).removeValue();
                 Toast.makeText(getBaseContext(), "Startup Deleted Successfully", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(getBaseContext(), StartupListActivity.class));
             }
@@ -86,12 +90,14 @@ public class StartupDetailsActivity extends AppCompatActivity {
 
     private void update() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("startup").child(student.getText().toString());
+        DatabaseReference myRef = database.getReference("startup").child(id.getText().toString());
         myRef.child("name").setValue(name.getText().toString());
-        myRef.child("department").setValue(department.getText().toString());
-        myRef.child("company").setValue(company.getText().toString());
-        myRef.child("package_name").setValue(package_name.getText().toString());
-        myRef.child("location").setValue(location.getText().toString());
+        myRef.child("vision").setValue(vision.getText().toString());
+        myRef.child("website").setValue(website.getText().toString());
+        myRef.child("funding").setValue(funding.getText().toString());
+        myRef.child("turnover").setValue(turnover.getText().toString());
+        myRef.child("student_name").setValue(student.getText().toString());
+        myRef.child("center").setValue(n);
         Toast.makeText(getBaseContext(), "Startup Updated Successfully", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(getBaseContext(), StartupListActivity.class));
     }

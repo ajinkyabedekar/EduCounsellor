@@ -45,8 +45,8 @@ public class AddStartupActivity extends AppCompatActivity implements AdapterView
         id = findViewById(R.id.id);
         submit = findViewById(R.id.submit);
         generate_random();
-        student.setText(String.valueOf(number));
-        student.setEnabled(false);
+        id.setText(String.valueOf(number));
+        id.setEnabled(false);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
