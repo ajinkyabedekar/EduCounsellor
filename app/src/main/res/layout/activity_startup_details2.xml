@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,103 +7,157 @@
     android:padding="10sp"
     tools:context=".counsellor.startup.StartupDetailsActivity">
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/name_layout"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/name"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/name_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/name"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                tools:targetApi="o" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/vision_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/name"
-            android:importantForAutofill="no"
-            android:inputType="text"
-            tools:targetApi="o" />
-    </android.support.design.widget.TextInputLayout>
+            android:layout_below="@+id/name_layout">
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/department_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/name_layout">
+            <EditText
+                android:id="@+id/vision"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/vision"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                tools:targetApi="o" />
+        </android.support.design.widget.TextInputLayout>
 
-        <EditText
-            android:id="@+id/department"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/website_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/department"
-            android:importantForAutofill="no"
-            android:inputType="text"
-            tools:targetApi="o" />
-    </android.support.design.widget.TextInputLayout>
+            android:layout_below="@+id/vision_layout">
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/startup_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/department_layout">
+            <EditText
+                android:id="@+id/website"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/website"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                tools:targetApi="o" />
+        </android.support.design.widget.TextInputLayout>
 
-        <EditText
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/team_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/startup_name"
-            android:importantForAutofill="no"
-            android:inputType="text"
-            tools:targetApi="o" />
-    </android.support.design.widget.TextInputLayout>
+            android:layout_below="@+id/website_layout">
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/location_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/startup_layout">
+            <EditText
+                android:id="@+id/team"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/team"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                tools:targetApi="o" />
+        </android.support.design.widget.TextInputLayout>
 
-        <EditText
-            android:id="@+id/location"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/funding_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/location"
-            android:importantForAutofill="no"
-            android:inputType="text"
-            tools:targetApi="o" />
-    </android.support.design.widget.TextInputLayout>
+            android:layout_below="@+id/team_layout">
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/student_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/location_layout">
+            <EditText
+                android:id="@+id/funding"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/funding"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                tools:targetApi="o" />
+        </android.support.design.widget.TextInputLayout>
 
-        <EditText
-            android:id="@+id/student"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/turnover_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/unique_student_id"
-            android:importantForAutofill="no"
-            android:inputType="text"
-            tools:targetApi="o" />
-    </android.support.design.widget.TextInputLayout>
+            android:layout_below="@+id/funding_layout">
 
-    <Button
-        android:id="@+id/submit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/student_layout"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="20sp"
-        android:background="@drawable/button_blue"
-        android:text="@string/submit"
-        android:textColor="@color/white" />
+            <EditText
+                android:id="@+id/turnover"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/turnover"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                tools:targetApi="o" />
+        </android.support.design.widget.TextInputLayout>
 
-    <Button
-        android:id="@+id/delete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/submit"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="10sp"
-        android:background="@drawable/button_red"
-        android:text="@string/delete"
-        android:textColor="@color/white" />
-</RelativeLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/student_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/turnover_layout">
+
+            <EditText
+                android:id="@+id/student"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/student_name"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                tools:targetApi="o" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/id_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/student_layout">
+
+            <EditText
+                android:id="@+id/id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/unique_student_id"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                tools:targetApi="o" />
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/id_layout"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="30sp"
+            android:background="@drawable/button_blue"
+            android:text="@string/submit"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/submit"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="30sp"
+            android:background="@drawable/button_red"
+            android:text="@string/delete"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+</ScrollView>

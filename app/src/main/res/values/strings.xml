@@ -168,4 +168,7 @@
     <string name="time">Time :</string>
     <string name="start_class">Start Class</string>
     <string name="internship">Internship</string>
+    <string name="take_class">Take Class</string>
+    <string name="exit">Exit</string>
+    <string name="course_wise_student_list">Course Wise student list</string>
 </resources>

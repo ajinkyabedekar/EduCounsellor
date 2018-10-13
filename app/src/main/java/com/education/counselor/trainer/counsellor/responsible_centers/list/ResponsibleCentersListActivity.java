@@ -11,6 +11,8 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.education.counselor.trainer.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,6 +29,7 @@ public class ResponsibleCentersListActivity extends AppCompatActivity {
     ProgressBar pg;
     Context mContext;
     private ArrayList<ResponsibleCentersListEntryVo> details = new ArrayList<>();
+    String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,15 +40,23 @@ public class ResponsibleCentersListActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycle);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        db = FirebaseDatabase.getInstance().getReference("centers");
+        db = FirebaseDatabase.getInstance().getReference("counsellor");
         pg.setVisibility(View.VISIBLE);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            email = user.getEmail();
+        }
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    ResponsibleCentersListEntryVo s = new ResponsibleCentersListEntryVo();
-                    s.setName(Objects.requireNonNull(ds.child("name").getValue()).toString());
-                    details.add(s);
+                    if (Objects.equals(ds.child("mail").getValue(String.class), email)) {
+                        for (DataSnapshot d : ds.child("centers").getChildren()) {
+                            ResponsibleCentersListEntryVo s = new ResponsibleCentersListEntryVo();
+                            s.setName(Objects.requireNonNull(d.getValue()).toString());
+                            details.add(s);
+                        }
+                    }
                 }
                 if (details.size() == 0) {
                     Toast.makeText(getBaseContext(), "No Centers Found", Toast.LENGTH_SHORT).show();

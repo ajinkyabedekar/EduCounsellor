@@ -54,7 +54,7 @@ public class StartClassBatchesActivity extends AppCompatActivity {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     if (Objects.equals(ds.child("name").getValue(String.class), center)) {
                         for (DataSnapshot d : ds.child("courses").getChildren()) {
-                            if (Objects.equals(ds.child("name").getValue(String.class), course)) {
+                            if (Objects.equals(d.child("name").getValue(String.class), course)) {
                                 for (DataSnapshot sd : d.child("batches").getChildren()) {
                                     StartClassBatchesEntryVo s = new StartClassBatchesEntryVo();
                                     s.setName(Objects.requireNonNull(sd.child("name").getValue()).toString());

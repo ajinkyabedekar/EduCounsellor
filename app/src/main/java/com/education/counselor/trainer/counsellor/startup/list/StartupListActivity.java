@@ -37,7 +37,6 @@ public class StartupListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_startup_list3);
-
         Intent i = getIntent();
         if (i.hasExtra("name")) {
             n = i.getStringExtra("name");
@@ -46,7 +45,9 @@ public class StartupListActivity extends AppCompatActivity {
         add_startup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getBaseContext(), AddStartupActivity.class));
+                Intent in = new Intent(getBaseContext(), AddStartupActivity.class);
+                in.putExtra("name", n);
+                startActivity(in);
             }
         });
         mContext = this;
