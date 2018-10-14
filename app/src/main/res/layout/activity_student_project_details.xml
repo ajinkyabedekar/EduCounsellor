@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:padding="10sp"
+    tools:context=".student.ProjectDetailsActivity">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/name_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:hint="@string/name_of_project"
+            android:importantForAutofill="no"
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:targetApi="o"
+            android:inputType="text" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/link_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name_layout">
+
+        <EditText
+            android:id="@+id/link"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/link_of_project"
+            android:importantForAutofill="no"
+            tools:targetApi="o"
+            android:inputType="text" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/grade_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/link_layout">
+
+        <EditText
+            android:id="@+id/grade"
+            android:layout_width="match_parent"
+            android:hint="@string/grade_obtained"
+            android:importantForAutofill="no"
+            android:layout_height="wrap_content"
+            tools:targetApi="o"
+            android:inputType="text" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/certificate_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/grade_layout">
+
+        <EditText
+            android:hint="@string/certification_status"
+            android:importantForAutofill="no"
+            android:id="@+id/certificate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:targetApi="o"
+            android:inputType="text" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/award_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/certificate_layout">
+
+        <EditText
+            android:id="@+id/award"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/award_status"
+            android:importantForAutofill="no"
+            tools:targetApi="o"
+            android:inputType="text" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/professor_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/award_layout">
+
+        <EditText
+            android:id="@+id/professor"
+            android:layout_width="match_parent"
+            android:hint="@string/name_of_professor_in_team"
+            android:importantForAutofill="no"
+            android:layout_height="wrap_content"
+            tools:targetApi="o"
+            android:inputType="text" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/professor_layout"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20sp"
+        android:background="@drawable/button_blue"
+        android:text="update"
+        android:textColor="@color/white" />
+
+</RelativeLayout>
