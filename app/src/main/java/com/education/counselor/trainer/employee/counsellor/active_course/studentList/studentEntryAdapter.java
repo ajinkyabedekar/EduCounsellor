@@ -1,4 +1,4 @@
-package com.education.counselor.trainer.employee.counsellor.active_course.projects;
+package com.education.counselor.trainer.employee.counsellor.active_course.studentList;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,15 +9,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.education.counselor.trainer.R;
-import com.education.counselor.trainer.employee.counsellor.active_course.studentList.studentListActivity;
+import com.education.counselor.trainer.employee.counsellor.active_course.studentProjectDetails;
 
 import java.util.ArrayList;
 
-public class projectListEntryAdapter extends RecyclerView.Adapter<projectCourseList> {
+public class studentEntryAdapter extends RecyclerView.Adapter<studentCourseList> {
     private Context c;
-    private ArrayList<projectListEntryVo> details;
+    private ArrayList<studentListEntryVo> details;
 
-    projectListEntryAdapter(Context c, ArrayList<projectListEntryVo> details) {
+    studentEntryAdapter(Context c, ArrayList<studentListEntryVo> details) {
         setHasStableIds(true);
         this.c = c;
         this.details = details;
@@ -35,20 +35,20 @@ public class projectListEntryAdapter extends RecyclerView.Adapter<projectCourseL
 
     @NonNull
     @Override
-    public projectCourseList onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public studentCourseList onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(c).inflate(R.layout.layout_internship_list_adapter4, viewGroup, false);
-        return new projectCourseList(v);
+        return new studentCourseList(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final projectCourseList holder, int i) {
+    public void onBindViewHolder(@NonNull final studentCourseList holder, int i) {
         holder.s_name.setText(details.get(i).getName());
         holder.v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in = new Intent(c, studentListActivity.class);
-                in.putExtra("pname", details.get(holder.getAdapterPosition()).getName());
-                in.putExtra("name", details.get(holder.getAdapterPosition()).getPhone());
+                Intent in = new Intent(c, studentProjectDetails.class);
+                in.putExtra("name", details.get(holder.getAdapterPosition()).getName());
+                in.putExtra("phone", details.get(holder.getAdapterPosition()).getPhone());
                 c.startActivity(in);
             }
         });

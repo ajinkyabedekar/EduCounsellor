@@ -139,6 +139,7 @@
         <activity android:name=".employee.counsellor.active_course.batch.AIBatchListActivity" />
         <activity android:name=".employee.counsellor.active_course.studentProjectDetails"/>
         <activity android:name=".employee.counsellor.active_course.projects.projectListActivity"/>
+        <activity android:name=".employee.counsellor.active_course.studentList.studentListActivity"/>
 
     </application>
 

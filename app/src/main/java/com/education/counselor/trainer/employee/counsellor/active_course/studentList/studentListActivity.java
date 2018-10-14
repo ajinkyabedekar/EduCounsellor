@@ -1,4 +1,4 @@
-package com.education.counselor.trainer.employee.counsellor.active_course.batch;
+package com.education.counselor.trainer.employee.counsellor.active_course.studentList;
 
 import android.content.Context;
 import android.content.Intent;
@@ -21,58 +21,51 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class AIBatchListActivity extends AppCompatActivity {
+public class studentListActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     DatabaseReference db;
-    AIBatchListEntryAdapter adapter;
+    studentEntryAdapter adapter;
     ProgressBar pg;
     Context mContext;
-    private ArrayList<AIBatchListEntryVo> details = new ArrayList<>();
-    private String n = "",c="";
+    private ArrayList<studentListEntryVo> details = new ArrayList<>();
+    private String n = "",p="";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_active_counsellor_batches);
+        setContentView(R.layout.activity_active_counsellor_students);
         Intent i = getIntent();
         if (i.hasExtra("name")) {
             n = i.getStringExtra("name");
         }
-        if (i.hasExtra("cname")) {
-            c = i.getStringExtra("cname");
+        if (i.hasExtra("pname")) {
+            p = i.getStringExtra("pname");
         }
-
         mContext = this;
         pg = findViewById(R.id.progress);
         recyclerView = findViewById(R.id.recycle);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        db = FirebaseDatabase.getInstance().getReference("centers");
+        db = FirebaseDatabase.getInstance().getReference("student");
         pg.setVisibility(View.VISIBLE);
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                details.clear();
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    if (Objects.equals(ds.child("name").getValue(String.class), n)) {
-                        for(DataSnapshot d: ds.child("courses").getChildren())
-                        {
-                            if(Objects.equals(d.child("name").getValue(String.class), c))
-                            {
-                                for(DataSnapshot t: d.child("batches").getChildren()){
-                                    AIBatchListEntryVo s = new AIBatchListEntryVo();
-                                    s.setName(Objects.requireNonNull(t.child("name").getValue()).toString());
-                                    s.setPhone(n);
-                                    s.setCourse(c);
-                                    details.add(s);
-                                }
-                            }
-                        }
+                    if (Objects.equals(ds.child("project_details").child("name").getValue(String.class), p) &&
+                            Objects.equals(ds.child("centre").getValue(String.class),n)){
+                        studentListEntryVo s = new studentListEntryVo();
+                        s.setName(Objects.requireNonNull(ds.child("name")).getValue(String.class));
+                        s.setPhone(ds.child("mobile_number").getValue(String.class));
+                        details.add(s);
                     }
                 }
                 if (details.size() == 0)
-                    Toast.makeText(getBaseContext(), "No Batches Found", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "No Students Found ", Toast.LENGTH_SHORT).show();
 
-                adapter = new AIBatchListEntryAdapter(mContext, details);
+                adapter = new studentEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
             }

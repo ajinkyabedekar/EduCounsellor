@@ -76,7 +76,7 @@ public class projectListActivity extends AppCompatActivity {
                     }
                 }
                 if (details.size() == 0)
-                    Toast.makeText(getBaseContext(), "No projects Found "+n+b+c, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "No projects Found ", Toast.LENGTH_SHORT).show();
 
                 adapter = new projectListEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);
