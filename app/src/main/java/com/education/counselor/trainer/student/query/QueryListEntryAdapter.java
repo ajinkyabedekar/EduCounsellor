@@ -41,6 +41,7 @@ public class QueryListEntryAdapter extends RecyclerView.Adapter<QueryList> {
     @Override
     public void onBindViewHolder(@NonNull final QueryList holder, int i) {
         holder.s_name.setText(details.get(i).getName());
+        holder.p_name.setText(details.get(i).getPhone());
     }
 
     @Override

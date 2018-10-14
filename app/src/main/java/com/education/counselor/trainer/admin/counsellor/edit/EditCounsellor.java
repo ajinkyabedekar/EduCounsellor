@@ -15,7 +15,7 @@ class EditCounsellor extends RecyclerView.ViewHolder {
     EditCounsellor(@NonNull View itemView) {
         super(itemView);
         s_name = itemView.findViewById(R.id.s_text);
-        p_name = itemView.findViewById(R.id.p_text);
+        p_name = itemView.findViewById(R.id.p_name);
         p_name.setText("null");
     }
 

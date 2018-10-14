@@ -151,7 +151,7 @@ public class StudentLoginActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     if (isEmail) {
-                        if (Objects.requireNonNull(snapshot.child("mail").getValue()).toString().equalsIgnoreCase(email)) {
+                        if (Objects.equals(snapshot.child("mail").getValue(String.class), email)) {
                             login(email);
                             return;
                         }

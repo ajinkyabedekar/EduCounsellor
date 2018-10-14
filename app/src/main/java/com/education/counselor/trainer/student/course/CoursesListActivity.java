@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.education.counselor.trainer.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -55,13 +56,15 @@ public class CoursesListActivity extends AppCompatActivity {
 
             }
         });
-        DatabaseReference db = FirebaseDatabase.getInstance().getReference("CoursesListEntryVo");
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference("courses");
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     if (Objects.equals(ds.child("details").child("status").getValue(), status)) {
                         data.add(new CoursesListEntryVo(Objects.requireNonNull(ds.child("details").child("name").getValue()).toString(), ds.getKey()));
+                    } else {
+                        Toast.makeText(mContext, "No Courses Found", Toast.LENGTH_SHORT).show();
                     }
                 }
                 adapter = new CoursesListEntryAdapter(mContext, data, name, id);
