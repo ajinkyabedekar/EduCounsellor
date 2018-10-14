@@ -96,7 +96,7 @@ public class StudentsAcademicsActivity extends AppCompatActivity implements Adap
 
     private void update() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("student").child(student_id);
+        DatabaseReference myRef = database.getReference("student").child(student_id).child("project_details");
         myRef.child("name").setValue(name.getText().toString());
         myRef.child("mobile_number").setValue(mobile_number.getText().toString());
         myRef.child("mail").setValue(mail.getText().toString());
@@ -107,6 +107,9 @@ public class StudentsAcademicsActivity extends AppCompatActivity implements Adap
         myRef.child("award").setValue(award.getText().toString());
         myRef.child("professor").setValue(professor.getText().toString());
         myRef.child("project_name").setValue(project_name.getText().toString());
+        myRef=database.getReference("project");
+
+
         Toast.makeText(getBaseContext(), "Student Details Updated Successfully", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(getBaseContext(), AllStudentsActivity.class));
     }

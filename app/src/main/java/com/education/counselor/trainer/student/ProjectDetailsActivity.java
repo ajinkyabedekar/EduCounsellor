@@ -38,6 +38,7 @@ public class ProjectDetailsActivity extends AppCompatActivity {
         professor = findViewById(R.id.professor);
         submit = findViewById(R.id.submit);
         delete = findViewById(R.id.delete);
+        reference=FirebaseDatabase.getInstance().getReference("projects");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

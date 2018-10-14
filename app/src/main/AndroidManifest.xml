@@ -135,6 +135,9 @@
         <activity android:name=".authority.school.rating.RatingListActivity" />
         <activity android:name=".authority.college.rating.RatingListActivity" />
         <activity android:name=".authority.college.HodFeedbackActivity" />
+        <activity android:name=".employee.counsellor.active_course.activeCourseListActivity"/>
+        <activity android:name=".employee.counsellor.active_course.batch.AIBatchListActivity"/>
+
     </application>
 
 </manifest>

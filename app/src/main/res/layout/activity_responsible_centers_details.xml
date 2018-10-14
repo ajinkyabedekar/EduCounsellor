@@ -43,4 +43,20 @@
         android:background="@drawable/button_back_1"
         android:padding="10sp"
         android:text="@string/internship_list" />
+    <Button
+        android:id="@+id/activeCourse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20sp"
+        android:background="@drawable/button_back_1"
+        android:padding="10sp"
+        android:text="Inactive courses" />
+    <Button
+        android:id="@+id/inactiveCourse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20sp"
+        android:background="@drawable/button_back_1"
+        android:padding="10sp"
+        android:text="Active Cousres" />
 </LinearLayout>
