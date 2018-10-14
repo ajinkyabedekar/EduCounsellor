@@ -2,11 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.education.counselor.trainer">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission. ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+
     <application
         android:allowBackup="true"
         android:fullBackupContent="true"
@@ -18,13 +20,13 @@
         tools:ignore="GoogleAppIndexingWarning">
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-1871442144078034~9676854016"/>
+            android:value="ca-app-pub-1871442144078034~9676854016" />
+
         <activity android:name=".launcher.LoginActivity" />
         <activity android:name=".login.StudentLoginActivity" />
-        <activity android:name=".login.CounsellorLoginActivity" />
         <activity android:name=".login.authority.login.AuthoritySchoolLoginActivity" />
         <activity android:name=".login.AdminLoginActivity" />
-        <activity android:name=".counsellor.CounsellorDashboardActivity" />
+        <activity android:name=".employee.counsellor.CounsellorDashboardActivity" />
         <activity android:name=".login.authority.AuthorityChoiceActivity" />
         <activity android:name=".login.authority.login.AuthorityCollegeLoginActivity" />
         <activity android:name=".authority.college.AuthorityCollegeDashboardActivity" />
@@ -34,6 +36,7 @@
         <activity android:name=".launcher.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -94,34 +97,44 @@
         <activity android:name=".student.course.EnrolledCourseActivity" />
         <activity android:name=".student.course.CoursesListActivity" />
         <activity android:name=".student.course.CourseDetailsActivity" />
-        <activity android:name=".counsellor.start_class.centers.StartClassCentersActivity" />
-        <activity android:name=".counsellor.start_class.courses.StartClassCoursesActivity" />
-        <activity android:name=".counsellor.start_class.batches.StartClassBatchesActivity" />
-        <activity android:name=".counsellor.attendance.AttendanceActivity" />
-        <activity android:name=".counsellor.responsible_centers.list.ResponsibleCentersListActivity" />
-        <activity android:name=".counsellor.responsible_centers.ResponsibleCentersDetailsActivity" />
-        <activity android:name=".counsellor.news.AddNewsActivity" />
-        <activity android:name=".counsellor.internship.InternshipDetailsActivity" />
-        <activity android:name=".counsellor.placement.PlacementDetailsActivity" />
-        <activity android:name=".counsellor.startup.StartupDetailsActivity" />
-        <activity android:name=".counsellor.internship.AddInternshipActivity" />
-        <activity android:name=".counsellor.placement.AddPlacementActivity" />
-        <activity android:name=".counsellor.startup.AddStartupActivity" />
-        <activity android:name=".counsellor.news.NewsDetailsActivity" />
-        <activity android:name=".counsellor.internship.list.InternshipListActivity" />
-        <activity android:name=".counsellor.news.list.NewsListActivity" />
-        <activity android:name=".counsellor.placement.list.PlacementListActivity" />
-        <activity android:name=".counsellor.startup.list.StartupListActivity" />
-        <activity android:name=".counsellor.internship.centers.InternshipCentersActivity" />
-        <activity android:name=".counsellor.news.centers.NewsCentersActivity" />
-        <activity android:name=".counsellor.placement.centers.PlacementCentersActivity" />
-        <activity android:name=".counsellor.startup.centers.StartupCentersActivity" />
-        <activity android:name=".counsellor.MyAccountActivity" />
-        <activity android:name=".counsellor.meeting.AuthorityMeetActivity" />
-        <activity android:name=".counsellor.meeting.HodMeetActivity" />
-        <activity android:name=".counsellor.meeting.RankethonMeetActivity" />
-        <activity android:name=".counsellor.meeting.StudentMeetActivity" />
-        <activity android:name=".counsellor.report.DailyReportActivity" />
-        <activity android:name=".counsellor.CoursewiseStudentList" />
+        <activity android:name=".employee.counsellor.start_class.centers.StartClassCentersActivity" />
+        <activity android:name=".employee.counsellor.start_class.courses.StartClassCoursesActivity" />
+        <activity android:name=".employee.counsellor.start_class.batches.StartClassBatchesActivity" />
+        <activity android:name=".employee.counsellor.attendance.AttendanceActivity" />
+        <activity android:name=".employee.counsellor.responsible_centers.list.ResponsibleCentersListActivity" />
+        <activity android:name=".employee.counsellor.responsible_centers.ResponsibleCentersDetailsActivity" />
+        <activity android:name=".employee.counsellor.news.AddNewsActivity" />
+        <activity android:name=".employee.counsellor.internship.InternshipDetailsActivity" />
+        <activity android:name=".employee.counsellor.placement.PlacementDetailsActivity" />
+        <activity android:name=".employee.counsellor.startup.StartupDetailsActivity" />
+        <activity android:name=".employee.counsellor.internship.AddInternshipActivity" />
+        <activity android:name=".employee.counsellor.placement.AddPlacementActivity" />
+        <activity android:name=".employee.counsellor.startup.AddStartupActivity" />
+        <activity android:name=".employee.counsellor.news.NewsDetailsActivity" />
+        <activity android:name=".employee.counsellor.internship.list.InternshipListActivity" />
+        <activity android:name=".employee.counsellor.news.list.NewsListActivity" />
+        <activity android:name=".employee.counsellor.placement.list.PlacementListActivity" />
+        <activity android:name=".employee.counsellor.startup.list.StartupListActivity" />
+        <activity android:name=".employee.counsellor.internship.centers.InternshipCentersActivity" />
+        <activity android:name=".employee.counsellor.placement.centers.PlacementCentersActivity" />
+        <activity android:name=".employee.counsellor.MyAccountActivity" />
+        <activity android:name=".employee.trainer.meeting.AuthorityMeetActivity" />
+        <activity android:name=".employee.trainer.meeting.HodMeetActivity" />
+        <activity android:name=".employee.trainer.meeting.RankethonMeetActivity" />
+        <activity android:name=".employee.trainer.meeting.StudentMeetActivity" />
+        <activity android:name=".employee.counsellor.extra_buttons.DailyReportActivity" />
+        <activity android:name=".employee.counsellor.CoursewiseStudentList" />
+        <activity android:name=".login.employee.EmployeeChoiceActivity" />
+        <activity android:name=".login.employee.login.CounsellorLoginActivity" />
+        <activity android:name=".login.employee.login.TrainerLoginActivity" />
+        <activity android:name=".employee.trainer.TrainerDashboardActivity" />
+        <activity android:name=".employee.trainer.MyAccountActivity" />
+        <activity android:name=".employee.trainer.extra_buttons.DailyReportActivity" />
+        <activity android:name=".employee.trainer.responsible_centers.ResponsibleCentersDetailsActivity" />
+        <activity android:name=".employee.trainer.responsible_centers.list.ResponsibleCentersListActivity" />
+        <activity android:name=".authority.school.rating.RatingListActivity" />
+        <activity android:name=".authority.college.rating.RatingListActivity" />
+        <activity android:name=".authority.college.HodFeedbackActivity" />
     </application>
+
 </manifest>

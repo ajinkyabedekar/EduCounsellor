@@ -6,7 +6,7 @@
     android:gravity="center"
     android:padding="10sp"
     android:orientation="vertical"
-    tools:context=".counsellor.responsible_centers.ResponsibleCentersDetailsActivity">
+    tools:context=".employee.counsellor.responsible_centers.ResponsibleCentersDetailsActivity">
 
     <Button
         android:id="@+id/startup_list"

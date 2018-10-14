@@ -30,7 +30,8 @@ public class GiveSuggestionActivity extends AppCompatActivity {
                     suggestion.setError("This Is A Required Field");
                 } else {
                     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("suggestions").push();
-                    reference.setValue(suggestion.getText().toString());
+                    reference.child("suggestion").setValue(suggestion.getText().toString());
+                    reference.child("status").setValue("PENDING");
                     Toast.makeText(getBaseContext(), "Suggestion Added Successfully", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getBaseContext(), AuthoritySchoolDashboardActivity.class));
                 }

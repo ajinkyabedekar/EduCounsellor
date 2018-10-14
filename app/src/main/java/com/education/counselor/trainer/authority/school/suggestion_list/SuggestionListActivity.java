@@ -37,14 +37,15 @@ public class SuggestionListActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycle);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        db = FirebaseDatabase.getInstance().getReference("suggestion");
+        db = FirebaseDatabase.getInstance().getReference("suggestions");
         pg.setVisibility(View.VISIBLE);
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     SuggestionListEntryVo s = new SuggestionListEntryVo();
-                    s.setName(Objects.requireNonNull(ds.child("name").getValue()).toString());
+                    s.setName(Objects.requireNonNull(ds.child("suggestion").getValue()).toString());
+                    s.setPhone(ds.child("status").getValue(String.class));
                     details.add(s);
                 }
                 if (details.size() == 0) {
