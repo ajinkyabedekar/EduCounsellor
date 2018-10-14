@@ -12,9 +12,9 @@ import android.widget.Button;
 
 import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.login.AdminLoginActivity;
-import com.education.counselor.trainer.login.CounsellorLoginActivity;
 import com.education.counselor.trainer.login.StudentLoginActivity;
 import com.education.counselor.trainer.login.authority.AuthorityChoiceActivity;
+import com.education.counselor.trainer.login.employee.EmployeeChoiceActivity;
 
 public class LoginActivity extends AppCompatActivity {
     Button student, counsellor, authority, admin;
@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         counsellor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getBaseContext(), CounsellorLoginActivity.class));
+                startActivity(new Intent(getBaseContext(), EmployeeChoiceActivity.class));
             }
         });
         authority.setOnClickListener(new View.OnClickListener() {

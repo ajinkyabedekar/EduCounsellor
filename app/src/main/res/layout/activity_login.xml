@@ -38,7 +38,7 @@
             android:layout_height="100dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/button_back_1"
-            android:text="@string/counsellor" />
+            android:text="@string/employee" />
 
         <ImageView
             android:layout_width="wrap_content"

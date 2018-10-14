@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:padding="20dp"
-    tools:context=".login.CounsellorLoginActivity">
+    tools:context=".login.employee.login.CounsellorLoginActivity">
 
     <TextView
         android:id="@+id/text_log"

@@ -12,7 +12,8 @@ import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.admin.AdminDashboardActivity;
 import com.education.counselor.trainer.authority.college.AuthorityCollegeDashboardActivity;
 import com.education.counselor.trainer.authority.school.AuthoritySchoolDashboardActivity;
-import com.education.counselor.trainer.counsellor.CounsellorDashboardActivity;
+import com.education.counselor.trainer.employee.counsellor.CounsellorDashboardActivity;
+import com.education.counselor.trainer.employee.trainer.TrainerDashboardActivity;
 import com.education.counselor.trainer.student.StudentDashboardActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -78,8 +79,10 @@ public class SplashScreenActivity extends AppCompatActivity {
                                 startActivity(new Intent(getBaseContext(), AuthoritySchoolDashboardActivity.class));
                                 break;
                             case "counsellor":
-                            case "employee":
                                 startActivity(new Intent(getBaseContext(), CounsellorDashboardActivity.class));
+                                break;
+                            case "trainer":
+                                startActivity(new Intent(getBaseContext(), TrainerDashboardActivity.class));
                                 break;
                             case "student":
                                 startActivity(new Intent(getBaseContext(), StudentDashboardActivity.class));

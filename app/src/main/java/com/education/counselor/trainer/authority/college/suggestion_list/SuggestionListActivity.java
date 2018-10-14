@@ -44,11 +44,12 @@ public class SuggestionListActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     SuggestionListEntryVo s = new SuggestionListEntryVo();
-                    s.setName(Objects.requireNonNull(ds.child("name").getValue()).toString());
+                    s.setName(Objects.requireNonNull(ds.child("suggestion").getValue()).toString());
+                    s.setPhone(ds.child("status").getValue(String.class));
                     details.add(s);
                 }
                 if (details.size() == 0) {
-                    Toast.makeText(getBaseContext(), "No Suggestions Found", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "No Suggestion Found", Toast.LENGTH_SHORT).show();
                 }
                 adapter = new SuggestionListEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);

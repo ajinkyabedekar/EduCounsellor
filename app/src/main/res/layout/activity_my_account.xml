@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:padding="10sp"
-    tools:context=".counsellor.MyAccountActivity">
+    tools:context=".employee.counsellor.MyAccountActivity">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/name_layout"
@@ -118,27 +118,11 @@
             android:inputType="number" />
     </android.support.design.widget.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/rating_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/absence_layout">
-
-        <EditText
-            android:importantForAutofill="no"
-            tools:targetApi="o"
-            android:id="@+id/rating"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/average_rating"
-            android:inputType="number" />
-    </android.support.design.widget.TextInputLayout>
-
     <Button
         android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/rating_layout"
+        android:layout_below="@+id/absence_layout"
         android:layout_centerInParent="true"
         android:background="@drawable/button_blue"
         android:text="@string/submit"
