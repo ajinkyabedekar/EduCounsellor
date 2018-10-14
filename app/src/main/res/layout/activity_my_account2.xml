@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:padding="10sp"
+    tools:context=".employee.trainer.MyAccountActivity">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/name_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:importantForAutofill="no"
+            tools:targetApi="o"
+            android:hint="@string/name"
+            android:inputType="textPersonName" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/mail_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name_layout">
+
+        <EditText
+            android:id="@+id/mail"
+            android:importantForAutofill="no"
+            tools:targetApi="o"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/mail"
+            android:inputType="textWebEmailAddress" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/registrations_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mail_layout">
+
+        <EditText
+            android:id="@+id/registrations"
+            android:importantForAutofill="no"
+            tools:targetApi="o"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/net_registrations_done"
+            android:inputType="number" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/amount_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/registrations_layout">
+
+        <EditText
+            android:id="@+id/amount"
+            android:layout_width="match_parent"
+            android:importantForAutofill="no"
+            tools:targetApi="o"
+            android:layout_height="wrap_content"
+            android:hint="@string/amount_net_collected"
+            android:inputType="number" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/collection_month_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/amount_layout">
+
+        <EditText
+            android:id="@+id/collection_month"
+            android:importantForAutofill="no"
+            tools:targetApi="o"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/last_month_collection"
+            android:inputType="number" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/collection_months_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/collection_month_layout">
+
+        <EditText
+            android:id="@+id/collection_months"
+            android:importantForAutofill="no"
+            tools:targetApi="o"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/collection_by_month_for_last_12_months"
+            android:inputType="number" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/absence_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/collection_months_layout">
+
+        <EditText
+            android:id="@+id/absence"
+            android:importantForAutofill="no"
+            tools:targetApi="o"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/total_absence_month_wise"
+            android:inputType="number" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/rating_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/absence_layout">
+
+        <EditText
+            android:id="@+id/rating"
+            android:importantForAutofill="no"
+            tools:targetApi="o"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/average_rating"
+            android:inputType="number" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rating_layout"
+        android:layout_centerInParent="true"
+        android:background="@drawable/button_blue"
+        android:text="@string/submit"
+        android:textColor="@color/white" />
+</RelativeLayout>
