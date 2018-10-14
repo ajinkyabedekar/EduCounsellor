@@ -123,7 +123,7 @@
         <activity android:name=".employee.trainer.meeting.RankethonMeetActivity" />
         <activity android:name=".employee.trainer.meeting.StudentMeetActivity" />
         <activity android:name=".employee.counsellor.extra_buttons.DailyReportActivity" />
-        <activity android:name=".employee.counsellor.CoursewiseStudentList" />
+        <activity android:name=".employee.counsellor.courseWiseStudents.CoursewiseStudentList" />
         <activity android:name=".login.employee.EmployeeChoiceActivity" />
         <activity android:name=".login.employee.login.CounsellorLoginActivity" />
         <activity android:name=".login.employee.login.TrainerLoginActivity" />
@@ -135,8 +135,10 @@
         <activity android:name=".authority.school.rating.RatingListActivity" />
         <activity android:name=".authority.college.rating.RatingListActivity" />
         <activity android:name=".authority.college.HodFeedbackActivity" />
-        <activity android:name=".employee.counsellor.active_course.activeCourseListActivity"/>
-        <activity android:name=".employee.counsellor.active_course.batch.AIBatchListActivity"/>
+        <activity android:name=".employee.counsellor.active_course.activeCourseListActivity" />
+        <activity android:name=".employee.counsellor.active_course.batch.AIBatchListActivity" />
+        <activity android:name=".employee.counsellor.active_course.studentProjectDetails"/>
+        <activity android:name=".employee.counsellor.active_course.projects.projectListActivity"/>
 
     </application>
 

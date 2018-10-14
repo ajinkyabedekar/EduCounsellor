@@ -1,4 +1,4 @@
-package com.education.counselor.trainer.employee.counsellor;
+package com.education.counselor.trainer.employee.counsellor.courseWiseStudents;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

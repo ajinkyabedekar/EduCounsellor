@@ -1,4 +1,4 @@
-package com.education.counselor.trainer.employee.counsellor.active_course.batch;
+package com.education.counselor.trainer.employee.counsellor.active_course.projects;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,17 +9,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.education.counselor.trainer.R;
-import com.education.counselor.trainer.employee.counsellor.active_course.projects.projectListActivity;
-import com.education.counselor.trainer.employee.counsellor.internship.InternshipDetailsActivity;
+import com.education.counselor.trainer.employee.counsellor.active_course.studentProjectDetails;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class AIBatchListEntryAdapter extends RecyclerView.Adapter<AIBatchCourseList> {
+public class projectListEntryAdapter extends RecyclerView.Adapter<projectCourseList> {
     private Context c;
-    private ArrayList<AIBatchListEntryVo> details;
+    private ArrayList<projectListEntryVo> details;
 
-    AIBatchListEntryAdapter(Context c, ArrayList<AIBatchListEntryVo> details) {
+    projectListEntryAdapter(Context c, ArrayList<projectListEntryVo> details) {
         setHasStableIds(true);
         this.c = c;
         this.details = details;
@@ -37,22 +35,21 @@ public class AIBatchListEntryAdapter extends RecyclerView.Adapter<AIBatchCourseL
 
     @NonNull
     @Override
-    public AIBatchCourseList onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public projectCourseList onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(c).inflate(R.layout.layout_internship_list_adapter4, viewGroup, false);
-        return new AIBatchCourseList(v);
+        return new projectCourseList(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final AIBatchCourseList holder, int i) {
+    public void onBindViewHolder(@NonNull final projectCourseList holder, int i) {
         holder.s_name.setText(details.get(i).getName());
         holder.v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               Intent in = new Intent(c, projectListActivity.class);
-                in.putExtra("bname", details.get(holder.getAdapterPosition()).getName());
+                Intent in = new Intent(c, studentProjectDetails.class);
+                in.putExtra("pname", details.get(holder.getAdapterPosition()).getName());
                 in.putExtra("name", details.get(holder.getAdapterPosition()).getPhone());
-                in.putExtra("cname", details.get(holder.getAdapterPosition()).getCourse());
-               c.startActivity(in);
+                c.startActivity(in);
             }
         });
     }

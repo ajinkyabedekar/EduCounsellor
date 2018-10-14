@@ -1,4 +1,4 @@
-package com.education.counselor.trainer.employee.counsellor.active_course.batch;
+package com.education.counselor.trainer.employee.counsellor.active_course.projects;
 
 import android.content.Context;
 import android.content.Intent;
@@ -21,27 +21,30 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class AIBatchListActivity extends AppCompatActivity {
+public class projectListActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     DatabaseReference db;
-    AIBatchListEntryAdapter adapter;
+    projectListEntryAdapter adapter;
     ProgressBar pg;
     Context mContext;
-    private ArrayList<AIBatchListEntryVo> details = new ArrayList<>();
-    private String n = "",c="";
+    private ArrayList<projectListEntryVo> details = new ArrayList<>();
+    private String n = "",b="",c="";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_active_counsellor_batches);
+        setContentView(R.layout.activity_active_counsellor_projects);
         Intent i = getIntent();
         if (i.hasExtra("name")) {
             n = i.getStringExtra("name");
         }
+        if (i.hasExtra("bname")) {
+            b = i.getStringExtra("bname");
+        }
         if (i.hasExtra("cname")) {
             c = i.getStringExtra("cname");
         }
-
         mContext = this;
         pg = findViewById(R.id.progress);
         recyclerView = findViewById(R.id.recycle);
@@ -59,20 +62,23 @@ public class AIBatchListActivity extends AppCompatActivity {
                             if(Objects.equals(d.child("name").getValue(String.class), c))
                             {
                                 for(DataSnapshot t: d.child("batches").getChildren()){
-                                    AIBatchListEntryVo s = new AIBatchListEntryVo();
-                                    s.setName(Objects.requireNonNull(t.child("name").getValue()).toString());
-                                    s.setPhone(n);
-                                    s.setCourse(c);
-                                    details.add(s);
+                                    if(Objects.equals(t.child("name").getValue(String.class), b)) {
+                                        for(DataSnapshot tp: t.child("projects").getChildren()) {
+                                            projectListEntryVo s = new projectListEntryVo();
+                                            s.setName(Objects.requireNonNull(tp.child("name").getValue()).toString());
+                                            s.setPhone(n);
+                                            details.add(s);
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
                 }
                 if (details.size() == 0)
-                    Toast.makeText(getBaseContext(), "No Active Courses Found", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "No projects Found "+n+b+c, Toast.LENGTH_SHORT).show();
 
-                adapter = new AIBatchListEntryAdapter(mContext, details);
+                adapter = new projectListEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
             }
