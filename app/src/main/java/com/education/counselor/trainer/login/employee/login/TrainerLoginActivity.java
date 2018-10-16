@@ -21,13 +21,21 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class TrainerLoginActivity extends AppCompatActivity {
     EditText username, password;
     Button login, reset;
+    DatabaseReference ref;
+    FirebaseDatabase database;
     private FirebaseAuth mAuth;
 
     @Override
@@ -39,6 +47,7 @@ public class TrainerLoginActivity extends AppCompatActivity {
         login = findViewById(R.id.login);
         reset = findViewById(R.id.reset);
         mAuth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,7 +58,7 @@ public class TrainerLoginActivity extends AppCompatActivity {
                     password.requestFocus();
                     password.setError("This Is A Required Field");
                 } else {
-                    login();
+                    check(username.getText().toString());
                 }
             }
         });
@@ -109,12 +118,16 @@ public class TrainerLoginActivity extends AppCompatActivity {
 
     @Override
     public void onStart() {
+
         super.onStart();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            startActivity(new Intent(getBaseContext(), TrainerDashboardActivity.class));
+        }
     }
 
-    public void login() {
-        String email = username.getText().toString();
-        String pass = password.getText().toString();
+    public void login(String email) {
+        final String pass = password.getText().toString();
         mAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -124,6 +137,37 @@ public class TrainerLoginActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(getBaseContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+    }
+
+
+    public void check(final String email) {
+        final boolean isEmail;
+        isEmail = email.contains("@");
+        ref = database.getReference("trainer");
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    if (isEmail) {
+                        if (Objects.equals(snapshot.child("mail").getValue(String.class), email)) {
+                            login(email);
+                            return;
+                        }
+                    } else {
+                        if (Objects.requireNonNull(snapshot.getKey()).equalsIgnoreCase(email)) {
+                            login(Objects.requireNonNull(snapshot.child("mail").getValue()).toString());
+                            return;
+                        }
+                    }
+                }
+                Toast.makeText(TrainerLoginActivity.this, "Entered username doesn't exist", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(TrainerLoginActivity.this, databaseError.toString(), Toast.LENGTH_SHORT).show();
             }
         });
     }

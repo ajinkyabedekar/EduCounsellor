@@ -118,29 +118,47 @@
         <activity android:name=".employee.counsellor.internship.centers.InternshipCentersActivity" />
         <activity android:name=".employee.counsellor.placement.centers.PlacementCentersActivity" />
         <activity android:name=".employee.counsellor.MyAccountActivity" />
+        <activity android:name=".employee.trainer.TrainerDashboardActivity" />
+        <activity android:name=".employee.trainer.start_class.centers.StartClassCentersActivity" />
+        <activity android:name=".employee.trainer.start_class.courses.StartClassCoursesActivity" />
+        <activity android:name=".employee.trainer.start_class.batches.StartClassBatchesActivity" />
+        <activity android:name=".employee.trainer.attendance.AttendanceActivity" />
+        <activity android:name=".employee.trainer.responsible_centers.list.ResponsibleCentersListActivity" />
+        <activity android:name=".employee.trainer.responsible_centers.ResponsibleCentersDetailsActivity" />
+        <activity android:name=".employee.trainer.news.AddNewsActivity" />
+        <activity android:name=".employee.trainer.internship.InternshipDetailsActivity" />
+        <activity android:name=".employee.trainer.placement.PlacementDetailsActivity" />
+        <activity android:name=".employee.trainer.startup.StartupDetailsActivity" />
+        <activity android:name=".employee.trainer.internship.AddInternshipActivity" />
+        <activity android:name=".employee.trainer.placement.AddPlacementActivity" />
+        <activity android:name=".employee.trainer.startup.AddStartupActivity" />
+        <activity android:name=".employee.trainer.news.NewsDetailsActivity" />
+        <activity android:name=".employee.trainer.internship.list.InternshipListActivity" />
+        <activity android:name=".employee.trainer.news.list.NewsListActivity" />
+        <activity android:name=".employee.trainer.placement.list.PlacementListActivity" />
+        <activity android:name=".employee.trainer.startup.list.StartupListActivity" />
+        <activity android:name=".employee.trainer.internship.centers.InternshipCentersActivity" />
+        <activity android:name=".employee.trainer.placement.centers.PlacementCentersActivity" />
+        <activity android:name=".employee.trainer.MyAccountActivity" />
         <activity android:name=".employee.trainer.meeting.AuthorityMeetActivity" />
         <activity android:name=".employee.trainer.meeting.HodMeetActivity" />
         <activity android:name=".employee.trainer.meeting.RankethonMeetActivity" />
         <activity android:name=".employee.trainer.meeting.StudentMeetActivity" />
         <activity android:name=".employee.counsellor.extra_buttons.DailyReportActivity" />
         <activity android:name=".employee.counsellor.courseWiseStudents.CoursewiseStudentList" />
+        <activity android:name=".employee.trainer.extra_buttons.DailyReportActivity" />
         <activity android:name=".login.employee.EmployeeChoiceActivity" />
         <activity android:name=".login.employee.login.CounsellorLoginActivity" />
         <activity android:name=".login.employee.login.TrainerLoginActivity" />
-        <activity android:name=".employee.trainer.TrainerDashboardActivity" />
-        <activity android:name=".employee.trainer.MyAccountActivity" />
-        <activity android:name=".employee.trainer.extra_buttons.DailyReportActivity" />
-        <activity android:name=".employee.trainer.responsible_centers.ResponsibleCentersDetailsActivity" />
-        <activity android:name=".employee.trainer.responsible_centers.list.ResponsibleCentersListActivity" />
         <activity android:name=".authority.school.rating.RatingListActivity" />
         <activity android:name=".authority.college.rating.RatingListActivity" />
         <activity android:name=".authority.college.HodFeedbackActivity" />
         <activity android:name=".employee.counsellor.active_course.activeCourseListActivity" />
         <activity android:name=".employee.counsellor.active_course.batch.AIBatchListActivity" />
-        <activity android:name=".employee.counsellor.active_course.studentProjectDetails"/>
-        <activity android:name=".employee.counsellor.active_course.projects.projectListActivity"/>
-        <activity android:name=".employee.counsellor.active_course.studentList.studentListActivity"/>
-
+        <activity android:name=".employee.counsellor.active_course.studentProjectDetails" />
+        <activity android:name=".employee.counsellor.active_course.projects.projectListActivity" />
+        <activity android:name=".employee.counsellor.active_course.studentList.studentListActivity" />
+        <activity android:name=".student.MyAccountActivity" />
     </application>
 
 </manifest>

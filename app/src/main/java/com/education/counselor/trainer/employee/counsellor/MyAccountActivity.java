@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.education.counselor.trainer.R;
@@ -27,12 +28,14 @@ public class MyAccountActivity extends AppCompatActivity {
     DatabaseReference reference;
     FirebaseUser user;
     String email, key;
+    TextView id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_account);
         name = findViewById(R.id.name);
+        id = findViewById(R.id.id);
         mail = findViewById(R.id.mail);
         registrations = findViewById(R.id.registrations);
         amount = findViewById(R.id.amount);
@@ -50,6 +53,7 @@ public class MyAccountActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     if (Objects.equals(ds.child("mail").getValue(String.class), email)) {
+                        id.setText(ds.getKey());
                         name.setText(ds.child("name").getValue(String.class));
                         mail.setText(email);
                         registrations.setText(ds.child("net_registrations").getValue(String.class));
