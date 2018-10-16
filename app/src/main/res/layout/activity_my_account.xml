@@ -7,10 +7,30 @@
     android:padding="10sp"
     tools:context=".employee.counsellor.MyAccountActivity">
 
+    <TextView
+        android:id="@+id/unique"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dp"
+        android:text="@string/unique_employee_id"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/unique"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="50dp"
+        android:textSize="15sp" />
+
     <android.support.design.widget.TextInputLayout
         android:id="@+id/name_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/id">
 
         <EditText
             android:id="@+id/name"

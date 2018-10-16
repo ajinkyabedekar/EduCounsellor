@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -27,8 +28,8 @@ import java.util.Objects;
 
 public class AddEmployeeActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private final List<MultiSelectionSpinner> list = new ArrayList<>();
-    EditText name, position, mail, login, password, employee;
-    Spinner centers;
+    EditText name, mail, login, password, employee;
+    Spinner centers, position;
     Button submit;
     long n;
     private DatabaseReference db;
@@ -47,10 +48,16 @@ public class AddEmployeeActivity extends AppCompatActivity implements AdapterVie
         employee = findViewById(R.id.employee);
         centers = findViewById(R.id.centers);
         submit = findViewById(R.id.submit);
-
         s.setText("Centres");
         list.add(s);
-
+        position.setOnItemSelectedListener(this);
+        List<String> position_list = new ArrayList<>();
+        position_list.add("Position");
+        position_list.add("Counsellor");
+        position_list.add("Trainer");
+        ArrayAdapter<String> position_adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, position_list);
+        position_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        position.setAdapter(position_adapter);
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -78,9 +85,8 @@ public class AddEmployeeActivity extends AppCompatActivity implements AdapterVie
                 if (name.getText().toString().equals("")) {
                     name.requestFocus();
                     name.setError("This Is A Required Field");
-                } else if (position.getText().toString().equals("")) {
-                    position.requestFocus();
-                    position.setError("This Is A Required Field");
+                } else if (position.getSelectedItem().toString().equals("Position")) {
+                    Toast.makeText(AddEmployeeActivity.this, "Please Select A Position", Toast.LENGTH_SHORT).show();
                 } else if (mail.getText().toString().equals("")) {
                     mail.requestFocus();
                     mail.setError("This Is A Required Field");
@@ -96,16 +102,29 @@ public class AddEmployeeActivity extends AppCompatActivity implements AdapterVie
                 } else if (adapter.getCenter().isEmpty()) {
                     Toast.makeText(AddEmployeeActivity.this, "Please choose a center", Toast.LENGTH_SHORT).show();
                 } else {
-                    FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    DatabaseReference myRef = database.getReference("employee").child(employee.getText().toString());
-                    myRef.child("employee_name").setValue(name.getText().toString());
-                    myRef.child("position").setValue(position.getText().toString());
-                    myRef.child("mail").setValue(mail.getText().toString());
-                    myRef.child("login_id").setValue(login.getText().toString());
-                    myRef.child("password").setValue(password.getText().toString());
-                    myRef.child("centers").setValue(adapter.getCenter());
-                    Toast.makeText(getBaseContext(), "Employee Added Successfully", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getBaseContext(), EmployeesListActivity.class));
+                    if (position.getSelectedItem().toString().equals("Counsellor")) {
+                        FirebaseDatabase database = FirebaseDatabase.getInstance();
+                        DatabaseReference myRef = database.getReference("counsellor").child(employee.getText().toString());
+                        myRef.child("employee_name").setValue(name.getText().toString());
+                        myRef.child("position").setValue(position.getSelectedItem().toString());
+                        myRef.child("mail").setValue(mail.getText().toString());
+                        myRef.child("login_id").setValue(login.getText().toString());
+                        myRef.child("password").setValue(password.getText().toString());
+                        myRef.child("centers").setValue(adapter.getCenter());
+                        Toast.makeText(getBaseContext(), "Employee Added Successfully", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(getBaseContext(), EmployeesListActivity.class));
+                    } else if (position.getSelectedItem().toString().equals("Trainer")) {
+                        FirebaseDatabase database = FirebaseDatabase.getInstance();
+                        DatabaseReference myRef = database.getReference("trainer").child(employee.getText().toString());
+                        myRef.child("employee_name").setValue(name.getText().toString());
+                        myRef.child("position").setValue(position.getSelectedItem().toString());
+                        myRef.child("mail").setValue(mail.getText().toString());
+                        myRef.child("login_id").setValue(login.getText().toString());
+                        myRef.child("password").setValue(password.getText().toString());
+                        myRef.child("centers").setValue(adapter.getCenter());
+                        Toast.makeText(getBaseContext(), "Employee Added Successfully", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(getBaseContext(), EmployeesListActivity.class));
+                    }
                 }
             }
         });
@@ -117,22 +136,41 @@ public class AddEmployeeActivity extends AppCompatActivity implements AdapterVie
     }
 
     private void validate_random() {
-        db = FirebaseDatabase.getInstance().getReference("employee");
-        db.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    if (Objects.equals(ds.getKey(), String.valueOf(n))) {
-                        generate_random();
+        if (position.getSelectedItem().toString().equals("Counsellor")) {
+            db = FirebaseDatabase.getInstance().getReference("counsellor");
+            db.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                        if (Objects.equals(ds.getKey(), String.valueOf(n))) {
+                            generate_random();
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            }
-        });
+                }
+            });
+        } else if (position.getSelectedItem().toString().equals("Trainer")) {
+            db = FirebaseDatabase.getInstance().getReference("trainer");
+            db.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                        if (Objects.equals(ds.getKey(), String.valueOf(n))) {
+                            generate_random();
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+        }
     }
 
     @Override

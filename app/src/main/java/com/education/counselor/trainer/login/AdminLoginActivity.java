@@ -15,18 +15,27 @@ import android.widget.Toast;
 
 import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.admin.AdminDashboardActivity;
+import com.education.counselor.trainer.launcher.LoginActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class AdminLoginActivity extends AppCompatActivity {
     EditText username, password;
     Button login, reset;
+    DatabaseReference ref;
+    FirebaseDatabase database;
     private FirebaseAuth mAuth;
 
     @Override
@@ -38,6 +47,7 @@ public class AdminLoginActivity extends AppCompatActivity {
         login = findViewById(R.id.login);
         reset = findViewById(R.id.reset);
         mAuth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,7 +58,7 @@ public class AdminLoginActivity extends AppCompatActivity {
                     password.requestFocus();
                     password.setError("This Is A Required Field");
                 } else {
-                    login();
+                    check(username.getText().toString());
                 }
             }
         });
@@ -84,7 +94,8 @@ public class AdminLoginActivity extends AppCompatActivity {
                             }, 60000);
                         }
                     }
-                }).setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                });
+                dialog.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.cancel();
@@ -94,28 +105,62 @@ public class AdminLoginActivity extends AppCompatActivity {
                 alert.show();
             }
         });
+    }
+
+    @Override
+    public void onStart() {
+
+        super.onStart();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             startActivity(new Intent(getBaseContext(), AdminDashboardActivity.class));
         }
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-    }
-
-    public void login() {
-        String email = username.getText().toString();
-        String pass = password.getText().toString();
+    public void login(String email) {
+        final String pass = password.getText().toString();
         mAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
+                    Toast.makeText(getBaseContext(), "Authentication succeeded.", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getBaseContext(), AdminDashboardActivity.class));
                 } else {
                     Toast.makeText(getBaseContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+    }
+
+
+    public void check(final String email) {
+        final boolean isEmail;
+        isEmail = email.contains("@");
+        ref = database.getReference("admin");
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    if (isEmail) {
+                        if (Objects.equals(snapshot.child("mail").getValue(String.class), email)) {
+                            login(email);
+                            return;
+                        }
+                    } else {
+                        if (Objects.requireNonNull(snapshot.getKey()).equalsIgnoreCase(email)) {
+                            login(Objects.requireNonNull(snapshot.child("mail").getValue()).toString());
+                            return;
+                        }
+                    }
+                }
+                Toast.makeText(AdminLoginActivity.this, "Entered username doesn't exist", Toast.LENGTH_SHORT).show();
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(getBaseContext(), LoginActivity.class));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(AdminLoginActivity.this, databaseError.toString(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -125,7 +170,8 @@ public class AdminLoginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
-                    Toast.makeText(getBaseContext(), "Password reset Link sent to your email, Please check", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "Password reset Link sent to your email", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "Check Your Email", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getBaseContext(), "Reset Password Failed", Toast.LENGTH_SHORT).show();
                 }

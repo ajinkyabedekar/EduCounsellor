@@ -175,4 +175,6 @@
     <string name="trainer_dashboard">Trainer Dashboard</string>
     <string name="employee">Employee</string>
     <string name="class_name">Class</string>
+    <string name="unique_employee_id">Unique Employee ID</string>
+    <string name="stop_class">Stop Class</string>
 </resources>
