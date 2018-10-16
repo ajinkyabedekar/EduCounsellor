@@ -136,22 +136,41 @@ public class AddEmployeeActivity extends AppCompatActivity implements AdapterVie
     }
 
     private void validate_random() {
-        db = FirebaseDatabase.getInstance().getReference("employee");
-        db.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    if (Objects.equals(ds.getKey(), String.valueOf(n))) {
-                        generate_random();
+        if (position.getSelectedItem().toString().equals("Counsellor")) {
+            db = FirebaseDatabase.getInstance().getReference("counsellor");
+            db.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                        if (Objects.equals(ds.getKey(), String.valueOf(n))) {
+                            generate_random();
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            }
-        });
+                }
+            });
+        } else if (position.getSelectedItem().toString().equals("Trainer")) {
+            db = FirebaseDatabase.getInstance().getReference("trainer");
+            db.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                        if (Objects.equals(ds.getKey(), String.valueOf(n))) {
+                            generate_random();
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+        }
     }
 
     @Override
