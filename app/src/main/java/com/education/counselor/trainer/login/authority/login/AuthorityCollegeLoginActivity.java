@@ -3,7 +3,6 @@ package com.education.counselor.trainer.login.authority.login;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
@@ -16,6 +15,7 @@ import android.widget.Toast;
 
 import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.authority.college.AuthorityCollegeDashboardActivity;
+import com.education.counselor.trainer.launcher.LoginActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -105,20 +105,10 @@ public class AuthorityCollegeLoginActivity extends AppCompatActivity {
                 alert.show();
             }
         });
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            String name = user.getDisplayName();
-            String Email = user.getEmail();
-            Uri photoUrl = user.getPhotoUrl();
-            boolean emailVerified = user.isEmailVerified();
-            String uid = user.getUid();
-            Toast.makeText(getBaseContext(), name + "\n" + Email + "\n" + photoUrl + "\n" + emailVerified + "\n" + uid, Toast.LENGTH_SHORT).show();
-        }
     }
 
     @Override
     public void onStart() {
-
         super.onStart();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
@@ -163,6 +153,8 @@ public class AuthorityCollegeLoginActivity extends AppCompatActivity {
                     }
                 }
                 Toast.makeText(AuthorityCollegeLoginActivity.this, "Entered username doesn't exist", Toast.LENGTH_SHORT).show();
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(getBaseContext(), LoginActivity.class));
             }
 
             @Override
