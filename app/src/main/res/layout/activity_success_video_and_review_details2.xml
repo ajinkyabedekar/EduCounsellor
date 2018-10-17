@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top"
+    android:padding="10sp"
+    tools:context=".employee.trainer.extra_buttons.success_video_and_review.SuccessVideoAndReviewDetailsActivity">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/media_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/media"
+            android:layout_width="match_parent"
+            android:importantForAutofill="no"
+            tools:targetApi="o"
+            android:layout_height="match_parent"
+            android:hint="@string/success_video_link"
+            android:inputType="textUri" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/review_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/media_layout">
+
+        <EditText
+            android:id="@+id/review"
+            android:layout_width="match_parent"
+            android:importantForAutofill="no"
+            tools:targetApi="o"
+            android:layout_height="match_parent"
+            android:hint="@string/review"
+            android:inputType="textMultiLine" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/review_layout"
+        android:layout_centerInParent="true"
+        android:background="@drawable/button_blue"
+        android:text="@string/submit"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/submit"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_red"
+        android:text="@string/delete"
+        android:textColor="@color/white" />
+</RelativeLayout>
