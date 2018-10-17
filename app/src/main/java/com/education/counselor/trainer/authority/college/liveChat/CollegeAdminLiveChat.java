@@ -10,9 +10,10 @@ import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import com.education.counselor.trainer.R;
@@ -24,13 +25,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
 
 public class CollegeAdminLiveChat extends AppCompatActivity {
     RecyclerView recyclerView;
-    Button send;
+    ImageButton send;
     DatabaseReference db,ref;
     chatAdapter adapter;
     ProgressBar pg;
@@ -38,6 +40,7 @@ public class CollegeAdminLiveChat extends AppCompatActivity {
     EditText text;
     String email,name, key="";
     private ArrayList<chatMessages> details = new ArrayList<>();
+    ScrollView mScrollView;
 
 
     @Override
@@ -48,8 +51,10 @@ public class CollegeAdminLiveChat extends AppCompatActivity {
         text = findViewById(R.id.message);
         pg=findViewById(R.id.progress);
         recyclerView=findViewById(R.id.recycle);
+        mScrollView = findViewById(R.id.sc);
         mContext = this;
         send.setEnabled(false);
+        mScrollView.fullScroll(View.FOCUS_DOWN);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         Intent i=getIntent();
         if (user != null) {
@@ -98,17 +103,21 @@ public class CollegeAdminLiveChat extends AppCompatActivity {
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Date date = new Date();
-                    db = FirebaseDatabase.getInstance().getReference("college_authority").child(key).child("live_chat").child(date.toString());
-                    ref = FirebaseDatabase.getInstance().getReference("admin").child(key).child("live_chat").child(date.toString());
+                String date = (new SimpleDateFormat("dd MMMM yyyy hh:mm:ss a").format(new Date()));
+                db = FirebaseDatabase.getInstance().getReference("college_authority").child(key).child("live_chat").child(date);
+                ref = FirebaseDatabase.getInstance().getReference("admin").child(key).child("live_chat").child(date);
                     db.child("name").setValue(name);
                     db.child("message").setValue(text.getText().toString());
                     ref.child("name").setValue(name);
                     ref.child("message").setValue(text.getText().toString());
             }
         });
-
+        mScrollView.post(new Runnable() {
+            @Override
+            public void run() {
+                mScrollView.fullScroll(ScrollView.FOCUS_DOWN);
+            }
+        });
         pg.setVisibility(View.GONE);
 
 
