@@ -19,6 +19,7 @@
         android:id="@+id/sc"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@id/l"
         android:layout_below="@+id/tv">
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycle"
@@ -37,6 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true" />
     <LinearLayout
+        android:id="@+id/l"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -47,7 +49,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="Type your Message"
-            android:inputType="text"
+            android:inputType="textMultiLine"
             android:importantForAutofill="no"
             tools:targetApi="o" />
         <Button

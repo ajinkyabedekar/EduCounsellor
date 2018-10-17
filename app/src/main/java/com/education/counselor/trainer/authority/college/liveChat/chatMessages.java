@@ -6,11 +6,6 @@ public class chatMessages {
     chatMessages() {
     }
 
-    public chatMessages(String name, String date, String message) {
-        this.name = name;
-        this.date = date;
-        this.message = message;
-    }
 
     public String getName() {
         return name;

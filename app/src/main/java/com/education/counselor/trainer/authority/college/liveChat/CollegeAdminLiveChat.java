@@ -36,7 +36,6 @@ public class CollegeAdminLiveChat extends AppCompatActivity {
     ProgressBar pg;
     Context mContext;
     EditText text;
-    private DatabaseReference messagesRef;
     String email,name, key="";
     private ArrayList<chatMessages> details = new ArrayList<>();
 
@@ -64,13 +63,13 @@ public class CollegeAdminLiveChat extends AppCompatActivity {
         textListener();
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        messagesRef = FirebaseDatabase.getInstance().getReference("college_authority").child(key).child("live_chat");
         pg.setVisibility(View.VISIBLE);
         db = FirebaseDatabase.getInstance().getReference("college_authority");
         pg.setVisibility(View.VISIBLE);
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                details.clear();
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     if (Objects.equals(ds.child("mail").getValue(String.class), email)) {
                         key = ds.getKey();
@@ -84,9 +83,7 @@ public class CollegeAdminLiveChat extends AppCompatActivity {
                         }
                     }
                 }
-                if (details.size() == 0) {
-                    Toast.makeText(getBaseContext(), "No Internships Found", Toast.LENGTH_SHORT).show();
-                }
+
                 adapter = new chatAdapter(mContext, details);
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
@@ -101,33 +98,19 @@ public class CollegeAdminLiveChat extends AppCompatActivity {
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (text.getText().toString().equals(""))
-                    Toast.makeText(mContext, "Please enter a message", Toast.LENGTH_SHORT).show();
-                else {
-                    Date date = new Date();
+
+                Date date = new Date();
                     db = FirebaseDatabase.getInstance().getReference("college_authority").child(key).child("live_chat").child(date.toString());
                     ref = FirebaseDatabase.getInstance().getReference("admin").child(key).child("live_chat").child(date.toString());
                     db.child("name").setValue(name);
                     db.child("message").setValue(text.getText().toString());
                     ref.child("name").setValue(name);
                     ref.child("message").setValue(text.getText().toString());
-                }
             }
         });
 
         pg.setVisibility(View.GONE);
 
-
-        send.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                chatMessages chat = new chatMessages();
-                chat.setMessage(text.getText().toString());
-                chat.setDate(new Date().toString());
-                chat.setName(name);
-                messagesRef.push().setValue(chat);
-            }
-        });
 
     }
 
