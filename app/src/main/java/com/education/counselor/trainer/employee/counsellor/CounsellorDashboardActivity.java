@@ -10,6 +10,8 @@ import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.employee.counsellor.attendance.AttendanceActivity;
 import com.education.counselor.trainer.employee.counsellor.courseWiseStudents.CoursewiseStudentList;
 import com.education.counselor.trainer.employee.counsellor.extra_buttons.DailyReportActivity;
+import com.education.counselor.trainer.employee.counsellor.extra_buttons.media_update.MediaUpdateActivity;
+import com.education.counselor.trainer.employee.counsellor.extra_buttons.success_video_and_review.SuccessVideoAndReviewActivity;
 import com.education.counselor.trainer.employee.counsellor.responsible_centers.list.ResponsibleCentersListActivity;
 import com.education.counselor.trainer.employee.counsellor.start_class.centers.StartClassCentersActivity;
 import com.education.counselor.trainer.launcher.LoginActivity;
@@ -17,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class CounsellorDashboardActivity extends AppCompatActivity {
     Button my_account, start_class, attendance,
-            responsible_centers, daily_report, logout, coursewise;
+            responsible_centers, media_update, success_video, daily_report, logout, coursewise;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,20 @@ public class CounsellorDashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getBaseContext(), ResponsibleCentersListActivity.class));
+            }
+        });
+        media_update = findViewById(R.id.media_update);
+        media_update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(), MediaUpdateActivity.class));
+            }
+        });
+        success_video = findViewById(R.id.success_video);
+        success_video.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(), SuccessVideoAndReviewActivity.class));
             }
         });
         daily_report = findViewById(R.id.daily_report);

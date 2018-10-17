@@ -29,6 +29,9 @@ public class DailyReportActivity extends AppCompatActivity {
                 if (summary.getText().toString().equals("")) {
                     summary.requestFocus();
                     summary.setError("This Is A Required Field");
+                } else if (summary.getText().toString().length() < 200) {
+                    summary.requestFocus();
+                    summary.setError("Summary Should Be At Least Of 200 Words");
                 } else {
                     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("daily_report").push();
                     reference.child("summary").setValue(summary.getText().toString());

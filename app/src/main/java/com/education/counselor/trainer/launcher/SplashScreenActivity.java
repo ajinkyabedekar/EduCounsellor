@@ -42,14 +42,8 @@ public class SplashScreenActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                //((ImageView) findViewById(R.id.iv)).setImageResource(R.mipmap.ic_logo);
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-                        finish();
-                    }
-                }, 1000);
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                finish();
             }
         }, 1000);
     }
