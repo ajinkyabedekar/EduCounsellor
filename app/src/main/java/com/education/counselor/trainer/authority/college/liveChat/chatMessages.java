@@ -1,9 +1,15 @@
 package com.education.counselor.trainer.authority.college.liveChat;
 
 public class chatMessages {
-    private String name,date,message;
+    private String name, date, message, id;
 
     chatMessages() {
+    }
+
+    public chatMessages(String name, String date, String message) {
+        this.name = name;
+        this.date = date;
+        this.message = message;
     }
 
     public String getName() {
@@ -28,5 +34,13 @@ public class chatMessages {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

@@ -9,25 +9,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.education.counselor.trainer.R;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.firebase.ui.database.SnapshotParser;
-import com.google.firebase.appindexing.Action;
-import com.google.firebase.appindexing.FirebaseAppIndex;
-import com.google.firebase.appindexing.FirebaseUserActions;
-import com.google.firebase.appindexing.Indexable;
-import com.google.firebase.appindexing.builders.Indexables;
-import com.google.firebase.appindexing.builders.PersonBuilder;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -46,35 +34,12 @@ public class CollegeAdminLiveChat extends AppCompatActivity {
     DatabaseReference db,ref;
     chatAdapter adapter;
     ProgressBar pg;
-    LinearLayoutManager mLinearLayoutManager;
     Context mContext;
     EditText text;
+    private DatabaseReference messagesRef;
     String email,name, key="";
-    private FirebaseRecyclerAdapter<chatMessages, MessageViewHolder> mFirebaseAdapter;
     private ArrayList<chatMessages> details = new ArrayList<>();
 
-    public static class MessageViewHolder extends RecyclerView.ViewHolder {
-        TextView message,name,date;
-        public MessageViewHolder(View v) {
-            super(v);
-            message =  itemView.findViewById(R.id.cname);
-            name = itemView.findViewById(R.id.name);
-            date = itemView.findViewById(R.id.cid);
-
-        }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        mFirebaseAdapter.startListening();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        mFirebaseAdapter.stopListening();
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,81 +61,77 @@ public class CollegeAdminLiveChat extends AppCompatActivity {
                 name=i.getStringExtra("name");
 
         }
-        mLinearLayoutManager=new LinearLayoutManager(this);
-        mLinearLayoutManager.setStackFromEnd(true);
-
+        textListener();
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        messagesRef = FirebaseDatabase.getInstance().getReference("college_authority").child(key).child("live_chat");
+        pg.setVisibility(View.VISIBLE);
         db = FirebaseDatabase.getInstance().getReference("college_authority");
-        SnapshotParser<chatMessages> parser = new SnapshotParser<chatMessages>() {
-            @NonNull
+        pg.setVisibility(View.VISIBLE);
+        db.addValueEventListener(new ValueEventListener() {
             @Override
-            public chatMessages parseSnapshot(DataSnapshot dataSnapshot) {
-                chatMessages message = dataSnapshot.getValue(chatMessages.class);
-                if (message != null) {
-                    message.setDate(dataSnapshot.getKey());
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    if (Objects.equals(ds.child("mail").getValue(String.class), email)) {
+                        key = ds.getKey();
+                        name = ds.child("name").getValue(String.class);
+                        for (DataSnapshot d : ds.child("live_chat").getChildren()) {
+                            chatMessages s = new chatMessages();
+                            s.setName(d.child("name").getValue(String.class));
+                            s.setDate(d.getKey());
+                            s.setMessage(d.child("message").getValue(String.class));
+                            details.add(s);
+                        }
+                    }
                 }
-                return message;
-            }
-        };
-        Toast.makeText(mContext, email+" "+key, Toast.LENGTH_SHORT).show();
-        final DatabaseReference messagesRef = db.child(key).child("live_chat");
-
-        FirebaseRecyclerOptions<chatMessages> options =
-                new FirebaseRecyclerOptions.Builder<chatMessages>()
-                        .setQuery(messagesRef, parser)
-                        .build();
-
-        mFirebaseAdapter = new FirebaseRecyclerAdapter<chatMessages, MessageViewHolder>(options) {
-            @NonNull
-            @Override
-            public MessageViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-                LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
-                return new MessageViewHolder(inflater.inflate(R.layout.live_chat_layout, viewGroup, false));
+                if (details.size() == 0) {
+                    Toast.makeText(getBaseContext(), "No Internships Found", Toast.LENGTH_SHORT).show();
+                }
+                adapter = new chatAdapter(mContext, details);
+                pg.setVisibility(View.GONE);
+                recyclerView.setAdapter(adapter);
             }
 
             @Override
-            protected void onBindViewHolder(@NonNull final MessageViewHolder viewHolder,
-                                            int position,
-                                            @NonNull chatMessages message) {
-                pg.setVisibility(ProgressBar.INVISIBLE);
-                if (text.getText() != null) {
-                    viewHolder.message.setText(message.getMessage());
-                    viewHolder.name.setText(message.getName());
-                    viewHolder.name.setText(message.getDate());
-                    Toast.makeText(mContext,"Empty...", Toast.LENGTH_SHORT).show();
-                }
-                else
-                    Toast.makeText(mContext, "Unable to fetch details", Toast.LENGTH_SHORT).show();
-                if (message.getName() != null) {
-                    // write this message to the on-device index
-                    FirebaseAppIndex.getInstance().update(getMessageIndexable(message));
-                }
-
-                // log a view action on it
-                FirebaseUserActions.getInstance().end(getMessageViewAction(message));
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(mContext, "Error", Toast.LENGTH_SHORT).show();
             }
-        };
+        });
 
-        mFirebaseAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+        send.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemRangeInserted(int positionStart, int itemCount) {
-                super.onItemRangeInserted(positionStart, itemCount);
-                int messageCount = mFirebaseAdapter.getItemCount();
-                int lastVisiblePosition =
-                        mLinearLayoutManager.findLastCompletelyVisibleItemPosition();
-                // If the recycler view is initially being loaded or the
-                // user is at the bottom of the list, scroll to the bottom
-                // of the list to show the newly added message.
-                if (lastVisiblePosition == -1 ||
-                        (positionStart >= (messageCount - 1) &&
-                                lastVisiblePosition == (positionStart - 1))) {
-                    recyclerView.scrollToPosition(positionStart);
+            public void onClick(View view) {
+                if (text.getText().toString().equals(""))
+                    Toast.makeText(mContext, "Please enter a message", Toast.LENGTH_SHORT).show();
+                else {
+                    Date date = new Date();
+                    db = FirebaseDatabase.getInstance().getReference("college_authority").child(key).child("live_chat").child(date.toString());
+                    ref = FirebaseDatabase.getInstance().getReference("admin").child(key).child("live_chat").child(date.toString());
+                    db.child("name").setValue(name);
+                    db.child("message").setValue(text.getText().toString());
+                    ref.child("name").setValue(name);
+                    ref.child("message").setValue(text.getText().toString());
                 }
             }
         });
 
-        recyclerView.setAdapter(mFirebaseAdapter);
         pg.setVisibility(View.GONE);
 
+
+        send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                chatMessages chat = new chatMessages();
+                chat.setMessage(text.getText().toString());
+                chat.setDate(new Date().toString());
+                chat.setName(name);
+                messagesRef.push().setValue(chat);
+            }
+        });
+
+    }
+
+    private void textListener() {
         text.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -191,35 +152,7 @@ public class CollegeAdminLiveChat extends AppCompatActivity {
 
             }
         });
-        send.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                chatMessages chat=new chatMessages();
-                chat.setMessage(text.getText().toString());
-                chat.setDate(new Date().toString());
-                chat.setName(name);
-                messagesRef.push().setValue(chat);
-            }
-        });
-
     }
-    private Indexable getMessageIndexable(chatMessages friendlyMessage) {
-        PersonBuilder sender = Indexables.personBuilder()
-                .setIsSelf(email.equals(friendlyMessage.getName()))
-                .setName(friendlyMessage.getName());
 
-        PersonBuilder recipient = Indexables.personBuilder()
-                .setName(email);
 
-        return Indexables.messageBuilder()
-                .setName(friendlyMessage.getMessage())
-                .setSender(sender)
-                .setRecipient(recipient)
-                .build();
-    }
-    private Action getMessageViewAction(chatMessages friendlyMessage) {
-        return new Action.Builder(Action.Builder.VIEW_ACTION)
-                .setMetadata(new Action.Metadata.Builder().setUpload(false))
-                .build();
-    }
 }
