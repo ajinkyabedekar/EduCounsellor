@@ -15,6 +15,8 @@ import com.education.counselor.trainer.admin.courses.centers.CoursesCentersActiv
 import com.education.counselor.trainer.admin.employee.AddEmployeeActivity;
 import com.education.counselor.trainer.admin.employee.list.EmployeesListActivity;
 import com.education.counselor.trainer.admin.internship.centers.InternshipCentersActivity;
+import com.education.counselor.trainer.admin.liveChatCollege.AdminCollegeLiveChat;
+import com.education.counselor.trainer.admin.liveChatSchool.AdminSchoolLiveChat;
 import com.education.counselor.trainer.admin.news.centers.NewsCentersActivity;
 import com.education.counselor.trainer.admin.placement.centers.PlacementCentersActivity;
 import com.education.counselor.trainer.admin.startup.centers.StartupCentersActivity;
@@ -25,7 +27,7 @@ import com.education.counselor.trainer.launcher.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class AdminDashboardActivity extends AppCompatActivity {
-    Button logout, add_student, edit_student, student_list, startup_list, placement_list, edit_counsellor, news, centers, courses, add_employee, employee_list, internships;
+    Button logout, add_student, edit_student, student_list, startup_list, placement_list, edit_counsellor, news, centers, courses, add_employee, employee_list, internships, chatCollege, chatSchool;
     private boolean pressed = false;
 
     @Override
@@ -61,6 +63,8 @@ public class AdminDashboardActivity extends AppCompatActivity {
         add_employee = findViewById(R.id.add_employee);
         employee_list = findViewById(R.id.employee_list);
         internships = findViewById(R.id.internships);
+        chatCollege = findViewById(R.id.chatCollege);
+        chatSchool = findViewById(R.id.chatSchool);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -138,6 +142,18 @@ public class AdminDashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getBaseContext(), InternshipCentersActivity.class));
+            }
+        });
+        chatCollege.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(), AdminCollegeLiveChat.class));
+            }
+        });
+        chatSchool.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(), AdminSchoolLiveChat.class));
             }
         });
     }

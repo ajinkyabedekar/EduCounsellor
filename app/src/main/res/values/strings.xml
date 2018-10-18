@@ -183,4 +183,11 @@
     <string name="media_update">Media Update</string>
     <string name="success_video_and_review">Success Video And Review</string>
     <string name="success_video_link">Success Video Link</string>
+    <string name="messages">Messages</string>
+    <string name="type_your_message">Type your Message</string>
+    <string name="live_chat_with_admin">Live Chat With Admin</string>
+    <string name="live_chat_with_counsellor">Live Chat With Counsellor</string>
+    <string name="live_chat_with_trainer">Live Chat With Trainer</string>
+    <string name="live_chat_with_college_authority">Live Chat With College Authority</string>
+    <string name="live_chat_with_school_authority">Live Chat With School Authority</string>
 </resources>

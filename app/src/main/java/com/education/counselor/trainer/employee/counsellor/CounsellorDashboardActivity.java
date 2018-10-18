@@ -12,6 +12,8 @@ import com.education.counselor.trainer.employee.counsellor.courseWiseStudents.Co
 import com.education.counselor.trainer.employee.counsellor.extra_buttons.DailyReportActivity;
 import com.education.counselor.trainer.employee.counsellor.extra_buttons.media_update.MediaUpdateActivity;
 import com.education.counselor.trainer.employee.counsellor.extra_buttons.success_video_and_review.SuccessVideoAndReviewActivity;
+import com.education.counselor.trainer.employee.counsellor.liveChatCollegeAuthority.CounsellorCollegeAuthorityLiveChat;
+import com.education.counselor.trainer.employee.counsellor.liveChatSchoolAuthority.CounsellorSchoolAuthorityLiveChat;
 import com.education.counselor.trainer.employee.counsellor.responsible_centers.list.ResponsibleCentersListActivity;
 import com.education.counselor.trainer.employee.counsellor.start_class.centers.StartClassCentersActivity;
 import com.education.counselor.trainer.launcher.LoginActivity;
@@ -19,7 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class CounsellorDashboardActivity extends AppCompatActivity {
     Button my_account, start_class, attendance,
-            responsible_centers, media_update, success_video, daily_report, logout, coursewise;
+            responsible_centers, media_update, success_video, daily_report, logout, coursewise, chatCollege, chatSchool;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +89,20 @@ public class CounsellorDashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getBaseContext(), CoursewiseStudentList.class));
+            }
+        });
+        chatCollege = findViewById(R.id.chatCollege);
+        chatCollege.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getBaseContext(), CounsellorCollegeAuthorityLiveChat.class));
+            }
+        });
+        chatSchool = findViewById(R.id.chatSchool);
+        chatSchool.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getBaseContext(), CounsellorSchoolAuthorityLiveChat.class));
             }
         });
     }

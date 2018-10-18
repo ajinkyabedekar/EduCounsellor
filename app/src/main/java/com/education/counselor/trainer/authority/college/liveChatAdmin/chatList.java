@@ -1,4 +1,4 @@
-package com.education.counselor.trainer.authority.college.liveChat;
+package com.education.counselor.trainer.authority.college.liveChatAdmin;
 
 import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;

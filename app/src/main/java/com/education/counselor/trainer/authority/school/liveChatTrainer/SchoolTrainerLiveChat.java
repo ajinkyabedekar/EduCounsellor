@@ -1,5 +1,6 @@
-package com.education.counselor.trainer.authority.college.liveChat;
+package com.education.counselor.trainer.authority.school.liveChatTrainer;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,46 +31,45 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
 
-public class CollegeAdminLiveChat extends AppCompatActivity {
+public class SchoolTrainerLiveChat extends AppCompatActivity {
     RecyclerView recyclerView;
     ImageButton send;
-    DatabaseReference db,ref;
+    DatabaseReference db, ref;
     chatAdapter adapter;
     ProgressBar pg;
     Context mContext;
     EditText text;
-    String email,name, key="";
-    private ArrayList<chatMessages> details = new ArrayList<>();
+    String email, name, key = "";
     ScrollView mScrollView;
-
+    private ArrayList<chatMessages> details = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_college_admin_live_chat);
-        send=findViewById(R.id.send);
+        setContentView(R.layout.activity_school_trainer_live_chat);
+        send = findViewById(R.id.send);
         text = findViewById(R.id.message);
-        pg=findViewById(R.id.progress);
-        recyclerView=findViewById(R.id.recycle);
+        pg = findViewById(R.id.progress);
+        recyclerView = findViewById(R.id.recycle);
         mScrollView = findViewById(R.id.sc);
         mContext = this;
         send.setEnabled(false);
         mScrollView.fullScroll(View.FOCUS_DOWN);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        Intent i=getIntent();
+        Intent i = getIntent();
         if (user != null) {
             email = user.getEmail();
-            if(i.hasExtra("key"))
-                key=i.getStringExtra("key");
-            if(i.hasExtra("name"))
-                name=i.getStringExtra("name");
+            if (i.hasExtra("key"))
+                key = i.getStringExtra("key");
+            if (i.hasExtra("name"))
+                name = i.getStringExtra("name");
 
         }
         textListener();
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         pg.setVisibility(View.VISIBLE);
-        db = FirebaseDatabase.getInstance().getReference("college_authority");
+        db = FirebaseDatabase.getInstance().getReference("school_authority");
         pg.setVisibility(View.VISIBLE);
         db.addValueEventListener(new ValueEventListener() {
             @Override
@@ -103,13 +103,13 @@ public class CollegeAdminLiveChat extends AppCompatActivity {
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String date = (new SimpleDateFormat("dd MMMM yyyy hh:mm:ss a").format(new Date()));
-                db = FirebaseDatabase.getInstance().getReference("college_authority").child(key).child("live_chat").child(date);
-                ref = FirebaseDatabase.getInstance().getReference("admin").child(key).child("live_chat").child(date);
-                    db.child("name").setValue(name);
-                    db.child("message").setValue(text.getText().toString());
-                    ref.child("name").setValue(name);
-                    ref.child("message").setValue(text.getText().toString());
+                @SuppressLint("SimpleDateFormat") String date = (new SimpleDateFormat("dd MMMM yyyy hh:mm:ss a").format(new Date()));
+                db = FirebaseDatabase.getInstance().getReference("school_authority").child(key).child("live_chat").child(date);
+                ref = FirebaseDatabase.getInstance().getReference("trainer").child(key).child("live_chat").child(date);
+                db.child("name").setValue(name);
+                db.child("message").setValue(text.getText().toString());
+                ref.child("name").setValue(name);
+                ref.child("message").setValue(text.getText().toString());
             }
         });
         mScrollView.post(new Runnable() {

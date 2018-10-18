@@ -8,7 +8,9 @@ import android.widget.Button;
 
 import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.authority.college.internship_list.InternshipListActivity;
-import com.education.counselor.trainer.authority.college.liveChat.CollegeAdminLiveChat;
+import com.education.counselor.trainer.authority.college.liveChatAdmin.CollegeAdminLiveChat;
+import com.education.counselor.trainer.authority.college.liveChatCounsellor.CollegeCounsellorLiveChat;
+import com.education.counselor.trainer.authority.college.liveChatTrainer.CollegeTrainerLiveChat;
 import com.education.counselor.trainer.authority.college.placement_list.PlacementListActivity;
 import com.education.counselor.trainer.authority.college.project_list.ProjectListActivity;
 import com.education.counselor.trainer.authority.college.startup_list.StartupListActivity;
@@ -18,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 
 public class AuthorityCollegeDashboardActivity extends AppCompatActivity {
-    Button logout, give_suggestions, internship_list, placement_list, project_list, startup_list, suggestion_list,chat;
+    Button logout, give_suggestions, internship_list, placement_list, project_list, startup_list, suggestion_list, chat, chatCounsellor, chatTrainer;
     private DatabaseReference db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,8 @@ public class AuthorityCollegeDashboardActivity extends AppCompatActivity {
         placement_list = findViewById(R.id.placement_list);
         project_list = findViewById(R.id.project_list);
         chat = findViewById(R.id.chat);
+        chatCounsellor = findViewById(R.id.chatCounsellor);
+        chatTrainer = findViewById(R.id.chatTrainer);
         suggestion_list = findViewById(R.id.suggestion_list);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +83,18 @@ public class AuthorityCollegeDashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getBaseContext(), CollegeAdminLiveChat.class));
+            }
+        });
+        chatCounsellor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getBaseContext(), CollegeCounsellorLiveChat.class));
+            }
+        });
+        chatTrainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getBaseContext(), CollegeTrainerLiveChat.class));
             }
         });
     }

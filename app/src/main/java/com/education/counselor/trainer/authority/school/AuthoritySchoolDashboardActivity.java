@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.education.counselor.trainer.R;
+import com.education.counselor.trainer.authority.school.liveChatAdmin.SchoolAdminLiveChat;
+import com.education.counselor.trainer.authority.school.liveChatCounsellor.SchoolCounsellorLiveChat;
+import com.education.counselor.trainer.authority.school.liveChatTrainer.SchoolTrainerLiveChat;
 import com.education.counselor.trainer.authority.school.project_list.ProjectListActivity;
 import com.education.counselor.trainer.authority.school.startup_list.StartupListActivity;
 import com.education.counselor.trainer.authority.school.suggestion_list.SuggestionListActivity;
@@ -14,7 +17,7 @@ import com.education.counselor.trainer.launcher.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class AuthoritySchoolDashboardActivity extends AppCompatActivity {
-    Button logout, give_suggestions, project_list, startup_list, suggestion_list;
+    Button logout, give_suggestions, project_list, startup_list, suggestion_list, chat, chatCounsellor, chatTrainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,9 @@ public class AuthoritySchoolDashboardActivity extends AppCompatActivity {
         project_list = findViewById(R.id.project_list);
         startup_list = findViewById(R.id.startup_list);
         suggestion_list = findViewById(R.id.suggestion_list);
+        chat = findViewById(R.id.chat);
+        chatCounsellor = findViewById(R.id.chatCounsellor);
+        chatTrainer = findViewById(R.id.chatTrainer);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,6 +60,24 @@ public class AuthoritySchoolDashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getBaseContext(), SuggestionListActivity.class));
+            }
+        });
+        chat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getBaseContext(), SchoolAdminLiveChat.class));
+            }
+        });
+        chatCounsellor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getBaseContext(), SchoolCounsellorLiveChat.class));
+            }
+        });
+        chatTrainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getBaseContext(), SchoolTrainerLiveChat.class));
             }
         });
     }
