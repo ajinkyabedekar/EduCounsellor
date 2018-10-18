@@ -18,7 +18,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class RatingListActivity extends AppCompatActivity {
     RecyclerView recyclerView;
@@ -26,6 +25,7 @@ public class RatingListActivity extends AppCompatActivity {
     RatingListEntryAdapter adapter;
     ProgressBar pg;
     Context mContext;
+    String rate = "0";
     private ArrayList<RatingListEntryVo> details = new ArrayList<>();
 
     @Override
@@ -44,7 +44,8 @@ public class RatingListActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     RatingListEntryVo s = new RatingListEntryVo();
-                    s.setName(Objects.requireNonNull(ds.child("name").getValue()).toString());
+                    s.setName(ds.child("name").getValue(String.class));
+                    rate = ds.child("rating").getValue(String.class);
                     details.add(s);
                 }
                 if (details.size() == 0) {

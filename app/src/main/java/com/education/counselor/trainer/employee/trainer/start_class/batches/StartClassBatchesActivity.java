@@ -27,7 +27,7 @@ public class StartClassBatchesActivity extends AppCompatActivity {
     StartClassBatchesEntryAdapter adapter;
     ProgressBar pg;
     Context mContext;
-    String course = "", center = "";
+    String course = "", center = "", center_key, course_key;
     private ArrayList<StartClassBatchesEntryVo> details = new ArrayList<>();
 
     @Override
@@ -53,11 +53,13 @@ public class StartClassBatchesActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     if (Objects.equals(ds.child("name").getValue(String.class), center)) {
+                        center_key = ds.getKey();
                         for (DataSnapshot d : ds.child("courses").getChildren()) {
                             if (Objects.equals(d.child("name").getValue(String.class), course)) {
+                                course_key = d.getKey();
                                 for (DataSnapshot sd : d.child("batches").getChildren()) {
                                     StartClassBatchesEntryVo s = new StartClassBatchesEntryVo();
-                                    s.setName(Objects.requireNonNull(sd.child("name").getValue()).toString());
+                                    s.setName(sd.child("name").getValue(String.class));
                                     s.setTime(sd.child("time").getValue(String.class));
                                     details.add(s);
                                 }
@@ -68,7 +70,7 @@ public class StartClassBatchesActivity extends AppCompatActivity {
                 if (details.size() == 0) {
                     Toast.makeText(getBaseContext(), "No Batches Found", Toast.LENGTH_SHORT).show();
                 }
-                adapter = new StartClassBatchesEntryAdapter(mContext, details);
+                adapter = new StartClassBatchesEntryAdapter(mContext, details, center_key, course_key);
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
             }

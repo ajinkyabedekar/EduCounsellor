@@ -112,6 +112,8 @@ public class StartClassBatchesEntryAdapter extends RecyclerView.Adapter<StartCla
                     @Override
                     public void run() {
                         reference.child(batch_key).child("Status").setValue("Completed");
+                        reference = FirebaseDatabase.getInstance().getReference("ratings").push().child("name");
+                        reference.setValue("Center : " + center_key + "\tCourse : " + course_key + "\tBatch : " + batch_key);
                         Toast.makeText(c, "Class Completed", Toast.LENGTH_SHORT).show();
                         c.startActivity(new Intent(c, CounsellorDashboardActivity.class));
                     }

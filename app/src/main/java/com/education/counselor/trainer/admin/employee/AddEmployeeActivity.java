@@ -28,7 +28,7 @@ import java.util.Objects;
 
 public class AddEmployeeActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private final List<MultiSelectionSpinner> list = new ArrayList<>();
-    EditText name, mail, login, password, employee;
+    EditText name, mail, login, password, employee, phone;
     Spinner centers, position;
     Button submit;
     long n;
@@ -42,6 +42,7 @@ public class AddEmployeeActivity extends AppCompatActivity implements AdapterVie
         setContentView(R.layout.activity_add_employee);
         name = findViewById(R.id.name);
         position = findViewById(R.id.position);
+        phone = findViewById(R.id.phone);
         mail = findViewById(R.id.mail);
         login = findViewById(R.id.login);
         password = findViewById(R.id.password);
@@ -87,6 +88,9 @@ public class AddEmployeeActivity extends AppCompatActivity implements AdapterVie
                     name.setError("This Is A Required Field");
                 } else if (position.getSelectedItem().toString().equals("Position")) {
                     Toast.makeText(AddEmployeeActivity.this, "Please Select A Position", Toast.LENGTH_SHORT).show();
+                } else if (phone.getText().toString().equals("")) {
+                    phone.requestFocus();
+                    phone.setError("This Is A Required Field");
                 } else if (mail.getText().toString().equals("")) {
                     mail.requestFocus();
                     mail.setError("This Is A Required Field");
@@ -107,6 +111,7 @@ public class AddEmployeeActivity extends AppCompatActivity implements AdapterVie
                         DatabaseReference myRef = database.getReference("counsellor").child(employee.getText().toString());
                         myRef.child("employee_name").setValue(name.getText().toString());
                         myRef.child("position").setValue(position.getSelectedItem().toString());
+                        myRef.child("mobile_number").setValue(phone.getText().toString());
                         myRef.child("mail").setValue(mail.getText().toString());
                         myRef.child("login_id").setValue(login.getText().toString());
                         myRef.child("password").setValue(password.getText().toString());
@@ -118,6 +123,7 @@ public class AddEmployeeActivity extends AppCompatActivity implements AdapterVie
                         DatabaseReference myRef = database.getReference("trainer").child(employee.getText().toString());
                         myRef.child("employee_name").setValue(name.getText().toString());
                         myRef.child("position").setValue(position.getSelectedItem().toString());
+                        myRef.child("mobile_number").setValue(phone.getText().toString());
                         myRef.child("mail").setValue(mail.getText().toString());
                         myRef.child("login_id").setValue(login.getText().toString());
                         myRef.child("password").setValue(password.getText().toString());

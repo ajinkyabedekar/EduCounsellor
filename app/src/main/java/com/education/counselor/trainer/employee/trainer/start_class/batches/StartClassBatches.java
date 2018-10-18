@@ -11,7 +11,7 @@ import com.education.counselor.trainer.R;
 
 class StartClassBatches extends RecyclerView.ViewHolder {
     TextView s_name, time;
-    Button start;
+    Button start, stop;
     private View v;
 
     @SuppressLint("SetTextI18n")
@@ -20,6 +20,7 @@ class StartClassBatches extends RecyclerView.ViewHolder {
         s_name = itemView.findViewById(R.id.c_text);
         time = itemView.findViewById(R.id.timeText);
         start = itemView.findViewById(R.id.start);
+        stop = itemView.findViewById(R.id.stop);
         v = itemView.findViewById(R.id.cd);
     }
 
@@ -45,6 +46,14 @@ class StartClassBatches extends RecyclerView.ViewHolder {
 
     public void setStart(Button start) {
         this.start = start;
+    }
+
+    public Button getStop() {
+        return stop;
+    }
+
+    public void setStop(Button stop) {
+        this.stop = stop;
     }
 
     public View getV() {

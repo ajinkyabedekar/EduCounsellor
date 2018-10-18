@@ -190,4 +190,5 @@
     <string name="live_chat_with_trainer">Live Chat With Trainer</string>
     <string name="live_chat_with_college_authority">Live Chat With College Authority</string>
     <string name="live_chat_with_school_authority">Live Chat With School Authority</string>
+    <string name="feedback">Feedback</string>
 </resources>

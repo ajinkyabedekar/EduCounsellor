@@ -41,6 +41,7 @@ public class RatingListEntryAdapter extends RecyclerView.Adapter<RatingList> {
     @Override
     public void onBindViewHolder(@NonNull final RatingList holder, int i) {
         holder.s_name.setText(details.get(i).getName());
+        holder.rating.setRating(Float.parseFloat(details.get(i).getRating()));
     }
 
     @Override

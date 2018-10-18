@@ -4,18 +4,21 @@ import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.education.counselor.trainer.R;
 
 class RatingList extends RecyclerView.ViewHolder {
     TextView s_name;
+    RatingBar rating;
     private View v;
 
     @SuppressLint("SetTextI18n")
     RatingList(@NonNull View itemView) {
         super(itemView);
         s_name = itemView.findViewById(R.id.s_text);
+        rating = itemView.findViewById(R.id.rating);
         v = itemView.findViewById(R.id.cd);
     }
 
@@ -25,6 +28,14 @@ class RatingList extends RecyclerView.ViewHolder {
 
     public void setS_name(TextView s_name) {
         this.s_name = s_name;
+    }
+
+    public RatingBar getRating() {
+        return rating;
+    }
+
+    public void setRating(RatingBar rating) {
+        this.rating = rating;
     }
 
     public View getV() {
