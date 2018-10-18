@@ -1,4 +1,4 @@
-package com.education.counselor.trainer.authority.college.liveChatCounsellor;
+package com.education.counselor.trainer.authority.college.live_chat.liveChatAdmin;
 
 import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.education.counselor.trainer.R;
 
 class chatList extends RecyclerView.ViewHolder {
-    TextView name, date, message;
+    TextView name,date,message;
 
     @SuppressLint("SetTextI18n")
     chatList(@NonNull View itemView) {

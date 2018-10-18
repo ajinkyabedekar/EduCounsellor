@@ -8,9 +8,7 @@ import android.widget.Button;
 
 import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.authority.college.internship_list.InternshipListActivity;
-import com.education.counselor.trainer.authority.college.liveChatAdmin.CollegeAdminLiveChat;
-import com.education.counselor.trainer.authority.college.liveChatCounsellor.CollegeCounsellorLiveChat;
-import com.education.counselor.trainer.authority.college.liveChatTrainer.CollegeTrainerLiveChat;
+import com.education.counselor.trainer.authority.college.live_chat.chatChoice;
 import com.education.counselor.trainer.authority.college.placement_list.PlacementListActivity;
 import com.education.counselor.trainer.authority.college.project_list.ProjectListActivity;
 import com.education.counselor.trainer.authority.college.startup_list.StartupListActivity;
@@ -82,20 +80,9 @@ public class AuthorityCollegeDashboardActivity extends AppCompatActivity {
         chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getBaseContext(), CollegeAdminLiveChat.class));
+                startActivity(new Intent(getBaseContext(), chatChoice.class));
             }
         });
-        chatCounsellor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getBaseContext(), CollegeCounsellorLiveChat.class));
-            }
-        });
-        chatTrainer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getBaseContext(), CollegeTrainerLiveChat.class));
-            }
-        });
+
     }
 }

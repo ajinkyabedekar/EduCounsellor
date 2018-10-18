@@ -1,4 +1,4 @@
-package com.education.counselor.trainer.authority.college.liveChatCounsellor;
+package com.education.counselor.trainer.authority.college.live_chat.liveChatTrainer;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
 
-public class CollegeCounsellorLiveChat extends AppCompatActivity {
+public class CollegeTrainerLiveChat extends AppCompatActivity {
     RecyclerView recyclerView;
     ImageButton send;
     DatabaseReference db, ref;
@@ -39,14 +39,14 @@ public class CollegeCounsellorLiveChat extends AppCompatActivity {
     ProgressBar pg;
     Context mContext;
     EditText text;
-    String email, name, key = "";
+    String email, name, senderKey, receiverKey;
     ScrollView mScrollView;
     private ArrayList<chatMessages> details = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_college_counsellor_live_chat);
+        setContentView(R.layout.activity_college_trainer_live_chat);
         send = findViewById(R.id.send);
         text = findViewById(R.id.message);
         pg = findViewById(R.id.progress);
@@ -60,35 +60,42 @@ public class CollegeCounsellorLiveChat extends AppCompatActivity {
         if (user != null) {
             email = user.getEmail();
             if (i.hasExtra("key"))
-                key = i.getStringExtra("key");
-            if (i.hasExtra("name"))
-                name = i.getStringExtra("name");
-
+                receiverKey = i.getStringExtra("key");
         }
+        ref = FirebaseDatabase.getInstance().getReference("trainer");
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    if (Objects.equals(ds.child("mail").getValue(String.class), email)) {
+                        senderKey = ds.getKey();
+                        name = ds.child("name").getValue(String.class);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
         textListener();
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         pg.setVisibility(View.VISIBLE);
-        db = FirebaseDatabase.getInstance().getReference("college_authority");
+        db = FirebaseDatabase.getInstance().getReference("trainer/" + receiverKey + "/live_chat/college_authority/" + senderKey);
         pg.setVisibility(View.VISIBLE);
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 details.clear();
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    if (Objects.equals(ds.child("mail").getValue(String.class), email)) {
-                        key = ds.getKey();
-                        name = ds.child("name").getValue(String.class);
-                        for (DataSnapshot d : ds.child("live_chat").getChildren()) {
-                            chatMessages s = new chatMessages();
-                            s.setName(d.child("name").getValue(String.class));
-                            s.setDate(d.getKey());
-                            s.setMessage(d.child("message").getValue(String.class));
-                            details.add(s);
-                        }
-                    }
+                    chatMessages s = new chatMessages();
+                    s.setName(ds.child("name").getValue(String.class));
+                    s.setDate(ds.getKey());
+                    s.setMessage(ds.child("message").getValue(String.class));
+                    details.add(s);
                 }
-
                 adapter = new chatAdapter(mContext, details);
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
@@ -99,17 +106,13 @@ public class CollegeCounsellorLiveChat extends AppCompatActivity {
                 Toast.makeText(mContext, "Error", Toast.LENGTH_SHORT).show();
             }
         });
-
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 @SuppressLint("SimpleDateFormat") String date = (new SimpleDateFormat("dd MMMM yyyy hh:mm:ss a").format(new Date()));
-                db = FirebaseDatabase.getInstance().getReference("college_authority").child(key).child("live_chat").child(date);
-                ref = FirebaseDatabase.getInstance().getReference("counsellor").child(key).child("live_chat").child(date);
-                db.child("name").setValue(name);
-                db.child("message").setValue(text.getText().toString());
-                ref.child("name").setValue(name);
-                ref.child("message").setValue(text.getText().toString());
+                db.child(date);
+                db.child(date + "/name").setValue(name);
+                db.child(date + "/message").setValue(text.getText().toString());
             }
         });
         mScrollView.post(new Runnable() {

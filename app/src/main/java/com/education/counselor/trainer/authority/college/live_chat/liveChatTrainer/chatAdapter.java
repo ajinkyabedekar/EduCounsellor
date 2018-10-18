@@ -1,4 +1,4 @@
-package com.education.counselor.trainer.authority.college.liveChatTrainer;
+package com.education.counselor.trainer.authority.college.live_chat.liveChatTrainer;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

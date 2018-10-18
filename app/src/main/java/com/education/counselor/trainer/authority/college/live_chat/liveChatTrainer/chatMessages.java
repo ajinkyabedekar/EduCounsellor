@@ -1,4 +1,4 @@
-package com.education.counselor.trainer.authority.college.liveChatTrainer;
+package com.education.counselor.trainer.authority.college.live_chat.liveChatTrainer;
 
 public class chatMessages {
     private String name, date, message, id;

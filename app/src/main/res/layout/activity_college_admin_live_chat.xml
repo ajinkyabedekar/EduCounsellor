@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/lightblue"
-    tools:context="authority.college.liveChatAdmin.CollegeAdminLiveChat">
+    tools:context=".authority.college.live_chat.liveChatAdmin.CollegeAdminLiveChat">
 
     <android.support.v7.widget.CardView
         android:id="@+id/tv"
@@ -36,6 +36,7 @@
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:paddingLeft="10dp"
+        android:isScrollContainer="false"
         android:paddingRight="10dp">
 
         <android.support.v7.widget.RecyclerView

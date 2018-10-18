@@ -27,8 +27,8 @@ import java.util.Objects;
 
 public class SplashScreenActivity extends AppCompatActivity {
     String email, access;
-    boolean grant = false;
-    DatabaseReference db;
+    boolean grant = false, flag = false;
+    private DatabaseReference db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,6 @@ public class SplashScreenActivity extends AppCompatActivity {
         ((ImageView) findViewById(R.id.iv)).setImageResource(R.mipmap.ic_logo);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         db = FirebaseDatabase.getInstance().getReference();
-
         checkUser(user);
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -58,8 +57,12 @@ public class SplashScreenActivity extends AppCompatActivity {
                         for (DataSnapshot dataSnapshot1 : ds.getChildren()) {
                             if (Objects.equals(dataSnapshot1.child("mail").getValue(String.class), email)) {
                                 access = ds.getKey();
+                                flag = true;
+                                break;
                             }
                         }
+                        if (flag)
+                            break;
                     }
                     if (access != null) {
                         switch (access) {
@@ -96,6 +99,7 @@ public class SplashScreenActivity extends AppCompatActivity {
 
                 }
             });
+
         }
     }
 
