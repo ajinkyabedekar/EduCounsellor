@@ -1,8 +1,7 @@
 package com.education.counselor.trainer.employee.counsellor.active_course;
 
 public class activeCourseListEntryVo {
-    private String name,phone;
-
+    private String name, phone;
 
 
     activeCourseListEntryVo() {
@@ -15,6 +14,7 @@ public class activeCourseListEntryVo {
     public void setName(String name) {
         this.name = name;
     }
+
     public String getPhone() {
         return phone;
     }

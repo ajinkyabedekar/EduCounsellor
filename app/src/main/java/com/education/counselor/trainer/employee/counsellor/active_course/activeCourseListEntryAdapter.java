@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 
 import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.employee.counsellor.active_course.batch.AIBatchListActivity;
-import com.education.counselor.trainer.employee.counsellor.internship.InternshipDetailsActivity;
 
 import java.util.ArrayList;
 

@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:padding="10sp"
     android:orientation="vertical"
+    android:padding="10sp"
     tools:context=".employee.trainer.responsible_centers.ResponsibleCentersDetailsActivity">
 
     <Button

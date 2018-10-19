@@ -13,13 +13,13 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:importantForAutofill="no"
-            tools:targetApi="o"
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/name"
-            android:inputType="text" />
+            android:importantForAutofill="no"
+            android:inputType="text"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -34,8 +34,8 @@
             android:layout_height="wrap_content"
             android:hint="@string/motto"
             android:importantForAutofill="no"
-            tools:targetApi="o"
-            android:inputType="text" />
+            android:inputType="text"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -46,12 +46,12 @@
 
         <EditText
             android:id="@+id/drive"
-            android:importantForAutofill="no"
-            tools:targetApi="o"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/google_drive_link"
-            android:inputType="textUri" />
+            android:importantForAutofill="no"
+            android:inputType="textUri"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -64,10 +64,10 @@
             android:id="@+id/date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:importantForAutofill="no"
-            tools:targetApi="o"
             android:hint="@string/date"
-            android:inputType="date" />
+            android:importantForAutofill="no"
+            android:inputType="date"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <Button

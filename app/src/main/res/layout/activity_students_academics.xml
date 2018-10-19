@@ -23,8 +23,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/name"
                 android:importantForAutofill="no"
-                tools:targetApi="o"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -35,12 +35,12 @@
 
             <EditText
                 android:id="@+id/mobile_number"
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mobile_number"
-                android:inputType="number" />
+                android:importantForAutofill="no"
+                android:inputType="number"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -51,12 +51,12 @@
 
             <EditText
                 android:id="@+id/mail"
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/mail"
-                android:inputType="textWebEmailAddress" />
+                android:importantForAutofill="no"
+                android:inputType="textWebEmailAddress"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -71,8 +71,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/project_drive_link"
                 android:importantForAutofill="no"
-                tools:targetApi="o"
-                android:inputType="textUri" />
+                android:inputType="textUri"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -84,11 +84,11 @@
             <EditText
                 android:id="@+id/grade"
                 android:layout_width="match_parent"
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:layout_height="wrap_content"
                 android:hint="@string/grade_allotted"
-                android:inputType="text" />
+                android:importantForAutofill="no"
+                android:inputType="text"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -98,13 +98,13 @@
             android:layout_below="@+id/grade_layout">
 
             <EditText
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:id="@+id/score"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/tutor_score"
-                android:inputType="number" />
+                android:importantForAutofill="no"
+                android:inputType="number"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -115,12 +115,12 @@
 
             <EditText
                 android:id="@+id/certificate"
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/certificate"
-                android:inputType="text" />
+                android:importantForAutofill="no"
+                android:inputType="text"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -131,12 +131,12 @@
 
             <EditText
                 android:id="@+id/award"
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/award"
-                android:inputType="text" />
+                android:importantForAutofill="no"
+                android:inputType="text"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -148,11 +148,11 @@
             <EditText
                 android:id="@+id/professor"
                 android:layout_width="match_parent"
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:layout_height="wrap_content"
                 android:hint="@string/name_of_professor_in_team"
-                android:inputType="textPersonName" />
+                android:importantForAutofill="no"
+                android:inputType="textPersonName"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -163,12 +163,12 @@
 
             <EditText
                 android:id="@+id/project_name"
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/project_name"
-                android:inputType="text" />
+                android:importantForAutofill="no"
+                android:inputType="text"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <Button

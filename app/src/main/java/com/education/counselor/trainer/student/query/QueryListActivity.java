@@ -28,9 +28,9 @@ public class QueryListActivity extends AppCompatActivity {
     QueryListEntryAdapter adapter;
     ProgressBar pg;
     Context mContext;
-    private ArrayList<QueryListEntryVo> details = new ArrayList<>();
     FirebaseUser user;
     String email, key = "";
+    private ArrayList<QueryListEntryVo> details = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

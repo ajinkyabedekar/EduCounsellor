@@ -27,8 +27,8 @@ public class StartClassCoursesActivity extends AppCompatActivity {
     StartClassCoursesEntryAdapter adapter;
     ProgressBar pg;
     Context mContext;
-    private ArrayList<StartClassCoursesEntryVo> details = new ArrayList<>();
     String center = "";
+    private ArrayList<StartClassCoursesEntryVo> details = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

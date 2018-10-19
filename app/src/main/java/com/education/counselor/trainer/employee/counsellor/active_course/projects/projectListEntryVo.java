@@ -2,7 +2,7 @@ package com.education.counselor.trainer.employee.counsellor.active_course.projec
 
 
 public class projectListEntryVo {
-    private String name,phone;
+    private String name, phone;
 
 
     projectListEntryVo() {

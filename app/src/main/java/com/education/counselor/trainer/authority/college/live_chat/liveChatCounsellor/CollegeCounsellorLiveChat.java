@@ -29,7 +29,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Objects;
 
 public class CollegeCounsellorLiveChat extends AppCompatActivity {
     RecyclerView recyclerView;
@@ -62,24 +61,12 @@ public class CollegeCounsellorLiveChat extends AppCompatActivity {
             email = user.getEmail();
             if (i.hasExtra("key"))
                 receiverKey = i.getStringExtra("key");
+            if (i.hasExtra("senderKey"))
+                senderKey = i.getStringExtra("senderKey");
+            if (i.hasExtra("user"))
+                name = i.getStringExtra("user");
         }
-        ref = FirebaseDatabase.getInstance().getReference("college_authority");
-        ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    if (Objects.equals(ds.child("mail").getValue(String.class), email)) {
-                        senderKey = ds.getKey();
-                        name = ds.child("name").getValue(String.class);
-                    }
-                }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
         textListener();
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -107,6 +94,7 @@ public class CollegeCounsellorLiveChat extends AppCompatActivity {
                 Toast.makeText(mContext, "Error", Toast.LENGTH_SHORT).show();
             }
         });
+
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -114,15 +102,7 @@ public class CollegeCounsellorLiveChat extends AppCompatActivity {
                 db.child(date);
                 db.child(date + "/name").setValue(name);
                 db.child(date + "/message").setValue(text.getText().toString());
-            }
-        });
-        send.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                @SuppressLint("SimpleDateFormat") String date = (new SimpleDateFormat("dd MMMM yyyy hh:mm:ss a").format(new Date()));
-                db.child(date);
-                db.child(date + "/name").setValue(name);
-                db.child(date + "/message").setValue(text.getText().toString());
+                text.setText(null);
             }
         });
         mScrollView.post(new Runnable() {

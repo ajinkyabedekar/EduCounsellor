@@ -1,10 +1,7 @@
 package com.education.counselor.trainer.employee.counsellor.active_course.batch;
 
-import com.google.firebase.database.DataSnapshot;
-
 public class AIBatchListEntryVo {
-    private String name,course;
-
+    private String name, course;
 
 
     private String phone;

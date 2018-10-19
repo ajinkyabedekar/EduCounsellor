@@ -28,7 +28,7 @@ public class studentListActivity extends AppCompatActivity {
     ProgressBar pg;
     Context mContext;
     private ArrayList<studentListEntryVo> details = new ArrayList<>();
-    private String n = "",p="";
+    private String n = "", p = "";
 
 
     @Override
@@ -55,7 +55,7 @@ public class studentListActivity extends AppCompatActivity {
                 details.clear();
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     if (Objects.equals(ds.child("project_details").child("name").getValue(String.class), p) &&
-                            Objects.equals(ds.child("centre").getValue(String.class),n)){
+                            Objects.equals(ds.child("centre").getValue(String.class), n)) {
                         studentListEntryVo s = new studentListEntryVo();
                         s.setName(Objects.requireNonNull(ds.child("name")).getValue(String.class));
                         s.setPhone(ds.child("mobile_number").getValue(String.class));

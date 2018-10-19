@@ -7,9 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.education.counselor.trainer.R;
-import com.education.counselor.trainer.authority.school.liveChatAdmin.SchoolAdminLiveChat;
-import com.education.counselor.trainer.authority.school.liveChatCounsellor.SchoolCounsellorLiveChat;
-import com.education.counselor.trainer.authority.school.liveChatTrainer.SchoolTrainerLiveChat;
+import com.education.counselor.trainer.authority.school.live_chat.chatChoice;
 import com.education.counselor.trainer.authority.school.project_list.ProjectListActivity;
 import com.education.counselor.trainer.authority.school.startup_list.StartupListActivity;
 import com.education.counselor.trainer.authority.school.suggestion_list.SuggestionListActivity;
@@ -29,8 +27,6 @@ public class AuthoritySchoolDashboardActivity extends AppCompatActivity {
         startup_list = findViewById(R.id.startup_list);
         suggestion_list = findViewById(R.id.suggestion_list);
         chat = findViewById(R.id.chat);
-        chatCounsellor = findViewById(R.id.chatCounsellor);
-        chatTrainer = findViewById(R.id.chatTrainer);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,21 +60,10 @@ public class AuthoritySchoolDashboardActivity extends AppCompatActivity {
         });
         chat.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getBaseContext(), SchoolAdminLiveChat.class));
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(), chatChoice.class));
             }
         });
-        chatCounsellor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getBaseContext(), SchoolCounsellorLiveChat.class));
-            }
-        });
-        chatTrainer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getBaseContext(), SchoolTrainerLiveChat.class));
-            }
-        });
+
     }
 }

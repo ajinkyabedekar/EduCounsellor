@@ -29,13 +29,13 @@
         android:layout_below="@+id/name_layout">
 
         <EditText
-            android:importantForAutofill="no"
-            tools:targetApi="o"
             android:id="@+id/department"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/department"
-            android:inputType="text" />
+            android:importantForAutofill="no"
+            android:inputType="text"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -46,12 +46,12 @@
 
         <EditText
             android:id="@+id/company"
-            android:importantForAutofill="no"
-            tools:targetApi="o"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/company_name"
-            android:inputType="text" />
+            android:importantForAutofill="no"
+            android:inputType="text"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -63,11 +63,11 @@
         <EditText
             android:id="@+id/package_name"
             android:layout_width="match_parent"
-            android:importantForAutofill="no"
-            tools:targetApi="o"
             android:layout_height="wrap_content"
             android:hint="@string/package_name"
-            android:inputType="text" />
+            android:importantForAutofill="no"
+            android:inputType="text"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -78,12 +78,12 @@
 
         <EditText
             android:id="@+id/location"
-            android:importantForAutofill="no"
-            tools:targetApi="o"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/location"
-            android:inputType="text" />
+            android:importantForAutofill="no"
+            android:inputType="text"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -95,11 +95,11 @@
         <EditText
             android:id="@+id/student"
             android:layout_width="match_parent"
-            android:importantForAutofill="no"
-            tools:targetApi="o"
             android:layout_height="wrap_content"
             android:hint="@string/unique_student_id"
-            android:inputType="text" />
+            android:importantForAutofill="no"
+            android:inputType="text"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <Button

@@ -36,10 +36,10 @@
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:importantForAutofill="no"
-            tools:targetApi="o"
             android:hint="@string/name"
-            android:inputType="textPersonName" />
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -50,12 +50,12 @@
 
         <EditText
             android:id="@+id/mail"
-            android:importantForAutofill="no"
-            tools:targetApi="o"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/mail"
-            android:inputType="textWebEmailAddress" />
+            android:importantForAutofill="no"
+            android:inputType="textWebEmailAddress"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -66,12 +66,12 @@
 
         <EditText
             android:id="@+id/registrations"
-            android:importantForAutofill="no"
-            tools:targetApi="o"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/net_registrations_done"
-            android:inputType="number" />
+            android:importantForAutofill="no"
+            android:inputType="number"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -83,11 +83,11 @@
         <EditText
             android:id="@+id/amount"
             android:layout_width="match_parent"
-            android:importantForAutofill="no"
-            tools:targetApi="o"
             android:layout_height="wrap_content"
             android:hint="@string/amount_net_collected"
-            android:inputType="number" />
+            android:importantForAutofill="no"
+            android:inputType="number"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -98,12 +98,12 @@
 
         <EditText
             android:id="@+id/collection_month"
-            android:importantForAutofill="no"
-            tools:targetApi="o"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/last_month_collection"
-            android:inputType="number" />
+            android:importantForAutofill="no"
+            android:inputType="number"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -114,12 +114,12 @@
 
         <EditText
             android:id="@+id/collection_months"
-            android:importantForAutofill="no"
-            tools:targetApi="o"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/collection_by_month_for_last_12_months"
-            android:inputType="number" />
+            android:importantForAutofill="no"
+            android:inputType="number"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -130,12 +130,12 @@
 
         <EditText
             android:id="@+id/absence"
-            android:importantForAutofill="no"
-            tools:targetApi="o"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/total_absence_month_wise"
-            android:inputType="number" />
+            android:importantForAutofill="no"
+            android:inputType="number"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <Button

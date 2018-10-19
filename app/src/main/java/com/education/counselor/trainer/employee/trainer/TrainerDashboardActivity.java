@@ -10,8 +10,7 @@ import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.employee.counsellor.courseWiseStudents.CoursewiseStudentList;
 import com.education.counselor.trainer.employee.trainer.attendance.AttendanceActivity;
 import com.education.counselor.trainer.employee.trainer.extra_buttons.DailyReportActivity;
-import com.education.counselor.trainer.employee.trainer.liveChatCollegeAuthority.TrainerCollegeAuthorityLiveChat;
-import com.education.counselor.trainer.employee.trainer.liveChatSchoolAuthority.TrainerSchoolAuthorityLiveChat;
+import com.education.counselor.trainer.employee.trainer.live_chat.chatChoice;
 import com.education.counselor.trainer.employee.trainer.responsible_centers.list.ResponsibleCentersListActivity;
 import com.education.counselor.trainer.employee.trainer.start_class.centers.StartClassCentersActivity;
 import com.education.counselor.trainer.launcher.LoginActivity;
@@ -19,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class TrainerDashboardActivity extends AppCompatActivity {
     Button my_account, start_class, attendance,
-            responsible_centers, daily_report, logout, coursewise, chatCollege, chatSchool;
+            responsible_centers, daily_report, logout, coursewise, chat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,18 +74,11 @@ public class TrainerDashboardActivity extends AppCompatActivity {
                 startActivity(new Intent(getBaseContext(), CoursewiseStudentList.class));
             }
         });
-        chatCollege = findViewById(R.id.chatCollege);
-        chatCollege.setOnClickListener(new View.OnClickListener() {
+        chat = findViewById(R.id.chat);
+        chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getBaseContext(), TrainerCollegeAuthorityLiveChat.class));
-            }
-        });
-        chatSchool = findViewById(R.id.chatSchool);
-        chatSchool.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getBaseContext(), TrainerSchoolAuthorityLiveChat.class));
+                startActivity(new Intent(getBaseContext(), chatChoice.class));
             }
         });
     }

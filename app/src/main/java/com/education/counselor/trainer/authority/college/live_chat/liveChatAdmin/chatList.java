@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.education.counselor.trainer.R;
 
 class chatList extends RecyclerView.ViewHolder {
-    TextView name,date,message;
+    TextView name, date, message;
 
     @SuppressLint("SetTextI18n")
     chatList(@NonNull View itemView) {

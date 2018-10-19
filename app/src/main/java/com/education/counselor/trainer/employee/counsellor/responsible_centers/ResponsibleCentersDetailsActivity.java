@@ -15,7 +15,7 @@ import com.education.counselor.trainer.employee.counsellor.startup.list.StartupL
 
 public class ResponsibleCentersDetailsActivity extends AppCompatActivity {
     String n = "";
-    Button startup_list, news_list, placement_list, internship_list,active_course,inactive_course;
+    Button startup_list, news_list, placement_list, internship_list, active_course, inactive_course;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,15 +68,15 @@ public class ResponsibleCentersDetailsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent in = new Intent(getBaseContext(), activeCourseListActivity.class);
                 in.putExtra("name", n);
-                in.putExtra("stat","Active");
+                in.putExtra("stat", "Active");
                 startActivity(in);
             }
         });
         inactive_course.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getBaseContext(),activeCourseListActivity.class);
-                in.putExtra("stat","Inactive");
+                Intent in = new Intent(getBaseContext(), activeCourseListActivity.class);
+                in.putExtra("stat", "Inactive");
                 in.putExtra("name", n);
                 startActivity(in);
             }

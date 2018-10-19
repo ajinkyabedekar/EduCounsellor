@@ -28,7 +28,7 @@ public class projectListActivity extends AppCompatActivity {
     ProgressBar pg;
     Context mContext;
     private ArrayList<projectListEntryVo> details = new ArrayList<>();
-    private String n = "",b="",c="";
+    private String n = "", b = "", c = "";
 
 
     @Override
@@ -57,13 +57,11 @@ public class projectListActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     if (Objects.equals(ds.child("name").getValue(String.class), n)) {
-                        for(DataSnapshot d: ds.child("courses").getChildren())
-                        {
-                            if(Objects.equals(d.child("name").getValue(String.class), c))
-                            {
-                                for(DataSnapshot t: d.child("batches").getChildren()){
-                                    if(Objects.equals(t.child("name").getValue(String.class), b)) {
-                                        for(DataSnapshot tp: t.child("projects").getChildren()) {
+                        for (DataSnapshot d : ds.child("courses").getChildren()) {
+                            if (Objects.equals(d.child("name").getValue(String.class), c)) {
+                                for (DataSnapshot t : d.child("batches").getChildren()) {
+                                    if (Objects.equals(t.child("name").getValue(String.class), b)) {
+                                        for (DataSnapshot tp : t.child("projects").getChildren()) {
                                             projectListEntryVo s = new projectListEntryVo();
                                             s.setName(Objects.requireNonNull(tp.child("name").getValue()).toString());
                                             s.setPhone(n);

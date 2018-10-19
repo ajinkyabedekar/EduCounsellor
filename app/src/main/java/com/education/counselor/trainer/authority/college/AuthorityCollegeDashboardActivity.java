@@ -20,6 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 public class AuthorityCollegeDashboardActivity extends AppCompatActivity {
     Button logout, give_suggestions, internship_list, placement_list, project_list, startup_list, suggestion_list, chat, chatCounsellor, chatTrainer;
     private DatabaseReference db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,8 +32,7 @@ public class AuthorityCollegeDashboardActivity extends AppCompatActivity {
         placement_list = findViewById(R.id.placement_list);
         project_list = findViewById(R.id.project_list);
         chat = findViewById(R.id.chat);
-        chatCounsellor = findViewById(R.id.chatCounsellor);
-        chatTrainer = findViewById(R.id.chatTrainer);
+
         suggestion_list = findViewById(R.id.suggestion_list);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override

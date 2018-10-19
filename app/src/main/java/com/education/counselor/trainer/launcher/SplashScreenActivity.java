@@ -37,7 +37,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         ((ImageView) findViewById(R.id.iv)).setImageResource(R.mipmap.ic_logo);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         db = FirebaseDatabase.getInstance().getReference();
-        checkUser(user);
+        // checkUser(user);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

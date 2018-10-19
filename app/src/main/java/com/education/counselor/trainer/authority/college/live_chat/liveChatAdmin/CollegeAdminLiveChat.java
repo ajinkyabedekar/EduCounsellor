@@ -34,34 +34,33 @@ import java.util.Date;
 public class CollegeAdminLiveChat extends AppCompatActivity {
     RecyclerView recyclerView;
     ImageButton send;
-    DatabaseReference db,ref;
+    DatabaseReference db, ref;
     chatAdapter adapter;
     ProgressBar pg;
     Context mContext;
     EditText text;
     String email, name, senderKey, receiverKey;
-    private ArrayList<chatMessages> details = new ArrayList<>();
     ScrollView mScrollView;
-
+    private ArrayList<chatMessages> details = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_college_admin_live_chat);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
-        send=findViewById(R.id.send);
+        send = findViewById(R.id.send);
         text = findViewById(R.id.message);
-        pg=findViewById(R.id.progress);
-        recyclerView=findViewById(R.id.recycle);
+        pg = findViewById(R.id.progress);
+        recyclerView = findViewById(R.id.recycle);
         mScrollView = findViewById(R.id.sc);
         mContext = this;
         send.setEnabled(false);
-        mScrollView.fullScroll(View.FOCUS_DOWN);
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        Intent i=getIntent();
+        Intent i = getIntent();
         if (user != null) {
             email = user.getEmail();
-            if(i.hasExtra("key"))
+            if (i.hasExtra("key"))
                 receiverKey = i.getStringExtra("key");
             if (i.hasExtra("senderKey"))
                 senderKey = i.getStringExtra("senderKey");
@@ -73,7 +72,6 @@ public class CollegeAdminLiveChat extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         pg.setVisibility(View.VISIBLE);
-
         db = FirebaseDatabase.getInstance().getReference("admin/" + receiverKey + "/live_chat/college_authority/" + senderKey);
         pg.setVisibility(View.VISIBLE);
         db.addValueEventListener(new ValueEventListener() {
@@ -81,16 +79,15 @@ public class CollegeAdminLiveChat extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 details.clear();
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                            chatMessages s = new chatMessages();
+                    chatMessages s = new chatMessages();
                     s.setName(ds.child("name").getValue(String.class));
                     s.setDate(ds.getKey());
                     s.setMessage(ds.child("message").getValue(String.class));
-                            details.add(s);
+                    details.add(s);
                 }
                 adapter = new chatAdapter(mContext, details);
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
-                recyclerView.smoothScrollToPosition(details.size() - 1);
             }
 
             @Override
@@ -109,16 +106,11 @@ public class CollegeAdminLiveChat extends AppCompatActivity {
                 text.setText(null);
             }
         });
-        mScrollView.post(new Runnable() {
-            @Override
-            public void run() {
-                mScrollView.fullScroll(ScrollView.FOCUS_DOWN);
-            }
-        });
         pg.setVisibility(View.GONE);
 
 
     }
+
     private void textListener() {
         text.addTextChangedListener(new TextWatcher() {
             @Override

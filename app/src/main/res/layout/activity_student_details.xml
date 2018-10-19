@@ -19,12 +19,12 @@
 
             <EditText
                 android:id="@+id/name"
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/name"
-                android:inputType="textPersonName" />
+                android:importantForAutofill="no"
+                android:inputType="textPersonName"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -36,11 +36,11 @@
             <EditText
                 android:id="@+id/mobile_number"
                 android:layout_width="match_parent"
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:layout_height="wrap_content"
                 android:hint="@string/mobile_number"
-                android:inputType="number" />
+                android:importantForAutofill="no"
+                android:inputType="number"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -53,10 +53,10 @@
                 android:id="@+id/mail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:hint="@string/mail"
-                android:inputType="textWebEmailAddress" />
+                android:importantForAutofill="no"
+                android:inputType="textWebEmailAddress"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -67,12 +67,12 @@
 
             <EditText
                 android:id="@+id/total_fee"
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/total_fee"
-                android:inputType="number" />
+                android:importantForAutofill="no"
+                android:inputType="number"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -83,12 +83,12 @@
 
             <EditText
                 android:id="@+id/department"
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/department"
-                android:inputType="text" />
+                android:importantForAutofill="no"
+                android:inputType="text"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -98,13 +98,13 @@
             android:layout_below="@+id/department_layout">
 
             <EditText
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:id="@+id/total_fee_submitted"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/total_fee_submitted"
-                android:inputType="number" />
+                android:importantForAutofill="no"
+                android:inputType="number"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -119,8 +119,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/date_of_fee_payment_1"
                 android:importantForAutofill="no"
-                tools:targetApi="o"
-                android:inputType="date" />
+                android:inputType="date"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -133,10 +133,10 @@
                 android:id="@+id/date_of_fee_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:hint="@string/date_of_fee_payment_2"
-                android:inputType="date" />
+                android:importantForAutofill="no"
+                android:inputType="date"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -147,12 +147,12 @@
 
             <EditText
                 android:id="@+id/date_of_fee_3"
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/date_of_fee_payment_3"
-                android:inputType="date" />
+                android:importantForAutofill="no"
+                android:inputType="date"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -163,12 +163,12 @@
 
             <EditText
                 android:id="@+id/date_of_fee_4"
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/date_of_fee_payment_4"
-                android:inputType="date" />
+                android:importantForAutofill="no"
+                android:inputType="date"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -183,8 +183,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/payment_1"
                 android:importantForAutofill="no"
-                tools:targetApi="o"
-                android:inputType="number" />
+                android:inputType="number"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -195,12 +195,12 @@
 
             <EditText
                 android:id="@+id/payment_2"
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/payment_2"
-                android:inputType="number" />
+                android:importantForAutofill="no"
+                android:inputType="number"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -210,13 +210,13 @@
             android:layout_below="@+id/payment_2_layout">
 
             <EditText
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:id="@+id/payment_3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/payment_3"
-                android:inputType="number" />
+                android:importantForAutofill="no"
+                android:inputType="number"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -226,13 +226,13 @@
             android:layout_below="@+id/payment_3_layout">
 
             <EditText
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:id="@+id/payment_4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/payment_4"
-                android:inputType="number" />
+                android:importantForAutofill="no"
+                android:inputType="number"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <Spinner
@@ -273,12 +273,12 @@
 
             <EditText
                 android:id="@+id/reference_id_1"
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/payment_1_reference_id"
-                android:inputType="textAutoComplete" />
+                android:importantForAutofill="no"
+                android:inputType="textAutoComplete"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -288,13 +288,13 @@
             android:layout_below="@+id/reference_id_1_layout">
 
             <EditText
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:id="@+id/reference_id_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/payment_2_reference_id"
-                android:inputType="textAutoComplete" />
+                android:importantForAutofill="no"
+                android:inputType="textAutoComplete"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -305,12 +305,12 @@
 
             <EditText
                 android:id="@+id/reference_id_3"
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/payment_3_reference_id"
-                android:inputType="textAutoComplete" />
+                android:importantForAutofill="no"
+                android:inputType="textAutoComplete"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -322,11 +322,11 @@
             <EditText
                 android:id="@+id/reference_id_4"
                 android:layout_width="match_parent"
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:layout_height="wrap_content"
                 android:hint="@string/payment_4_reference_id"
-                android:inputType="textAutoComplete" />
+                android:importantForAutofill="no"
+                android:inputType="textAutoComplete"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -338,11 +338,11 @@
             <EditText
                 android:id="@+id/student_id"
                 android:layout_width="match_parent"
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:layout_height="wrap_content"
                 android:hint="@string/unique_student_id"
-                android:inputType="textAutoComplete" />
+                android:importantForAutofill="no"
+                android:inputType="textAutoComplete"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <Spinner

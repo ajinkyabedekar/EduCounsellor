@@ -28,7 +28,7 @@ public class AIBatchListActivity extends AppCompatActivity {
     ProgressBar pg;
     Context mContext;
     private ArrayList<AIBatchListEntryVo> details = new ArrayList<>();
-    private String n = "",c="";
+    private String n = "", c = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,11 +54,9 @@ public class AIBatchListActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     if (Objects.equals(ds.child("name").getValue(String.class), n)) {
-                        for(DataSnapshot d: ds.child("courses").getChildren())
-                        {
-                            if(Objects.equals(d.child("name").getValue(String.class), c))
-                            {
-                                for(DataSnapshot t: d.child("batches").getChildren()){
+                        for (DataSnapshot d : ds.child("courses").getChildren()) {
+                            if (Objects.equals(d.child("name").getValue(String.class), c)) {
+                                for (DataSnapshot t : d.child("batches").getChildren()) {
                                     AIBatchListEntryVo s = new AIBatchListEntryVo();
                                     s.setName(Objects.requireNonNull(t.child("name").getValue()).toString());
                                     s.setPhone(n);

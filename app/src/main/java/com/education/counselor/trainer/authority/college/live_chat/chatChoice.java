@@ -10,7 +10,7 @@ import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.authority.college.live_chat.list.ListActivity;
 
 public class chatChoice extends AppCompatActivity {
-    Button admin, councellor, trainer;
+    Button admin, councellor, trainer, college, school;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +19,12 @@ public class chatChoice extends AppCompatActivity {
         admin = findViewById(R.id.admin);
         councellor = findViewById(R.id.counsellor);
         trainer = findViewById(R.id.trainer);
+        college = findViewById(R.id.college);
+        school = findViewById(R.id.school);
+
+        college.setVisibility(View.GONE);
+        school.setVisibility(View.GONE);
+
         admin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

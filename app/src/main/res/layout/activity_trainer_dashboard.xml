@@ -108,24 +108,15 @@
                 android:text="@string/daily_report" />
 
             <Button
-                android:id="@+id/chatCollege"
+                android:id="@+id/chat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20sp"
                 android:background="@drawable/button_blue"
                 android:padding="10sp"
-                android:text="@string/live_chat_with_college_authority"
+                android:text="@string/live_chat"
                 android:textColor="@color/white" />
 
-            <Button
-                android:id="@+id/chatSchool"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20sp"
-                android:background="@drawable/button_blue"
-                android:padding="10sp"
-                android:text="@string/live_chat_with_school_authority"
-                android:textColor="@color/white" />
 
             <Button
                 android:id="@+id/logout"

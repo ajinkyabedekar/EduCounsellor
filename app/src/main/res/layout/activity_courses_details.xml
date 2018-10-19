@@ -18,12 +18,12 @@
 
             <EditText
                 android:id="@+id/name"
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/name"
-                android:inputType="text" />
+                android:importantForAutofill="no"
+                android:inputType="text"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -34,12 +34,12 @@
 
             <EditText
                 android:id="@+id/hours"
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/course_hours"
-                android:inputType="number" />
+                android:importantForAutofill="no"
+                android:inputType="number"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -52,10 +52,10 @@
                 android:id="@+id/details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:hint="@string/course_brief_details"
-                android:inputType="text" />
+                android:importantForAutofill="no"
+                android:inputType="text"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -66,12 +66,12 @@
 
             <EditText
                 android:id="@+id/content"
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/course_content"
-                android:inputType="text" />
+                android:importantForAutofill="no"
+                android:inputType="text"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -81,13 +81,13 @@
             android:layout_below="@+id/content_layout">
 
             <EditText
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:id="@+id/enrollments"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/total_enrollments"
-                android:inputType="number" />
+                android:importantForAutofill="no"
+                android:inputType="number"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -98,12 +98,12 @@
 
             <EditText
                 android:id="@+id/batches"
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/total_batches"
-                android:inputType="number" />
+                android:importantForAutofill="no"
+                android:inputType="number"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -113,13 +113,13 @@
             android:layout_below="@+id/batches_layout">
 
             <EditText
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:id="@+id/year"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/total_enrollments_year_wise"
-                android:inputType="number" />
+                android:importantForAutofill="no"
+                android:inputType="number"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -132,10 +132,10 @@
                 android:id="@+id/month"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:importantForAutofill="no"
-                tools:targetApi="o"
                 android:hint="@string/total_enrollments_month_wise"
-                android:inputType="number" />
+                android:importantForAutofill="no"
+                android:inputType="number"
+                tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
 
         <Spinner

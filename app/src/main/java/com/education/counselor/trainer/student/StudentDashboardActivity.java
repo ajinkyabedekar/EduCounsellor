@@ -3,9 +3,12 @@ package com.education.counselor.trainer.student;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.ContactsContract;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -109,14 +112,42 @@ public class StudentDashboardActivity extends AppCompatActivity {
         call_counsellor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (ContextCompat.checkSelfPermission(StudentDashboardActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                if (ContextCompat.checkSelfPermission(StudentDashboardActivity.this, Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
                     Toast.makeText(getBaseContext(), "Please Provide Permissions", Toast.LENGTH_SHORT).show();
-                    ActivityCompat.requestPermissions(StudentDashboardActivity.this, new String[]{Manifest.permission.CALL_PHONE}, 1);
+                    ActivityCompat.requestPermissions(StudentDashboardActivity.this, new String[]{Manifest.permission.READ_CONTACTS}, 1);
+                } else if (ContextCompat.checkSelfPermission(StudentDashboardActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(getBaseContext(), "Please Provide Permissions", Toast.LENGTH_SHORT).show();
+                    ActivityCompat.requestPermissions(StudentDashboardActivity.this, new String[]{Manifest.permission.CALL_PHONE}, 2);
                 } else {
-                    Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "7425835169"));
-                    startActivity(intent);
+                    Intent intent = new Intent(Intent.ACTION_PICK);
+                    intent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
+                    startActivityForResult(intent, 1);
                 }
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (data != null) {
+            Uri uri = data.getData();
+            if (uri != null) {
+                try (Cursor c = getContentResolver().query(uri, new String[]{
+                        ContactsContract.CommonDataKinds.Phone.NUMBER,
+                        ContactsContract.CommonDataKinds.Phone.TYPE
+                }, null, null, null)) {
+                    if (c != null && c.moveToFirst()) {
+                        String number = c.getString(0);
+                        showSelectedNumber(number);
+                    }
+                }
+            }
+        }
+    }
+
+    public void showSelectedNumber(String number) {
+        Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + number));
+        startActivity(intent);
     }
 }

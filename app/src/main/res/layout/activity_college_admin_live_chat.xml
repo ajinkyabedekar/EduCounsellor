@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/lightblue"
     tools:context=".authority.college.live_chat.liveChatAdmin.CollegeAdminLiveChat">
 
@@ -29,14 +29,14 @@
     <ScrollView
         android:id="@+id/sc"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/tv"
+        android:layout_height="wrap_content"
         android:layout_above="@id/l"
+        android:layout_below="@+id/tv"
         android:layout_marginBottom="-10dp"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        android:paddingLeft="10dp"
         android:isScrollContainer="false"
+        android:paddingLeft="10dp"
         android:paddingRight="10dp">
 
         <android.support.v7.widget.RecyclerView
@@ -53,19 +53,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true" />
+
     <LinearLayout
         android:id="@+id/l"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
 
         <android.support.v7.widget.CardView
             android:id="@+id/cd"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
-            android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="2"
@@ -94,10 +95,10 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/circlebtn"
+            android:contentDescription="@string/image"
             android:elevation="3dp"
             android:padding="15dp"
             android:src="@drawable/send_image"
-            android:contentDescription="@string/image"
             tools:ignore="UnusedAttribute" />
     </LinearLayout>
 

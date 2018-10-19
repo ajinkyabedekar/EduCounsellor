@@ -27,8 +27,8 @@ public class StartClassBatchesActivity extends AppCompatActivity {
     StartClassBatchesEntryAdapter adapter;
     ProgressBar pg;
     Context mContext;
-    private ArrayList<StartClassBatchesEntryVo> details = new ArrayList<>();
     String course = "", center = "", center_key, course_key;
+    private ArrayList<StartClassBatchesEntryVo> details = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

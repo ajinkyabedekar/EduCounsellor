@@ -14,8 +14,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="44dp"
         android:layout_marginBottom="20dp"
-        android:textSize="20dp"
-        android:text="Students:" />
+        android:text="Students:"
+        android:textSize="20dp" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycle"

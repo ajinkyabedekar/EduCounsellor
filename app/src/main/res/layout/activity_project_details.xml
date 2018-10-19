@@ -13,13 +13,13 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:hint="@string/name_of_project"
-            android:importantForAutofill="no"
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:targetApi="o"
-            android:inputType="text" />
+            android:hint="@string/name_of_project"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -34,8 +34,8 @@
             android:layout_height="wrap_content"
             android:hint="@string/link_of_project"
             android:importantForAutofill="no"
-            tools:targetApi="o"
-            android:inputType="text" />
+            android:inputType="text"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -47,11 +47,11 @@
         <EditText
             android:id="@+id/grade"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:hint="@string/grade_obtained"
             android:importantForAutofill="no"
-            android:layout_height="wrap_content"
-            tools:targetApi="o"
-            android:inputType="text" />
+            android:inputType="text"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -61,13 +61,13 @@
         android:layout_below="@+id/grade_layout">
 
         <EditText
-            android:hint="@string/certification_status"
-            android:importantForAutofill="no"
             android:id="@+id/certificate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:targetApi="o"
-            android:inputType="text" />
+            android:hint="@string/certification_status"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -82,8 +82,8 @@
             android:layout_height="wrap_content"
             android:hint="@string/award_status"
             android:importantForAutofill="no"
-            tools:targetApi="o"
-            android:inputType="text" />
+            android:inputType="text"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -95,11 +95,11 @@
         <EditText
             android:id="@+id/professor"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:hint="@string/name_of_professor_in_team"
             android:importantForAutofill="no"
-            android:layout_height="wrap_content"
-            tools:targetApi="o"
-            android:inputType="text" />
+            android:inputType="text"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <Button

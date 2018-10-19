@@ -1,9 +1,9 @@
 package com.education.counselor.trainer.employee.counsellor.active_course;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.education.counselor.trainer.R;
-import com.education.counselor.trainer.student.StudentDashboardActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,7 +23,8 @@ public class studentProjectDetails extends AppCompatActivity {
     EditText name, link, grade, certificate, award, professor;
     Button submit;
     DatabaseReference reference;
-    private String n,p;
+    private String n, p;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +40,7 @@ public class studentProjectDetails extends AppCompatActivity {
         award = findViewById(R.id.award);
         professor = findViewById(R.id.professor);
         submit = findViewById(R.id.submit);
-        reference=FirebaseDatabase.getInstance().getReference("student");
+        reference = FirebaseDatabase.getInstance().getReference("student");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -52,7 +52,7 @@ public class studentProjectDetails extends AppCompatActivity {
                         certificate.setText(ds.child("project_details").child("certificate_status").getValue(String.class));
                         award.setText(ds.child("project_details").child("award_status").getValue(String.class));
                         professor.setText(ds.child("project_details").child("professor").getValue(String.class));
-                        n=ds.getKey();
+                        n = ds.getKey();
                     }
                 }
             }
@@ -74,6 +74,7 @@ public class studentProjectDetails extends AppCompatActivity {
         });
 
     }
+
     private void update() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference("student").child(n);

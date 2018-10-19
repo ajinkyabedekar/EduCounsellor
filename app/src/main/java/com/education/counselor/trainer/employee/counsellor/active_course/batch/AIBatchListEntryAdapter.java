@@ -10,10 +10,8 @@ import android.view.ViewGroup;
 
 import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.employee.counsellor.active_course.projects.projectListActivity;
-import com.education.counselor.trainer.employee.counsellor.internship.InternshipDetailsActivity;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class AIBatchListEntryAdapter extends RecyclerView.Adapter<AIBatchCourseList> {
     private Context c;
@@ -48,11 +46,11 @@ public class AIBatchListEntryAdapter extends RecyclerView.Adapter<AIBatchCourseL
         holder.v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               Intent in = new Intent(c, projectListActivity.class);
+                Intent in = new Intent(c, projectListActivity.class);
                 in.putExtra("bname", details.get(holder.getAdapterPosition()).getName());
                 in.putExtra("name", details.get(holder.getAdapterPosition()).getPhone());
                 in.putExtra("cname", details.get(holder.getAdapterPosition()).getCourse());
-               c.startActivity(in);
+                c.startActivity(in);
             }
         });
     }

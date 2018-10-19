@@ -107,7 +107,7 @@ public class StudentsAcademicsActivity extends AppCompatActivity implements Adap
         myRef.child("award").setValue(award.getText().toString());
         myRef.child("professor").setValue(professor.getText().toString());
         myRef.child("project_name").setValue(project_name.getText().toString());
-        myRef=database.getReference("project");
+        myRef = database.getReference("project");
 
 
         Toast.makeText(getBaseContext(), "Student Details Updated Successfully", Toast.LENGTH_SHORT).show();

@@ -1,25 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:padding="20dp"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:gravity="center" android:padding="20dp"
     tools:context=".login.employee.EmployeeChoiceActivity">
 
-    <Button
-        android:id="@+id/school"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@drawable/button_back_1"
+    <Button android:id="@+id/school" android:layout_width="match_parent"
+        android:layout_height="100dp" android:background="@drawable/button_back_1"
         android:text="@string/counsellor" />
 
-    <Button
-        android:id="@+id/college"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_below="@id/school"
-        android:layout_marginTop="20sp"
-        android:background="@drawable/button_back_1"
+    <Button android:id="@+id/college" android:layout_width="match_parent"
+        android:layout_height="100dp" android:layout_below="@id/school"
+        android:layout_marginTop="20sp" android:background="@drawable/button_back_1"
         android:text="@string/trainer" />
 </RelativeLayout>

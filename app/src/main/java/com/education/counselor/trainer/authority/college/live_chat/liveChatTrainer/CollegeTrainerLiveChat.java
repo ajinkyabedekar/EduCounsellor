@@ -29,7 +29,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Objects;
 
 public class CollegeTrainerLiveChat extends AppCompatActivity {
     RecyclerView recyclerView;
@@ -61,24 +60,12 @@ public class CollegeTrainerLiveChat extends AppCompatActivity {
             email = user.getEmail();
             if (i.hasExtra("key"))
                 receiverKey = i.getStringExtra("key");
+            if (i.hasExtra("senderKey"))
+                senderKey = i.getStringExtra("senderKey");
+            if (i.hasExtra("user"))
+                name = i.getStringExtra("user");
         }
-        ref = FirebaseDatabase.getInstance().getReference("trainer");
-        ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    if (Objects.equals(ds.child("mail").getValue(String.class), email)) {
-                        senderKey = ds.getKey();
-                        name = ds.child("name").getValue(String.class);
-                    }
-                }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
         textListener();
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -113,12 +100,7 @@ public class CollegeTrainerLiveChat extends AppCompatActivity {
                 db.child(date);
                 db.child(date + "/name").setValue(name);
                 db.child(date + "/message").setValue(text.getText().toString());
-            }
-        });
-        mScrollView.post(new Runnable() {
-            @Override
-            public void run() {
-                mScrollView.fullScroll(ScrollView.FOCUS_DOWN);
+                text.setText(null);
             }
         });
         pg.setVisibility(View.GONE);

@@ -31,13 +31,9 @@
     <string name="add_center">Add Center</string>
     <string name="center">Center</string>
     <string name="delete_employee">Delete Employee</string>
-    <string name="news_motto">News Motto</string>
-    <string name="google_drive_link_to_news">Google Drive Link to News</string>
-    <string name="_13_09_2018">13/09/2018</string>
     <string name="delete_news">Delete News</string>
     <string name="location_address">Location Address</string>
     <string name="head_name">Head Name</string>
-    <string name="head">Head</string>
     <string name="unique_password">Unique Password</string>
     <string name="delete_center">Delete Center</string>
     <string name="department">Department</string>
@@ -56,7 +52,6 @@
     <string name="employees_list">Employees List</string>
     <string name="v_1_0">Rankethon v.1.0</string>
     <string name="delete_student">Delete Student</string>
-    <string name="_7297952357">7297952357</string>
     <string name="project_drive_link">Project Drive Link</string>
     <string name="grade_allotted">Grade Allotted</string>
     <string name="tutor_score">Tutor Score</string>
@@ -101,7 +96,6 @@
     <string name="course_id">Course_id</string>
     <string name="active_enrolled_coursess">Active enrolled coursess</string>
     <string name="inactive_enrolled_coursess">Inactive enrolled coursess</string>
-    <string name="query">Query</string>
     <string name="course_details">Course Details</string>
     <string name="fee_submitted_type">Fee submitted type:</string>
     <string name="next_payment_date">Next payment date:</string>
@@ -116,7 +110,6 @@
     <string name="latitude">Latitude:</string>
     <string name="longitude">Longitude:</string>
     <string name="null0">null</string>
-    <string name="attend">Attend</string>
     <string name="suggestion">suggestion</string>
     <string name="student_dashboard">Student Dashboard</string>
     <string name="attend_class">Attend Class</string>
@@ -132,7 +125,6 @@
     <string name="counsellor_dashboard">Counsellor Dashboard</string>
     <string name="attendance">Attendance</string>
     <string name="responsible_centers">Responsible Centers</string>
-    <string name="take_attendance">Take Attendance</string>
     <string name="news_list">News List</string>
     <string name="startup_list">Startup List</string>
     <string name="placement_list">Placement List</string>
@@ -164,8 +156,6 @@
     <string name="certification_status">Certification Status</string>
     <string name="award_status">Award Status</string>
     <string name="name_of_professor_in_team">Name of Professor in Team</string>
-    <string name="current_batch">Current Batch</string>
-    <string name="time">Time :</string>
     <string name="start_class">Start Class</string>
     <string name="internship">Internship</string>
     <string name="take_class">Take Class</string>
@@ -185,11 +175,6 @@
     <string name="success_video_link">Success Video Link</string>
     <string name="messages">Messages</string>
     <string name="type_your_message">Type your Message</string>
-    <string name="live_chat_with_admin">Live Chat With Admin</string>
-    <string name="live_chat_with_counsellor">Live Chat With Counsellor</string>
-    <string name="live_chat_with_trainer">Live Chat With Trainer</string>
-    <string name="live_chat_with_college_authority">Live Chat With College Authority</string>
-    <string name="live_chat_with_school_authority">Live Chat With School Authority</string>
     <string name="feedback">Feedback</string>
     <string name="live_chat">Live Chat</string>
 </resources>

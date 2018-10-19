@@ -28,7 +28,7 @@ public class activeCourseListActivity extends AppCompatActivity {
     ProgressBar pg;
     Context mContext;
     private ArrayList<activeCourseListEntryVo> details = new ArrayList<>();
-    private String n = "",stat="";
+    private String n = "", stat = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,10 +53,8 @@ public class activeCourseListActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     if (Objects.equals(ds.child("name").getValue(String.class), n)) {
-                        for(DataSnapshot d: ds.child("courses").getChildren())
-                        {
-                            if(Objects.equals(d.child("status").getValue(String.class), stat))
-                            {
+                        for (DataSnapshot d : ds.child("courses").getChildren()) {
+                            if (Objects.equals(d.child("status").getValue(String.class), stat)) {
                                 activeCourseListEntryVo s = new activeCourseListEntryVo();
                                 s.setName(Objects.requireNonNull(d.child("name").getValue()).toString());
                                 s.setPhone(n);

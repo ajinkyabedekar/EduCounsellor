@@ -28,8 +28,8 @@ public class ResponsibleCentersListActivity extends AppCompatActivity {
     ResponsibleCentersListEntryAdapter adapter;
     ProgressBar pg;
     Context mContext;
-    private ArrayList<ResponsibleCentersListEntryVo> details = new ArrayList<>();
     String email;
+    private ArrayList<ResponsibleCentersListEntryVo> details = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

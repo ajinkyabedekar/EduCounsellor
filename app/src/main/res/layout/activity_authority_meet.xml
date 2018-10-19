@@ -15,11 +15,11 @@
         <EditText
             android:id="@+id/summary"
             android:layout_width="match_parent"
-            android:importantForAutofill="no"
-            tools:targetApi="o"
             android:layout_height="match_parent"
             android:hint="@string/meeting_summary"
-            android:inputType="textMultiLine" />
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine"
+            tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
