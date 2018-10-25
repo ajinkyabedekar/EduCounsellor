@@ -16,6 +16,7 @@ import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.admin.employee.list.EmployeesListActivity;
 import com.education.counselor.trainer.admin.employee.multiselectionspinner.MultiSelectionSpinner;
 import com.education.counselor.trainer.admin.employee.multiselectionspinner.MultiSelectionSpinnerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,6 +35,7 @@ public class AddEmployeeActivity extends AppCompatActivity implements AdapterVie
     long n;
     private DatabaseReference db;
     private MultiSelectionSpinner s = new MultiSelectionSpinner();
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,7 @@ public class AddEmployeeActivity extends AppCompatActivity implements AdapterVie
         employee = findViewById(R.id.employee);
         centers = findViewById(R.id.centers);
         submit = findViewById(R.id.submit);
+        mAuth = FirebaseAuth.getInstance();
         s.setText("Centres");
         list.add(s);
         position.setOnItemSelectedListener(this);
@@ -116,8 +119,6 @@ public class AddEmployeeActivity extends AppCompatActivity implements AdapterVie
                         myRef.child("login_id").setValue(login.getText().toString());
                         myRef.child("password").setValue(password.getText().toString());
                         myRef.child("centers").setValue(adapter.getCenter());
-                        Toast.makeText(getBaseContext(), "Employee Added Successfully", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(getBaseContext(), EmployeesListActivity.class));
                     } else if (position.getSelectedItem().toString().equals("Trainer")) {
                         FirebaseDatabase database = FirebaseDatabase.getInstance();
                         DatabaseReference myRef = database.getReference("trainer").child(employee.getText().toString());
@@ -128,9 +129,10 @@ public class AddEmployeeActivity extends AppCompatActivity implements AdapterVie
                         myRef.child("login_id").setValue(login.getText().toString());
                         myRef.child("password").setValue(password.getText().toString());
                         myRef.child("centers").setValue(adapter.getCenter());
-                        Toast.makeText(getBaseContext(), "Employee Added Successfully", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(getBaseContext(), EmployeesListActivity.class));
                     }
+                    mAuth.createUserWithEmailAndPassword(mail.getText().toString(), password.getText().toString());
+                    Toast.makeText(getBaseContext(), "Employee Added Successfully", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getBaseContext(), EmployeesListActivity.class));
                 }
             }
         });

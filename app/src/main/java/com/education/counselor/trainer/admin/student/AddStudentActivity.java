@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.admin.AdminDashboardActivity;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,6 +32,7 @@ public class AddStudentActivity extends AppCompatActivity implements AdapterView
     String status_of_payment = "PENDING";
     DatabaseReference db;
     long n;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +65,7 @@ public class AddStudentActivity extends AppCompatActivity implements AdapterView
         student_year = findViewById(R.id.student_year);
         transfer_payment = findViewById(R.id.transfer_payment);
         submit = findViewById(R.id.submit);
+        mAuth = FirebaseAuth.getInstance();
         payment_type.setOnItemSelectedListener(this);
         payment_1_mode.setOnItemSelectedListener(this);
         payment_2_mode.setOnItemSelectedListener(this);
@@ -237,6 +240,7 @@ public class AddStudentActivity extends AppCompatActivity implements AdapterView
                     myRef.child("payment_4_reference_id").setValue(reference_id_4.getText().toString());
                     myRef.child("student_year").setValue(student_year.getSelectedItem().toString());
                     myRef.child("payment_status").setValue(status_of_payment);
+                    mAuth.createUserWithEmailAndPassword(mail.getText().toString(), student_id.getText().toString());
                     Toast.makeText(getBaseContext(), "Student Added Successfully", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getBaseContext(), AdminDashboardActivity.class));
                 }
