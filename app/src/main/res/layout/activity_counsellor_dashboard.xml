@@ -108,6 +108,15 @@
                 android:text="@string/daily_report" />
 
             <Button
+                android:id="@+id/notify"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/button_back_1"
+                android:padding="10sp"
+                android:text="@string/send_notice" />
+
+            <Button
                 android:id="@+id/chat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

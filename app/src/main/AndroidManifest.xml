@@ -23,6 +23,21 @@
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-1871442144078034~9676854016" />
 
+        <service
+            android:name=".employee.counsellor.notification.MyFirebaseInstanceIdService"
+            tools:ignore="ExportedService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".employee.counsellor.notification.MyFirebaseMessagingService"
+            tools:ignore="ExportedService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
         <activity android:name=".launcher.LoginActivity" />
         <activity android:name=".login.StudentLoginActivity" />
         <activity android:name=".login.authority.login.AuthoritySchoolLoginActivity" />
@@ -171,8 +186,6 @@
         <activity android:name=".authority.college.live_chat.liveChatAdmin.CollegeAdminLiveChat" />
         <activity android:name=".authority.college.live_chat.liveChatCounsellor.CollegeCounsellorLiveChat" />
         <activity android:name=".authority.college.live_chat.liveChatTrainer.CollegeTrainerLiveChat" />
-
-
         <activity android:name=".authority.college.live_chat.chatChoice" />
         <activity android:name=".authority.college.live_chat.list.ListActivity" />
         <activity android:name=".admin.live_chat.liveChatTrainer.trainerLiveChat" />
@@ -181,25 +194,22 @@
         <activity android:name=".admin.live_chat.schoolLiveChat.schoolAdminChat" />
         <activity android:name=".admin.live_chat.liveChatCounsellor.counsellorLiveChat" />
         <activity android:name=".admin.live_chat.chatChoice" />
-
         <activity android:name=".authority.school.live_chat.chatChoice" />
         <activity android:name=".authority.school.live_chat.list.ListActivity" />
         <activity android:name=".authority.school.live_chat.liveChatAdmin.CollegeAdminLiveChat" />
         <activity android:name=".authority.school.live_chat.liveChatCounsellor.CollegeCounsellorLiveChat" />
         <activity android:name=".authority.school.live_chat.liveChatTrainer.CollegeTrainerLiveChat" />
-
         <activity android:name=".employee.counsellor.live_chat.list.ListActivity" />
         <activity android:name=".employee.counsellor.live_chat.chatChoice" />
         <activity android:name=".employee.counsellor.live_chat.schoolLiveChat.schoolAdminChat" />
         <activity android:name=".employee.counsellor.live_chat.liveChatAdmin.adminLiveChat" />
         <activity android:name=".employee.counsellor.live_chat.collegeliveChat.collegeChat" />
-
         <activity android:name=".employee.trainer.live_chat.collegeliveChat.collegeChat" />
         <activity android:name=".employee.trainer.live_chat.list.ListActivity" />
         <activity android:name=".employee.trainer.live_chat.chatChoice" />
         <activity android:name=".employee.trainer.live_chat.schoolLiveChat.schoolAdminChat" />
         <activity android:name=".employee.trainer.live_chat.liveChatAdmin.adminLiveChat" />
-
+        <activity android:name=".employee.counsellor.notification.CounsellorNotificationActivity" />
     </application>
 
 </manifest>

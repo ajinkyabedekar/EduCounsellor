@@ -34,7 +34,8 @@ import java.util.TimerTask;
 public class StudentLoginActivity extends AppCompatActivity {
     EditText username, password;
     Button login, reset;
-    DatabaseReference ref;
+    private String key;
+    private DatabaseReference ref;
     FirebaseDatabase database;
     private FirebaseAuth mAuth;
 

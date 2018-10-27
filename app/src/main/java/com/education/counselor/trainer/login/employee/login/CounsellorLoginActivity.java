@@ -34,14 +34,16 @@ import java.util.TimerTask;
 public class CounsellorLoginActivity extends AppCompatActivity {
     EditText username, password;
     Button login, reset;
-    DatabaseReference ref;
+    String key;
     FirebaseDatabase database;
+    private DatabaseReference ref, db;
     private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_counsellor_login);
+        db = FirebaseDatabase.getInstance().getReference("counsellor");
         username = findViewById(R.id.user);
         password = findViewById(R.id.pass);
         login = findViewById(R.id.login);
@@ -123,8 +125,9 @@ public class CounsellorLoginActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    Toast.makeText(getBaseContext(), "Authentication succeeded.", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getBaseContext(), CounsellorDashboardActivity.class));
+                    Intent intent = new Intent(getBaseContext(), CounsellorDashboardActivity.class);
+                    intent.putExtra("key", key);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(getBaseContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
                 }
@@ -143,6 +146,7 @@ public class CounsellorLoginActivity extends AppCompatActivity {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     if (isEmail) {
                         if (Objects.equals(snapshot.child("mail").getValue(String.class), email)) {
+                            key = snapshot.getKey();
                             login(email);
                             return;
                         }

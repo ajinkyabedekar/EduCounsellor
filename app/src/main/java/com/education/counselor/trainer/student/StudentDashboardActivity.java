@@ -54,6 +54,7 @@ public class StudentDashboardActivity extends AppCompatActivity {
         attend_class = findViewById(R.id.attend_class);
         add_query = findViewById(R.id.add_query);
         query_list = findViewById(R.id.query_list);
+
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
