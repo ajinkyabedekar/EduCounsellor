@@ -52,7 +52,7 @@ public class AddEmployeeActivity extends AppCompatActivity implements AdapterVie
         centers = findViewById(R.id.centers);
         submit = findViewById(R.id.submit);
         mAuth = FirebaseAuth.getInstance();
-        s.setText("Centres");
+        s.setText("Centers");
         list.add(s);
         position.setOnItemSelectedListener(this);
         List<String> position_list = new ArrayList<>();
@@ -113,7 +113,6 @@ public class AddEmployeeActivity extends AppCompatActivity implements AdapterVie
                         FirebaseDatabase database = FirebaseDatabase.getInstance();
                         DatabaseReference myRef = database.getReference("counsellor").child(employee.getText().toString());
                         myRef.child("employee_name").setValue(name.getText().toString());
-                        myRef.child("position").setValue(position.getSelectedItem().toString());
                         myRef.child("mobile_number").setValue(phone.getText().toString());
                         myRef.child("mail").setValue(mail.getText().toString());
                         myRef.child("login_id").setValue(login.getText().toString());
@@ -123,7 +122,6 @@ public class AddEmployeeActivity extends AppCompatActivity implements AdapterVie
                         FirebaseDatabase database = FirebaseDatabase.getInstance();
                         DatabaseReference myRef = database.getReference("trainer").child(employee.getText().toString());
                         myRef.child("employee_name").setValue(name.getText().toString());
-                        myRef.child("position").setValue(position.getSelectedItem().toString());
                         myRef.child("mobile_number").setValue(phone.getText().toString());
                         myRef.child("mail").setValue(mail.getText().toString());
                         myRef.child("login_id").setValue(login.getText().toString());

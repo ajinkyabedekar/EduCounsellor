@@ -10,19 +10,19 @@ import android.widget.Toast;
 
 import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.admin.centers.list.CentersListActivity;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class AddCentersActivity extends AppCompatActivity {
     EditText name, location, mail, head, password;
     Button submit;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_centers);
-
-
         name = findViewById(R.id.name);
         location = findViewById(R.id.location);
         mail = findViewById(R.id.mail);
@@ -56,6 +56,7 @@ public class AddCentersActivity extends AppCompatActivity {
                     myRef.child("head").setValue(head.getText().toString());
                     myRef.child("unique_password").setValue(password.getText().toString());
                     Toast.makeText(getBaseContext(), "Centers Added Successfully", Toast.LENGTH_SHORT).show();
+                    mAuth.createUserWithEmailAndPassword(mail.getText().toString(), password.getText().toString());
                     startActivity(new Intent(getBaseContext(), CentersListActivity.class));
                 }
             }

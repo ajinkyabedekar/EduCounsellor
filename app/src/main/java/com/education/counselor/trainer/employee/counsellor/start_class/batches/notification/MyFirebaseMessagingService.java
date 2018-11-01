@@ -1,4 +1,4 @@
-package com.education.counselor.trainer.employee.counsellor.notification;
+package com.education.counselor.trainer.employee.counsellor.start_class.batches.notification;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -10,7 +10,7 @@ import android.support.v4.app.NotificationManagerCompat;
 import android.util.Log;
 
 import com.education.counselor.trainer.R;
-import com.education.counselor.trainer.student.StudentDashboardActivity;
+import com.education.counselor.trainer.launcher.SplashScreenActivity;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -77,10 +77,10 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 //                    .build();
 //        }
 //        notificationManager.notify(notifyID, n);
-        Intent intent = new Intent(this, StudentDashboardActivity.class);
+        Intent intent = new Intent(this, SplashScreenActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
-        Intent snoozeIntent = new Intent(this, StudentDashboardActivity.class);
+        Intent snoozeIntent = new Intent(this, SplashScreenActivity.class);
         PendingIntent snoozePendingIntent = PendingIntent.getBroadcast(this, 0, snoozeIntent, 0);
         String CHANNEL_ID = "1";
         int notificationId = 1;

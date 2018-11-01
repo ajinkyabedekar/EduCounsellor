@@ -12,6 +12,7 @@ import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.admin.centers.list.CentersListActivity;
 import com.education.counselor.trainer.admin.counsellor.centers.CounsellorCentersActivity;
 import com.education.counselor.trainer.admin.courses.centers.CoursesCentersActivity;
+import com.education.counselor.trainer.admin.daily_report.DailyReportActivity;
 import com.education.counselor.trainer.admin.employee.AddEmployeeActivity;
 import com.education.counselor.trainer.admin.employee.list.EmployeesListActivity;
 import com.education.counselor.trainer.admin.internship.centers.InternshipCentersActivity;
@@ -28,7 +29,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class AdminDashboardActivity extends AppCompatActivity {
     Button logout, add_student, edit_student, student_list, startup_list,
             placement_list, edit_counsellor, news, centers, courses,
-            add_employee, employee_list, internships, chat;
+            add_employee, employee_list, internships, daily_report, chat;
     private boolean pressed = false;
 
     @Override
@@ -64,6 +65,7 @@ public class AdminDashboardActivity extends AppCompatActivity {
         add_employee = findViewById(R.id.add_employee);
         employee_list = findViewById(R.id.employee_list);
         internships = findViewById(R.id.internships);
+        daily_report = findViewById(R.id.daily_report);
         chat = findViewById(R.id.chatCollege);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,6 +144,12 @@ public class AdminDashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getBaseContext(), InternshipCentersActivity.class));
+            }
+        });
+        daily_report.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(), DailyReportActivity.class));
             }
         });
         chat.setOnClickListener(new View.OnClickListener() {

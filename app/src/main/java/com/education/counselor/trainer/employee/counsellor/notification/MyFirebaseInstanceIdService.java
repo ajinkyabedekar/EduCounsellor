@@ -11,6 +11,5 @@ public class MyFirebaseInstanceIdService extends FirebaseInstanceIdService {
         String refreshToken = FirebaseInstanceId.getInstance().getToken();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("notices");
         reference.child("token").setValue(refreshToken);
-
     }
 }

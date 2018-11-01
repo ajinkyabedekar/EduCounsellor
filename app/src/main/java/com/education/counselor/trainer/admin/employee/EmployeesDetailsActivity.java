@@ -28,13 +28,13 @@ import java.util.List;
 import java.util.Objects;
 
 public class EmployeesDetailsActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    private final List<MultiSelectionSpinner> centreList = new ArrayList<>();
+    private final List<MultiSelectionSpinner> centerList = new ArrayList<>();
     EditText name, position, mail, login, password, employee;
     TextView assigned;
     Spinner centers;
     Button submit, delete;
     DatabaseReference emp;
-    private String n = "";
+    private String n = "", pos;
     private MultiSelectionSpinner s = new MultiSelectionSpinner();
     private MultiSelectionSpinnerAdapter adapter;
 
@@ -56,9 +56,9 @@ public class EmployeesDetailsActivity extends AppCompatActivity implements Adapt
         submit = findViewById(R.id.submit);
         delete = findViewById(R.id.delete);
         assigned = findViewById(R.id.available);
-
-        s.setText("Centres");
-        centreList.add(s);
+        s.setText("Centers");
+        centerList.add(s);
+        position.setEnabled(false);
         emp = FirebaseDatabase.getInstance().getReference("centers");
         emp.addValueEventListener(new ValueEventListener() {
             @Override
@@ -66,7 +66,7 @@ public class EmployeesDetailsActivity extends AppCompatActivity implements Adapt
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     s = new MultiSelectionSpinner();
                     s.setText(snapshot.child("name").getValue(String.class));
-                    centreList.add(s);
+                    centerList.add(s);
                 }
             }
 
@@ -74,27 +74,26 @@ public class EmployeesDetailsActivity extends AppCompatActivity implements Adapt
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
-        adapter = new MultiSelectionSpinnerAdapter(this, 0, centreList);
+        adapter = new MultiSelectionSpinnerAdapter(this, 0, centerList);
         centers.setAdapter(adapter);
-        emp = FirebaseDatabase.getInstance().getReference("employee");
-
+        emp = FirebaseDatabase.getInstance().getReference();
         employee.setEnabled(false);
         emp.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    if (Objects.equals(ds.child("employee_name").getValue(String.class), n)) {
-                        name.setText(n);
-                        position.setText(ds.child("position").getValue(String.class));
-                        mail.setText(ds.child("mail").getValue(String.class));
-                        login.setText(ds.child("login_id").getValue(String.class));
-                        password.setText(ds.child("password").getValue(String.class));
-                        employee.setText(ds.getKey());
-
-                        List retrievedList = (ArrayList) ds.child("centers").getValue();
-                        Toast.makeText(EmployeesDetailsActivity.this, retrievedList + "", Toast.LENGTH_SHORT).show();
-
-                        //List<MultiSelectionSpinner> newList=new ArrayList<>();
+                for (DataSnapshot sd : dataSnapshot.getChildren()) {
+                    for (DataSnapshot ds : sd.getChildren()) {
+                        if (Objects.equals(ds.child("employee_name").getValue(String.class), n)) {
+                            pos = ds.getKey();
+                            name.setText(n);
+                            position.setText(pos);
+                            mail.setText(ds.child("mail").getValue(String.class));
+                            login.setText(ds.child("login_id").getValue(String.class));
+                            password.setText(ds.child("password").getValue(String.class));
+                            employee.setText(ds.getKey());
+                            List retrievedList = (ArrayList) ds.child("centers").getValue();
+                            Toast.makeText(EmployeesDetailsActivity.this, retrievedList + "", Toast.LENGTH_SHORT).show();
+                            //List<MultiSelectionSpinner> newList=new ArrayList<>();
                         /*for(Object o: Objects.requireNonNull(retrievedList))
                         {
                             MultiSelectionSpinner mul=new MultiSelectionSpinner();
@@ -126,15 +125,15 @@ public class EmployeesDetailsActivity extends AppCompatActivity implements Adapt
                         }
                         adapter = new MultiSelectionSpinnerAdapter(EmployeesDetailsActivity.this, 0, newList, centers);
                         centers.setAdapter(adapter);*/
-                        StringBuilder sb = new StringBuilder();
-                        sb.append("Assigned Centers:\n\n");
-                        if (!(retrievedList == null)) {
-                            for (Object o : retrievedList)
-                                sb.append((String) o).append("\n");
+                            StringBuilder sb = new StringBuilder();
+                            sb.append("Assigned Centers:\n\n");
+                            if (!(retrievedList == null)) {
+                                for (Object o : retrievedList)
+                                    sb.append((String) o).append("\n");
+                            }
+                            assigned.setText(sb.toString());
                         }
-                        assigned.setText(sb.toString());
                     }
-
                 }
             }
 
@@ -175,13 +174,12 @@ public class EmployeesDetailsActivity extends AppCompatActivity implements Adapt
 
     private void update() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("employee").child(employee.getText().toString());
+        DatabaseReference myRef = database.getReference(pos).child(employee.getText().toString());
         myRef.child("employee_name").setValue(name.getText().toString());
-        myRef.child("position").setValue(position.getText().toString());
         myRef.child("mail").setValue(mail.getText().toString());
         myRef.child("login_id").setValue(login.getText().toString());
         myRef.child("centers").setValue(adapter.getCenter());
-        Toast.makeText(getBaseContext(), "Employee Added Successfully", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getBaseContext(), "Employee Updated Successfully", Toast.LENGTH_SHORT).show();
         finish();
         // startActivity(new Intent(getBaseContext(), EmployeesListActivity.class));
     }

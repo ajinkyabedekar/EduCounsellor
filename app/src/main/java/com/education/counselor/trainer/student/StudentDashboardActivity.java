@@ -25,6 +25,7 @@ import com.education.counselor.trainer.student.placement.PlacementListActivity;
 import com.education.counselor.trainer.student.query.AddQueryActivity;
 import com.education.counselor.trainer.student.query.QueryListActivity;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class StudentDashboardActivity extends AppCompatActivity {
     Button logout, attend_class, add_query, query_list, courses_list, project_details, internship_list, placement_list, call_counsellor;
@@ -54,7 +55,7 @@ public class StudentDashboardActivity extends AppCompatActivity {
         attend_class = findViewById(R.id.attend_class);
         add_query = findViewById(R.id.add_query);
         query_list = findViewById(R.id.query_list);
-
+        FirebaseMessaging.getInstance().subscribeToTopic("counsellor");
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

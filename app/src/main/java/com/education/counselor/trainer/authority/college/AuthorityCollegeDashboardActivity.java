@@ -16,6 +16,7 @@ import com.education.counselor.trainer.authority.college.suggestion_list.Suggest
 import com.education.counselor.trainer.launcher.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class AuthorityCollegeDashboardActivity extends AppCompatActivity {
     Button logout, give_suggestions, internship_list, placement_list, project_list, startup_list, suggestion_list, chat, chatCounsellor, chatTrainer;
@@ -32,7 +33,7 @@ public class AuthorityCollegeDashboardActivity extends AppCompatActivity {
         placement_list = findViewById(R.id.placement_list);
         project_list = findViewById(R.id.project_list);
         chat = findViewById(R.id.chat);
-
+        FirebaseMessaging.getInstance().subscribeToTopic("startclass");
         suggestion_list = findViewById(R.id.suggestion_list);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override

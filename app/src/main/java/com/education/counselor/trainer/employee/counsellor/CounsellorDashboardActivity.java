@@ -2,9 +2,11 @@ package com.education.counselor.trainer.employee.counsellor;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.employee.counsellor.attendance.AttendanceActivity;
@@ -17,37 +19,55 @@ import com.education.counselor.trainer.employee.counsellor.notification.Counsell
 import com.education.counselor.trainer.employee.counsellor.responsible_centers.list.ResponsibleCentersListActivity;
 import com.education.counselor.trainer.employee.counsellor.start_class.centers.StartClassCentersActivity;
 import com.education.counselor.trainer.launcher.LoginActivity;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.GetTokenResult;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.Objects;
 
 public class CounsellorDashboardActivity extends AppCompatActivity {
     Button my_account, start_class, attendance,
             responsible_centers, media_update, success_video, daily_report, logout, coursewise, chat, notify;
-    String key, token_id;
-    DatabaseReference db;
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    private String email;
+    private String name = null;
+    private DatabaseReference db;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_counsellor_dashboard);
-        Intent i = getIntent();
-        if (i.hasExtra("key")) {
-            key = i.getStringExtra("key");
-            db = FirebaseDatabase.getInstance().getReference("counsellor/" + key);
-            Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getIdToken(true).addOnSuccessListener(new OnSuccessListener<GetTokenResult>() {
-                @Override
-                public void onSuccess(GetTokenResult getTokenResult) {
-                    token_id = getTokenResult.getToken();
-                }
-            });
-
-            db.child("token").setValue(token_id);
+        FirebaseMessaging.getInstance().subscribeToTopic("null").addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(CounsellorDashboardActivity.this, "Network Error", Toast.LENGTH_SHORT).show();
+            }
+        });
+        if (user != null) {
+            email = user.getEmail();
         }
+        db = FirebaseDatabase.getInstance().getReference("counsellor");
+        db.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    if (Objects.equals(email, ds.child("mail").getValue(String.class)))
+                        name = ds.child("name").getValue(String.class);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
         my_account = findViewById(R.id.my_account);
         my_account.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,43 +143,9 @@ public class CounsellorDashboardActivity extends AppCompatActivity {
         notify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getBaseContext(), CounsellorNotificationActivity.class));
-                /*Intent intent = new Intent(getBaseContext(), StudentDashboardActivity.class);
-                PendingIntent pIntent = PendingIntent.getActivity(getBaseContext(), (int) System.currentTimeMillis(), intent, 0);
-
-
-                NotificationManager notificationManager =
-                        (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                int notifyID = 1;
-                String CHANNEL_ID = "my_channel_01";// The id of the channel.
-                CharSequence name = "ABCD";// The user-visible name of the channel.
-                int importance = 0;
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-                    importance = NotificationManager.IMPORTANCE_HIGH;
-                }
-                NotificationChannel mChannel = null;
-                Notification n;
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                    mChannel = new NotificationChannel(CHANNEL_ID, name, importance);
-                    notificationManager.createNotificationChannel(mChannel);
-                    n  = new Notification.Builder(getBaseContext())
-                            .setContentTitle("New mail from " + "test@gmail.com")
-                            .setContentText("Subject")
-                            .setSmallIcon(R.mipmap.ic_logo)
-                            .setContentIntent(pIntent)
-                            .setChannelId(CHANNEL_ID)
-                            .setAutoCancel(true)
-                            .build();
-                } else {
-                    n = new Notification.Builder(getBaseContext())
-                            .setContentTitle("New mail from " + "test@gmail.com")
-                            .setContentText("Subject")
-                            .setSmallIcon(R.mipmap.ic_logo)
-                            .setContentIntent(pIntent)
-                            .setAutoCancel(true)
-                            .build();
-                }
-                notificationManager.notify(0, n);*/
+                Intent intent = new Intent(getBaseContext(), CounsellorNotificationActivity.class);
+                intent.putExtra("name", name);
+                startActivity(intent);
             }
         });
     }

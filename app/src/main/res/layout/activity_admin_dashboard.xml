@@ -144,6 +144,15 @@
                 android:text="@string/internships" />
 
             <Button
+                android:id="@+id/daily_report"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/button_back_1"
+                android:padding="10sp"
+                android:text="@string/employee_daily_report" />
+
+            <Button
                 android:id="@+id/chatCollege"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

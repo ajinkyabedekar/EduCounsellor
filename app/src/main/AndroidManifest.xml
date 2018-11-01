@@ -37,6 +37,20 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+        <service
+            android:name=".employee.counsellor.start_class.batches.notification.MyFirebaseInstanceIdService"
+            tools:ignore="ExportedService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".employee.counsellor.start_class.batches.notification.MyFirebaseMessagingService"
+            tools:ignore="ExportedService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
 
         <activity android:name=".launcher.LoginActivity" />
         <activity android:name=".login.StudentLoginActivity" />
@@ -210,6 +224,14 @@
         <activity android:name=".employee.trainer.live_chat.schoolLiveChat.schoolAdminChat" />
         <activity android:name=".employee.trainer.live_chat.liveChatAdmin.adminLiveChat" />
         <activity android:name=".employee.counsellor.notification.CounsellorNotificationActivity" />
+        <activity android:name=".admin.daily_report.DailyReportActivity" />
+        <activity android:name=".admin.earning.centers.EarningCentersActivity" />
+        <activity android:name=".admin.earning.EarningMonthlyActivity" />
+        <activity android:name=".admin.earning.EarningYearlyActivity" />
+        <activity android:name=".admin.reviews.GreaterThanThreeActivity" />
+        <activity android:name=".admin.reviews.less_than_three.LessThanThreeActivity" />
+        <activity android:name=".admin.suggestion.SuggestionNotificationActivity" />
+        <activity android:name=".admin.suggestion.student.SuggestionStudentActivity" />
     </application>
 
 </manifest>
