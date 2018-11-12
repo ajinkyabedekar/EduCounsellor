@@ -19,14 +19,12 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Objects;
-
 public class CoursesListActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ArrayList<CoursesListEntryVo> data = new ArrayList<>();
     private CoursesListEntryAdapter adapter;
     private Context mContext;
     private String name, id;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,10 +48,8 @@ public class CoursesListActivity extends AppCompatActivity {
                     }
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
         DatabaseReference db = FirebaseDatabase.getInstance().getReference("courses");
@@ -70,10 +66,8 @@ public class CoursesListActivity extends AppCompatActivity {
                 adapter = new CoursesListEntryAdapter(mContext, data, name, id);
                 recyclerView.setAdapter(adapter);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
     }

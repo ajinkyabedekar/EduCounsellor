@@ -30,14 +30,12 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
-
 public class AdminLoginActivity extends AppCompatActivity {
     EditText username, password;
     Button login, reset;
     DatabaseReference ref;
     FirebaseDatabase database;
     private FirebaseAuth mAuth;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,17 +104,14 @@ public class AdminLoginActivity extends AppCompatActivity {
             }
         });
     }
-
     @Override
     public void onStart() {
-
         super.onStart();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             startActivity(new Intent(getBaseContext(), AdminDashboardActivity.class));
         }
     }
-
     public void login(String email) {
         final String pass = password.getText().toString();
         mAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -131,8 +126,6 @@ public class AdminLoginActivity extends AppCompatActivity {
             }
         });
     }
-
-
     public void check(final String email) {
         final boolean isEmail;
         isEmail = email.contains("@");
@@ -157,14 +150,12 @@ public class AdminLoginActivity extends AppCompatActivity {
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(getBaseContext(), LoginActivity.class));
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(AdminLoginActivity.this, databaseError.toString(), Toast.LENGTH_SHORT).show();
             }
         });
     }
-
     public void reset(String email) {
         mAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override

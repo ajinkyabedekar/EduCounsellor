@@ -13,12 +13,10 @@ import com.education.counselor.trainer.admin.centers.list.CentersListActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 public class AddCentersActivity extends AppCompatActivity {
     EditText name, location, mail, head, password;
     Button submit;
     private FirebaseAuth mAuth;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

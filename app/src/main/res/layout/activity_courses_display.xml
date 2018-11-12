@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:padding="10dp"
     tools:context=".student.course.CoursesListActivity">
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/course_recycler_view"
         android:layout_width="match_parent"

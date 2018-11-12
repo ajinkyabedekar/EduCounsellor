@@ -20,7 +20,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Objects;
-
 public class StartClassBatchesActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     DatabaseReference db;
@@ -29,7 +28,6 @@ public class StartClassBatchesActivity extends AppCompatActivity {
     Context mContext;
     String course = "", center = "", center_key, course_key;
     private ArrayList<StartClassBatchesEntryVo> details = new ArrayList<>();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,7 +72,6 @@ public class StartClassBatchesActivity extends AppCompatActivity {
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(mContext, "Error", Toast.LENGTH_SHORT).show();

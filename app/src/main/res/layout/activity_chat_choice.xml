@@ -7,7 +7,6 @@
     android:orientation="vertical"
     android:padding="10dp"
     tools:context=".authority.college.live_chat.chatChoice">
-
     <Button
         android:id="@+id/admin"
         android:layout_width="match_parent"
@@ -15,7 +14,6 @@
         android:layout_marginBottom="20dp"
         android:background="@drawable/button_back_1"
         android:text="@string/admin" />
-
     <Button
         android:id="@+id/counsellor"
         android:layout_width="match_parent"
@@ -23,7 +21,6 @@
         android:layout_marginBottom="20dp"
         android:background="@drawable/button_back_1"
         android:text="@string/counsellor" />
-
     <Button
         android:id="@+id/trainer"
         android:layout_width="match_parent"
@@ -31,7 +28,6 @@
         android:layout_marginBottom="20dp"
         android:background="@drawable/button_back_1"
         android:text="@string/trainer" />
-
     <Button
         android:id="@+id/college"
         android:layout_width="match_parent"
@@ -39,7 +35,6 @@
         android:layout_marginBottom="20dp"
         android:background="@drawable/button_back_1"
         android:text="@string/college_authority" />
-
     <Button
         android:id="@+id/school"
         android:layout_width="match_parent"

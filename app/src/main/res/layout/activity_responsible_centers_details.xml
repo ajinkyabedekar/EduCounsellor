@@ -7,7 +7,6 @@
     android:orientation="vertical"
     android:padding="10sp"
     tools:context=".employee.counsellor.responsible_centers.ResponsibleCentersDetailsActivity">
-
     <Button
         android:id="@+id/startup_list"
         android:layout_width="match_parent"
@@ -16,7 +15,6 @@
         android:background="@drawable/button_back_1"
         android:padding="10sp"
         android:text="@string/startup_list" />
-
     <Button
         android:id="@+id/news_list"
         android:layout_width="match_parent"
@@ -25,7 +23,6 @@
         android:background="@drawable/button_back_1"
         android:padding="10sp"
         android:text="@string/news_list" />
-
     <Button
         android:id="@+id/placement_list"
         android:layout_width="match_parent"
@@ -34,7 +31,6 @@
         android:background="@drawable/button_back_1"
         android:padding="10sp"
         android:text="@string/placement_list" />
-
     <Button
         android:id="@+id/internship_list"
         android:layout_width="match_parent"
@@ -43,7 +39,6 @@
         android:background="@drawable/button_back_1"
         android:padding="10sp"
         android:text="@string/internship_list" />
-
     <Button
         android:id="@+id/activeCourse"
         android:layout_width="match_parent"
@@ -51,8 +46,7 @@
         android:layout_marginBottom="20sp"
         android:background="@drawable/button_back_1"
         android:padding="10sp"
-        android:text="Inactive courses" />
-
+        android:text="@string/inactive_courses" />
     <Button
         android:id="@+id/inactiveCourse"
         android:layout_width="match_parent"
@@ -60,5 +54,5 @@
         android:layout_marginBottom="20sp"
         android:background="@drawable/button_back_1"
         android:padding="10sp"
-        android:text="Active Cousres" />
+        android:text="@string/active_cousres" />
 </LinearLayout>

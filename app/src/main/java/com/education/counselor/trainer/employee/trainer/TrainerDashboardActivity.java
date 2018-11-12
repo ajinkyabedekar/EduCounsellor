@@ -15,11 +15,9 @@ import com.education.counselor.trainer.employee.trainer.responsible_centers.list
 import com.education.counselor.trainer.employee.trainer.start_class.centers.StartClassCentersActivity;
 import com.education.counselor.trainer.launcher.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
-
 public class TrainerDashboardActivity extends AppCompatActivity {
     Button my_account, start_class, attendance,
             responsible_centers, daily_report, logout, coursewise, chat;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

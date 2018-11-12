@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center">
-
     <Button
         android:id="@+id/active"
         android:layout_width="wrap_content"
@@ -11,7 +10,6 @@
         android:background="@drawable/button_back_1"
         android:padding="10dp"
         android:text="@string/active_enrolled_coursess" />
-
     <Button
         android:id="@+id/inactive"
         android:layout_width="wrap_content"

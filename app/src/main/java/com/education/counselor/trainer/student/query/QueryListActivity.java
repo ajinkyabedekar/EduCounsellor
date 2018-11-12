@@ -21,7 +21,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Objects;
-
 public class QueryListActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     DatabaseReference db;
@@ -31,7 +30,6 @@ public class QueryListActivity extends AppCompatActivity {
     FirebaseUser user;
     String email, key = "";
     private ArrayList<QueryListEntryVo> details = new ArrayList<>();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,10 +65,8 @@ public class QueryListActivity extends AppCompatActivity {
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
     }

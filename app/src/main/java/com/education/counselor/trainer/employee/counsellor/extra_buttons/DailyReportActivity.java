@@ -12,11 +12,9 @@ import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.employee.counsellor.CounsellorDashboardActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 public class DailyReportActivity extends AppCompatActivity {
     EditText summary;
     Button submit;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

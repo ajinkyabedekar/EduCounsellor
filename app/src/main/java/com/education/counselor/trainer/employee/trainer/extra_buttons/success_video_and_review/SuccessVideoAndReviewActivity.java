@@ -26,7 +26,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Objects;
-
 public class SuccessVideoAndReviewActivity extends AppCompatActivity {
     EditText media, review;
     Button submit;
@@ -38,7 +37,6 @@ public class SuccessVideoAndReviewActivity extends AppCompatActivity {
     ProgressBar pg;
     Context mContext;
     private ArrayList<SuccessVideoAndReviewEntryVo> details = new ArrayList<>();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,10 +58,8 @@ public class SuccessVideoAndReviewActivity extends AppCompatActivity {
                     }
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
         submit.setOnClickListener(new View.OnClickListener() {
@@ -112,7 +108,6 @@ public class SuccessVideoAndReviewActivity extends AppCompatActivity {
                         pg.setVisibility(View.GONE);
                         recyclerView.setAdapter(adapter);
                     }
-
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
                         Toast.makeText(mContext, "Error", Toast.LENGTH_SHORT).show();

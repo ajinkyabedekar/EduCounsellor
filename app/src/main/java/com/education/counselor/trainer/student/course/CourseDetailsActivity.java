@@ -16,11 +16,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Random;
-
 public class CourseDetailsActivity extends AppCompatActivity {
     TextView fee, next, stat, content, desc, id;
     Button review, project;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,10 +44,8 @@ public class CourseDetailsActivity extends AppCompatActivity {
                     }
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
         review.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +59,5 @@ public class CourseDetailsActivity extends AppCompatActivity {
             public void onClick(View view) {
             }
         });
-
     }
 }

@@ -12,34 +12,28 @@ import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.admin.placement.list.PlacementListActivity;
 
 import java.util.ArrayList;
-
 public class PlacementCentersEntryAdapter extends RecyclerView.Adapter<PlacementCenters> {
     private Context c;
     private ArrayList<PlacementCentersEntryVo> details;
-
     PlacementCentersEntryAdapter(Context c, ArrayList<PlacementCentersEntryVo> details) {
         setHasStableIds(true);
         this.c = c;
         this.details = details;
     }
-
     @Override
     public long getItemId(int position) {
         return position;
     }
-
     @Override
     public int getItemViewType(int position) {
         return position;
     }
-
     @NonNull
     @Override
     public PlacementCenters onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(c).inflate(R.layout.layout_placement_centers_adapter, viewGroup, false);
         return new PlacementCenters(v);
     }
-
     @Override
     public void onBindViewHolder(@NonNull final PlacementCenters holder, int i) {
         holder.s_name.setText(details.get(i).getName());
@@ -52,7 +46,6 @@ public class PlacementCentersEntryAdapter extends RecyclerView.Adapter<Placement
             }
         });
     }
-
     @Override
     public int getItemCount() {
         return details.size();

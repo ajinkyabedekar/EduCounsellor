@@ -8,12 +8,10 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.education.counselor.trainer.R;
-
 class RatingList extends RecyclerView.ViewHolder {
     TextView s_name;
     RatingBar rating;
     private View v;
-
     @SuppressLint("SetTextI18n")
     RatingList(@NonNull View itemView) {
         super(itemView);
@@ -21,27 +19,21 @@ class RatingList extends RecyclerView.ViewHolder {
         rating = itemView.findViewById(R.id.rating);
         v = itemView.findViewById(R.id.cd);
     }
-
     public TextView getS_name() {
         return s_name;
     }
-
     public void setS_name(TextView s_name) {
         this.s_name = s_name;
     }
-
     public RatingBar getRating() {
         return rating;
     }
-
     public void setRating(RatingBar rating) {
         this.rating = rating;
     }
-
     public View getV() {
         return v;
     }
-
     public void setV(View v) {
         this.v = v;
     }

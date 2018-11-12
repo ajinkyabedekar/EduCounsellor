@@ -12,34 +12,28 @@ import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.admin.startup.list.StartupListActivity;
 
 import java.util.ArrayList;
-
 public class StartupCentersEntryAdapter extends RecyclerView.Adapter<StartupCenters> {
     private Context c;
     private ArrayList<StartupCentersEntryVo> details;
-
     StartupCentersEntryAdapter(Context c, ArrayList<StartupCentersEntryVo> details) {
         setHasStableIds(true);
         this.c = c;
         this.details = details;
     }
-
     @Override
     public long getItemId(int position) {
         return position;
     }
-
     @Override
     public int getItemViewType(int position) {
         return position;
     }
-
     @NonNull
     @Override
     public StartupCenters onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(c).inflate(R.layout.layout_startup_centers_adapter, viewGroup, false);
         return new StartupCenters(v);
     }
-
     @Override
     public void onBindViewHolder(@NonNull final StartupCenters holder, int i) {
         holder.s_name.setText(details.get(i).getName());
@@ -52,7 +46,6 @@ public class StartupCentersEntryAdapter extends RecyclerView.Adapter<StartupCent
             }
         });
     }
-
     @Override
     public int getItemCount() {
         return details.size();

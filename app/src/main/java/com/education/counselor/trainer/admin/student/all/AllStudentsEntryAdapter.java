@@ -12,34 +12,28 @@ import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.admin.student.StudentsAcademicsActivity;
 
 import java.util.ArrayList;
-
 public class AllStudentsEntryAdapter extends RecyclerView.Adapter<AllStudents> {
     private Context c;
     private ArrayList<AllStudentsEntryVo> details;
-
     AllStudentsEntryAdapter(Context c, ArrayList<AllStudentsEntryVo> details) {
         setHasStableIds(true);
         this.c = c;
         this.details = details;
     }
-
     @Override
     public long getItemId(int position) {
         return position;
     }
-
     @Override
     public int getItemViewType(int position) {
         return position;
     }
-
     @NonNull
     @Override
     public AllStudents onCreateViewHolder(@NonNull ViewGroup viewGroup, final int i) {
         View v = LayoutInflater.from(c).inflate(R.layout.layout_all_students_adapter, viewGroup, false);
         return new AllStudents(v);
     }
-
     @Override
     public void onBindViewHolder(@NonNull final AllStudents holder, int i) {
         holder.s_name.setText(details.get(i).getName());
@@ -53,7 +47,6 @@ public class AllStudentsEntryAdapter extends RecyclerView.Adapter<AllStudents> {
             }
         });
     }
-
     @Override
     public int getItemCount() {
         return details.size();

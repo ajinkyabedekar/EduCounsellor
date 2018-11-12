@@ -7,10 +7,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.education.counselor.trainer.R;
-
 public class EnrolledCourseActivity extends AppCompatActivity {
     Button active, inactive;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

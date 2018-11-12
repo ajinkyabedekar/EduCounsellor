@@ -14,10 +14,8 @@ import com.education.counselor.trainer.authority.school.suggestion_list.Suggesti
 import com.education.counselor.trainer.launcher.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.messaging.FirebaseMessaging;
-
 public class AuthoritySchoolDashboardActivity extends AppCompatActivity {
-    Button logout, give_suggestions, project_list, startup_list, suggestion_list, chat, chatCounsellor, chatTrainer;
-
+    Button logout, give_suggestions, project_list, startup_list, suggestion_list, chat;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +64,5 @@ public class AuthoritySchoolDashboardActivity extends AppCompatActivity {
                 startActivity(new Intent(getBaseContext(), chatChoice.class));
             }
         });
-
     }
 }

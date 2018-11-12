@@ -9,10 +9,8 @@ import android.widget.Button;
 import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.login.employee.login.CounsellorLoginActivity;
 import com.education.counselor.trainer.login.employee.login.TrainerLoginActivity;
-
 public class EmployeeChoiceActivity extends AppCompatActivity {
     Button school, college;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

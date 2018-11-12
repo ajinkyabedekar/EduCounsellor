@@ -26,11 +26,9 @@ import com.education.counselor.trainer.student.query.AddQueryActivity;
 import com.education.counselor.trainer.student.query.QueryListActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.messaging.FirebaseMessaging;
-
 public class StudentDashboardActivity extends AppCompatActivity {
     Button logout, attend_class, add_query, query_list, courses_list, project_details, internship_list, placement_list, call_counsellor;
     private boolean pressed = false;
-
     @Override
     public void onBackPressed() {
         if (pressed) {
@@ -46,7 +44,6 @@ public class StudentDashboardActivity extends AppCompatActivity {
             }
         }, 2000);
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -128,7 +125,6 @@ public class StudentDashboardActivity extends AppCompatActivity {
             }
         });
     }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -147,7 +143,6 @@ public class StudentDashboardActivity extends AppCompatActivity {
             }
         }
     }
-
     public void showSelectedNumber(String number) {
         Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + number));
         startActivity(intent);

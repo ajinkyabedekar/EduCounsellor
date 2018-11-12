@@ -6,17 +6,14 @@
     android:layout_gravity="center"
     android:padding="10dp"
     tools:context=".admin.student.AddStudentActivity">
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center">
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/name_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
             <EditText
                 android:id="@+id/name"
                 android:layout_width="match_parent"
@@ -26,13 +23,11 @@
                 android:inputType="textPersonName"
                 tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/mobile_number_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/name_layout">
-
             <EditText
                 android:id="@+id/mobile_number"
                 android:layout_width="match_parent"
@@ -42,13 +37,11 @@
                 android:inputType="number"
                 tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/mail_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/mobile_number_layout">
-
             <EditText
                 android:id="@+id/mail"
                 android:layout_width="match_parent"
@@ -58,13 +51,11 @@
                 android:inputType="textWebEmailAddress"
                 tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/total_fee_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/mail_layout">
-
             <EditText
                 android:id="@+id/total_fee"
                 android:layout_width="match_parent"
@@ -74,13 +65,11 @@
                 android:inputType="number"
                 tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/department_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/total_fee_layout">
-
             <EditText
                 android:id="@+id/department"
                 android:layout_width="match_parent"
@@ -90,13 +79,11 @@
                 android:inputType="text"
                 tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/total_fee_submitted_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/department_layout">
-
             <EditText
                 android:id="@+id/total_fee_submitted"
                 android:layout_width="match_parent"
@@ -106,13 +93,11 @@
                 android:inputType="number"
                 tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/date_of_fee_1_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/total_fee_submitted_layout">
-
             <EditText
                 android:id="@+id/date_of_fee_1"
                 android:layout_width="match_parent"
@@ -122,13 +107,11 @@
                 android:inputType="date"
                 tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/date_of_fee_2_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/date_of_fee_1_layout">
-
             <EditText
                 android:id="@+id/date_of_fee_2"
                 android:layout_width="match_parent"
@@ -138,13 +121,11 @@
                 android:inputType="date"
                 tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/date_of_fee_3_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/date_of_fee_2_layout">
-
             <EditText
                 android:id="@+id/date_of_fee_3"
                 android:layout_width="match_parent"
@@ -154,13 +135,11 @@
                 android:inputType="date"
                 tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/date_of_fee_4_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/date_of_fee_3_layout">
-
             <EditText
                 android:id="@+id/date_of_fee_4"
                 android:layout_width="match_parent"
@@ -170,13 +149,11 @@
                 android:inputType="date"
                 tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/payment_1_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/date_of_fee_4_layout">
-
             <EditText
                 android:id="@+id/payment_1"
                 android:layout_width="match_parent"
@@ -186,13 +163,11 @@
                 android:inputType="number"
                 tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/payment_2_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/payment_1_layout">
-
             <EditText
                 android:id="@+id/payment_2"
                 android:layout_width="match_parent"
@@ -202,13 +177,11 @@
                 android:inputType="number"
                 tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/payment_3_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/payment_2_layout">
-
             <EditText
                 android:id="@+id/payment_3"
                 android:layout_width="match_parent"
@@ -218,13 +191,11 @@
                 android:inputType="number"
                 tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/payment_4_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/payment_3_layout">
-
             <EditText
                 android:id="@+id/payment_4"
                 android:layout_width="match_parent"
@@ -234,43 +205,36 @@
                 android:inputType="number"
                 tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
-
         <Spinner
             android:id="@+id/payment_type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/payment_4_layout" />
-
         <Spinner
             android:id="@+id/payment_1_mode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/payment_type" />
-
         <Spinner
             android:id="@+id/payment_2_mode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/payment_1_mode" />
-
         <Spinner
             android:id="@+id/payment_3_mode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/payment_2_mode" />
-
         <Spinner
             android:id="@+id/payment_4_mode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/payment_3_mode" />
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/reference_id_1_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/payment_4_mode">
-
             <EditText
                 android:id="@+id/reference_id_1"
                 android:layout_width="match_parent"
@@ -280,13 +244,11 @@
                 android:inputType="textAutoComplete"
                 tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/reference_id_2_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/reference_id_1_layout">
-
             <EditText
                 android:id="@+id/reference_id_2"
                 android:layout_width="match_parent"
@@ -296,13 +258,11 @@
                 android:inputType="textAutoComplete"
                 tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/reference_id_3_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/reference_id_2_layout">
-
             <EditText
                 android:id="@+id/reference_id_3"
                 android:layout_width="match_parent"
@@ -312,13 +272,11 @@
                 android:inputType="textAutoComplete"
                 tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/reference_id_4_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/reference_id_3_layout">
-
             <EditText
                 android:id="@+id/reference_id_4"
                 android:layout_width="match_parent"
@@ -328,13 +286,11 @@
                 android:inputType="textAutoComplete"
                 tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/student_id_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/reference_id_4_layout">
-
             <EditText
                 android:id="@+id/student_id"
                 android:layout_width="match_parent"
@@ -344,13 +300,11 @@
                 android:inputType="textAutoComplete"
                 tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
-
         <Spinner
             android:id="@+id/student_year"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/student_id_layout" />
-
         <Button
             android:id="@+id/transfer_payment"
             android:layout_width="wrap_content"
@@ -360,7 +314,6 @@
             android:background="@drawable/button_back_2"
             android:text="@string/transfer_payment"
             android:textColor="@color/white" />
-
         <Button
             android:id="@+id/submit"
             android:layout_width="wrap_content"

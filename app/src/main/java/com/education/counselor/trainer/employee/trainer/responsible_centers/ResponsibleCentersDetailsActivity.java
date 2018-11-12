@@ -12,11 +12,9 @@ import com.education.counselor.trainer.employee.trainer.meeting.AuthorityMeetAct
 import com.education.counselor.trainer.employee.trainer.meeting.HodMeetActivity;
 import com.education.counselor.trainer.employee.trainer.meeting.RankethonMeetActivity;
 import com.education.counselor.trainer.employee.trainer.meeting.StudentMeetActivity;
-
 public class ResponsibleCentersDetailsActivity extends AppCompatActivity {
     String n = "";
     Button authority_meet, hod_meet, rankethon_meet, student_meet, daily_report;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -30,20 +30,16 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
-
 public class CounsellorLoginActivity extends AppCompatActivity {
     EditText username, password;
     Button login, reset;
     String key;
     FirebaseDatabase database;
-    private DatabaseReference ref, db;
     private FirebaseAuth mAuth;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_counsellor_login);
-        db = FirebaseDatabase.getInstance().getReference("counsellor");
         username = findViewById(R.id.user);
         password = findViewById(R.id.pass);
         login = findViewById(R.id.login);
@@ -108,17 +104,14 @@ public class CounsellorLoginActivity extends AppCompatActivity {
             }
         });
     }
-
     @Override
     public void onStart() {
-
         super.onStart();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             startActivity(new Intent(getBaseContext(), CounsellorDashboardActivity.class));
         }
     }
-
     public void login(String email) {
         final String pass = password.getText().toString();
         mAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -134,12 +127,10 @@ public class CounsellorLoginActivity extends AppCompatActivity {
             }
         });
     }
-
-
     public void check(final String email) {
         final boolean isEmail;
         isEmail = email.contains("@");
-        ref = database.getReference("counsellor");
+        DatabaseReference ref = database.getReference("counsellor");
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -161,14 +152,12 @@ public class CounsellorLoginActivity extends AppCompatActivity {
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(getBaseContext(), LoginActivity.class));
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(CounsellorLoginActivity.this, databaseError.toString(), Toast.LENGTH_SHORT).show();
             }
         });
     }
-
     public void reset(String email) {
         mAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override

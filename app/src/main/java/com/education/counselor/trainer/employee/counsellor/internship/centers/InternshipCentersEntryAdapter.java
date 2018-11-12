@@ -12,34 +12,28 @@ import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.employee.counsellor.internship.list.InternshipListActivity;
 
 import java.util.ArrayList;
-
 public class InternshipCentersEntryAdapter extends RecyclerView.Adapter<InternshipCenters> {
     private Context c;
     private ArrayList<InternshipCentersEntryVo> details;
-
     InternshipCentersEntryAdapter(Context c, ArrayList<InternshipCentersEntryVo> details) {
         setHasStableIds(true);
         this.c = c;
         this.details = details;
     }
-
     @Override
     public long getItemId(int position) {
         return position;
     }
-
     @Override
     public int getItemViewType(int position) {
         return position;
     }
-
     @NonNull
     @Override
     public InternshipCenters onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(c).inflate(R.layout.layout_internship_centers_adapter2, viewGroup, false);
         return new InternshipCenters(v);
     }
-
     @Override
     public void onBindViewHolder(@NonNull final InternshipCenters holder, int i) {
         holder.s_name.setText(details.get(i).getName());
@@ -52,7 +46,6 @@ public class InternshipCentersEntryAdapter extends RecyclerView.Adapter<Internsh
             }
         });
     }
-
     @Override
     public int getItemCount() {
         return details.size();

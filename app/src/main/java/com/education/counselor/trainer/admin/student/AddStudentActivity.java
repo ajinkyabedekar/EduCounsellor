@@ -24,7 +24,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
 public class AddStudentActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     EditText name, mobile_number, mail, total_fee, department, total_fee_submitted, date_of_fee_1, date_of_fee_2, date_of_fee_3, date_of_fee_4, payment_1, payment_2, payment_3, payment_4, reference_id_1, reference_id_2, reference_id_3, reference_id_4, student_id;
     Spinner payment_type, payment_1_mode, payment_2_mode, payment_3_mode, payment_4_mode, student_year;
@@ -33,7 +32,6 @@ public class AddStudentActivity extends AppCompatActivity implements AdapterView
     DatabaseReference db;
     long n;
     private FirebaseAuth mAuth;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -247,12 +245,10 @@ public class AddStudentActivity extends AppCompatActivity implements AdapterView
             }
         });
     }
-
     private void generate_random() {
         n = (long) Math.floor(Math.random() * 9_000_000_000L) + 1_000_000_000L;
         validate_random();
     }
-
     private void validate_random() {
         db = FirebaseDatabase.getInstance().getReference("student");
         db.addValueEventListener(new ValueEventListener() {
@@ -264,18 +260,14 @@ public class AddStudentActivity extends AppCompatActivity implements AdapterView
                     }
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
     }
-
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
     }
-
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
     }

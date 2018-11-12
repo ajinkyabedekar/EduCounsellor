@@ -19,13 +19,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
-
 public class ProjectDetailsActivity extends AppCompatActivity {
     EditText name, link, grade, certificate, award, professor;
     Button submit, delete;
     DatabaseReference reference;
     private String n = "";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,10 +51,8 @@ public class ProjectDetailsActivity extends AppCompatActivity {
                     }
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
         submit.setOnClickListener(new View.OnClickListener() {
@@ -78,7 +74,6 @@ public class ProjectDetailsActivity extends AppCompatActivity {
             }
         });
     }
-
     private void update() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference("project").child(n);
@@ -91,7 +86,6 @@ public class ProjectDetailsActivity extends AppCompatActivity {
         Toast.makeText(getBaseContext(), "Project Updated Successfully", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(getBaseContext(), StudentDashboardActivity.class));
     }
-
     private boolean check(EditText[] e) {
         for (EditText ed : e) {
             if (TextUtils.isEmpty(ed.getText().toString())) {

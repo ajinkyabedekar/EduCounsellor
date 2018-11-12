@@ -26,7 +26,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Objects;
-
 public class MediaUpdateActivity extends AppCompatActivity {
     EditText description, media;
     Button submit;
@@ -38,7 +37,6 @@ public class MediaUpdateActivity extends AppCompatActivity {
     ProgressBar pg;
     Context mContext;
     private ArrayList<MediaUpdateEntryVo> details = new ArrayList<>();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,10 +58,8 @@ public class MediaUpdateActivity extends AppCompatActivity {
                     }
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
         submit.setOnClickListener(new View.OnClickListener() {
@@ -109,7 +105,6 @@ public class MediaUpdateActivity extends AppCompatActivity {
                         pg.setVisibility(View.GONE);
                         recyclerView.setAdapter(adapter);
                     }
-
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
                         Toast.makeText(mContext, "Error", Toast.LENGTH_SHORT).show();

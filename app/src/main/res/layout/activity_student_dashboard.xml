@@ -5,13 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".student.StudentDashboardActivity">
-
     <android.support.v7.widget.CardView
         android:id="@+id/dash"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardElevation="5dp">
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -20,21 +18,17 @@
             android:padding="10sp"
             android:text="@string/student_dashboard"
             android:textSize="30sp" />
-
     </android.support.v7.widget.CardView>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/dash">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingLeft="10dp"
             android:paddingRight="10dp">
-
             <Button
                 android:id="@+id/attend_class"
                 android:layout_width="match_parent"
@@ -43,7 +37,6 @@
                 android:background="@drawable/button_back_1"
                 android:padding="10sp"
                 android:text="@string/attend_class" />
-
             <Button
                 android:id="@+id/add_query"
                 android:layout_width="match_parent"
@@ -52,7 +45,6 @@
                 android:background="@drawable/button_back_1"
                 android:padding="10sp"
                 android:text="@string/add_query" />
-
             <Button
                 android:id="@+id/query_list"
                 android:layout_width="match_parent"
@@ -61,7 +53,6 @@
                 android:background="@drawable/button_back_1"
                 android:padding="10sp"
                 android:text="@string/query_list" />
-
             <Button
                 android:id="@+id/courses_list"
                 android:layout_width="match_parent"
@@ -70,7 +61,6 @@
                 android:background="@drawable/button_back_1"
                 android:padding="10sp"
                 android:text="@string/courses_list" />
-
             <Button
                 android:id="@+id/project_details"
                 android:layout_width="match_parent"
@@ -79,7 +69,6 @@
                 android:background="@drawable/button_back_1"
                 android:padding="10sp"
                 android:text="@string/active_project_details" />
-
             <Button
                 android:id="@+id/internship_list"
                 android:layout_width="match_parent"
@@ -88,7 +77,6 @@
                 android:background="@drawable/button_back_1"
                 android:padding="10sp"
                 android:text="@string/internship_list" />
-
             <Button
                 android:id="@+id/placement_list"
                 android:layout_width="match_parent"
@@ -97,7 +85,6 @@
                 android:background="@drawable/button_back_1"
                 android:padding="10sp"
                 android:text="@string/placement_list" />
-
             <Button
                 android:id="@+id/call_counsellor"
                 android:layout_width="match_parent"
@@ -106,7 +93,6 @@
                 android:background="@drawable/button_back_1"
                 android:padding="10sp"
                 android:text="@string/call_counsellor" />
-
             <Button
                 android:id="@+id/logout"
                 android:layout_width="match_parent"
@@ -117,7 +103,5 @@
                 android:text="@string/logout"
                 android:textColor="@color/white" />
         </LinearLayout>
-
     </ScrollView>
-
 </RelativeLayout>

@@ -8,16 +8,14 @@ import android.widget.Button;
 
 import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.admin.live_chat.list.ListActivity;
-
 public class chatChoice extends AppCompatActivity {
-    Button admin, councellor, trainer, college, school;
-
+    Button admin, counsellor, trainer, college, school;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_choice);
         admin = findViewById(R.id.admin);
-        councellor = findViewById(R.id.counsellor);
+        counsellor = findViewById(R.id.counsellor);
         college = findViewById(R.id.college);
         school = findViewById(R.id.school);
         trainer = findViewById(R.id.trainer);
@@ -30,7 +28,7 @@ public class chatChoice extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        councellor.setOnClickListener(new View.OnClickListener() {
+        counsellor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getBaseContext(), ListActivity.class);
@@ -63,7 +61,5 @@ public class chatChoice extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
-
     }
 }

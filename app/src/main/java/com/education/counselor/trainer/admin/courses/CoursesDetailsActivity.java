@@ -23,14 +23,12 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
 public class CoursesDetailsActivity extends AppCompatActivity {
     EditText name, hours, details, content, enrollments, batches, year, month;
     Spinner category, status;
     Button detailed, submit, delete;
     DatabaseReference studentData;
     private String n = "", course_id, center, key;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,17 +89,14 @@ public class CoursesDetailsActivity extends AppCompatActivity {
                     }
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
         getKey();
         detailed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
             }
         });
         submit.setOnClickListener(new View.OnClickListener() {
@@ -123,7 +118,6 @@ public class CoursesDetailsActivity extends AppCompatActivity {
             }
         });
     }
-
     private void update(String key, String course_id) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("centers").child(key).child("courses").child(course_id);
@@ -151,7 +145,6 @@ public class CoursesDetailsActivity extends AppCompatActivity {
         myRef.child("status").setValue(status.getSelectedItem().toString());
         startActivity(new Intent(getBaseContext(), CoursesListActivity.class));
     }
-
     private void getKey() {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("centers");
         reference.addValueEventListener(new ValueEventListener() {
@@ -163,14 +156,11 @@ public class CoursesDetailsActivity extends AppCompatActivity {
                     }
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
     }
-
     private boolean check(EditText[] e) {
         for (EditText ed : e) {
             if (TextUtils.isEmpty(ed.getText().toString())) {

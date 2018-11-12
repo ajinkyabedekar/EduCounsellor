@@ -12,12 +12,10 @@ import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.employee.trainer.TrainerDashboardActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 public class RankethonMeetActivity extends AppCompatActivity {
     EditText summary;
     Button submit;
     String n = "";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

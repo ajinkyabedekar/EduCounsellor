@@ -24,7 +24,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
 public class StudentDetailsActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     EditText name, mobile_number, mail, total_fee, department, total_fee_submitted, date_of_fee_1, date_of_fee_2, date_of_fee_3, date_of_fee_4, payment_1, payment_2, payment_3, payment_4, reference_id_1, reference_id_2, reference_id_3, reference_id_4, student_id;
     Spinner payment_type, payment_1_mode, payment_2_mode, payment_3_mode, payment_4_mode, student_year;
@@ -32,7 +31,6 @@ public class StudentDetailsActivity extends AppCompatActivity implements Adapter
     String status_of_payment = "PENDING";
     DatabaseReference studentData;
     private String n = "";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -163,10 +161,8 @@ public class StudentDetailsActivity extends AppCompatActivity implements Adapter
                     }
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
         if (status_of_payment.equals("PENDING")) {
@@ -200,15 +196,12 @@ public class StudentDetailsActivity extends AppCompatActivity implements Adapter
             }
         });
     }
-
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
     }
-
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
     }
-
     private void update() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("student").child(student_id.getText().toString());
@@ -240,7 +233,6 @@ public class StudentDetailsActivity extends AppCompatActivity implements Adapter
         Toast.makeText(getBaseContext(), "Student Details Updated Successfully", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(getBaseContext(), EditStudentActivity.class));
     }
-
     private boolean check(EditText[] e) {
         for (EditText ed : e) {
             if (TextUtils.isEmpty(ed.getText().toString())) {

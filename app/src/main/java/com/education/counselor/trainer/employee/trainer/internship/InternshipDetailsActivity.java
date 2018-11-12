@@ -19,13 +19,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
-
 public class InternshipDetailsActivity extends AppCompatActivity {
     EditText name, department, company, stipend, location, student;
     Button submit, delete;
     DatabaseReference studentData;
     private String n = "";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,10 +56,8 @@ public class InternshipDetailsActivity extends AppCompatActivity {
                     }
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
         submit.setOnClickListener(new View.OnClickListener() {
@@ -83,7 +79,6 @@ public class InternshipDetailsActivity extends AppCompatActivity {
             }
         });
     }
-
     private void update() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Internships").child(student.getText().toString());
@@ -95,7 +90,6 @@ public class InternshipDetailsActivity extends AppCompatActivity {
         Toast.makeText(getBaseContext(), "Internship Updated Successfully", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(getBaseContext(), InternshipListActivity.class));
     }
-
     private boolean check(EditText[] e) {
         for (EditText ed : e) {
             if (TextUtils.isEmpty(ed.getText().toString())) {

@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="120dp"
     android:padding="5dp">
-
     <android.support.v7.widget.CardView
         android:id="@+id/cd"
         android:layout_width="match_parent"
@@ -16,12 +15,10 @@
         app:cardBackgroundColor="@color/light_blue"
         app:cardCornerRadius="3dp"
         app:cardElevation="3dp">
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="10dp">
-
             <TextView
                 android:id="@+id/s_text"
                 android:layout_width="wrap_content"
@@ -29,13 +26,11 @@
                 android:text="@string/name"
                 android:textSize="20sp"
                 android:textStyle="bold" />
-
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/s_text"
                 android:layout_marginTop="10dp">
-
                 <EditText
                     android:id="@+id/p_name"
                     android:layout_width="match_parent"
@@ -47,6 +42,5 @@
                     tools:targetApi="o" />
             </android.support.design.widget.TextInputLayout>
         </RelativeLayout>
-
     </android.support.v7.widget.CardView>
 </RelativeLayout>

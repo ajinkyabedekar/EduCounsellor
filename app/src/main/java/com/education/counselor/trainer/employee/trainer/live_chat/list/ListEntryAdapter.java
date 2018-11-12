@@ -22,36 +22,29 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Objects;
-
 public class ListEntryAdapter extends RecyclerView.Adapter<List> {
     private String senderKey, user, email = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getEmail();
     private Context c;
     private ArrayList<ListEntryVo> details;
-
-
     ListEntryAdapter(Context c, ArrayList<ListEntryVo> details) {
         setHasStableIds(true);
         this.c = c;
         this.details = details;
     }
-
     @Override
     public long getItemId(int position) {
         return position;
     }
-
     @Override
     public int getItemViewType(int position) {
         return position;
     }
-
     @NonNull
     @Override
     public List onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(c).inflate(R.layout.layout_placement_list_adapter2, viewGroup, false);
         return new List(v);
     }
-
     @Override
     public void onBindViewHolder(@NonNull final List holder, final int i) {
         DatabaseReference db = FirebaseDatabase.getInstance().getReference("admin");
@@ -65,10 +58,8 @@ public class ListEntryAdapter extends RecyclerView.Adapter<List> {
                     }
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
         holder.s_name.setText(details.get(i).getName());
@@ -92,7 +83,6 @@ public class ListEntryAdapter extends RecyclerView.Adapter<List> {
             }
         });
     }
-
     @Override
     public int getItemCount() {
         return details.size();

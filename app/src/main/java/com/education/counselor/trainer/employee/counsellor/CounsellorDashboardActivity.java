@@ -30,16 +30,12 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.Objects;
-
 public class CounsellorDashboardActivity extends AppCompatActivity {
     Button my_account, start_class, attendance,
             responsible_centers, media_update, success_video, daily_report, logout, coursewise, chat, notify;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     private String email;
     private String name = null;
-    private DatabaseReference db;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +49,7 @@ public class CounsellorDashboardActivity extends AppCompatActivity {
         if (user != null) {
             email = user.getEmail();
         }
-        db = FirebaseDatabase.getInstance().getReference("counsellor");
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference("counsellor");
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -62,10 +58,8 @@ public class CounsellorDashboardActivity extends AppCompatActivity {
                         name = ds.child("name").getValue(String.class);
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
         my_account = findViewById(R.id.my_account);

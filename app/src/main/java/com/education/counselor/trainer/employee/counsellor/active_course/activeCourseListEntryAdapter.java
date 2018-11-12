@@ -12,34 +12,28 @@ import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.employee.counsellor.active_course.batch.AIBatchListActivity;
 
 import java.util.ArrayList;
-
 public class activeCourseListEntryAdapter extends RecyclerView.Adapter<activeCourseList> {
     private Context c;
     private ArrayList<activeCourseListEntryVo> details;
-
     activeCourseListEntryAdapter(Context c, ArrayList<activeCourseListEntryVo> details) {
         setHasStableIds(true);
         this.c = c;
         this.details = details;
     }
-
     @Override
     public long getItemId(int position) {
         return position;
     }
-
     @Override
     public int getItemViewType(int position) {
         return position;
     }
-
     @NonNull
     @Override
     public activeCourseList onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(c).inflate(R.layout.layout_internship_list_adapter4, viewGroup, false);
         return new activeCourseList(v);
     }
-
     @Override
     public void onBindViewHolder(@NonNull final activeCourseList holder, int i) {
         holder.s_name.setText(details.get(i).getName());
@@ -53,7 +47,6 @@ public class activeCourseListEntryAdapter extends RecyclerView.Adapter<activeCou
             }
         });
     }
-
     @Override
     public int getItemCount() {
         return details.size();

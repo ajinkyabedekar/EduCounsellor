@@ -12,34 +12,28 @@ import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.admin.news.list.NewsListActivity;
 
 import java.util.ArrayList;
-
 public class NewsCentersEntryAdapter extends RecyclerView.Adapter<NewsCenters> {
     private Context c;
     private ArrayList<NewsCentersEntryVo> details;
-
     NewsCentersEntryAdapter(Context c, ArrayList<NewsCentersEntryVo> details) {
         setHasStableIds(true);
         this.c = c;
         this.details = details;
     }
-
     @Override
     public long getItemId(int position) {
         return position;
     }
-
     @Override
     public int getItemViewType(int position) {
         return position;
     }
-
     @NonNull
     @Override
     public NewsCenters onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(c).inflate(R.layout.layout_news_centers_adapter, viewGroup, false);
         return new NewsCenters(v);
     }
-
     @Override
     public void onBindViewHolder(@NonNull final NewsCenters holder, int i) {
         holder.s_name.setText(details.get(i).getName());
@@ -52,7 +46,6 @@ public class NewsCentersEntryAdapter extends RecyclerView.Adapter<NewsCenters> {
             }
         });
     }
-
     @Override
     public int getItemCount() {
         return details.size();

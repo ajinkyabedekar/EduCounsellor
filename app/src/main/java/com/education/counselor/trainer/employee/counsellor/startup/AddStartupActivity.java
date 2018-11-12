@@ -19,14 +19,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
-
 public class AddStartupActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     EditText name, vision, website, team, funding, turnover, student, id;
     Button submit;
     DatabaseReference db;
     long number;
     private String n = "";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,12 +88,10 @@ public class AddStartupActivity extends AppCompatActivity implements AdapterView
             }
         });
     }
-
     private void generate_random() {
         number = (long) Math.floor(Math.random() * 9_000_000_000L) + 1_000_000_000L;
         validate_random();
     }
-
     private void validate_random() {
         db = FirebaseDatabase.getInstance().getReference("startup");
         db.addValueEventListener(new ValueEventListener() {
@@ -107,18 +103,14 @@ public class AddStartupActivity extends AppCompatActivity implements AdapterView
                     }
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
     }
-
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
     }
-
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
     }

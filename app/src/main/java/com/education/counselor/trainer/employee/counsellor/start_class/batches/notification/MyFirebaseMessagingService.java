@@ -18,10 +18,7 @@ import java.util.Map;
 
 import static android.app.Notification.EXTRA_NOTIFICATION_ID;
 import static com.facebook.GraphRequest.TAG;
-
-
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
-
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         if (remoteMessage.getData().size() > 0) {
@@ -32,7 +29,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
         }
     }
-
     private void showNotification(Map<String, String> payload, String from) {
 //        Intent intent = new Intent(getApplicationContext(), StudentDashboardActivity.class);
 //        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

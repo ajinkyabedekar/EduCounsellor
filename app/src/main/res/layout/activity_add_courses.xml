@@ -6,12 +6,10 @@
     android:gravity="center"
     android:padding="10sp"
     tools:context=".admin.courses.AddCoursesActivity">
-
     <android.support.design.widget.TextInputLayout
         android:id="@+id/name_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <EditText
             android:id="@+id/name"
             android:layout_width="match_parent"
@@ -21,13 +19,11 @@
             android:inputType="text"
             tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
-
     <android.support.design.widget.TextInputLayout
         android:id="@+id/hours_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/name_layout">
-
         <EditText
             android:id="@+id/hours"
             android:layout_width="match_parent"
@@ -37,13 +33,11 @@
             android:inputType="text"
             tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
-
     <android.support.design.widget.TextInputLayout
         android:id="@+id/details_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/hours_layout">
-
         <EditText
             android:id="@+id/details"
             android:layout_width="match_parent"
@@ -53,13 +47,11 @@
             android:inputType="text"
             tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
-
     <android.support.design.widget.TextInputLayout
         android:id="@+id/content_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/details_layout">
-
         <EditText
             android:id="@+id/content"
             android:layout_width="match_parent"
@@ -69,19 +61,16 @@
             android:inputType="text"
             tools:targetApi="o" />
     </android.support.design.widget.TextInputLayout>
-
     <Spinner
         android:id="@+id/category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/content_layout" />
-
     <Spinner
         android:id="@+id/status"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/category" />
-
     <Button
         android:id="@+id/submit"
         android:layout_width="wrap_content"

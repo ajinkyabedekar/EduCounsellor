@@ -12,34 +12,28 @@ import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.employee.counsellor.active_course.projects.projectListActivity;
 
 import java.util.ArrayList;
-
 public class AIBatchListEntryAdapter extends RecyclerView.Adapter<AIBatchCourseList> {
     private Context c;
     private ArrayList<AIBatchListEntryVo> details;
-
     AIBatchListEntryAdapter(Context c, ArrayList<AIBatchListEntryVo> details) {
         setHasStableIds(true);
         this.c = c;
         this.details = details;
     }
-
     @Override
     public long getItemId(int position) {
         return position;
     }
-
     @Override
     public int getItemViewType(int position) {
         return position;
     }
-
     @NonNull
     @Override
     public AIBatchCourseList onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(c).inflate(R.layout.layout_internship_list_adapter4, viewGroup, false);
         return new AIBatchCourseList(v);
     }
-
     @Override
     public void onBindViewHolder(@NonNull final AIBatchCourseList holder, int i) {
         holder.s_name.setText(details.get(i).getName());
@@ -54,7 +48,6 @@ public class AIBatchListEntryAdapter extends RecyclerView.Adapter<AIBatchCourseL
             }
         });
     }
-
     @Override
     public int getItemCount() {
         return details.size();

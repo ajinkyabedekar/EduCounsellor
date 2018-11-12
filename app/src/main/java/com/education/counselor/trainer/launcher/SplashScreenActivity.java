@@ -24,12 +24,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
-
 public class SplashScreenActivity extends AppCompatActivity {
     String email, access;
     boolean grant = false, flag = false;
     private DatabaseReference db;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +35,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         ((ImageView) findViewById(R.id.iv)).setImageResource(R.mipmap.ic_logo);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         db = FirebaseDatabase.getInstance().getReference();
-        // checkUser(user);
+        checkUser(user);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -46,7 +44,6 @@ public class SplashScreenActivity extends AppCompatActivity {
             }
         }, 1000);
     }
-
     private void checkUser(final FirebaseUser user) {
         if (user != null) {
             email = user.getEmail();
@@ -68,21 +65,27 @@ public class SplashScreenActivity extends AppCompatActivity {
                         switch (access) {
                             case "admin":
                                 startActivity(new Intent(getBaseContext(), AdminDashboardActivity.class));
+                                finishAffinity();
                                 break;
                             case "college_authority":
                                 startActivity(new Intent(getBaseContext(), AuthorityCollegeDashboardActivity.class));
+                                finishAffinity();
                                 break;
                             case "school_authority":
                                 startActivity(new Intent(getBaseContext(), AuthoritySchoolDashboardActivity.class));
+                                finishAffinity();
                                 break;
                             case "counsellor":
                                 startActivity(new Intent(getBaseContext(), CounsellorDashboardActivity.class));
+                                finishAffinity();
                                 break;
                             case "trainer":
                                 startActivity(new Intent(getBaseContext(), TrainerDashboardActivity.class));
+                                finishAffinity();
                                 break;
                             case "student":
                                 startActivity(new Intent(getBaseContext(), StudentDashboardActivity.class));
+                                finishAffinity();
                                 break;
                             default:
                                 Toast.makeText(getBaseContext(), "Please Check Your Network Connection", Toast.LENGTH_SHORT).show();
@@ -93,17 +96,12 @@ public class SplashScreenActivity extends AppCompatActivity {
                         grant = false;
                     }
                 }
-
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
-
                 }
             });
-
         }
     }
-
-
     @Override
     protected void onStart() {
         super.onStart();

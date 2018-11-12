@@ -20,7 +20,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Objects;
-
 public class AIBatchListActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     DatabaseReference db;
@@ -29,7 +28,6 @@ public class AIBatchListActivity extends AppCompatActivity {
     Context mContext;
     private ArrayList<AIBatchListEntryVo> details = new ArrayList<>();
     private String n = "", c = "";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +39,6 @@ public class AIBatchListActivity extends AppCompatActivity {
         if (i.hasExtra("cname")) {
             c = i.getStringExtra("cname");
         }
-
         mContext = this;
         pg = findViewById(R.id.progress);
         recyclerView = findViewById(R.id.recycle);
@@ -69,12 +66,10 @@ public class AIBatchListActivity extends AppCompatActivity {
                 }
                 if (details.size() == 0)
                     Toast.makeText(getBaseContext(), "No Batches Found", Toast.LENGTH_SHORT).show();
-
                 adapter = new AIBatchListEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(mContext, "Error", Toast.LENGTH_SHORT).show();

@@ -6,14 +6,12 @@
     android:gravity="center"
     android:padding="20dp"
     tools:context=".login.employee.EmployeeChoiceActivity">
-
     <Button
         android:id="@+id/school"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:background="@drawable/button_back_1"
         android:text="@string/counsellor" />
-
     <Button
         android:id="@+id/college"
         android:layout_width="match_parent"

@@ -20,7 +20,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Objects;
-
 public class studentListActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     DatabaseReference db;
@@ -29,8 +28,6 @@ public class studentListActivity extends AppCompatActivity {
     Context mContext;
     private ArrayList<studentListEntryVo> details = new ArrayList<>();
     private String n = "", p = "";
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,12 +61,10 @@ public class studentListActivity extends AppCompatActivity {
                 }
                 if (details.size() == 0)
                     Toast.makeText(getBaseContext(), "No Students Found ", Toast.LENGTH_SHORT).show();
-
                 adapter = new studentEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(mContext, "Error", Toast.LENGTH_SHORT).show();

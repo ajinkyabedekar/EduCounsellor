@@ -29,11 +29,10 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-
 public class CollegeTrainerLiveChat extends AppCompatActivity {
     RecyclerView recyclerView;
     ImageButton send;
-    DatabaseReference db, ref;
+    DatabaseReference db;
     chatAdapter adapter;
     ProgressBar pg;
     Context mContext;
@@ -41,7 +40,6 @@ public class CollegeTrainerLiveChat extends AppCompatActivity {
     String email, name, senderKey, receiverKey;
     ScrollView mScrollView;
     private ArrayList<chatMessages> details = new ArrayList<>();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +63,6 @@ public class CollegeTrainerLiveChat extends AppCompatActivity {
             if (i.hasExtra("user"))
                 name = i.getStringExtra("user");
         }
-
         textListener();
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -87,7 +84,6 @@ public class CollegeTrainerLiveChat extends AppCompatActivity {
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(mContext, "Error", Toast.LENGTH_SHORT).show();
@@ -104,17 +100,12 @@ public class CollegeTrainerLiveChat extends AppCompatActivity {
             }
         });
         pg.setVisibility(View.GONE);
-
-
     }
-
     private void textListener() {
         text.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
             }
-
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if (charSequence.toString().trim().length() > 0) {
@@ -123,13 +114,9 @@ public class CollegeTrainerLiveChat extends AppCompatActivity {
                     send.setEnabled(false);
                 }
             }
-
             @Override
             public void afterTextChanged(Editable editable) {
-
             }
         });
     }
-
-
 }

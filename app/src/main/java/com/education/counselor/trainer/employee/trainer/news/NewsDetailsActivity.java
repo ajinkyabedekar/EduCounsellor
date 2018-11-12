@@ -20,13 +20,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
-
 public class NewsDetailsActivity extends AppCompatActivity {
     EditText name, motto, drive, date;
     Button submit, delete;
     DatabaseReference studentData;
     private String n = "", key;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,10 +53,8 @@ public class NewsDetailsActivity extends AppCompatActivity {
                     }
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
         submit.setOnClickListener(new View.OnClickListener() {
@@ -80,7 +76,6 @@ public class NewsDetailsActivity extends AppCompatActivity {
             }
         });
     }
-
     private void update() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("news").push();
@@ -91,7 +86,6 @@ public class NewsDetailsActivity extends AppCompatActivity {
         Toast.makeText(getBaseContext(), "News Updated Successfully", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(getBaseContext(), NewsListActivity.class));
     }
-
     private boolean check(EditText[] e) {
         for (EditText ed : e) {
             if (TextUtils.isEmpty(ed.getText().toString())) {

@@ -6,16 +6,13 @@
     android:gravity="center"
     android:padding="10sp"
     tools:context=".admin.courses.CoursesDetailsActivity">
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/name_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
             <EditText
                 android:id="@+id/name"
                 android:layout_width="match_parent"
@@ -25,13 +22,11 @@
                 android:inputType="text"
                 tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/hours_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/name_layout">
-
             <EditText
                 android:id="@+id/hours"
                 android:layout_width="match_parent"
@@ -41,13 +36,11 @@
                 android:inputType="number"
                 tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/details_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/hours_layout">
-
             <EditText
                 android:id="@+id/details"
                 android:layout_width="match_parent"
@@ -57,13 +50,11 @@
                 android:inputType="text"
                 tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/content_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/details_layout">
-
             <EditText
                 android:id="@+id/content"
                 android:layout_width="match_parent"
@@ -73,13 +64,11 @@
                 android:inputType="text"
                 tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/enrollments_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/content_layout">
-
             <EditText
                 android:id="@+id/enrollments"
                 android:layout_width="match_parent"
@@ -89,13 +78,11 @@
                 android:inputType="number"
                 tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/batches_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/enrollments_layout">
-
             <EditText
                 android:id="@+id/batches"
                 android:layout_width="match_parent"
@@ -105,13 +92,11 @@
                 android:inputType="number"
                 tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/year_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/batches_layout">
-
             <EditText
                 android:id="@+id/year"
                 android:layout_width="match_parent"
@@ -121,13 +106,11 @@
                 android:inputType="number"
                 tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/month_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/year_layout">
-
             <EditText
                 android:id="@+id/month"
                 android:layout_width="match_parent"
@@ -137,19 +120,16 @@
                 android:inputType="number"
                 tools:targetApi="o" />
         </android.support.design.widget.TextInputLayout>
-
         <Spinner
             android:id="@+id/category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/month_layout" />
-
         <Spinner
             android:id="@+id/status"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/category" />
-
         <Button
             android:id="@+id/detailed"
             android:layout_width="wrap_content"
@@ -160,7 +140,6 @@
             android:background="@drawable/button_blue"
             android:text="@string/add_detailed_content_of_enrolled_users"
             android:textColor="@color/white" />
-
         <Button
             android:id="@+id/submit"
             android:layout_width="wrap_content"
@@ -171,7 +150,6 @@
             android:background="@drawable/button_blue"
             android:text="@string/submit"
             android:textColor="@color/white" />
-
         <Button
             android:id="@+id/delete"
             android:layout_width="wrap_content"

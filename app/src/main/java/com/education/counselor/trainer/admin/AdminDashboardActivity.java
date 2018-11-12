@@ -25,13 +25,11 @@ import com.education.counselor.trainer.admin.student.all.AllStudentsActivity;
 import com.education.counselor.trainer.admin.student.edit.EditStudentActivity;
 import com.education.counselor.trainer.launcher.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
-
 public class AdminDashboardActivity extends AppCompatActivity {
     Button logout, add_student, edit_student, student_list, startup_list,
             placement_list, edit_counsellor, news, centers, courses,
             add_employee, employee_list, internships, daily_report, chat;
     private boolean pressed = false;
-
     @Override
     public void onBackPressed() {
         if (pressed) {
@@ -47,7 +45,6 @@ public class AdminDashboardActivity extends AppCompatActivity {
             }
         }, 2000);
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -21,7 +21,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
-
 public class MyAccountActivity extends AppCompatActivity {
     EditText name, mail, registrations, amount, collection_month, collection_months, absence, rating;
     Button submit;
@@ -29,7 +28,6 @@ public class MyAccountActivity extends AppCompatActivity {
     FirebaseUser user;
     String email, key;
     TextView id;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,10 +65,8 @@ public class MyAccountActivity extends AppCompatActivity {
                     }
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
         submit.setOnClickListener(new View.OnClickListener() {
@@ -84,7 +80,6 @@ public class MyAccountActivity extends AppCompatActivity {
             }
         });
     }
-
     private void update() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("trainer").child(key);
@@ -99,7 +94,6 @@ public class MyAccountActivity extends AppCompatActivity {
         Toast.makeText(getBaseContext(), "Trainer Details Updated Successfully", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(getBaseContext(), TrainerDashboardActivity.class));
     }
-
     private boolean check(EditText[] e) {
         for (EditText ed : e) {
             if (TextUtils.isEmpty(ed.getText().toString())) {

@@ -21,13 +21,11 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Objects;
-
 public class StartClassBatchesEntryAdapter extends RecyclerView.Adapter<StartClassBatches> {
     private Context c;
     private ArrayList<StartClassBatchesEntryVo> details;
     private String center_key, course_key, batch_key = "", name = "abc";
     private DatabaseReference reference;
-
     StartClassBatchesEntryAdapter(Context c, ArrayList<StartClassBatchesEntryVo> details, String center_key, String course_key) {
         setHasStableIds(true);
         this.c = c;
@@ -35,24 +33,20 @@ public class StartClassBatchesEntryAdapter extends RecyclerView.Adapter<StartCla
         this.center_key = center_key;
         this.course_key = course_key;
     }
-
     @Override
     public long getItemId(int position) {
         return position;
     }
-
     @Override
     public int getItemViewType(int position) {
         return position;
     }
-
     @NonNull
     @Override
     public StartClassBatches onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(c).inflate(R.layout.layout_start_class_batches_adapter, viewGroup, false);
         return new StartClassBatches(v);
     }
-
     @Override
     public void onBindViewHolder(@NonNull final StartClassBatches holder, @SuppressLint("RecyclerView") final int i) {
         holder.s_name.setText(details.get(i).getName());
@@ -71,7 +65,6 @@ public class StartClassBatchesEntryAdapter extends RecyclerView.Adapter<StartCla
                             }
                         }
                     }
-
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
                         Toast.makeText(c, "Error", Toast.LENGTH_SHORT).show();
@@ -102,7 +95,6 @@ public class StartClassBatchesEntryAdapter extends RecyclerView.Adapter<StartCla
                             }
                         }
                     }
-
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
                         Toast.makeText(c, "Error", Toast.LENGTH_SHORT).show();
@@ -121,7 +113,6 @@ public class StartClassBatchesEntryAdapter extends RecyclerView.Adapter<StartCla
             }
         });
     }
-
     @Override
     public int getItemCount() {
         return details.size();

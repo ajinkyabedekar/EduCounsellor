@@ -20,14 +20,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
-
 public class SuccessVideoAndReviewDetailsActivity extends AppCompatActivity {
     EditText media, review;
     Button submit, delete;
     DatabaseReference reference;
     FirebaseUser user;
     String email, key, name, key2;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,10 +59,8 @@ public class SuccessVideoAndReviewDetailsActivity extends AppCompatActivity {
                     }
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
         submit.setOnClickListener(new View.OnClickListener() {

@@ -20,22 +20,18 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class CounsellorNotificationActivity extends AppCompatActivity {
-    private Button send;
     private EditText message;
     private DatabaseReference db;
     private List<String> studentsId = new ArrayList<>();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_counsellor_notification);
-        send = findViewById(R.id.sendNotif);
+        Button send = findViewById(R.id.sendNotif);
         message = findViewById(R.id.notifMessage);
         Intent intent = getIntent();
         final String name = intent.getStringExtra("name");
-
         db = FirebaseDatabase.getInstance().getReference("student");
         db.addValueEventListener(new ValueEventListener() {
             @Override
@@ -43,10 +39,8 @@ public class CounsellorNotificationActivity extends AppCompatActivity {
                 for (DataSnapshot ds : dataSnapshot.getChildren())
                     studentsId.add(ds.getKey());
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
         send.setOnClickListener(new View.OnClickListener() {

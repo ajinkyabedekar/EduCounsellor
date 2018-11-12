@@ -12,11 +12,9 @@ import com.education.counselor.trainer.employee.counsellor.internship.list.Inter
 import com.education.counselor.trainer.employee.counsellor.news.list.NewsListActivity;
 import com.education.counselor.trainer.employee.counsellor.placement.list.PlacementListActivity;
 import com.education.counselor.trainer.employee.counsellor.startup.list.StartupListActivity;
-
 public class ResponsibleCentersDetailsActivity extends AppCompatActivity {
     String n = "";
     Button startup_list, news_list, placement_list, internship_list, active_course, inactive_course;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

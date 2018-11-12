@@ -21,13 +21,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
-
 public class CentersDetailsActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     EditText name, location, mail, head, password;
     Button submit, delete;
     DatabaseReference centerData;
     private String n = "", key = "";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,10 +56,8 @@ public class CentersDetailsActivity extends AppCompatActivity implements Adapter
                     }
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
         submit.setOnClickListener(new View.OnClickListener() {
@@ -83,17 +79,12 @@ public class CentersDetailsActivity extends AppCompatActivity implements Adapter
             }
         });
     }
-
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
     }
-
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
-
     }
-
     private void update() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("centers").child(key);
@@ -105,7 +96,6 @@ public class CentersDetailsActivity extends AppCompatActivity implements Adapter
         Toast.makeText(getBaseContext(), "Centers Added Successfully" + key, Toast.LENGTH_SHORT).show();
         startActivity(new Intent(getBaseContext(), CentersListActivity.class));
     }
-
     private boolean check(EditText[] e) {
         for (EditText ed : e) {
             if (TextUtils.isEmpty(ed.getText().toString())) {

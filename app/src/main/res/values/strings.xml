@@ -179,4 +179,13 @@
     <string name="live_chat">Live Chat</string>
     <string name="send_notice">Send Notice</string>
     <string name="employee_daily_report">Employee Daily Report</string>
+    <string name="batches">Batches:</string>
+    <string name="projects">Projects:</string>
+    <string name="students">Students:</string>
+    <string name="any_query">Any query;</string>
+    <string name="send">Send</string>
+    <string name="inactive_courses">Inactive courses</string>
+    <string name="active_cousres">Active Cousres</string>
+    <string name="update">update</string>
+    <string name="message">Message</string>
 </resources>

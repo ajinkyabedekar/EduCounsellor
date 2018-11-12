@@ -22,7 +22,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Objects;
-
 public class PlacementListActivity extends AppCompatActivity {
     Button add_placement;
     RecyclerView recyclerView;
@@ -32,7 +31,6 @@ public class PlacementListActivity extends AppCompatActivity {
     Context mContext;
     private ArrayList<PlacementListEntryVo> details = new ArrayList<>();
     private String n = "";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,7 +72,6 @@ public class PlacementListActivity extends AppCompatActivity {
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(mContext, "Error", Toast.LENGTH_SHORT).show();

@@ -12,12 +12,10 @@ import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.employee.trainer.news.list.NewsListActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 public class AddNewsActivity extends AppCompatActivity {
     EditText name, motto, drive, date;
     Button submit;
     private String n = "";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

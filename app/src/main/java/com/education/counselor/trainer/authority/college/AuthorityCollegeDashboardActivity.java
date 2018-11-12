@@ -15,13 +15,9 @@ import com.education.counselor.trainer.authority.college.startup_list.StartupLis
 import com.education.counselor.trainer.authority.college.suggestion_list.SuggestionListActivity;
 import com.education.counselor.trainer.launcher.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.messaging.FirebaseMessaging;
-
 public class AuthorityCollegeDashboardActivity extends AppCompatActivity {
-    Button logout, give_suggestions, internship_list, placement_list, project_list, startup_list, suggestion_list, chat, chatCounsellor, chatTrainer;
-    private DatabaseReference db;
-
+    Button logout, give_suggestions, internship_list, placement_list, project_list, startup_list, suggestion_list, chat;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,6 +80,5 @@ public class AuthorityCollegeDashboardActivity extends AppCompatActivity {
                 startActivity(new Intent(getBaseContext(), chatChoice.class));
             }
         });
-
     }
 }

@@ -20,13 +20,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
-
 public class StudentsAcademicsActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     EditText name, mobile_number, mail, project, grade, score, certificate, award, professor, project_name;
     Button submit;
     DatabaseReference studentData;
     private String n = "", student_id;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,10 +64,8 @@ public class StudentsAcademicsActivity extends AppCompatActivity implements Adap
                     }
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
         submit.setOnClickListener(new View.OnClickListener() {
@@ -83,17 +79,12 @@ public class StudentsAcademicsActivity extends AppCompatActivity implements Adap
             }
         });
     }
-
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
     }
-
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
-
     }
-
     private void update() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("student").child(student_id).child("project_details");
@@ -107,13 +98,9 @@ public class StudentsAcademicsActivity extends AppCompatActivity implements Adap
         myRef.child("award").setValue(award.getText().toString());
         myRef.child("professor").setValue(professor.getText().toString());
         myRef.child("project_name").setValue(project_name.getText().toString());
-        myRef = database.getReference("project");
-
-
         Toast.makeText(getBaseContext(), "Student Details Updated Successfully", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(getBaseContext(), AllStudentsActivity.class));
     }
-
     private boolean check(EditText[] e) {
         for (EditText ed : e) {
             if (TextUtils.isEmpty(ed.getText().toString())) {

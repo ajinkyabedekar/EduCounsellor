@@ -15,10 +15,8 @@ import com.education.counselor.trainer.login.AdminLoginActivity;
 import com.education.counselor.trainer.login.StudentLoginActivity;
 import com.education.counselor.trainer.login.authority.AuthorityChoiceActivity;
 import com.education.counselor.trainer.login.employee.EmployeeChoiceActivity;
-
 public class LoginActivity extends AppCompatActivity {
     Button student, counsellor, authority, admin;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +52,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-
     private void requestPermission() {
         ActivityCompat.requestPermissions(LoginActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
     }

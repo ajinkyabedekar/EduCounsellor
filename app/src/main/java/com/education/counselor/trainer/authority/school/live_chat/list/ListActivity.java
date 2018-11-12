@@ -19,7 +19,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-
 public class ListActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     DatabaseReference db;
@@ -28,16 +27,13 @@ public class ListActivity extends AppCompatActivity {
     String name;
     Context mContext;
     private ArrayList<ListEntryVo> details = new ArrayList<>();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
-
         Intent i = getIntent();
         if (i.hasExtra("name"))
             name = i.getStringExtra("name");
-
         mContext = this;
         pg = findViewById(R.id.progress);
         recyclerView = findViewById(R.id.recycle);
@@ -58,13 +54,10 @@ public class ListActivity extends AppCompatActivity {
                 }
                 if (details.size() == 0)
                     Toast.makeText(getBaseContext(), "Nothing found!", Toast.LENGTH_SHORT).show();
-
-
                 adapter = new ListEntryAdapter(mContext, details);
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(mContext, "Error", Toast.LENGTH_SHORT).show();

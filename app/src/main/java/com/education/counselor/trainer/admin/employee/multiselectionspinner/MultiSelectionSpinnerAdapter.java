@@ -15,30 +15,25 @@ import com.education.counselor.trainer.R;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
 public class MultiSelectionSpinnerAdapter extends ArrayAdapter<MultiSelectionSpinner> {
     public static String dash = "-";
     private List<String> center = new ArrayList<>();
     private LayoutInflater inflater;
     private List<MultiSelectionSpinner> list;
-
     public MultiSelectionSpinnerAdapter(@NonNull Context context, int resource, @NonNull List<MultiSelectionSpinner> objects) {
         super(context, resource, objects);
         this.list = objects;
         inflater = LayoutInflater.from(context);
     }
-
     @Override
     public View getDropDownView(int position, View convertView, @NonNull ViewGroup parent) {
         return getCustomView(position, convertView);
     }
-
     @NonNull
     @Override
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         return getCustomView(position, convertView);
     }
-
     @SuppressLint("InflateParams")
     private View getCustomView(final int position, View convertView) {
         final ViewHolder holder;
@@ -72,14 +67,11 @@ public class MultiSelectionSpinnerAdapter extends ArrayAdapter<MultiSelectionSpi
         });
         return convertView;
     }
-
     public List<String> getCenter() {
         return center;
     }
-
     private class ViewHolder {
         private TextView mTextView;
         private CheckBox ck;
     }
 }
-

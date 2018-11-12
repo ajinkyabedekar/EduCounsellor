@@ -10,40 +10,33 @@ import android.view.ViewGroup;
 import com.education.counselor.trainer.R;
 
 import java.util.ArrayList;
-
 public class SuggestionListEntryAdapter extends RecyclerView.Adapter<SuggestionList> {
     private Context c;
     private ArrayList<SuggestionListEntryVo> details;
-
     SuggestionListEntryAdapter(Context c, ArrayList<SuggestionListEntryVo> details) {
         setHasStableIds(true);
         this.c = c;
         this.details = details;
     }
-
     @Override
     public long getItemId(int position) {
         return position;
     }
-
     @Override
     public int getItemViewType(int position) {
         return position;
     }
-
     @NonNull
     @Override
     public SuggestionList onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(c).inflate(R.layout.layout_suggestion_list_adapter2, viewGroup, false);
         return new SuggestionList(v);
     }
-
     @Override
     public void onBindViewHolder(@NonNull final SuggestionList holder, int i) {
         holder.s_name.setText(details.get(i).getName());
         holder.p_name.setText(details.get(i).getPhone());
     }
-
     @Override
     public int getItemCount() {
         return details.size();

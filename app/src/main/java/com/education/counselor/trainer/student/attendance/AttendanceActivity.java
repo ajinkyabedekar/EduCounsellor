@@ -32,7 +32,6 @@ import java.util.Date;
 import java.util.Objects;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
-
 public class AttendanceActivity extends AppCompatActivity {
     double lat, lng;
     TextView latitude_tv, longitude_tv;
@@ -44,12 +43,10 @@ public class AttendanceActivity extends AppCompatActivity {
     Date date = new Date();
     Long t1, t2;
     Long hours, minutes, secs, mils;
-
     @Override
     protected void onStart() {
         super.onStart();
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,10 +70,8 @@ public class AttendanceActivity extends AppCompatActivity {
                     }
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
         if (ActivityCompat.checkSelfPermission(AttendanceActivity.this,

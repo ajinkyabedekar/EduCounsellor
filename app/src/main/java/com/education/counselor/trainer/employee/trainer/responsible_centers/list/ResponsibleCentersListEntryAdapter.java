@@ -12,34 +12,28 @@ import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.employee.trainer.responsible_centers.ResponsibleCentersDetailsActivity;
 
 import java.util.ArrayList;
-
 public class ResponsibleCentersListEntryAdapter extends RecyclerView.Adapter<ResponsibleCentersList> {
     private Context c;
     private ArrayList<ResponsibleCentersListEntryVo> details;
-
     ResponsibleCentersListEntryAdapter(Context c, ArrayList<ResponsibleCentersListEntryVo> details) {
         setHasStableIds(true);
         this.c = c;
         this.details = details;
     }
-
     @Override
     public long getItemId(int position) {
         return position;
     }
-
     @Override
     public int getItemViewType(int position) {
         return position;
     }
-
     @NonNull
     @Override
     public ResponsibleCentersList onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(c).inflate(R.layout.layout_responsible_centers_list_adapter, viewGroup, false);
         return new ResponsibleCentersList(v);
     }
-
     @Override
     public void onBindViewHolder(@NonNull final ResponsibleCentersList holder, int i) {
         holder.s_name.setText(details.get(i).getName());
@@ -52,7 +46,6 @@ public class ResponsibleCentersListEntryAdapter extends RecyclerView.Adapter<Res
             }
         });
     }
-
     @Override
     public int getItemCount() {
         return details.size();

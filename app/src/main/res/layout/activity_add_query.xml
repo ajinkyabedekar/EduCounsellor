@@ -6,14 +6,11 @@
     android:gravity="center"
     android:padding="10dp"
     tools:context=".student.query.AddQueryActivity">
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Any query;"
-        android:textSize="18dp" />
-
-
+        android:text="@string/any_query"
+        android:textSize="18sp" />
     <EditText
         android:id="@+id/query"
         android:layout_width="match_parent"
@@ -21,8 +18,8 @@
         android:layout_marginTop="30dp"
         android:importantForAutofill="no"
         android:inputType="text"
+        tools:ignore="LabelFor"
         tools:targetApi="o" />
-
     <Button
         android:id="@+id/submit"
         android:layout_width="wrap_content"
@@ -31,6 +28,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:background="@drawable/button_back_2"
-        android:text="Submit"
+        android:text="@string/submit"
         android:textColor="@color/white" />
 </RelativeLayout>

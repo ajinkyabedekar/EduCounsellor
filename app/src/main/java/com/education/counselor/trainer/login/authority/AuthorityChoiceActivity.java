@@ -9,10 +9,8 @@ import android.widget.Button;
 import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.login.authority.login.AuthorityCollegeLoginActivity;
 import com.education.counselor.trainer.login.authority.login.AuthoritySchoolLoginActivity;
-
 public class AuthorityChoiceActivity extends AppCompatActivity {
     Button school, college;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

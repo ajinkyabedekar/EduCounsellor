@@ -11,27 +11,22 @@ import android.view.ViewGroup;
 import com.education.counselor.trainer.R;
 
 import java.util.ArrayList;
-
 public class CoursesListEntryAdapter extends RecyclerView.Adapter<CoursesList> {
-
     private Context c;
     private ArrayList<CoursesListEntryVo> details;
     private String name, id;
-
     CoursesListEntryAdapter(Context c, ArrayList<CoursesListEntryVo> details, String name, String id) {
         this.c = c;
         this.details = details;
         this.name = name;
         this.id = id;
     }
-
     @NonNull
     @Override
     public CoursesList onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(c).inflate(R.layout.course_recycler_layout, viewGroup, false);
         return new CoursesList(v);
     }
-
     @Override
     public void onBindViewHolder(@NonNull final CoursesList holder, int i) {
         holder.cname.setText(details.get(i).getCourse_name());
@@ -45,9 +40,7 @@ public class CoursesListEntryAdapter extends RecyclerView.Adapter<CoursesList> {
                 c.startActivity(in);
             }
         });
-
     }
-
     @Override
     public int getItemCount() {
         return details.size();

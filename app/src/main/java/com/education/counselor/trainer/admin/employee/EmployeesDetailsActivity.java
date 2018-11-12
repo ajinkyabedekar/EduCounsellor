@@ -26,7 +26,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
 public class EmployeesDetailsActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private final List<MultiSelectionSpinner> centerList = new ArrayList<>();
     EditText name, position, mail, login, password, employee;
@@ -37,7 +36,6 @@ public class EmployeesDetailsActivity extends AppCompatActivity implements Adapt
     private String n = "", pos;
     private MultiSelectionSpinner s = new MultiSelectionSpinner();
     private MultiSelectionSpinnerAdapter adapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +67,6 @@ public class EmployeesDetailsActivity extends AppCompatActivity implements Adapt
                     centerList.add(s);
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
@@ -105,12 +102,10 @@ public class EmployeesDetailsActivity extends AppCompatActivity implements Adapt
                         m=new MultiSelectionSpinner();
                         m.setText("Center");
                         newList.add(m);
-
                         for (Object cname: Objects.requireNonNull(retrievedList))
                         {
                             m=new MultiSelectionSpinner();
                             m.setText((String)cname);
-
                             Iterable<MultiSelectionSpinner> iterable=centreList;
                             for(MultiSelectionSpinner mul:iterable)
                             {
@@ -136,10 +131,8 @@ public class EmployeesDetailsActivity extends AppCompatActivity implements Adapt
                     }
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
         submit.setOnClickListener(new View.OnClickListener() {
@@ -161,17 +154,12 @@ public class EmployeesDetailsActivity extends AppCompatActivity implements Adapt
             }
         });
     }
-
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
     }
-
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
-
     }
-
     private void update() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference(pos).child(employee.getText().toString());
@@ -183,7 +171,6 @@ public class EmployeesDetailsActivity extends AppCompatActivity implements Adapt
         finish();
         // startActivity(new Intent(getBaseContext(), EmployeesListActivity.class));
     }
-
     private boolean check(EditText[] e) {
         for (EditText ed : e) {
             if (TextUtils.isEmpty(ed.getText().toString())) {

@@ -19,7 +19,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Objects;
-
 public class CounsellorCentersActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     DatabaseReference db;
@@ -27,7 +26,6 @@ public class CounsellorCentersActivity extends AppCompatActivity {
     ProgressBar pg;
     Context mContext;
     private ArrayList<CounsellorCentersEntryVo> details = new ArrayList<>();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +49,6 @@ public class CounsellorCentersActivity extends AppCompatActivity {
                 pg.setVisibility(View.GONE);
                 recyclerView.setAdapter(adapter);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(mContext, "Error", Toast.LENGTH_SHORT).show();

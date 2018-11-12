@@ -26,7 +26,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
 public class AddEmployeeActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private final List<MultiSelectionSpinner> list = new ArrayList<>();
     EditText name, mail, login, password, employee, phone;
@@ -36,7 +35,6 @@ public class AddEmployeeActivity extends AppCompatActivity implements AdapterVie
     private DatabaseReference db;
     private MultiSelectionSpinner s = new MultiSelectionSpinner();
     private FirebaseAuth mAuth;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,13 +69,11 @@ public class AddEmployeeActivity extends AppCompatActivity implements AdapterVie
                     list.add(s);
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(AddEmployeeActivity.this, databaseError + "", Toast.LENGTH_SHORT).show();
             }
         });
-
         final MultiSelectionSpinnerAdapter adapter = new MultiSelectionSpinnerAdapter(this, 0, list);
         centers.setAdapter(adapter);
         generate_random();
@@ -135,12 +131,10 @@ public class AddEmployeeActivity extends AppCompatActivity implements AdapterVie
             }
         });
     }
-
     private void generate_random() {
         n = (long) Math.floor(Math.random() * 9_000_000_000L) + 1_000_000_000L;
         validate_random();
     }
-
     private void validate_random() {
         if (position.getSelectedItem().toString().equals("Counsellor")) {
             db = FirebaseDatabase.getInstance().getReference("counsellor");
@@ -153,10 +147,8 @@ public class AddEmployeeActivity extends AppCompatActivity implements AdapterVie
                         }
                     }
                 }
-
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
-
                 }
             });
         } else if (position.getSelectedItem().toString().equals("Trainer")) {
@@ -170,22 +162,16 @@ public class AddEmployeeActivity extends AppCompatActivity implements AdapterVie
                         }
                     }
                 }
-
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
-
                 }
             });
         }
     }
-
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
     }
-
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
-
     }
 }

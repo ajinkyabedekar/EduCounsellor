@@ -12,34 +12,28 @@ import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.employee.counsellor.start_class.courses.StartClassCoursesActivity;
 
 import java.util.ArrayList;
-
 public class StartClassCentersEntryAdapter extends RecyclerView.Adapter<StartClassCenters> {
     private Context c;
     private ArrayList<StartClassCentersEntryVo> details;
-
     StartClassCentersEntryAdapter(Context c, ArrayList<StartClassCentersEntryVo> details) {
         setHasStableIds(true);
         this.c = c;
         this.details = details;
     }
-
     @Override
     public long getItemId(int position) {
         return position;
     }
-
     @Override
     public int getItemViewType(int position) {
         return position;
     }
-
     @NonNull
     @Override
     public StartClassCenters onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(c).inflate(R.layout.layout_start_class_centers_adapter, viewGroup, false);
         return new StartClassCenters(v);
     }
-
     @Override
     public void onBindViewHolder(@NonNull final StartClassCenters holder, int i) {
         holder.s_name.setText(details.get(i).getName());
@@ -52,7 +46,6 @@ public class StartClassCentersEntryAdapter extends RecyclerView.Adapter<StartCla
             }
         });
     }
-
     @Override
     public int getItemCount() {
         return details.size();
