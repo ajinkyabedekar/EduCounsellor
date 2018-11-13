@@ -22,7 +22,10 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Objects;
+//**Main class for displaying centers**//
 public class CentersListActivity extends AppCompatActivity {
+    
+    //variables initialization
     Button add_center;
     RecyclerView recyclerView;
     DatabaseReference db;
@@ -30,24 +33,41 @@ public class CentersListActivity extends AppCompatActivity {
     ProgressBar pg;
     Context mContext;
     private ArrayList<CentersListEntryVo> details = new ArrayList<>();
+    
+    /***
+    This method is called at the start of the activity
+    This method is also responsible for inflating layout 
+    in the activity.
+    ****/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_centers_list);
         add_center = findViewById(R.id.add_center);
+        
+        //Add_center button Onclick listener
         add_center.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //This function intents to another activity
                 startActivity(new Intent(getBaseContext(), AddCentersActivity.class));
             }
         });
         mContext = this;
         pg = findViewById(R.id.progress);
+        //recycler view initialization
         recyclerView = findViewById(R.id.recycle);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+       
+        /**
+        firebase database instance initialization
+        taking reference as "centers" from firebase 
+        **/
         db = FirebaseDatabase.getInstance().getReference("centers");
         pg.setVisibility(View.VISIBLE);
+        
+        //This listener gets invoked on data change 
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
