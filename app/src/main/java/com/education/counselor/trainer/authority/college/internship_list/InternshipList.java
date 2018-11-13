@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.education.counselor.trainer.R;
+// This class is for internshiplist
 class InternshipList extends RecyclerView.ViewHolder {
     TextView s_name;
     private View v;
