@@ -18,6 +18,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.messaging.FirebaseMessaging;
 public class AuthorityCollegeDashboardActivity extends AppCompatActivity {
     Button logout, give_suggestions, internship_list, placement_list, project_list, startup_list, suggestion_list, chat;
+  
+    /***
+    This method is called at the start of the activity
+    This method is also responsible for inflating layout 
+    in the activity.
+    ****/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
