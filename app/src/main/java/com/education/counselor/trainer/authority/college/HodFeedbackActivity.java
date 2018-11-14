@@ -17,7 +17,12 @@ public class HodFeedbackActivity extends AppCompatActivity {
     EditText feedback;
     Button submit;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    /***
+    This method is called at the start of the activity
+    This method is also responsible for inflating layout 
+    in the activity.
+    ****/
+   protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hod_feedback);
         feedback = findViewById(R.id.suggestion);
