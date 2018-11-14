@@ -1,5 +1,7 @@
 package com.education.counselor.trainer.authority.college;
 
+
+//** importing required package**//
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
