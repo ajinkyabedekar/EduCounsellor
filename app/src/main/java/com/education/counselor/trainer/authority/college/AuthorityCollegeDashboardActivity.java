@@ -1,11 +1,12 @@
 package com.education.counselor.trainer.authority.college;
-
+//** importing required package**//
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+//** importing required package**//
 import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.authority.college.internship_list.InternshipListActivity;
 import com.education.counselor.trainer.authority.college.live_chat.chatChoice;
