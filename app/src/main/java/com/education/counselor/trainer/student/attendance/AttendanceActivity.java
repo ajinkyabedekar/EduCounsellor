@@ -1,5 +1,6 @@
+//package
 package com.education.counselor.trainer.student.attendance;
-
+//importing all the required packages
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -20,6 +21,7 @@ import com.education.counselor.trainer.student.StudentDashboardActivity;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
+//firebse 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -32,6 +34,7 @@ import java.util.Date;
 import java.util.Objects;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+//attendance class
 public class AttendanceActivity extends AppCompatActivity {
     double lat, lng;
     TextView latitude_tv, longitude_tv;
@@ -47,6 +50,7 @@ public class AttendanceActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
     }
+    //overridding the function oncreate for creating a user
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +66,7 @@ public class AttendanceActivity extends AppCompatActivity {
             email = user.getEmail();
         }
         db.addValueEventListener(new ValueEventListener() {
+            //overridding datas when updated the data
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
@@ -70,6 +75,7 @@ public class AttendanceActivity extends AppCompatActivity {
                     }
                 }
             }
+            //overridding when something wents error
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
@@ -80,6 +86,7 @@ public class AttendanceActivity extends AppCompatActivity {
         }
         client.getLastLocation().addOnSuccessListener(AttendanceActivity.this, new OnSuccessListener<Location>() {
             @SuppressLint("SetTextI18n")
+            //writing on success 
             @Override
             public void onSuccess(Location location) {
                 if (location != null) {
@@ -92,6 +99,7 @@ public class AttendanceActivity extends AppCompatActivity {
             }
         });
         attend.setOnClickListener(new View.OnClickListener() {
+            //overidding new entry
             @Override
             public void onClick(final View view) {
                 attend.setVisibility(View.GONE);
@@ -113,6 +121,7 @@ public class AttendanceActivity extends AppCompatActivity {
         });
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
+            //final view
             public void onClick(final View view) {
                 final AlertDialog.Builder dialog = new AlertDialog.Builder(view.getContext());
                 dialog.setCancelable(false);
@@ -144,6 +153,7 @@ public class AttendanceActivity extends AppCompatActivity {
                 });
                 dialog.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
                     @Override
+                    //error cotrol message
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.cancel();
                     }
