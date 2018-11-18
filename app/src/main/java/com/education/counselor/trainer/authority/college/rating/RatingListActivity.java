@@ -1,4 +1,8 @@
 package com.education.counselor.trainer.authority.college.rating;
+/*-------------------------------------------------------------------------------------------
+ |     Its shows rating list which has relevent functions                                     |
+ |---------------------------------------------------------------------------------------------
+*/
 
 import android.content.Context;
 import android.os.Bundle;
