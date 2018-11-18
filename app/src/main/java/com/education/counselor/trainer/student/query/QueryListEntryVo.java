@@ -1,3 +1,8 @@
+/*
+*************************************
+*      Author:Yogesh Sharma         *
+*************************************
+*/
 package com.education.counselor.trainer.student.query;
 public class QueryListEntryVo {
     private String name, phone;
