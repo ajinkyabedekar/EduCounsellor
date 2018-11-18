@@ -1,4 +1,13 @@
 package com.education.counselor.trainer.authority.school.live_chat;
+/*
+  
+******************************************************************
+* It is for selecting and having live chat  *
+******************************************************************
+*************************************
+*      Biren Sharma         *
+*************************************
+*/
 
 import android.content.Intent;
 import android.os.Bundle;
