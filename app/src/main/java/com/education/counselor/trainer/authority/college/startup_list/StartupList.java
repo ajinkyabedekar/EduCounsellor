@@ -1,5 +1,8 @@
 package com.education.counselor.trainer.authority.college.startup_list;
-
+/*-------------------------------------------------------------------------------------------
+ |     Its a for showing Startuplist in the module                                          |
+ |---------------------------------------------------------------------------------------------
+*/
 import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
