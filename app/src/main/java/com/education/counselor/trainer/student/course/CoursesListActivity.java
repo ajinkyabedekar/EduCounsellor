@@ -71,6 +71,9 @@ public class CoursesListActivity extends AppCompatActivity {
         DatabaseReference db = FirebaseDatabase.getInstance().getReference("courses");
         db.addValueEventListener(new ValueEventListener() {
             @Override
+            
+         //overriding according to the required calculation
+
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     if (Objects.equals(ds.child("details").child("status").getValue(), status)) {
