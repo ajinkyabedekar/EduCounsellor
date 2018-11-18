@@ -2,6 +2,10 @@
 *************************************
 *      Author:Yogesh Sharma         *
 *************************************
+ --------------------------------------------------------------------------------------------------------------------------
+ |     Its an intenship activity detail class which shhow  details of the individual  internship of the registered student |
+  -------------------------------------------------------------------------------------------------------------------------
+
 */
 package com.education.counselor.trainer.student.internship;
 
