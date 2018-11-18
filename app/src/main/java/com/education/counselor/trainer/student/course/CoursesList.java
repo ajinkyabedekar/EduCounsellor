@@ -19,6 +19,7 @@ class CoursesList extends RecyclerView.ViewHolder {
         cid = itemView.findViewById(R.id.cid);
         v = itemView.findViewById(R.id.rl);
     }
+ //getter method for TextView
     public TextView getCname() {
         return cname;
     }
