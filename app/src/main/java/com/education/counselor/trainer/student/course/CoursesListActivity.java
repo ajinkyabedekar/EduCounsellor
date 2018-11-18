@@ -28,6 +28,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Objects;
 public class CoursesListActivity extends AppCompatActivity {
+ /*
+               ************************************
+               * initialising instance variables  *
+               ************************************
+ */
     private RecyclerView recyclerView;
     private ArrayList<CoursesListEntryVo> data = new ArrayList<>();
     private CoursesListEntryAdapter adapter;
