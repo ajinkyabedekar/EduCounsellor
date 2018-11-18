@@ -32,7 +32,7 @@ public class CourseDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final String data[] = getIntent().getStringArrayExtra("cdata");
+        final String data[] = getIntent().getStringArrayExtra("cdata");//extracting cdata
         setContentView(R.layout.activity_course_details);
         fee = findViewById(R.id.fee_sub_text);
         next = findViewById(R.id.nextPayText);
@@ -45,6 +45,7 @@ public class CourseDetailsActivity extends AppCompatActivity {
         DatabaseReference db = FirebaseDatabase.getInstance().getReference("CoursesListEntryVo");
         db.addValueEventListener(new ValueEventListener() {
             @Override
+         //adding values in a db at second position 
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     if (data[0].equals(ds.getKey())) {
