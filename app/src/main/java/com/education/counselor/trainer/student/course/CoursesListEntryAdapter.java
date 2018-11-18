@@ -22,6 +22,11 @@ import com.education.counselor.trainer.R;
 
 import java.util.ArrayList;
 public class CoursesListEntryAdapter extends RecyclerView.Adapter<CoursesList> {
+ /*
+         **********************************
+         * Initialising instance variable *
+         **********************************
+ */
     private Context c;
     private ArrayList<CoursesListEntryVo> details;
     private String name, id;
