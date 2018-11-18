@@ -2,6 +2,10 @@
 *************************************
 *      Author:Yogesh Sharma         *
 *************************************
+  -----------------------------------------------------------------------------------------------------
+ |     Its a Placementadapter activity where it is used to view the list of  all Placement student did |
+  -----------------------------------------------------------------------------------------------------
+
 */
 package com.education.counselor.trainer.student.placement;
 
