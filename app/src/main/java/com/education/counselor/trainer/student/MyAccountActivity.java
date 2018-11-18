@@ -2,6 +2,9 @@
 *************************************
 *      Author:Yogesh Sharma         *
 *************************************
+-------------------------------------------------------
+| Details of the current user logged in in the system  |
+--------------------------------------------------------
 */
 package com.education.counselor.trainer.student;
 
