@@ -1,3 +1,4 @@
+//importing packages
 package com.education.counselor.trainer.student.course;
 
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.education.counselor.trainer.R;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
