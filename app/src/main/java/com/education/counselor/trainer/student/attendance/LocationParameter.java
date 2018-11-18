@@ -2,6 +2,9 @@
 *************************************
 *      Author:Yogesh Sharma         *
 *************************************
+******************************************************************
+*     this is model class for storing latitude and longitude     *
+******************************************************************
 */
 //ADDING LOCACTION PARAMETERS
 package com.education.counselor.trainer.student.attendance;
