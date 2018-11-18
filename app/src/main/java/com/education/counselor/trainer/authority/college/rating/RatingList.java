@@ -1,5 +1,11 @@
 package com.education.counselor.trainer.authority.college.rating;
 
+/*-------------------------------------------------------------------------------------------
+ |     Its a course rating class which has relevent function for rating by students  |
+ |---------------------------------------------------------------------------------------------
+*/
+//importing packages
+
 import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
