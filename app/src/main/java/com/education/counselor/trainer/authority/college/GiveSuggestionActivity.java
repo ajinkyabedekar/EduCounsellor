@@ -7,7 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
+/*-------------------------------------------------------------------------------------------
+ |     This file contains function releted to suggestion from concerned person to the authority |
+ |      Author : Biren Sharma                                                                   |
+ |---------------------------------------------------------------------------------------------
+*/
 import com.education.counselor.trainer.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
