@@ -7,6 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+/*-------------------------------------------------------------------------------------------
+ |     This file is for populating componetns of the Lists                                    |
+ |---------------------------------------------------------------------------------------------
+*/
+
+
 import com.education.counselor.trainer.R;
 
 import java.util.ArrayList;
