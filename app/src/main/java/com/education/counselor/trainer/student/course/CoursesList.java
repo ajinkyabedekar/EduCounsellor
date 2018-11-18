@@ -1,4 +1,7 @@
-package com.education.counselor.trainer.student.course;
+/*-------------------------------------------------------------------------------------------
+|     Its a courseList class which does relevent function related with students              |
+ ---------------------------------------------------------------------------------------------
+*/package com.education.counselor.trainer.student.course;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +10,7 @@ import android.widget.TextView;
 
 import com.education.counselor.trainer.R;
 class CoursesList extends RecyclerView.ViewHolder {
+    
     TextView cname, cid;
     View v;
     CoursesList(@NonNull View itemView) {
