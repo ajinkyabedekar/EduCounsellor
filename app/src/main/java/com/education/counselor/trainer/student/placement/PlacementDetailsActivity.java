@@ -2,6 +2,10 @@
 *************************************
 *      Author:Yogesh Sharma         *
 *************************************
+ --------------------------------------------------------------------------------------------------------------------------
+ |     Its an placement activity detail class which shhow  details of the individual  placement of the registered student |
+  -------------------------------------------------------------------------------------------------------------------------
+
 */
 package com.education.counselor.trainer.student.placement;
 
