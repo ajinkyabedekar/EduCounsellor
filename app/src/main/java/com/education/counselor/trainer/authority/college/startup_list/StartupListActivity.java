@@ -1,5 +1,8 @@
 package com.education.counselor.trainer.authority.college.startup_list;
-
+/*-------------------------------------------------------------------------------------------
+ |     Its a Activity related to  students StartupListActivity under college module  |
+ |---------------------------------------------------------------------------------------------
+*/
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
