@@ -1,5 +1,9 @@
 package com.education.counselor.trainer.authority.college;
-
+/*-------------------------------------------------------------------------------------------
+ |     This files has program  which is related to Feedback to  HOD of the perticular Department|
+ |      Author : Biren Sharma                                                                   |
+ |---------------------------------------------------------------------------------------------
+*/
 
 //** importing required package**//
 import android.content.Intent;
