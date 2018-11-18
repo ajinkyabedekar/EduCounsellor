@@ -1,4 +1,13 @@
 package com.education.counselor.trainer.authority.college.suggestion_list;
+/*
+  
+******************************************************************
+* this is model class for retriving datas of coursefrom firebase *
+******************************************************************
+*************************************
+*      Biren Sharma         *
+*************************************
+*/
 public class SuggestionListEntryVo {
     private String name, phone;
     SuggestionListEntryVo() {
