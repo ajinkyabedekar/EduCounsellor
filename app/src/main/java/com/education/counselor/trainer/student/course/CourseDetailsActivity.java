@@ -1,3 +1,7 @@
+/*-------------------------------------------------------------------------------------------
+ |     Its a course activity detail class which does relevent function related with students  |
+ |---------------------------------------------------------------------------------------------
+*/
 //importing packages
 package com.education.counselor.trainer.student.course;
 
