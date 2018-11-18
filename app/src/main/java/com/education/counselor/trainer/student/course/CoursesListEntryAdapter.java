@@ -2,9 +2,9 @@
 *************************************
 *      Author:Yogesh Sharma         *
 *************************************
-  ----------------------------------------------------------------------------------------------
- | Its a courseEntery activity detail class which does relevent function related with students  |
-  -----------------------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------------------------------
+ | Its a courseEnteryAdapter activity which populate the component of the list of the course present   |
+  ----------------------------------------------------------------------------------------------------
 */
 
 package com.education.counselor.trainer.student.course;
