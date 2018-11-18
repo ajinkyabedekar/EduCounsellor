@@ -65,6 +65,9 @@ public class CoursesListActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
+     
+     //Extracting course data from firebase database
+     
         DatabaseReference db = FirebaseDatabase.getInstance().getReference("courses");
         db.addValueEventListener(new ValueEventListener() {
             @Override
