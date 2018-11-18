@@ -3,7 +3,7 @@
 *      Author:Yogesh Sharma         *
 *************************************
  -------------------------------------------------------------------------------------------
-|     Its a courseList class which does relevent function related with students              |
+|     Indevidual component of the course list  related with students are listed here        |
  ---------------------------------------------------------------------------------------------
 */
 package com.education.counselor.trainer.student.course;
