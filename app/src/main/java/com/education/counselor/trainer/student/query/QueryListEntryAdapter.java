@@ -2,6 +2,10 @@
 *************************************
 *      Author:Yogesh Sharma         *
 *************************************
+  -------------------------------------------------------------------------------------------------------------
+ | Its a QueryEnteryAdapter activity which populate the component of the list of the Query  present           |
+  -------------------------------------------------------------------------------------------------------------
+
 */
 package com.education.counselor.trainer.student.query;
 
