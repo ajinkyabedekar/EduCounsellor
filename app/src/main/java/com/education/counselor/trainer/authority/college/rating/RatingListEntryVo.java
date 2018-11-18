@@ -1,4 +1,8 @@
 package com.education.counselor.trainer.authority.college.rating;
+/*-------------------------------------------------------------------------------------------
+ |     Its is a model class for writing data in this module                                   |
+ |---------------------------------------------------------------------------------------------
+*/
 public class RatingListEntryVo {
     private String name, rating;
     RatingListEntryVo() {
