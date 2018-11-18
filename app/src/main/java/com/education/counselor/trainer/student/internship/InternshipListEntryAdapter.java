@@ -2,6 +2,10 @@
 *************************************
 *      Author:Yogesh Sharma         *
 *************************************
+  -------------------------------------------------------------------------------------------------------------
+ | Its a internshipEnteryAdapter activity which populate the component of the list of the internship present   |
+  -------------------------------------------------------------------------------------------------------------
+
 */
 package com.education.counselor.trainer.student.internship;
 
