@@ -2,10 +2,10 @@
 *************************************
 *      Author:Yogesh Sharma         *
 *************************************
- ----------------------------------------------------------------------------------------------------------
- |     Its a internship activity detail class which shows the internshiips of the registered student       |
-  ----------------------------------------------------------------------------------------------------------
-*/
+ ----------------------------------------------------------------------------------
+ |     Its a add internship  class where student can add the internship he did   |
+  ---------------------------------------------------------------------------------
+  */
 package com.education.counselor.trainer.student.internship;
 
 import android.content.Intent;
