@@ -28,6 +28,7 @@ class CoursesList extends RecyclerView.ViewHolder {
     public void setCname(TextView cname) {
         this.cname = cname;
     }
+  //getter method for id
     public TextView getCid() {
         return cid;
     }
