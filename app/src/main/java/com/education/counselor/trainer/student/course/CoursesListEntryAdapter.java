@@ -1,3 +1,9 @@
+
+/*----------------------------------------------------------------------------------------------
+ | Its a courseEntery activity detail class which does relevent function related with students  |
+ -----------------------------------------------------------------------------------------------
+*/
+
 package com.education.counselor.trainer.student.course;
 
 import android.content.Context;
