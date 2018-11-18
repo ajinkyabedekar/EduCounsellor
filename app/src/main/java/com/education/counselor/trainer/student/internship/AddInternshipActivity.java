@@ -2,6 +2,9 @@
 *************************************
 *      Author:Yogesh Sharma         *
 *************************************
+ ----------------------------------------------------------------------------------------------------------
+ |     Its a internship activity detail class which shows the internshiips of the registered student       |
+  ----------------------------------------------------------------------------------------------------------
 */
 package com.education.counselor.trainer.student.internship;
 
