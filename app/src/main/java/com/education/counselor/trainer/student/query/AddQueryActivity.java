@@ -2,6 +2,10 @@
 *************************************
 *      Author:Yogesh Sharma         *
 *************************************
+ ----------------------------------------------------------------------------------
+      Its a add query  class where student can ask queries he/she has to the adm   |
+  ---------------------------------------------------------------------------------
+ 
 */
 package com.education.counselor.trainer.student.query;
 
