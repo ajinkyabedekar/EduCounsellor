@@ -59,6 +59,7 @@ public class CourseDetailsActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
+     //viewing  
         review.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
