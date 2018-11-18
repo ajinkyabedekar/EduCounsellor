@@ -5,7 +5,8 @@
  -------------------------------------------------------------------------------------------
 |     Its a courseList class which does relevent function related with students              |
  ---------------------------------------------------------------------------------------------
-*/package com.education.counselor.trainer.student.course;
+*/
+package com.education.counselor.trainer.student.course;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
