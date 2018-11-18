@@ -1,3 +1,12 @@
+/*
+*************************
+* Author : Yogesh sharma *
+**************************
+**************************************************************************************
+* this is model class to record login activity and authenticate the students to login *
+****************************************************************************************
+
+*/
 package com.education.counselor.trainer.login;
 
 import android.annotation.SuppressLint;
