@@ -53,6 +53,6 @@ public class CoursesListEntryAdapter extends RecyclerView.Adapter<CoursesList> {
     }
     @Override
     public int getItemCount() {
-        return details.size();
+        return details.size();   
     }
 }
