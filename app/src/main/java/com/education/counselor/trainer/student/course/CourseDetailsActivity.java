@@ -2,9 +2,9 @@
 *************************************
 *      Author:Yogesh Sharma         *
 *************************************
- -------------------------------------------------------------------------------------------
- |     Its a course activity detail class which does relevent function related with students  |
-  ---------------------------------------------------------------------------------------------
+ ----------------------------------------------------------------------------------------------------------
+ |     Its a course activity detail class which shows active and inactive course of the registered student |
+  ----------------------------------------------------------------------------------------------------------
 */
 //importing packages
 package com.education.counselor.trainer.student.course;
