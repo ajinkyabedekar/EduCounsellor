@@ -1,4 +1,13 @@
 package com.education.counselor.trainer.authority.college.project_list;
+/*
+  
+******************************************************************
+* this is model class for setting and retriving datas from firebase *
+******************************************************************
+*************************************
+*      Biren Sharma         *
+*************************************
+*/
 public class ProjectListEntryVo {
     private String name;
     ProjectListEntryVo() {
