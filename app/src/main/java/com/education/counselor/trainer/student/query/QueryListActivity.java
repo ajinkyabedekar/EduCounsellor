@@ -2,6 +2,10 @@
 *************************************
 *      Author:Yogesh Sharma         *
 *************************************
+ -------------------------------------------------------------------------------------------
+|     Indevidual component of the Query  list  related with students are listed here        |
+ --------------------------------------------------------------------------------------------
+
 */
 package com.education.counselor.trainer.student.query;
 
