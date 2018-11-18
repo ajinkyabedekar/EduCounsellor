@@ -2,9 +2,9 @@
 *************************************
 *      Author:Yogesh Sharma         *
 *************************************
-  -------------------------------------------------------------------------------------------
- |     Its a courselist activity class which does relevent function related with students    |
-  ---------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------
+ |     Its a courselist activity where it is used to view the list of  all course course  present    |
+  --------------------------------------------------------------------------------------------------
 */
 package com.education.counselor.trainer.student.course;
 
