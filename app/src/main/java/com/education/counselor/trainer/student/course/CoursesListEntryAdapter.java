@@ -5,7 +5,11 @@
 */
 
 package com.education.counselor.trainer.student.course;
-
+/*                 
+            *******************************
+            * Importing revelent packages *
+            *******************************
+*/
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
