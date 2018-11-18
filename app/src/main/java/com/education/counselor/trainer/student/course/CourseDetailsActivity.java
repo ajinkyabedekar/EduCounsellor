@@ -27,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Random;
 public class CourseDetailsActivity extends AppCompatActivity {
-    TextView fee, next, stat, content, desc, id;
+    TextView fee, next, stat, content, desc, id;//initilizing variables 
     Button review, project;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
