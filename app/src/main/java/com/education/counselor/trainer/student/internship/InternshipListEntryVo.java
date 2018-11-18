@@ -3,7 +3,7 @@
 *      Author:Yogesh Sharma         *
 *************************************
 ******************************************************************
-* this is model class for retriving datas of coursefrom firebase *
+* this is model class for retriving datas of internship from firebase *
 ******************************************************************
 */
 package com.education.counselor.trainer.student.internship;
