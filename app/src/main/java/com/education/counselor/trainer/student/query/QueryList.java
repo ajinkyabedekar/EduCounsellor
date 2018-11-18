@@ -2,6 +2,10 @@
 *************************************
 *      Author:Yogesh Sharma         *
 *************************************
+--------------------------------------------------------------------------------------------------------------------------
+ |     Its an query activity detail class which shhow  details of the individual  query  of the registered student       |
+  -------------------------------------------------------------------------------------------------------------------------
+
 */
 package com.education.counselor.trainer.student.query;
 
