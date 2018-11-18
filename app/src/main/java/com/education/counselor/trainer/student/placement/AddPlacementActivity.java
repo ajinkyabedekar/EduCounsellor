@@ -3,7 +3,7 @@
 *      Author:Yogesh Sharma         *
 *************************************
  -----------------------------------------------------------------------------------------
- |     Its a add internship  class where student can add he is placeed from the collage    |
+ |     Its a add Placement  class where student can add he is placeed from the collage    |
   ----------------------------------------------------------------------------------------
 */
 package com.education.counselor.trainer.student.placement;
