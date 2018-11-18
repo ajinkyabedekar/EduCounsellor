@@ -2,6 +2,10 @@
 *************************************
 *      Author:Yogesh Sharma         *
 *************************************
+  -------------------------------------------------------------------------------------------------
+ |     Its a internshiplist activity where it is used to view the list of  all internship  present |
+  --------------------------------------------------------------------------------------------------
+
 */
 package com.education.counselor.trainer.student.internship;
 
