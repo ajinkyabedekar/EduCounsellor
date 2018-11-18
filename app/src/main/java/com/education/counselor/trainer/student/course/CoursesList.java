@@ -13,7 +13,7 @@ class CoursesList extends RecyclerView.ViewHolder {
     //initilizing variables
     TextView cname, cid;
     View v;
-    CoursesList(@NonNull View itemView) {
+    CoursesList(@NonNull View itemView) {//constructor
         super(itemView);
         cname = itemView.findViewById(R.id.cname);
         cid = itemView.findViewById(R.id.cid);
