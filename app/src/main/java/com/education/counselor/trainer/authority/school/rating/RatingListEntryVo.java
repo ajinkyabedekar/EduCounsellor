@@ -1,4 +1,13 @@
 package com.education.counselor.trainer.authority.school.rating;
+/*
+  
+******************************************************************
+* this is model class for setting and retriving datas from firebase *
+******************************************************************
+*************************************
+*      Biren Sharma         *
+*************************************
+*/
 public class RatingListEntryVo {
     private String name, rating;
     RatingListEntryVo() {
