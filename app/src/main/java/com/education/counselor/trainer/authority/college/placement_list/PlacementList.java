@@ -1,5 +1,9 @@
 package com.education.counselor.trainer.authority.college.placement_list;
-
+/*-------------------------------------------------------------------------------------------
+ |     Its is for veiwing List of Placements under college                                   |
+ |     Author: Biren Sharma                                                                  |
+ |---------------------------------------------------------------------------------------------
+*/
 import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
