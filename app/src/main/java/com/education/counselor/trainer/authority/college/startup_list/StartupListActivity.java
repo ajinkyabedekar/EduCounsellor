@@ -13,6 +13,10 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+/*-------------------------------------------------------------------------------------------
+ |     Intergating firebase packages                                                          |
+ |---------------------------------------------------------------------------------------------
+*/
 import com.education.counselor.trainer.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
