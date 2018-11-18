@@ -2,6 +2,10 @@
 *************************************
 *      Author:Yogesh Sharma         *
 *************************************
+******************************************************************
+* this is model class for storing datas of Queries  in firebase  *
+******************************************************************
+
 */
 package com.education.counselor.trainer.student.query;
 public class QueryListEntryVo {
