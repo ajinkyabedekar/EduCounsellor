@@ -1,3 +1,9 @@
+/*
+*************************************
+*      Author:Yogesh Sharma         *
+*************************************
+*/
+
 package com.education.counselor.trainer.student.placement;
 public class PlacementListEntryVo {
     private String name;
