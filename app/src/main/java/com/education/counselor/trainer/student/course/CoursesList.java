@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.education.counselor.trainer.R;
 class CoursesList extends RecyclerView.ViewHolder {
-    
+    //initilizing variables
     TextView cname, cid;
     View v;
     CoursesList(@NonNull View itemView) {
