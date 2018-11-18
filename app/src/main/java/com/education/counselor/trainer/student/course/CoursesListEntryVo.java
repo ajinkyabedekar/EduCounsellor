@@ -4,7 +4,7 @@
 *************************************
   
 ******************************************************************
-* this is model class for retriving datas of course from firebase *
+* this is model class for storing datas of course in  firebase   *
 ******************************************************************
 
 */
