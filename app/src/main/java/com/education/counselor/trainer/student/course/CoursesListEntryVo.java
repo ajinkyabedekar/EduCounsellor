@@ -1,3 +1,10 @@
+/*  
+******************************************************************
+* this is model class for retriving datas of coursefrom firebase *
+******************************************************************
+
+*/
+
 package com.education.counselor.trainer.student.course;
 public class CoursesListEntryVo {
     private String course_name, course_id;
