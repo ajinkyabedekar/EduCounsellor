@@ -1,4 +1,9 @@
 package com.education.counselor.trainer.authority.college;
+/*-------------------------------------------------------------------------------------------
+ |     Its is for Dashboard of College authority                                             |
+ |      Author : Biren Sharma                                                                |
+ |---------------------------------------------------------------------------------------------
+*/
 //** importing required package**//
 import android.content.Intent;
 import android.os.Bundle;
