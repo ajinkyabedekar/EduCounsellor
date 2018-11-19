@@ -3,7 +3,7 @@
 *      Author:Yogesh Sharma         *
 *************************************
  -------------------------------------------------------------------------------------------
-|     Indevidual component of the internship  list  related with students are listed here   |
+|     Individual component of the internship  list  related with students are listed here   |
  --------------------------------------------------------------------------------------------
 
 */
