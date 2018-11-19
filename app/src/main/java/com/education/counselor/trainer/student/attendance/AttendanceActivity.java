@@ -10,7 +10,7 @@
 
 //package
 package com.education.counselor.trainer.student.attendance;
-//importing all the required packages
+//importing all the required Classes
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
