@@ -2,11 +2,9 @@ package com.education.counselor.trainer.launcher;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.admin.AdminDashboardActivity;
@@ -26,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Objects;
 public class SplashScreenActivity extends AppCompatActivity {
     String email, access;
-    boolean grant = false, flag = false;
+    boolean flag = false;
     private DatabaseReference db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,18 +34,11 @@ public class SplashScreenActivity extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         db = FirebaseDatabase.getInstance().getReference();
         checkUser(user);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-                finish();
-            }
-        }, 1000);
     }
     private void checkUser(final FirebaseUser user) {
         if (user != null) {
             email = user.getEmail();
-            db.addValueEventListener(new ValueEventListener() {
+            db.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     for (DataSnapshot ds : dataSnapshot.getChildren()) {
@@ -88,22 +79,27 @@ public class SplashScreenActivity extends AppCompatActivity {
                                 finishAffinity();
                                 break;
                             default:
-                                Toast.makeText(getBaseContext(), "Please Check Your Network Connection", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                                finishAffinity();
                                 break;
                         }
                     } else {
-                        Toast.makeText(getBaseContext(), "Please Check Your Network Connection and Login", Toast.LENGTH_SHORT).show();
-                        grant = false;
+                        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                        finishAffinity();
                     }
                 }
+
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
                 }
             });
+        } else {
+            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+            finishAffinity();
         }
     }
     @Override
-    protected void onStart() {
-        super.onStart();
+    public void onBackPressed() {
+        finishAffinity();
     }
 }

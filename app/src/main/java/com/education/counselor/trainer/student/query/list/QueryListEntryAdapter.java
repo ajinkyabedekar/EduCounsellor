@@ -1,13 +1,4 @@
-/*
-*************************************
-*      Author:Yogesh Sharma         *
-*************************************
-  -------------------------------------------------------------------------------------------------------------
- | Its a QueryEnteryAdapter activity which populate the component of the list of the Query  present           |
-  -------------------------------------------------------------------------------------------------------------
-
-*/
-package com.education.counselor.trainer.student.query;
+package com.education.counselor.trainer.student.query.list;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -45,6 +36,7 @@ public class QueryListEntryAdapter extends RecyclerView.Adapter<QueryList> {
     public void onBindViewHolder(@NonNull final QueryList holder, int i) {
         holder.s_name.setText(details.get(i).getName());
         holder.p_name.setText(details.get(i).getPhone());
+        holder.v.setEnabled(false);
     }
     @Override
     public int getItemCount() {

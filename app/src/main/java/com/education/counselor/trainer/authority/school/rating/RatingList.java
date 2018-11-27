@@ -11,7 +11,7 @@ import com.education.counselor.trainer.R;
 class RatingList extends RecyclerView.ViewHolder {
     TextView s_name;
     RatingBar rating;
-    private View v;
+    View v;
     @SuppressLint("SetTextI18n")
     RatingList(@NonNull View itemView) {
         super(itemView);

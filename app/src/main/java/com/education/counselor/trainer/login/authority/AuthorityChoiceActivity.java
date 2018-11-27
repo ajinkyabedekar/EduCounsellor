@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.education.counselor.trainer.R;
+import com.education.counselor.trainer.launcher.LoginActivity;
 import com.education.counselor.trainer.login.authority.login.AuthorityCollegeLoginActivity;
 import com.education.counselor.trainer.login.authority.login.AuthoritySchoolLoginActivity;
 public class AuthorityChoiceActivity extends AppCompatActivity {
@@ -21,13 +22,21 @@ public class AuthorityChoiceActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getBaseContext(), AuthoritySchoolLoginActivity.class));
+                finishAffinity();
             }
         });
         college.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getBaseContext(), AuthorityCollegeLoginActivity.class));
+                finishAffinity();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(getBaseContext(), LoginActivity.class));
+        finishAffinity();
     }
 }

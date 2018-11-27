@@ -53,6 +53,16 @@
                 android:background="@drawable/button_back_1"
                 android:padding="10sp"
                 android:text="@string/query_list" />
+
+            <Button
+                android:id="@+id/enrolled_course"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/button_back_1"
+                android:padding="10sp"
+                android:text="@string/enrolled_courses" />
+
             <Button
                 android:id="@+id/courses_list"
                 android:layout_width="match_parent"
@@ -93,6 +103,34 @@
                 android:background="@drawable/button_back_1"
                 android:padding="10sp"
                 android:text="@string/call_counsellor" />
+
+            <Button
+                android:id="@+id/pay_online"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/button_back_1"
+                android:padding="10sp"
+                android:text="@string/pay_online" />
+
+            <Button
+                android:id="@+id/paytm_neft"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/button_back_1"
+                android:padding="10sp"
+                android:text="@string/paytm_neft" />
+
+            <Button
+                android:id="@+id/rankethon_website"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/button_back_1"
+                android:padding="10sp"
+                android:text="@string/rankethon_website" />
+
             <Button
                 android:id="@+id/logout"
                 android:layout_width="match_parent"
@@ -102,6 +140,16 @@
                 android:padding="10sp"
                 android:text="@string/logout"
                 android:textColor="@color/white" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <WebView
+                    android:id="@+id/webview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </RelativeLayout>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

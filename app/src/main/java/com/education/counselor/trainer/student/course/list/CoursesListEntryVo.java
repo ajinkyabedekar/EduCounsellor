@@ -1,15 +1,4 @@
-/*
-*************************************
-*      Author:Yogesh Sharma         *
-*************************************
-  
-******************************************************************
-* this is model class for storing datas of course in  firebase   *
-******************************************************************
-
-*/
-
-package com.education.counselor.trainer.student.course;
+package com.education.counselor.trainer.student.course.list;
 public class CoursesListEntryVo {
     private String course_name, course_id;
     CoursesListEntryVo(String course_name, String course_id) {

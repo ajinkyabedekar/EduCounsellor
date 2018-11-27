@@ -35,6 +35,7 @@ public class StartupListEntryAdapter extends RecyclerView.Adapter<StartupList> {
     @Override
     public void onBindViewHolder(@NonNull final StartupList holder, int i) {
         holder.s_name.setText(details.get(i).getName());
+        holder.v.setEnabled(false);
     }
     @Override
     public int getItemCount() {

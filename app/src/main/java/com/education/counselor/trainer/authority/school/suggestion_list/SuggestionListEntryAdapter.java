@@ -36,6 +36,7 @@ public class SuggestionListEntryAdapter extends RecyclerView.Adapter<SuggestionL
     public void onBindViewHolder(@NonNull final SuggestionList holder, int i) {
         holder.s_name.setText(details.get(i).getName());
         holder.p_name.setText(details.get(i).getPhone());
+        holder.v.setEnabled(false);
     }
     @Override
     public int getItemCount() {

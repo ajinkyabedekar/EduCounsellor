@@ -1,16 +1,5 @@
-/*
-*************************************
-*      Author:Yogesh Sharma         *
-*************************************
-******************************************************************
-*              Loction wise attendance                           *
-******************************************************************
-*/
-
-
-//package
 package com.education.counselor.trainer.student.attendance;
-//importing all the required Classes
+
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -27,11 +16,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.education.counselor.trainer.R;
+import com.education.counselor.trainer.launcher.LoginActivity;
 import com.education.counselor.trainer.student.StudentDashboardActivity;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
-//firebse 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -44,7 +33,6 @@ import java.util.Date;
 import java.util.Objects;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
-//attendance class
 public class AttendanceActivity extends AppCompatActivity {
     double lat, lng;
     TextView latitude_tv, longitude_tv;
@@ -56,11 +44,10 @@ public class AttendanceActivity extends AppCompatActivity {
     Date date = new Date();
     Long t1, t2;
     Long hours, minutes, secs, mils;
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
-    //overridding the function oncreate for creating a user
+    String access;
+    int temp = 0;
+    boolean flag = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,8 +62,7 @@ public class AttendanceActivity extends AppCompatActivity {
         if (user != null) {
             email = user.getEmail();
         }
-        db.addValueEventListener(new ValueEventListener() {
-            //overridding datas when updated the data
+        db.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
@@ -85,7 +71,6 @@ public class AttendanceActivity extends AppCompatActivity {
                     }
                 }
             }
-            //overridding when something wents error
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
@@ -96,7 +81,6 @@ public class AttendanceActivity extends AppCompatActivity {
         }
         client.getLastLocation().addOnSuccessListener(AttendanceActivity.this, new OnSuccessListener<Location>() {
             @SuppressLint("SetTextI18n")
-            //writing on success 
             @Override
             public void onSuccess(Location location) {
                 if (location != null) {
@@ -109,7 +93,6 @@ public class AttendanceActivity extends AppCompatActivity {
             }
         });
         attend.setOnClickListener(new View.OnClickListener() {
-            //overidding new entry
             @Override
             public void onClick(final View view) {
                 attend.setVisibility(View.GONE);
@@ -131,7 +114,6 @@ public class AttendanceActivity extends AppCompatActivity {
         });
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
-            //final view
             public void onClick(final View view) {
                 final AlertDialog.Builder dialog = new AlertDialog.Builder(view.getContext());
                 dialog.setCancelable(false);
@@ -157,13 +139,13 @@ public class AttendanceActivity extends AppCompatActivity {
                             });
                             db.child(key).child("attendance").child("batch_number").child(String.valueOf(date)).child("class_status").setValue("Attended");
                             startActivity(new Intent(getBaseContext(), StudentDashboardActivity.class));
+                            finishAffinity();
                         } else
                             Toast.makeText(AttendanceActivity.this, "Location is not set", Toast.LENGTH_SHORT).show();
                     }
                 });
                 dialog.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
                     @Override
-                    //error cotrol message
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.cancel();
                     }
@@ -172,5 +154,59 @@ public class AttendanceActivity extends AppCompatActivity {
                 alert.show();
             }
         });
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            checkUser(user);
+        }
+    }
+
+    private void checkUser(final FirebaseUser user) {
+        email = user.getEmail();
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+        db.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    for (DataSnapshot dataSnapshot1 : ds.getChildren()) {
+                        if (Objects.equals(dataSnapshot1.child("mail").getValue(String.class), email)) {
+                            access = ds.getKey();
+                            flag = true;
+                            break;
+                        }
+                    }
+                    if (flag)
+                        break;
+                }
+                if (access != null) {
+                    switch (access) {
+                        case "student":
+                            return;
+                        default:
+                            temp = 1;
+                            break;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+        if (temp == 1) {
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(getBaseContext(), LoginActivity.class));
+            finishAffinity();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(getBaseContext(), StudentDashboardActivity.class));
+        finishAffinity();
     }
 }

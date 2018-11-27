@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.employee.counsellor.CounsellorDashboardActivity;
 import com.education.counselor.trainer.launcher.LoginActivity;
+import com.education.counselor.trainer.login.employee.EmployeeChoiceActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -36,6 +37,8 @@ public class CounsellorLoginActivity extends AppCompatActivity {
     String key;
     FirebaseDatabase database;
     private FirebaseAuth mAuth;
+    String email, access;
+    boolean flag = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,8 +112,49 @@ public class CounsellorLoginActivity extends AppCompatActivity {
         super.onStart();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
+            checkUser(user);
             startActivity(new Intent(getBaseContext(), CounsellorDashboardActivity.class));
+            finishAffinity();
         }
+    }
+
+    private void checkUser(final FirebaseUser user) {
+        email = user.getEmail();
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+        db.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    for (DataSnapshot dataSnapshot1 : ds.getChildren()) {
+                        if (Objects.equals(dataSnapshot1.child("mail").getValue(String.class), email)) {
+                            access = ds.getKey();
+                            flag = true;
+                            break;
+                        }
+                    }
+                    if (flag)
+                        break;
+                }
+                if (access != null) {
+                    switch (access) {
+                        case "counsellor":
+                            return;
+                        default:
+                            FirebaseAuth.getInstance().signOut();
+                            startActivity(new Intent(getBaseContext(), LoginActivity.class));
+                            finishAffinity();
+                            Toast.makeText(getBaseContext(), "Please Check Your Network Connection", Toast.LENGTH_SHORT).show();
+                            break;
+                    }
+                } else {
+                    Toast.makeText(getBaseContext(), "Please Check Your Network Connection and Login", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
     }
     public void login(String email) {
         final String pass = password.getText().toString();
@@ -121,6 +165,7 @@ public class CounsellorLoginActivity extends AppCompatActivity {
                     Intent intent = new Intent(getBaseContext(), CounsellorDashboardActivity.class);
                     intent.putExtra("key", key);
                     startActivity(intent);
+                    finishAffinity();
                 } else {
                     Toast.makeText(getBaseContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
                 }
@@ -131,7 +176,7 @@ public class CounsellorLoginActivity extends AppCompatActivity {
         final boolean isEmail;
         isEmail = email.contains("@");
         DatabaseReference ref = database.getReference("counsellor");
-        ref.addValueEventListener(new ValueEventListener() {
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
@@ -151,6 +196,7 @@ public class CounsellorLoginActivity extends AppCompatActivity {
                 Toast.makeText(CounsellorLoginActivity.this, "Entered username doesn't exist", Toast.LENGTH_SHORT).show();
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(getBaseContext(), LoginActivity.class));
+                finishAffinity();
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -170,5 +216,11 @@ public class CounsellorLoginActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(getBaseContext(), EmployeeChoiceActivity.class));
+        finishAffinity();
     }
 }

@@ -16,16 +16,17 @@
         app:cardElevation="3dp">
         <TextView
             android:id="@+id/s_text"
-            android:layout_width="wrap_content"
+            android:layout_width="270dp"
             android:layout_height="wrap_content"
             android:padding="10dp"
+            android:layout_gravity="center_vertical"
             android:textSize="20sp"
             android:textStyle="bold" />
         <TextView
             android:id="@+id/p_name"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
+            android:layout_gravity="end|center_vertical"
             android:padding="10dp"
             android:textSize="15sp" />
     </android.support.v7.widget.CardView>

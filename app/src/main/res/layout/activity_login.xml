@@ -10,11 +10,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:gravity="center"
+        android:id="@+id/text"
         android:text="@string/welcome"
         android:textSize="30sp" />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/text"
         android:gravity="center">
         <TextView
             android:layout_width="wrap_content"
@@ -22,7 +24,7 @@
             tools:ignore="RelativeOverlap" />
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="100dp"
+            android:layout_height="50dp"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="20dp"
             android:contentDescription="@string/image"
@@ -30,54 +32,64 @@
         <Button
             android:id="@+id/counsellor"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="50dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/button_back_1"
             android:text="@string/employee" />
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="100dp"
+            android:layout_height="50dp"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="130dp"
+            android:layout_below="@id/counsellor"
+            android:layout_marginTop="10dp"
             android:contentDescription="@string/image"
             android:src="@drawable/ic_action_arrow" />
         <Button
             android:id="@+id/student"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="50dp"
             android:layout_below="@id/counsellor"
             android:layout_marginTop="10dp"
             android:background="@drawable/button_back_1"
             android:text="@string/student" />
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="100dp"
+            android:layout_height="50dp"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="240dp"
+            android:layout_below="@id/student"
+            android:layout_marginTop="10dp"
             android:contentDescription="@string/image"
             android:src="@drawable/ic_action_arrow" />
         <Button
             android:id="@+id/admin"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="50dp"
             android:layout_below="@id/student"
             android:layout_marginTop="10dp"
             android:background="@drawable/button_back_1"
             android:text="@string/admin" />
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="100dp"
+            android:layout_height="50dp"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="350dp"
+            android:layout_below="@id/admin"
+            android:layout_marginTop="10dp"
             android:contentDescription="@string/image"
             android:src="@drawable/ic_action_arrow" />
         <Button
             android:id="@+id/authority"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="50dp"
             android:layout_below="@id/admin"
             android:layout_marginTop="10dp"
             android:background="@drawable/button_back_1"
             android:text="@string/authority" />
+
+        <WebView
+            android:id="@+id/webview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/authority"
+            android:layout_marginTop="10dp" />
     </RelativeLayout>
 </RelativeLayout>

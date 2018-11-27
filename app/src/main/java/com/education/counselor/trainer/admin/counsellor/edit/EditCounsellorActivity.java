@@ -14,6 +14,9 @@ import android.widget.Toast;
 
 import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.admin.counsellor.AddCounsellorActivity;
+import com.education.counselor.trainer.launcher.LoginActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,6 +33,9 @@ public class EditCounsellorActivity extends AppCompatActivity {
     ProgressBar pg;
     Context mContext;
     private ArrayList<EditCounsellorEntryVo> details = new ArrayList<>();
+    String access, email;
+    boolean flag = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,8 +59,8 @@ public class EditCounsellorActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     EditCounsellorEntryVo s = new EditCounsellorEntryVo();
-                    s.setName(Objects.requireNonNull(ds.child("name").getValue()).toString());
-                    s.setPhone(Objects.requireNonNull(ds.child("mobile_number").getValue()).toString());
+                    s.setName(ds.child("name").getValue(String.class));
+                    s.setPhone(ds.child("mobile_number").getValue(String.class));
                     details.add(s);
                 }
                 if (details.size() == 0) {
@@ -67,6 +73,54 @@ public class EditCounsellorActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(mContext, "Error", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            checkUser(user);
+        }
+    }
+
+    private void checkUser(final FirebaseUser user) {
+        email = user.getEmail();
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+        db.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    for (DataSnapshot dataSnapshot1 : ds.getChildren()) {
+                        if (Objects.equals(dataSnapshot1.child("mail").getValue(String.class), email)) {
+                            access = ds.getKey();
+                            flag = true;
+                            break;
+                        }
+                    }
+                    if (flag)
+                        break;
+                }
+                if (access != null) {
+                    switch (access) {
+                        case "admin":
+                            return;
+                        default:
+                            FirebaseAuth.getInstance().signOut();
+                            startActivity(new Intent(getBaseContext(), LoginActivity.class));
+                            finishAffinity();
+                            Toast.makeText(getBaseContext(), "Please Check Your Network Connection", Toast.LENGTH_SHORT).show();
+                            break;
+                    }
+                } else {
+                    Toast.makeText(getBaseContext(), "Please Check Your Network Connection and Login", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
     }

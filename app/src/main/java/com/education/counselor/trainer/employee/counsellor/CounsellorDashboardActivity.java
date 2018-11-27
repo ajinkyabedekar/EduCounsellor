@@ -2,6 +2,7 @@ package com.education.counselor.trainer.employee.counsellor;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -31,11 +32,30 @@ import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.Objects;
 public class CounsellorDashboardActivity extends AppCompatActivity {
-    Button my_account, start_class, attendance,
-            responsible_centers, media_update, success_video, daily_report, logout, coursewise, chat, notify;
+    Button my_account, start_class, attendance, responsible_centers, media_update, success_video, daily_report, logout, coursewise, chat, notify;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     private String email;
     private String name = null;
+    String access;
+    boolean flag = false;
+    private boolean pressed = false;
+
+    @Override
+    public void onBackPressed() {
+        if (pressed) {
+            finishAffinity();
+        }
+        this.pressed = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                pressed = false;
+            }
+        }, 2000);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +78,7 @@ public class CounsellorDashboardActivity extends AppCompatActivity {
                         name = ds.child("name").getValue(String.class);
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
@@ -67,6 +88,7 @@ public class CounsellorDashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getBaseContext(), MyAccountActivity.class));
+                finishAffinity();
             }
         });
         start_class = findViewById(R.id.start_class);
@@ -74,6 +96,7 @@ public class CounsellorDashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getBaseContext(), StartClassCentersActivity.class));
+                finishAffinity();
             }
         });
         attendance = findViewById(R.id.attendance);
@@ -81,6 +104,7 @@ public class CounsellorDashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getBaseContext(), AttendanceActivity.class));
+                finishAffinity();
             }
         });
         responsible_centers = findViewById(R.id.responsible_centers);
@@ -88,6 +112,7 @@ public class CounsellorDashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getBaseContext(), ResponsibleCentersListActivity.class));
+                finishAffinity();
             }
         });
         media_update = findViewById(R.id.media_update);
@@ -95,6 +120,7 @@ public class CounsellorDashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getBaseContext(), MediaUpdateActivity.class));
+                finishAffinity();
             }
         });
         success_video = findViewById(R.id.success_video);
@@ -102,6 +128,7 @@ public class CounsellorDashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getBaseContext(), SuccessVideoAndReviewActivity.class));
+                finishAffinity();
             }
         });
         daily_report = findViewById(R.id.daily_report);
@@ -109,6 +136,7 @@ public class CounsellorDashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getBaseContext(), DailyReportActivity.class));
+                finishAffinity();
             }
         });
         logout = findViewById(R.id.logout);
@@ -117,6 +145,7 @@ public class CounsellorDashboardActivity extends AppCompatActivity {
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(getBaseContext(), LoginActivity.class));
+                finishAffinity();
             }
         });
         coursewise = findViewById(R.id.coursewise);
@@ -124,6 +153,7 @@ public class CounsellorDashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getBaseContext(), CoursewiseStudentList.class));
+                finishAffinity();
             }
         });
         chat = findViewById(R.id.chat);
@@ -131,6 +161,7 @@ public class CounsellorDashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getBaseContext(), chatChoice.class));
+                finishAffinity();
             }
         });
         notify = findViewById(R.id.notify);
@@ -140,6 +171,55 @@ public class CounsellorDashboardActivity extends AppCompatActivity {
                 Intent intent = new Intent(getBaseContext(), CounsellorNotificationActivity.class);
                 intent.putExtra("name", name);
                 startActivity(intent);
+                finishAffinity();
+            }
+        });
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            checkUser(user);
+        }
+    }
+
+    private void checkUser(final FirebaseUser user) {
+        email = user.getEmail();
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+        db.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    for (DataSnapshot dataSnapshot1 : ds.getChildren()) {
+                        if (Objects.equals(dataSnapshot1.child("mail").getValue(String.class), email)) {
+                            access = ds.getKey();
+                            flag = true;
+                            break;
+                        }
+                    }
+                    if (flag)
+                        break;
+                }
+                if (access != null) {
+                    switch (access) {
+                        case "counsellor":
+                            return;
+                        default:
+                            FirebaseAuth.getInstance().signOut();
+                            startActivity(new Intent(getBaseContext(), LoginActivity.class));
+                            finishAffinity();
+                            Toast.makeText(getBaseContext(), "Please Check Your Network Connection", Toast.LENGTH_SHORT).show();
+                            break;
+                    }
+                } else {
+                    Toast.makeText(getBaseContext(), "Please Check Your Network Connection and Login", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
     }

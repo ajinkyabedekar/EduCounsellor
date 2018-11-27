@@ -35,6 +35,7 @@ public class ProjectListEntryAdapter extends RecyclerView.Adapter<ProjectList> {
     @Override
     public void onBindViewHolder(@NonNull final ProjectList holder, int i) {
         holder.s_name.setText(details.get(i).getName());
+        holder.v.setEnabled(false);
     }
     @Override
     public int getItemCount() {

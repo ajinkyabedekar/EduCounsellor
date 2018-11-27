@@ -1,12 +1,3 @@
-/*
-*************************
-* Author : Yogesh sharma *
-**************************
-**************************************************************************************
-* this is model class to record login activity and authenticate the students to login *
-****************************************************************************************
-
-*/
 package com.education.counselor.trainer.login;
 
 import android.annotation.SuppressLint;
@@ -42,8 +33,11 @@ import java.util.TimerTask;
 public class StudentLoginActivity extends AppCompatActivity {
     EditText username, password;
     Button login, reset;
+    DatabaseReference ref;
     FirebaseDatabase database;
     private FirebaseAuth mAuth;
+    String access, email;
+    boolean flag = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -117,8 +111,49 @@ public class StudentLoginActivity extends AppCompatActivity {
         super.onStart();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
+            checkUser(user);
             startActivity(new Intent(getBaseContext(), StudentDashboardActivity.class));
+            finishAffinity();
         }
+    }
+
+    private void checkUser(final FirebaseUser user) {
+        email = user.getEmail();
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+        db.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    for (DataSnapshot dataSnapshot1 : ds.getChildren()) {
+                        if (Objects.equals(dataSnapshot1.child("mail").getValue(String.class), email)) {
+                            access = ds.getKey();
+                            flag = true;
+                            break;
+                        }
+                    }
+                    if (flag)
+                        break;
+                }
+                if (access != null) {
+                    switch (access) {
+                        case "student":
+                            return;
+                        default:
+                            FirebaseAuth.getInstance().signOut();
+                            startActivity(new Intent(getBaseContext(), LoginActivity.class));
+                            finishAffinity();
+                            Toast.makeText(getBaseContext(), "Please Check Your Network Connection", Toast.LENGTH_SHORT).show();
+                            break;
+                    }
+                } else {
+                    Toast.makeText(getBaseContext(), "Please Check Your Network Connection and Login", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
     }
     public void login(String email) {
         final String pass = password.getText().toString();
@@ -128,6 +163,7 @@ public class StudentLoginActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Toast.makeText(getBaseContext(), "Authentication succeeded.", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getBaseContext(), StudentDashboardActivity.class));
+                    finishAffinity();
                 } else {
                     Toast.makeText(getBaseContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
                 }
@@ -137,8 +173,8 @@ public class StudentLoginActivity extends AppCompatActivity {
     public void check(final String email) {
         final boolean isEmail;
         isEmail = email.contains("@");
-        DatabaseReference ref = database.getReference("student");
-        ref.addValueEventListener(new ValueEventListener() {
+        ref = database.getReference("student");
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
@@ -157,6 +193,7 @@ public class StudentLoginActivity extends AppCompatActivity {
                 Toast.makeText(StudentLoginActivity.this, "Entered username doesn't exist", Toast.LENGTH_SHORT).show();
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(getBaseContext(), LoginActivity.class));
+                finishAffinity();
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -176,5 +213,11 @@ public class StudentLoginActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(getBaseContext(), LoginActivity.class));
+        finishAffinity();
     }
 }

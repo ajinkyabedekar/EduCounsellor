@@ -104,13 +104,57 @@ public class AdminLoginActivity extends AppCompatActivity {
             }
         });
     }
+
+    String email, access;
+    boolean flag = false;
     @Override
     public void onStart() {
         super.onStart();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
+            checkUser(user);
             startActivity(new Intent(getBaseContext(), AdminDashboardActivity.class));
+            finishAffinity();
         }
+    }
+
+    private void checkUser(final FirebaseUser user) {
+        email = user.getEmail();
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+        db.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    for (DataSnapshot dataSnapshot1 : ds.getChildren()) {
+                        if (Objects.equals(dataSnapshot1.child("mail").getValue(String.class), email)) {
+                            access = ds.getKey();
+                            flag = true;
+                            break;
+                        }
+                    }
+                    if (flag)
+                        break;
+                }
+                if (access != null) {
+                    switch (access) {
+                        case "admin":
+                            return;
+                        default:
+                            FirebaseAuth.getInstance().signOut();
+                            startActivity(new Intent(getBaseContext(), LoginActivity.class));
+                            finishAffinity();
+                            Toast.makeText(getBaseContext(), "Please Check Your Network Connection", Toast.LENGTH_SHORT).show();
+                            break;
+                    }
+                } else {
+                    Toast.makeText(getBaseContext(), "Please Check Your Network Connection and Login", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
     }
     public void login(String email) {
         final String pass = password.getText().toString();
@@ -120,6 +164,7 @@ public class AdminLoginActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Toast.makeText(getBaseContext(), "Authentication succeeded.", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getBaseContext(), AdminDashboardActivity.class));
+                    finishAffinity();
                 } else {
                     Toast.makeText(getBaseContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
                 }
@@ -130,7 +175,7 @@ public class AdminLoginActivity extends AppCompatActivity {
         final boolean isEmail;
         isEmail = email.contains("@");
         ref = database.getReference("admin");
-        ref.addValueEventListener(new ValueEventListener() {
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
@@ -149,6 +194,7 @@ public class AdminLoginActivity extends AppCompatActivity {
                 Toast.makeText(AdminLoginActivity.this, "Entered username doesn't exist", Toast.LENGTH_SHORT).show();
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(getBaseContext(), LoginActivity.class));
+                finishAffinity();
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -168,5 +214,11 @@ public class AdminLoginActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(getBaseContext(), LoginActivity.class));
+        finishAffinity();
     }
 }

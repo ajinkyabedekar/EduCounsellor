@@ -1,12 +1,3 @@
-/*
-*************************************
-*      Author:Yogesh Sharma         *
-*************************************
- ----------------------------------------------------------------------------------
-      Its a add query  class where student can ask queries he/she has to the adm   |
-  ---------------------------------------------------------------------------------
- 
-*/
 package com.education.counselor.trainer.student.query;
 
 import android.content.Intent;
@@ -19,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.education.counselor.trainer.R;
+import com.education.counselor.trainer.launcher.LoginActivity;
 import com.education.counselor.trainer.student.StudentDashboardActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -35,6 +27,10 @@ public class AddQueryActivity extends AppCompatActivity {
     DatabaseReference db;
     FirebaseUser user;
     String email, key;
+    String access;
+    int temp = 0;
+    boolean flag = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +42,7 @@ public class AddQueryActivity extends AppCompatActivity {
         if (user != null) {
             email = user.getEmail();
         }
-        db.addValueEventListener(new ValueEventListener() {
+        db.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
@@ -71,8 +67,63 @@ public class AddQueryActivity extends AppCompatActivity {
                     reference.child("status").setValue("PENDING");
                     Toast.makeText(getBaseContext(), "Query Added Successfully", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getBaseContext(), StudentDashboardActivity.class));
+                    finishAffinity();
                 }
             }
         });
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            checkUser(user);
+        }
+    }
+
+    private void checkUser(final FirebaseUser user) {
+        email = user.getEmail();
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+        db.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    for (DataSnapshot dataSnapshot1 : ds.getChildren()) {
+                        if (Objects.equals(dataSnapshot1.child("mail").getValue(String.class), email)) {
+                            access = ds.getKey();
+                            flag = true;
+                            break;
+                        }
+                    }
+                    if (flag)
+                        break;
+                }
+                if (access != null) {
+                    switch (access) {
+                        case "student":
+                            return;
+                        default:
+                            temp = 1;
+                            break;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+        if (temp == 1) {
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(getBaseContext(), LoginActivity.class));
+            finishAffinity();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(getBaseContext(), StudentDashboardActivity.class));
+        finishAffinity();
     }
 }

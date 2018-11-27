@@ -4,7 +4,8 @@ package com.education.counselor.trainer.authority.college.rating;
  |---------------------------------------------------------------------------------------------
 */
 public class RatingListEntryVo {
-    private String name, rating;
+    private String name;
+    private float rating;
     RatingListEntryVo() {
     }
     public String getName() {
@@ -13,10 +14,12 @@ public class RatingListEntryVo {
     public void setName(String name) {
         this.name = name;
     }
-    public String getRating() {
+
+    public float getRating() {
         return rating;
     }
-    public void setRating(String rating) {
+
+    public void setRating(float rating) {
         this.rating = rating;
     }
 }

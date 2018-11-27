@@ -42,7 +42,7 @@
         android:id="@+id/phone_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/position">
+        android:layout_below="@+id/mail_layout">
         <EditText
             android:id="@+id/phone"
             android:layout_width="match_parent"

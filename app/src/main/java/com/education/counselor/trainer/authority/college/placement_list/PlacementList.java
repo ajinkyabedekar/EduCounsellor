@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.education.counselor.trainer.R;
 class PlacementList extends RecyclerView.ViewHolder {
     TextView s_name;
-    private View v;
+    View v;
     @SuppressLint("SetTextI18n")
     PlacementList(@NonNull View itemView) {
         super(itemView);

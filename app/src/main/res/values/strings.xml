@@ -94,8 +94,8 @@
     <string name="internships">Internships</string>
     <string name="school_authority_dashboard">School Authority Dashboard</string>
     <string name="course_id">Course_id</string>
-    <string name="active_enrolled_coursess">Active enrolled coursess</string>
-    <string name="inactive_enrolled_coursess">Inactive enrolled coursess</string>
+    <string name="active_enrolled_courses">Active enrolled courses</string>
+    <string name="inactive_enrolled_courses">Inactive enrolled courses</string>
     <string name="course_details">Course Details</string>
     <string name="fee_submitted_type">Fee submitted type:</string>
     <string name="next_payment_date">Next payment date:</string>
@@ -188,4 +188,12 @@
     <string name="active_cousres">Active Cousres</string>
     <string name="update">update</string>
     <string name="message">Message</string>
+    <string name="rating">Rating</string>
+    <string name="hod_feedback">HOD Feedback</string>
+    <string name="enrolled_courses">Enrolled Courses</string>
+    <string name="pay_online">Pay Online</string>
+    <string name="paytm_neft">PayTM || NEFT</string>
+    <string name="rankethon_website">Rankethon Website</string>
+    <string name="add">Add</string>
+    <string name="webview_url">WebView URL</string>
 </resources>

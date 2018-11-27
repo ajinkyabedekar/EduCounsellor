@@ -38,22 +38,6 @@
                 android:padding="10sp"
                 android:text="@string/give_suggestions" />
             <Button
-                android:id="@+id/project_list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20sp"
-                android:background="@drawable/button_back_1"
-                android:padding="10sp"
-                android:text="@string/project_list" />
-            <Button
-                android:id="@+id/startup_list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20sp"
-                android:background="@drawable/button_back_1"
-                android:padding="10sp"
-                android:text="@string/startup_list" />
-            <Button
                 android:id="@+id/suggestion_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -61,6 +45,14 @@
                 android:background="@drawable/button_back_1"
                 android:padding="10sp"
                 android:text="@string/suggestion_list" />
+            <Button
+                android:id="@+id/rating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/button_back_1"
+                android:padding="10sp"
+                android:text="@string/rating" />
             <Button
                 android:id="@+id/chat"
                 android:layout_width="match_parent"
@@ -70,6 +62,23 @@
                 android:padding="10sp"
                 android:text="@string/live_chat"
                 android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/startup_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/button_back_1"
+                android:padding="10sp"
+                android:text="@string/startup_list" />
+            <Button
+                android:id="@+id/project_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/button_back_1"
+                android:padding="10sp"
+                android:text="@string/project_list" />
             <Button
                 android:id="@+id/logout"
                 android:layout_width="match_parent"

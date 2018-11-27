@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.education.counselor.trainer.R;
 class StartupList extends RecyclerView.ViewHolder {
     TextView s_name;
-    private View v;
+    View v;
     @SuppressLint("SetTextI18n")
     StartupList(@NonNull View itemView) {
         super(itemView);

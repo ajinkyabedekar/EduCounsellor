@@ -2,12 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.education.counselor.trainer">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission. ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
         android:allowBackup="true"
         android:fullBackupContent="true"
@@ -120,13 +122,7 @@
         <activity android:name=".employee.counsellor.news.AddNewsActivity" />
         <activity android:name=".employee.counsellor.news.NewsDetailsActivity" />
         <activity android:name=".employee.counsellor.notification.CounsellorNotificationActivity" />
-        <service
-            android:name=".employee.counsellor.notification.MyFirebaseInstanceIdService"
-            tools:ignore="ExportedService">
-            <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
-            </intent-filter>
-        </service>
+
         <service
             android:name=".employee.counsellor.notification.MyFirebaseMessagingService"
             tools:ignore="ExportedService">
@@ -141,13 +137,7 @@
         <activity android:name=".employee.counsellor.placement.PlacementDetailsActivity" />
         <activity android:name=".employee.counsellor.responsible_centers.list.ResponsibleCentersListActivity" />
         <activity android:name=".employee.counsellor.responsible_centers.ResponsibleCentersDetailsActivity" />
-        <service
-            android:name=".employee.counsellor.start_class.batches.notification.MyFirebaseInstanceIdService"
-            tools:ignore="ExportedService">
-            <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
-            </intent-filter>
-        </service>
+
         <service
             android:name=".employee.counsellor.start_class.batches.notification.MyFirebaseMessagingService"
             tools:ignore="ExportedService">
@@ -204,6 +194,7 @@
         <activity android:name=".launcher.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -216,8 +207,17 @@
         <activity android:name=".login.AdminLoginActivity" />
         <activity android:name=".login.StudentLoginActivity" />
         <activity android:name=".student.attendance.AttendanceActivity" />
+
+        <service
+            android:name=".student.attendance.MyFirebaseMessagingService"
+            tools:ignore="ExportedService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
         <activity android:name=".student.course.CourseDetailsActivity" />
-        <activity android:name=".student.course.CoursesListActivity" />
+        <activity android:name=".student.course.list.CoursesListActivity" />
         <activity android:name=".student.course.EnrolledCourseActivity" />
         <activity android:name=".student.internship.AddInternshipActivity" />
         <activity android:name=".student.internship.InternshipDetailsActivity" />
@@ -226,9 +226,13 @@
         <activity android:name=".student.placement.PlacementDetailsActivity" />
         <activity android:name=".student.placement.PlacementListActivity" />
         <activity android:name=".student.query.AddQueryActivity" />
-        <activity android:name=".student.query.QueryListActivity" />
+        <activity android:name=".student.query.list.QueryListActivity" />
         <activity android:name=".student.MyAccountActivity" />
         <activity android:name=".student.ProjectDetailsActivity" />
         <activity android:name=".student.StudentDashboardActivity" />
+        <activity android:name=".student.webview.PayOnlineActivity" />
+        <activity android:name=".student.webview.PaytmNeftActivity" />
+        <activity android:name=".student.webview.RankethonWebsiteActivity" />
     </application>
+
 </manifest>

@@ -1,13 +1,4 @@
-/*
-*************************************
-*      Author:Yogesh Sharma         *
-*************************************
---------------------------------------------------------------------------------------------------------------------------
- |     Its an query activity detail class which shhow  details of the individual  query  of the registered student       |
-  -------------------------------------------------------------------------------------------------------------------------
-
-*/
-package com.education.counselor.trainer.student.query;
+package com.education.counselor.trainer.student.query.list;
 
 import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
@@ -18,7 +9,7 @@ import android.widget.TextView;
 import com.education.counselor.trainer.R;
 class QueryList extends RecyclerView.ViewHolder {
     TextView s_name, p_name;
-    private View v;
+    View v;
     @SuppressLint("SetTextI18n")
     QueryList(@NonNull View itemView) {
         super(itemView);

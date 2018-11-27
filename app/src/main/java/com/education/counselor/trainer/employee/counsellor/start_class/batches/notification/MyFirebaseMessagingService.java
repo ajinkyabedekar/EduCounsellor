@@ -16,7 +16,6 @@ import com.google.firebase.messaging.RemoteMessage;
 
 import java.util.Map;
 
-import static android.app.Notification.EXTRA_NOTIFICATION_ID;
 import static com.facebook.GraphRequest.TAG;
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
     @Override
@@ -76,8 +75,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         Intent intent = new Intent(this, SplashScreenActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
-        Intent snoozeIntent = new Intent(this, SplashScreenActivity.class);
-        PendingIntent snoozePendingIntent = PendingIntent.getBroadcast(this, 0, snoozeIntent, 0);
         String CHANNEL_ID = "1";
         int notificationId = 1;
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, CHANNEL_ID)
@@ -88,13 +85,11 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setContentIntent(pendingIntent)
                 .setCategory(NotificationCompat.CATEGORY_MESSAGE)
-                .addAction(R.mipmap.ic_logo, "SNOOZE", snoozePendingIntent)
                 .setAutoCancel(true);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             CharSequence name = "EduCounsellor";
             String description = "RANKETHON";
             int importance = NotificationManager.IMPORTANCE_DEFAULT;
-            snoozeIntent.putExtra(EXTRA_NOTIFICATION_ID, 0);
             NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
             channel.setDescription(description);
             NotificationManager notificationManager = getSystemService(NotificationManager.class);

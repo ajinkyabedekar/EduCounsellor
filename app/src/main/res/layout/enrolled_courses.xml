@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/button_back_1"
         android:padding="10dp"
-        android:text="@string/active_enrolled_coursess" />
+        android:text="@string/active_enrolled_courses" />
     <Button
         android:id="@+id/inactive"
         android:layout_width="wrap_content"
@@ -18,5 +18,5 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/button_back_1"
         android:padding="10dp"
-        android:text="@string/inactive_enrolled_coursess" />
+        android:text="@string/inactive_enrolled_courses" />
 </RelativeLayout>

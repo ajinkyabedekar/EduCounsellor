@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class RatingListEntryAdapter extends RecyclerView.Adapter<RatingList> {
     private Context c;
     private ArrayList<RatingListEntryVo> details;
+    private RatingList holder;
     RatingListEntryAdapter(Context c, ArrayList<RatingListEntryVo> details) {
         setHasStableIds(true);
         this.c = c;
@@ -34,8 +35,14 @@ public class RatingListEntryAdapter extends RecyclerView.Adapter<RatingList> {
     }
     @Override
     public void onBindViewHolder(@NonNull final RatingList holder, int i) {
+        this.holder = holder;
         holder.s_name.setText(details.get(i).getName());
-        holder.rating.setRating(Float.parseFloat(details.get(i).getRating()));
+        holder.rating.setRating(details.get(i).getRating());
+        holder.v.setEnabled(false);
+    }
+
+    public float getRating() {
+        return holder.rating.getRating();
     }
     @Override
     public int getItemCount() {

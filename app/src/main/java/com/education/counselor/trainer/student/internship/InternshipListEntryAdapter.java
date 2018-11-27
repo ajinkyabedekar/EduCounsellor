@@ -49,7 +49,6 @@ public class InternshipListEntryAdapter extends RecyclerView.Adapter<InternshipL
             @Override
             public void onClick(View view) {
                 Intent in = new Intent(c, InternshipDetailsActivity.class);
-                in.putExtra("name", details.get(holder.getAdapterPosition()).getName());
                 c.startActivity(in);
             }
         });

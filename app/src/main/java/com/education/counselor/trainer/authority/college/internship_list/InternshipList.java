@@ -10,7 +10,7 @@ import com.education.counselor.trainer.R;
 // This class is for internshiplist
 class InternshipList extends RecyclerView.ViewHolder {
     TextView s_name;
-    private View v;
+    View v;
     @SuppressLint("SetTextI18n")
     InternshipList(@NonNull View itemView) {
         super(itemView);

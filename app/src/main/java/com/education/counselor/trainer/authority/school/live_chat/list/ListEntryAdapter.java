@@ -1,5 +1,6 @@
 package com.education.counselor.trainer.authority.school.live_chat.list;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -7,7 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.education.counselor.trainer.R;
 import com.education.counselor.trainer.authority.school.live_chat.liveChatAdmin.CollegeAdminLiveChat;
@@ -68,16 +68,18 @@ public class ListEntryAdapter extends RecyclerView.Adapter<List> {
             public void onClick(View v) {
                 String name = details.get(holder.getAdapterPosition()).getType();
                 String receiverKey = details.get(holder.getAdapterPosition()).getKey();
-                Toast.makeText(c, "" + senderKey + " " + user, Toast.LENGTH_SHORT).show();
                 switch (name) {
                     case "admin":
                         c.startActivity(new Intent(c, CollegeAdminLiveChat.class).putExtra("key", receiverKey).putExtra("user", user).putExtra("senderKey", senderKey));
+                        ((Activity) c).finishAffinity();
                         break;
                     case "counsellor":
                         c.startActivity(new Intent(c, CollegeCounsellorLiveChat.class).putExtra("key", receiverKey).putExtra("user", user).putExtra("senderKey", senderKey));
+                        ((Activity) c).finishAffinity();
                         break;
                     case "trainer":
                         c.startActivity(new Intent(c, CollegeTrainerLiveChat.class).putExtra("key", receiverKey).putExtra("user", user).putExtra("senderKey", senderKey));
+                        ((Activity) c).finishAffinity();
                         break;
                 }
             }
