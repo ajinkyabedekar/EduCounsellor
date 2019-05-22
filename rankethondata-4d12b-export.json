@@ -1,0 +1,159 @@
+{
+  "centers" : {
+    "-LN4bt6qzgSg0tObb7m0" : {
+      "head" : "AK SINGH",
+      "location" : "NEEMRANA",
+      "mail" : "niituniversity@st.niituniversity.in",
+      "name" : "NIIT UNIVERSITY",
+      "unique_password" : "1234567890"
+    },
+    "-LN4dPaTw2kvTuapxFNG" : {
+      "head" : "Rinkal Singh",
+      "location" : "NEEMRANA",
+      "mail" : "rafaels@st.niituniversity.in",
+      "name" : "RAFAELS",
+      "unique_password" : "qwerty"
+    }
+  },
+  "courses" : {
+    "ggvjabknz" : {
+      "details" : {
+        "batch_count" : 0,
+        "category" : "college",
+        "content" : "empty",
+        "details" : "none",
+        "enrollments" : 0,
+        "enrollments_month_wise" : 0,
+        "enrollments_year_wise" : 0,
+        "hours" : 0,
+        "name" : "adkjn",
+        "status" : "active"
+      },
+      "students" : {
+        "ajinkya" : {
+          "fees_submitted_type" : "full",
+          "next_payment_date" : "04/10/2018"
+        },
+        "shantanu" : {
+          "fees_submitted_type" : "installment",
+          "next_payment_date" : "03/10/2018"
+        }
+      }
+    }
+  },
+  "employee" : {
+    "3635494378" : {
+      "centers" : [ "RAFAELS" ],
+      "employee_name" : "Biren Sharma",
+      "login_id" : "kbenn",
+      "mail" : "biren@gmail.com",
+      "password" : "1234",
+      "position" : "programmer"
+    },
+    "8561035971" : {
+      "centers" : [ "RAFAELS", "NIIT UNIVERSITY" ],
+      "employee_name" : "Yogesh sharma",
+      "login_id" : "yogi",
+      "mail" : "yogesh@gmail.com",
+      "password" : "1234",
+      "position" : "guest"
+    }
+  },
+  "internships" : {
+    "5282963564" : {
+      "center" : "NIIT UNIVERSITY",
+      "company" : "NITIE",
+      "department" : "CSE",
+      "location" : "Mumbai",
+      "name" : "Ajinkya Bedekar",
+      "stipend" : "16,000/month"
+    }
+  },
+  "news" : {
+    "-LN4egGUsCD2R0YZUG5r" : {
+      "center" : "RAFAELS",
+      "date" : "23/09/2018",
+      "google_drive_link" : "https://www.facebook.com/",
+      "motto" : "Eaxh One Teach One",
+      "name" : "Convocation"
+    }
+  },
+  "placements" : {
+    "U101116FCS248" : {
+      "center" : "NIIT UNIVERSITY",
+      "company" : "FireEye",
+      "department" : "CSE",
+      "location" : "Bangalore",
+      "name" : "Kenneth Prabakaran",
+      "package_name" : "16L/annum"
+    }
+  },
+  "student" : {
+    "6253635858" : {
+      "date_of_fee_1" : "23/09/2018",
+      "date_of_fee_2" : "23/09/2018",
+      "date_of_fee_3" : "23/09/2018",
+      "date_of_fee_4" : "23/09/2018",
+      "department" : "Computer Science and Engineering",
+      "mail" : "shantanu.bahuguna@st.niituniversity.in",
+      "mobile_number" : "7235835169",
+      "name" : "SHANTANU BAHUGUNA",
+      "payment_1" : "250",
+      "payment_1_mode" : "Cash",
+      "payment_1_reference_id" : "U",
+      "payment_2" : "250",
+      "payment_2_mode" : "Online",
+      "payment_2_reference_id" : "101116",
+      "payment_3" : "250",
+      "payment_3_mode" : "PayTM",
+      "payment_3_reference_id" : "FCS",
+      "payment_4" : "250",
+      "payment_4_mode" : "NEFT",
+      "payment_4_reference_id" : "248",
+      "payment_status" : "SUCCESS",
+      "payment_type" : "Installment",
+      "student_year" : "First",
+      "total_fee" : "1000",
+      "total_fee_submitted" : "1000"
+    },
+    "6471895458" : {
+      "date_of_fee_1" : "23/09/2018",
+      "date_of_fee_2" : "23/09/2018",
+      "date_of_fee_3" : "23/09/2018",
+      "date_of_fee_4" : "23/09/2018",
+      "department" : "CSE",
+      "mail" : "ajinkyabedekar2@gmail.com",
+      "mobile_number" : "7297952357",
+      "name" : "AJINKYA BEDEKAR",
+      "payment_1" : "100",
+      "payment_1_mode" : "NEFT",
+      "payment_1_reference_id" : "U",
+      "payment_2" : "100",
+      "payment_2_mode" : "PayTM",
+      "payment_2_reference_id" : "101116",
+      "payment_3" : "200",
+      "payment_3_mode" : "Online",
+      "payment_3_reference_id" : "FCS",
+      "payment_4" : "100",
+      "payment_4_mode" : "Cash",
+      "payment_4_reference_id" : "183",
+      "payment_status" : "SUCCESS",
+      "payment_type" : "Full",
+      "student_year" : "Third",
+      "total_fee" : "500",
+      "total_fee_submitted" : "500"
+    },
+    "location" : {
+      "lattitude" : 27.9604809,
+      "longitude" : 76.403947
+    }
+  },
+  "suggestions" : {
+    "-LNW72hXh_pnIbqqq73d" : {
+      "name" : "abbahjxbhd"
+    },
+    "-LNW7IervR0idoa43BJV" : {
+      "name" : "zhjzj"
+    }
+  }
+}
