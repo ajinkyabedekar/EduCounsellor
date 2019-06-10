@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "152333389281",
+    "firebase_url": "https://rankethondata-4d12b.firebaseio.com",
+    "project_id": "rankethondata-4d12b",
+    "storage_bucket": "rankethondata-4d12b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:152333389281:android:b4ef4b5d403d7248",
+        "android_client_info": {
+          "package_name": "com.education.counselor.trainer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "152333389281-p3n3kss2oahjubdna1ir2b8lr5bgrr7k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.education.counselor.trainer",
+            "certificate_hash": "8bd1111df20c1cc4d48cf987dda8bcc238a05542"
+          }
+        },
+        {
+          "client_id": "152333389281-je7ghsf8r2n149s01o6q1n05g3gmukpc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6olY0Pkd5dNwpwwYDZ5CNFwuAvxzjzTM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "152333389281-je7ghsf8r2n149s01o6q1n05g3gmukpc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
